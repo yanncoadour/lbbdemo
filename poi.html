@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Belle Bretagne - Fiche lieu</title>
+    <meta name="description" content="Découvrez ce lieu incontournable de Bretagne avec toutes les informations pratiques.">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header moderne -->
+    <header class="modern-header poi-header">
+        <div class="header-brand">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <img src="assets/images/logo.jpg" alt="La Belle Bretagne" class="brand-logo">
+            <div class="brand-name">
+                <span>La Belle Bretagne</span>
+                <div class="brand-indicator"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="poi-container">
+        <!-- Loading State -->
+        <div id="loading" class="loading-state">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Chargement...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="error-state" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h2>Lieu non trouvé</h2>
+            <p>Le lieu demandé n'existe pas ou n'est plus disponible.</p>
+            <a href="index.html" class="btn btn-primary">
+                <i class="fas fa-map"></i>
+                Retour à la carte
+            </a>
+        </div>
+
+        <!-- POI Content -->
+        <article id="poiContent" class="poi-content" style="display: none;">
+            <!-- Hero Section moderne -->
+            <section class="poi-hero-modern">
+                <div class="poi-image-container">
+                    <img id="poiImage" src="" alt="" class="poi-image">
+                    <div class="image-overlay">
+                        <button id="favoriteBtn" class="favorite-btn-modern" aria-label="Ajouter aux favoris">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="poi-hero-content-modern">
+                    <div class="poi-meta-top">
+                        <span id="poiDepartment" class="poi-department-modern"></span>
+                        <div id="poiBadges" class="poi-badges-modern"></div>
+                    </div>
+                    <h1 id="poiTitle" class="poi-title-modern"></h1>
+                    <div id="poiCategories" class="poi-categories-modern"></div>
+                </div>
+            </section>
+
+            <!-- Description Section moderne -->
+            <section class="poi-section-modern">
+                <div class="poi-content-wrapper">
+                    <div class="description-card">
+                        <p id="poiShortDescription" class="poi-short-description-modern"></p>
+                        <div id="poiDescription" class="poi-description-modern"></div>
+                        
+                        <!-- Stats rapides -->
+                        <div class="poi-stats" id="poiStats" style="display: none;">
+                            <div class="stat-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span class="stat-label">Coordonnées</span>
+                                <span class="stat-value" id="coordinates"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Avis Section (only if tested) -->
+            <section id="avisSection" class="poi-section poi-avis" style="display: none;">
+                <div class="poi-content-wrapper">
+                    <div class="avis-card">
+                        <div class="avis-header">
+                            <div class="avis-badge">
+                                <i class="fas fa-award"></i>
+                                <span>Testé par nos soins</span>
+                            </div>
+                            <div class="avis-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">Recommandé</span>
+                            </div>
+                        </div>
+                        <div class="avis-content">
+                            <p id="avisText">🎆 Ce lieu a été personnellement visité et testé par notre équipe. Nous le recommandons pour son authenticité et la qualité de l'expérience proposée.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Practical Info Section modernisée -->
+            <section class="poi-section poi-practical-modern">
+                <div class="poi-content-wrapper">
+                    <div class="practical-info-card">
+                        <h2 class="practical-section-title">
+                            <i class="fas fa-info-circle"></i>
+                            Informations pratiques
+                        </h2>
+                        <div class="practical-items">
+                            <div id="poiWebsite" class="practical-item" style="display: none;">
+                                <div class="practical-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="practical-info-text">
+                                    <span class="practical-label">Site officiel</span>
+                                    <a id="websiteText" class="practical-link" href="" target="_blank" rel="noopener"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Carte de localisation -->
+            <section class="poi-section location-section-modern">
+                <div class="poi-content-wrapper">
+                    <div class="location-card-modern">
+                        <h2 class="location-section-title">
+                            <i class="fas fa-map"></i>
+                            Localisation
+                        </h2>
+                        <div class="location-info-modern">
+                            <div class="location-item-modern">
+                                <div class="location-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="location-info-text">
+                                    <span class="location-label">Adresse</span>
+                                    <span id="locationAddress" class="location-value"></span>
+                                </div>
+                            </div>
+                            <div class="location-item-modern">
+                                <div class="location-icon">
+                                    <i class="fas fa-compass"></i>
+                                </div>
+                                <div class="location-info-text">
+                                    <span class="location-label">Coordonnées</span>
+                                    <span id="locationCoords" class="location-value"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="showMapBtn" class="location-btn-modern">
+                            <i class="fas fa-directions"></i>
+                            <span>Voir sur la carte</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Buttons modernes -->
+            <section class="poi-actions-modern">
+                <div class="poi-content-wrapper">
+                    <div class="action-buttons-modern">
+                        <button id="itineraryBtn" class="btn-modern btn-primary-modern">
+                            <i class="fas fa-route"></i>
+                            <span>Itinéraire</span>
+                        </button>
+                        <button id="websiteBtn" class="btn-modern btn-secondary-modern" style="display: none;">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Site officiel</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 La Belle Bretagne</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize POI page
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof window.initPoiPage === 'function') {
+                window.initPoiPage();
+            }
+        });
+    </script>
+</body>
+</html>
