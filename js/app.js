@@ -30,18 +30,27 @@ let map;
 let markersGroup;
 let allPois = [];
 let filteredPois = [];
+let isFiltersOpen = false;
 
 /**
  * Initialisation de l'application
  */
 document.addEventListener('DOMContentLoaded', function() {
-    if (document.getElementById('map')) {
+    console.log('DOM loaded, initializing app...');
+    const mapElement = document.getElementById('map');
+    console.log('Map element found:', !!mapElement);
+    
+    if (mapElement) {
+        console.log('Starting map initialization...');
         initMap();
         initFilters();
         initLocationButton();
         initBottomSheet();
         initFixedPopup();
+        initSearchAutoComplete();
         loadPois();
+    } else {
+        console.error('Map element not found!');
     }
 });
 
@@ -57,11 +66,28 @@ function initBottomSheet() {
             bottomSheet.classList.toggle('collapsed');
         });
         
-        // Optionnel: réduire en cliquant sur la carte
+        // Fermer les filtres en cliquant sur la carte
         document.getElementById('map').addEventListener('click', () => {
-            // Pas de fermeture automatique pour garder l'équilibre
+            if (isFiltersOpen) {
+                hideFixedPopup();
+            }
+            // Masquer les suggestions de recherche
+            hideSearchSuggestions();
         });
     }
+}
+
+/**
+ * Initialise l'autocomplétion de recherche
+ */
+function initSearchAutoComplete() {
+    // Masquer l'autocomplétion quand on clique ailleurs
+    document.addEventListener('click', (e) => {
+        const searchField = e.target.closest('.search-field');
+        if (!searchField) {
+            hideSearchSuggestions();
+        }
+    });
 }
 
 /**
@@ -105,24 +131,51 @@ function initLocationButton() {
  * Initialise la carte Leaflet
  */
 function initMap() {
-    map = L.map('map').setView(CONFIG.map.center, CONFIG.map.zoom);
-    
-    // Tuiles OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        minZoom: CONFIG.map.minZoom,
-        maxZoom: CONFIG.map.maxZoom
-    }).addTo(map);
-    
-    // Groupe de marqueurs
-    markersGroup = L.layerGroup().addTo(map);
-    
-    // Ajuster la vue sur la Bretagne
-    const bretagneBounds = [
-        [47.2, -5.2], // Sud-ouest
-        [49.0, -1.0]  // Nord-est
-    ];
-    map.fitBounds(bretagneBounds);
+    try {
+        console.log('Initialisation de la carte...');
+        console.log('Leaflet disponible:', typeof L !== 'undefined');
+        
+        const mapElement = document.getElementById('map');
+        console.log('Element map dimensions:', mapElement.clientWidth, 'x', mapElement.clientHeight);
+        
+        map = L.map('map', {
+            preferCanvas: false,
+            attributionControl: true,
+            zoomControl: true
+        }).setView(CONFIG.map.center, CONFIG.map.zoom);
+        
+        console.log('Map object created:', !!map);
+        
+        // Tuiles OpenStreetMap
+        const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            minZoom: CONFIG.map.minZoom,
+            maxZoom: CONFIG.map.maxZoom
+        });
+        
+        tileLayer.addTo(map);
+        console.log('Tile layer added');
+        
+        // Forcer le redimensionnement de la carte
+        setTimeout(() => {
+            map.invalidateSize();
+            console.log('Map size invalidated');
+        }, 100);
+        
+        // Groupe de marqueurs
+        markersGroup = L.layerGroup().addTo(map);
+        
+        // Ajuster la vue sur la Bretagne
+        const bretagneBounds = [
+            [47.2, -5.2], // Sud-ouest
+            [49.0, -1.0]  // Nord-est
+        ];
+        map.fitBounds(bretagneBounds);
+        
+        console.log('Carte initialisée avec succès');
+    } catch (error) {
+        console.error('Erreur lors de l\'initialisation de la carte:', error);
+    }
 }
 
 /**
@@ -162,7 +215,11 @@ function initFilters() {
     // Toggle des filtres dans la popup fixe
     if (filterBtn) {
         filterBtn.addEventListener('click', () => {
-            showFiltersPopup();
+            if (isFiltersOpen) {
+                hideFixedPopup();
+            } else {
+                showFiltersPopup();
+            }
         });
     }
     
@@ -192,9 +249,43 @@ function initFilters() {
         });
     }
     
-    // Recherche en temps réel
+    // Recherche en temps réel avec autocomplétion
     if (searchInput) {
-        searchInput.addEventListener('input', debounce(applyFilters, 300));
+        searchInput.addEventListener('input', debounce(() => {
+            const query = searchInput.value.toLowerCase().trim();
+            if (query.length >= 1) {
+                showSearchSuggestions(query);
+                applyFilters();
+            } else {
+                hideSearchSuggestions();
+                applyFilters();
+            }
+            // Fermer les filtres si ouverts lors de la recherche
+            if (isFiltersOpen) {
+                hideFixedPopup();
+            }
+        }, 150));
+        
+        // Gestion du focus et blur
+        searchInput.addEventListener('focus', () => {
+            const query = searchInput.value.toLowerCase().trim();
+            if (query.length >= 1) {
+                showSearchSuggestions(query);
+            }
+        });
+        
+        // Navigation clavier dans les suggestions
+        searchInput.addEventListener('keydown', handleSearchKeyboard);
+        
+        // Masquer l'autocomplétion quand on efface le champ
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Backspace' || e.key === 'Delete') {
+                const autocompleteInput = document.getElementById('searchAutocomplete');
+                if (autocompleteInput && searchInput.value.length === 0) {
+                    autocompleteInput.value = '';
+                }
+            }
+        });
     }
     
     // Filtres par cases à cocher et radio
@@ -211,7 +302,279 @@ function initFilters() {
     });
 }
 
+/**
+ * Variables pour l'autocomplétion
+ */
+let currentSuggestionIndex = -1;
+let currentSuggestions = [];
 
+/**
+ * Affiche l'autocomplétion inline
+ */
+function showSearchSuggestions(query) {
+    if (!allPois || allPois.length === 0) return;
+    
+    const autocompleteInput = document.getElementById('searchAutocomplete');
+    if (!autocompleteInput) return;
+    
+    // Générer les suggestions
+    const suggestions = generateSuggestions(query);
+    currentSuggestions = suggestions;
+    currentSuggestionIndex = -1;
+    
+    if (suggestions.length === 0) {
+        hideSearchSuggestions();
+        return;
+    }
+    
+    // Afficher la première suggestion dans le champ d'autocomplétion
+    const firstSuggestion = suggestions[0];
+    const suggestionText = firstSuggestion.text;
+    
+    // Afficher seulement la partie qui complète la recherche
+    if (suggestionText.toLowerCase().startsWith(query.toLowerCase())) {
+        const completionText = query + suggestionText.slice(query.length);
+        autocompleteInput.value = completionText;
+    } else {
+        autocompleteInput.value = '';
+    }
+}
+
+/**
+ * Masque l'autocomplétion
+ */
+function hideSearchSuggestions() {
+    const autocompleteInput = document.getElementById('searchAutocomplete');
+    if (autocompleteInput) {
+        autocompleteInput.value = '';
+        currentSuggestions = [];
+        currentSuggestionIndex = -1;
+    }
+}
+
+/**
+ * Génère les suggestions basées sur la requête
+ */
+function generateSuggestions(query) {
+    const suggestions = [];
+    const maxSuggestions = 8;
+    
+    // Recherche exacte d'abord (priorité haute)
+    const exactTitleMatches = allPois.filter(poi => 
+        poi.title.toLowerCase().startsWith(query)
+    ).slice(0, 3);
+    
+    exactTitleMatches.forEach(poi => {
+        suggestions.push({
+            text: poi.title,
+            value: poi.title,
+            category: getCategoryName(poi.categories[0]),
+            icon: getPoiIcon(poi.categories[0]),
+            priority: 1
+        });
+    });
+    
+    // Recherche partielle dans les titres
+    const partialTitleMatches = allPois.filter(poi => 
+        poi.title.toLowerCase().includes(query) && 
+        !poi.title.toLowerCase().startsWith(query)
+    ).slice(0, 3);
+    
+    partialTitleMatches.forEach(poi => {
+        suggestions.push({
+            text: poi.title,
+            value: poi.title,
+            category: getCategoryName(poi.categories[0]),
+            icon: getPoiIcon(poi.categories[0]),
+            priority: 2
+        });
+    });
+    
+    // Recherche dans les descriptions et tags
+    const descriptionMatches = allPois.filter(poi => 
+        (poi.shortDescription.toLowerCase().includes(query) ||
+         (poi.tags && poi.tags.some(tag => tag.toLowerCase().includes(query)))) &&
+        !poi.title.toLowerCase().includes(query)
+    ).slice(0, 2);
+    
+    descriptionMatches.forEach(poi => {
+        suggestions.push({
+            text: poi.title,
+            value: poi.title,
+            category: getCategoryName(poi.categories[0]),
+            icon: getPoiIcon(poi.categories[0]),
+            priority: 3
+        });
+    });
+    
+    // Suggestions basées sur les départements
+    const departments = ['Finistère', 'Ille-et-Vilaine', 'Loire-Atlantique', 'Morbihan', 'Côtes-d\'Armor'];
+    departments.forEach(dept => {
+        if (dept.toLowerCase().includes(query) && suggestions.length < maxSuggestions) {
+            suggestions.push({
+                text: dept,
+                value: dept,
+                category: 'Département',
+                icon: 'fas fa-map-marker-alt',
+                priority: 4
+            });
+        }
+    });
+    
+    // Suggestions basées sur les catégories
+    const categoryNames = {
+        plage: 'Plages', musee: 'Musées', monument: 'Monuments',
+        randonnee: 'Randonnées', festival: 'Festivals', village: 'Villages',
+        hotel: 'Hôtels', logement_insolite: 'Logements insolites',
+        point_de_vue: 'Points de vue', loisirs: 'Loisirs'
+    };
+    
+    Object.entries(categoryNames).forEach(([key, name]) => {
+        if (name.toLowerCase().includes(query) && suggestions.length < maxSuggestions) {
+            suggestions.push({
+                text: name,
+                value: name,
+                category: 'Catégorie',
+                icon: getPoiIcon(key),
+                priority: 5
+            });
+        }
+    });
+    
+    // Trier par priorité puis par ordre alphabétique
+    return suggestions
+        .sort((a, b) => {
+            if (a.priority !== b.priority) return a.priority - b.priority;
+            return a.text.localeCompare(b.text);
+        })
+        .slice(0, maxSuggestions);
+}
+
+/**
+ * Gère la navigation clavier pour l'autocomplétion inline
+ */
+function handleSearchKeyboard(e) {
+    const searchInput = document.getElementById('searchInput');
+    const autocompleteInput = document.getElementById('searchAutocomplete');
+    
+    if (!searchInput || !autocompleteInput) return;
+    
+    switch (e.key) {
+        case 'Tab':
+        case 'ArrowRight':
+            // Accepter la suggestion d'autocomplétion
+            if (autocompleteInput.value && autocompleteInput.value !== searchInput.value) {
+                e.preventDefault();
+                selectSuggestion(autocompleteInput.value);
+            }
+            break;
+        case 'ArrowDown':
+            // Naviguer vers la suggestion suivante
+            if (currentSuggestions.length > 0) {
+                e.preventDefault();
+                currentSuggestionIndex = Math.min(currentSuggestionIndex + 1, currentSuggestions.length - 1);
+                updateAutocompleteDisplay();
+            }
+            break;
+        case 'ArrowUp':
+            // Naviguer vers la suggestion précédente
+            if (currentSuggestions.length > 0) {
+                e.preventDefault();
+                currentSuggestionIndex = Math.max(currentSuggestionIndex - 1, -1);
+                updateAutocompleteDisplay();
+            }
+            break;
+        case 'Enter':
+            // Accepter la suggestion courante ou afficher le lieu directement
+            e.preventDefault();
+            if (autocompleteInput.value) {
+                selectSuggestion(autocompleteInput.value);
+                // Vérifier si c'est un lieu exact et l'afficher
+                checkAndShowExactMatch(autocompleteInput.value);
+            } else {
+                // Vérifier si la recherche correspond à un lieu exact
+                checkAndShowExactMatch(searchInput.value);
+                applyFilters();
+            }
+            break;
+        case 'Escape':
+            hideSearchSuggestions();
+            break;
+    }
+}
+
+/**
+ * Met à jour l'affichage de l'autocomplétion selon l'index sélectionné
+ */
+function updateAutocompleteDisplay() {
+    const searchInput = document.getElementById('searchInput');
+    const autocompleteInput = document.getElementById('searchAutocomplete');
+    
+    if (!searchInput || !autocompleteInput || !currentSuggestions.length) return;
+    
+    const query = searchInput.value.toLowerCase();
+    
+    if (currentSuggestionIndex >= 0 && currentSuggestions[currentSuggestionIndex]) {
+        const suggestion = currentSuggestions[currentSuggestionIndex];
+        if (suggestion.text.toLowerCase().startsWith(query)) {
+            const completionText = searchInput.value + suggestion.text.slice(query.length);
+            autocompleteInput.value = completionText;
+        } else {
+            autocompleteInput.value = suggestion.text;
+        }
+    } else {
+        // Revenir à la première suggestion
+        const firstSuggestion = currentSuggestions[0];
+        if (firstSuggestion.text.toLowerCase().startsWith(query)) {
+            const completionText = searchInput.value + firstSuggestion.text.slice(query.length);
+            autocompleteInput.value = completionText;
+        } else {
+            autocompleteInput.value = '';
+        }
+    }
+}
+
+/**
+ * Sélectionne une suggestion
+ */
+function selectSuggestion(value) {
+    const searchInput = document.getElementById('searchInput');
+    const autocompleteInput = document.getElementById('searchAutocomplete');
+    
+    if (searchInput) {
+        searchInput.value = value;
+        if (autocompleteInput) {
+            autocompleteInput.value = '';
+        }
+        hideSearchSuggestions();
+        applyFilters();
+        searchInput.focus();
+        
+        // Vérifier si c'est un lieu exact et l'afficher
+        checkAndShowExactMatch(value);
+    }
+}
+
+/**
+ * Vérifie si la recherche correspond exactement à un lieu et l'affiche
+ */
+function checkAndShowExactMatch(searchValue) {
+    if (!searchValue || !allPois) return;
+    
+    const exactMatch = allPois.find(poi => 
+        poi.title.toLowerCase() === searchValue.toLowerCase().trim()
+    );
+    
+    if (exactMatch) {
+        // Attendre un peu pour que les filtres soient appliqués
+        setTimeout(() => {
+            // Centrer la carte sur le POI
+            centerMapOnPOI(exactMatch);
+            // Afficher la popup du POI
+            showFixedPopup(exactMatch);
+        }, 300);
+    }
+}
 
 /**
  * Charge les données des POIs
@@ -325,6 +688,10 @@ function applyFilters() {
         return;
     }
     
+    // Récupérer la recherche textuelle
+    const searchInput = document.querySelector('.search-input');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    
     // Récupérer les catégories et départements sélectionnés
     const selectedCategories = [];
     const selectedDepartments = [];
@@ -356,41 +723,94 @@ function applyFilters() {
     
     console.log('Catégories sélectionnées:', selectedCategories);
     console.log('Départements sélectionnés:', selectedDepartments);
+    console.log('Terme de recherche:', searchTerm);
     
-    // Si aucun filtre n'est sélectionné, afficher tous les POIs
-    if (selectedCategories.length === 0 && selectedDepartments.length === 0) {
-        console.log('Aucun filtre sélectionné, affichage de tous les POIs');
-        filteredPois = [...allPois];
-    } else {
-        // Filtrer par catégories ET départements
-        filteredPois = allPois.filter(poi => {
-            let matches = true;
-            
-            // Vérifier les catégories si des catégories sont sélectionnées
-            if (selectedCategories.length > 0) {
-                const hasCategory = poi.categories && poi.categories.some(cat => selectedCategories.includes(cat));
-                matches = matches && hasCategory;
-            }
-            
-            // Vérifier les départements si des départements sont sélectionnés
-            if (selectedDepartments.length > 0) {
-                const hasDepartment = selectedDepartments.includes(poi.department);
-                matches = matches && hasDepartment;
-            }
-            
-            if (matches) {
-                console.log(`POI "${poi.title}" correspond (catégories: ${poi.categories?.join(', ')}, département: ${poi.department})`);
-            }
-            return matches;
-        });
-    }
+    // Filtrer les POIs
+    filteredPois = allPois.filter(poi => {
+        let matches = true;
+        
+        // Filtre de recherche textuelle
+        if (searchTerm) {
+            const searchMatch = poi.title.toLowerCase().includes(searchTerm) ||
+                              poi.shortDescription.toLowerCase().includes(searchTerm) ||
+                              poi.description.toLowerCase().includes(searchTerm) ||
+                              poi.department.toLowerCase().includes(searchTerm) ||
+                              (poi.tags && poi.tags.some(tag => tag.toLowerCase().includes(searchTerm)));
+            matches = matches && searchMatch;
+        }
+        
+        // Vérifier les catégories si des catégories sont sélectionnées
+        if (selectedCategories.length > 0) {
+            const hasCategory = poi.categories && poi.categories.some(cat => selectedCategories.includes(cat));
+            matches = matches && hasCategory;
+        }
+        
+        // Vérifier les départements si des départements sont sélectionnés
+        if (selectedDepartments.length > 0) {
+            const hasDepartment = selectedDepartments.includes(poi.department);
+            matches = matches && hasDepartment;
+        }
+        
+        if (matches) {
+            console.log(`POI "${poi.title}" correspond (recherche: "${searchTerm}", catégories: ${poi.categories?.join(', ')}, département: ${poi.department})`);
+        }
+        return matches;
+    });
     
     console.log('Résultat du filtrage:', filteredPois.length, 'POIs');
     console.log('POIs filtrés:', filteredPois.map(poi => poi.title));
     
     // Mettre à jour l'affichage
     displayPois();
+    updateCounter();
+    
+    // Auto-focus sur les POIs filtrés
+    autoFocusOnFilteredPois();
+    
     console.log('=== FIN applyFilters ===');
+}
+
+/**
+ * Auto-focus la carte sur les POIs filtrés
+ */
+function autoFocusOnFilteredPois() {
+    if (!map || filteredPois.length === 0) {
+        return;
+    }
+    
+    // Si un seul POI, centrer dessus avec zoom approprié
+    if (filteredPois.length === 1) {
+        const poi = filteredPois[0];
+        map.flyTo([poi.lat, poi.lng], 12, {
+            animate: true,
+            duration: 1.0
+        });
+        return;
+    }
+    
+    // Si plusieurs POIs, calculer les limites et ajuster la vue
+    const lats = filteredPois.map(poi => poi.lat);
+    const lngs = filteredPois.map(poi => poi.lng);
+    
+    const bounds = [
+        [Math.min(...lats), Math.min(...lngs)], // Sud-ouest
+        [Math.max(...lats), Math.max(...lngs)]  // Nord-est
+    ];
+    
+    // Ajouter une marge pour éviter que les marqueurs soient collés aux bords
+    const padding = {
+        top: 50,
+        bottom: 100, // Plus d'espace en bas pour le bottom sheet
+        left: 50,
+        right: 50
+    };
+    
+    map.flyToBounds(bounds, {
+        animate: true,
+        duration: 1.0,
+        padding: padding,
+        maxZoom: 14 // Limiter le zoom maximum pour éviter d'être trop proche
+    });
 }
 
 /**
@@ -920,6 +1340,9 @@ function hideFixedPopup() {
         setTimeout(() => {
             fixedPopup.style.display = 'none';
         }, 400);
+        
+        // Marquer comme fermé
+        isFiltersOpen = false;
     }
 }
 
@@ -940,8 +1363,8 @@ function showFiltersPopup() {
             fixedPopup.classList.add('show');
         }, 10);
         
-        // Initialiser les événements des filtres
-        initFilterEvents();
+        // Marquer comme ouvert
+        isFiltersOpen = true;
     }
 }
 
@@ -1069,11 +1492,11 @@ function createFiltersContent() {
                 </div>
             </div>
             
-            <div class="filters-footer-popup">
-                <button class="btn-apply-popup" id="applyFiltersPopup">
+            <div class="filters-actions-bottom">
+                <button class="btn-apply-popup" onclick="handleApplyFilters()">
                     Appliquer
                 </button>
-                <button class="btn-reset-popup" id="resetFiltersPopup">
+                <button class="btn-reset-popup" onclick="handleResetFilters()">
                     Tout effacer
                 </button>
             </div>
@@ -1082,45 +1505,36 @@ function createFiltersContent() {
 }
 
 /**
- * Initialise les événements des filtres dans la popup
+ * Gère le clic sur le bouton Appliquer des filtres
  */
-function initFilterEvents() {
-    console.log('=== Initialisation des événements de filtres ===');
+function handleApplyFilters() {
+    console.log('=== handleApplyFilters appelée ===');
+    applyFilters();
+    hideFixedPopup();
     
-    const applyBtn = document.getElementById('applyFiltersPopup');
-    const resetBtn = document.getElementById('resetFiltersPopup');
-    
-    console.log('Bouton Appliquer trouvé:', !!applyBtn);
-    console.log('Bouton Reset trouvé:', !!resetBtn);
-    
-    if (applyBtn) {
-        applyBtn.addEventListener('click', (e) => {
-            console.log('=== CLIC sur Appliquer ===');
-            e.preventDefault();
-            applyFilters();
-            hideFixedPopup();
-        });
-    } else {
-        console.error('Bouton Appliquer non trouvé !');
-    }
-    
-    if (resetBtn) {
-        resetBtn.addEventListener('click', (e) => {
-            console.log('=== CLIC sur Reset ===');
-            e.preventDefault();
-            // Décocher toutes les cases
-            const popup = document.getElementById('fixedPopup');
-            if (popup) {
-                popup.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                    checkbox.checked = false;
-                });
-            }
-            applyFilters();
-        });
-    } else {
-        console.error('Bouton Reset non trouvé !');
+    // Replier le bottom sheet pour voir les résultats sur la carte
+    const bottomSheet = document.getElementById('bottomSheet');
+    if (bottomSheet) {
+        bottomSheet.classList.add('collapsed');
     }
 }
+
+/**
+ * Gère le clic sur le bouton Reset des filtres
+ */
+function handleResetFilters() {
+    console.log('=== handleResetFilters appelée ===');
+    // Décocher toutes les cases
+    const popup = document.getElementById('fixedPopup');
+    if (popup) {
+        popup.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+    }
+    applyFilters();
+    hideFixedPopup();
+}
+
 
 /**
  * Test simple des filtres - à supprimer après debug
@@ -1157,4 +1571,7 @@ window.toggleFavorite = toggleFavorite;
 window.toggleFavoriteInPopup = toggleFavoriteInPopup;
 window.showFixedPopup = showFixedPopup;
 window.hideFixedPopup = hideFixedPopup;
+window.handleApplyFilters = handleApplyFilters;
+window.handleResetFilters = handleResetFilters;
+window.selectSuggestion = selectSuggestion;
 window.testFilters = testFilters; // Pour debug

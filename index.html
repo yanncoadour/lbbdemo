@@ -22,7 +22,7 @@
     
     <!-- Header moderne minimal -->
     <header class="modern-header">
-        <div class="header-brand">
+    <div class="header-brand">
             <img src="assets/images/logo.jpg" alt="La Belle Bretagne" class="brand-logo">
             <div class="brand-text">
                 <div class="brand-name">La Belle Bretagne</div>
@@ -40,7 +40,10 @@
             <div class="search-bar">
                 <div class="search-field">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Découvrir la Bretagne..." class="search-input">
+                    <div class="search-input-container">
+                        <input type="text" placeholder="Découvrir la Bretagne..." class="search-input" autocomplete="off" id="searchInput">
+                        <input type="text" class="search-autocomplete" id="searchAutocomplete" readonly tabindex="-1">
+                    </div>
                 </div>
                 <button class="filters-btn" id="filterBtn">
                     <i class="fas fa-tune"></i>
