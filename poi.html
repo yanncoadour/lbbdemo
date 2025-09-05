@@ -67,6 +67,14 @@
                         <div id="poiBadges" class="poi-badges-modern"></div>
                     </div>
                     <div id="poiCategories" class="poi-categories-modern"></div>
+                    
+                    <!-- Bouton réserver en haut (spécifique à certains POIs) -->
+                    <div id="reserveButtonTop" class="reserve-button-top" style="display: none;">
+                        <button id="reserveTopBtn" class="reserve-btn-hero">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Réserver maintenant</span>
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -189,7 +197,7 @@
             <!-- Action Buttons modernes -->
             <section class="poi-actions-modern">
                 <div class="poi-content-wrapper">
-                    <div class="action-buttons-modern">
+                    <div class="action-buttons-modern" id="actionButtonsContainer">
                         <button id="itineraryBtn" class="btn-modern btn-primary-modern">
                             <i class="fas fa-route"></i>
                             <span>Itinéraire</span>
@@ -197,6 +205,10 @@
                         <button id="websiteBtn" class="btn-modern btn-secondary-modern" style="display: none;">
                             <i class="fas fa-external-link-alt"></i>
                             <span>Site officiel</span>
+                        </button>
+                        <button id="reserveBottomBtn" class="btn-modern btn-success-modern" style="display: none;">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Réserver</span>
                         </button>
                     </div>
                 </div>

@@ -978,9 +978,20 @@ function createPopupContent(poi) {
             <p class="popup-description-simple">${poi.shortDescription}</p>
             
             <div class="popup-action-simple">
-                <button class="discover-btn-simple" onclick="window.location.href='poi.html?slug=${poi.slug}'">
-                    Découvrir ${article} ${categoryName}
-                </button>
+                ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec') ? `
+                    <div class="popup-actions-grid">
+                        <button class="discover-btn-simple secondary" onclick="window.location.href='poi.html?slug=${poi.slug}'">
+                            Découvrir
+                        </button>
+                        <button class="reserve-btn-simple" onclick="window.open('${poi.website}', '_blank', 'noopener,noreferrer')">
+                            Réserver
+                        </button>
+                    </div>
+                ` : `
+                    <button class="discover-btn-simple" onclick="window.location.href='poi.html?slug=${poi.slug}'">
+                        Découvrir ${article} ${categoryName}
+                    </button>
+                `}
             </div>
         </div>
     `;
@@ -1424,6 +1435,26 @@ function displayPoiData(poi) {
         itineraryBtn.onclick = () => openItinerary(poi.lat, poi.lng);
     }
     
+    // Boutons réserver (pour certains POIs comme la Vallée de Pratmeur et l'Agapa Hotel)
+    if ((poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec') && poi.website) {
+        const reserveTopBtn = document.getElementById('reserveTopBtn');
+        const reserveBottomBtn = document.getElementById('reserveBottomBtn');
+        const reserveButtonTop = document.getElementById('reserveButtonTop');
+        
+        if (reserveButtonTop) {
+            reserveButtonTop.style.display = 'block';
+        }
+        
+        if (reserveTopBtn) {
+            reserveTopBtn.onclick = () => window.open(poi.website, '_blank', 'noopener,noreferrer');
+        }
+        
+        if (reserveBottomBtn) {
+            reserveBottomBtn.style.display = 'inline-flex';
+            reserveBottomBtn.onclick = () => window.open(poi.website, '_blank', 'noopener,noreferrer');
+        }
+    }
+    
     // Galerie d'images supplémentaires
     displayPoiGallery(poi);
     
@@ -1452,13 +1483,52 @@ function displayPoiGallery(poi) {
     // Générer les images (toutes les images y compris la première)
     const additionalImages = poi.images;
     
-    const imageLabels = [
-        'Vue d\'ensemble du parc',
-        'Jardin à la française',
-        'Roseraie et parc à l\'anglaise',
-        'Jardin botanique',
-        'Vue panoramique'
-    ];
+    // Labels personnalisés selon le POI
+    let imageLabels = [];
+    
+    switch(poi.id) {
+        case 'parc-du-thabor':
+            imageLabels = [
+                'Vue d\'ensemble du parc',
+                'Jardin à la française',
+                'Roseraie et parc à l\'anglaise'
+            ];
+            break;
+        case 'mont-saint-michel-bretagne':
+            imageLabels = [
+                'Vue d\'ensemble de l\'abbaye',
+                'Baie et grandes marées',
+                'Ruelles et architecture médiévale'
+            ];
+            break;
+        case 'rochefort-en-terre':
+            imageLabels = [
+                'Place du village et maisons à colombages',
+                'Ruelles fleuries et pavées',
+                'Château et patrimoine historique'
+            ];
+            break;
+        case 'musee-beaux-arts-rennes':
+            imageLabels = [
+                'Façade du palais du XVIIIe siècle',
+                'Collections et œuvres d\'art',
+                'Salles d\'exposition et architecture intérieure'
+            ];
+            break;
+        case 'chateau-de-josselin':
+            imageLabels = [
+                'Façade gothique flamboyant',
+                'Château et reflets sur l\'Oust',
+                'Jardins et cour intérieure'
+            ];
+            break;
+        default:
+            imageLabels = [
+                'Vue principale',
+                'Vue alternative',
+                'Détail architectural'
+            ];
+    }
     
     imagesGrid.innerHTML = additionalImages.map((imageUrl, index) => `
         <div class="poi-gallery-image" onclick="openImageModal('${imageUrl}', '${poi.title} - ${imageLabels[index] || 'Vue ' + (index + 1)}')">

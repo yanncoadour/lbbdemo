@@ -1928,6 +1928,49 @@ body {
     font-size: 14px;
 }
 
+.btn-success-modern {
+    background: #22c55e;
+    color: white;
+}
+
+.btn-success-modern:hover::before {
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
+
+/* Bouton réserver en haut de la page POI */
+.reserve-button-top {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.reserve-btn-hero {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 16px 32px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
+    text-decoration: none;
+}
+
+.reserve-btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+    background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.reserve-btn-hero:active {
+    transform: translateY(0);
+}
+
 /* Ajustements pour le contenu avec boutons fixes */
 .poi-content {
     padding-bottom: 140px; /* Plus d'espace pour éviter les superpositions */
@@ -3078,41 +3121,50 @@ body {
     position: fixed !important;
     top: 88px !important;
     left: 16px !important;
-    z-index: 100 !important;
-    width: 44px !important;
-    height: 44px !important;
+    z-index: 1000 !important;
     margin: 0 !important;
 }
 
 .map-type-btn {
-    width: 44px;
-    height: 44px;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
     background: var(--surface-card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    box-shadow: var(--shadow-md);
-    cursor: pointer;
-    display: flex !important;
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    color: var(--text-secondary);
+    cursor: pointer;
+    z-index: 1000;
     transition: all 0.3s ease;
-    position: relative;
-    z-index: 101;
+    box-shadow: var(--shadow-md);
     backdrop-filter: blur(10px);
+    padding: 0 !important;
+}
+
+.map-type-btn i {
+    color: var(--text-secondary);
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
 .map-type-btn:hover {
-    background: rgba(255, 255, 255, 1);
+    background: var(--primary);
+    border-color: var(--primary);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    color: #0066cc;
+    box-shadow: var(--shadow-lg);
+}
+
+.map-type-btn:hover i {
+    color: white;
 }
 
 .map-type-btn:active {
     transform: translateY(0);
-    box-shadow: var(--shadow-md);
 }
 
 .map-type-btn i {
@@ -3608,4 +3660,50 @@ body {
         font-size: 15px;
         min-width: 160px;
     }
+}
+
+/* Styles pour les boutons de réservation */
+.popup-actions-grid {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.discover-btn-simple.secondary {
+    background: var(--primary);
+    color: white;
+    border: none;
+}
+
+.discover-btn-simple.secondary:hover {
+    background: var(--primary-dark);
+    color: white;
+}
+
+.reserve-btn-simple {
+    background: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.reserve-btn-simple:hover {
+    background: #16a34a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.reserve-btn-simple i {
+    font-size: 16px;
 }
