@@ -57,10 +57,8 @@
             <section class="poi-hero-modern">
                 <div class="poi-image-container">
                     <img id="poiImage" src="" alt="" class="poi-image">
-                    <div class="image-overlay">
-                        <button id="favoriteBtn" class="favorite-btn-modern" aria-label="Ajouter aux favoris">
-                            <i class="far fa-heart"></i>
-                        </button>
+                    <div class="poi-image-overlay">
+                        <h1 id="poiTitleOverlay" class="poi-title-overlay"></h1>
                     </div>
                 </div>
                 <div class="poi-hero-content-modern">
@@ -68,7 +66,6 @@
                         <span id="poiDepartment" class="poi-department-modern"></span>
                         <div id="poiBadges" class="poi-badges-modern"></div>
                     </div>
-                    <h1 id="poiTitle" class="poi-title-modern"></h1>
                     <div id="poiCategories" class="poi-categories-modern"></div>
                 </div>
             </section>
@@ -79,6 +76,17 @@
                     <div class="description-card">
                         <p id="poiShortDescription" class="poi-short-description-modern"></p>
                         <div id="poiDescription" class="poi-description-modern"></div>
+                        
+                        <!-- Galerie d'images supplémentaires -->
+                        <div id="poiGallery" class="poi-gallery-section" style="display: none;">
+                            <h3 class="gallery-title">
+                                <i class="fas fa-images"></i>
+                                Découvrez en images
+                            </h3>
+                            <div class="poi-images-grid" id="poiImagesGrid">
+                                <!-- Images générées dynamiquement -->
+                            </div>
+                        </div>
                         
                         <!-- Stats rapides -->
                         <div class="poi-stats" id="poiStats" style="display: none;">

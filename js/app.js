@@ -12,16 +12,21 @@ const CONFIG = {
         maxZoom: 16
     },
     colors: {
-        plage: '#06b6d4',
-        musee: '#8b5cf6',
-        monument: '#f59e0b',
-        randonnee: '#10b981',
-        festival: '#f97316',
-        village: '#ef4444',
-        hotel: '#64748b',
-        logement_insolite: '#ec4899',
-        point_de_vue: '#059669',
-        loisirs: '#6366f1'
+        monument: '#d97706',           // Orange foncé pour monuments
+        musee: '#8b5cf6',             // Violet pour musées
+        point_de_vue: '#059669',       // Vert émeraude pour points de vue
+        plage: '#06b6d4',             // Cyan pour plages
+        village: '#ef4444',           // Rouge pour villages
+        parc: '#22c55e',              // Vert pour parcs/jardins
+        randonnee: '#10b981',         // Vert teal pour randonnées
+        chateau: '#92400e',           // Marron pour châteaux
+        festival: '#f97316',          // Orange vif pour festivals
+        loisirs: '#6366f1',           // Indigo pour activités/loisirs
+        hotel: '#64748b',             // Gris ardoise pour hôtels
+        villa: '#94a3b8',             // Gris clair pour villas
+        logement_insolite: '#ec4899', // Rose pour logements insolites
+        camping: '#34d399',           // Vert émeraude pour camping
+        restaurant: '#f59e0b'         // Amber pour restaurants
     }
 };
 
@@ -31,6 +36,7 @@ let markersGroup;
 let allPois = [];
 let filteredPois = [];
 let isFiltersOpen = false;
+let loadingPois = false;
 
 /**
  * Initialisation de l'application
@@ -103,28 +109,105 @@ function initLocationButton() {
                     (position) => {
                         const lat = position.coords.latitude;
                         const lng = position.coords.longitude;
-                        map.setView([lat, lng], 12);
                         
-                        // Ajouter un marqueur temporaire
+                        // Calculer un rayon de 25km autour de la position pour un zoom plus serré
+                        // 1 degré ≈ 111km, donc 25km ≈ 0.225 degrés
+                        const radiusInDegrees = 25 / 111;
+                        
+                        const bounds = [
+                            [lat - radiusInDegrees, lng - radiusInDegrees], // Sud-ouest
+                            [lat + radiusInDegrees, lng + radiusInDegrees]  // Nord-est
+                        ];
+                        
+                        // Zoomer sur la zone avec un rayon plus serré
+                        map.flyToBounds(bounds, {
+                            animate: true,
+                            duration: 1.5,
+                            padding: [20, 20],
+                            maxZoom: 12
+                        });
+                        
+                        // Ajouter un marqueur temporaire avec icône de position plus visible
                         const userMarker = L.marker([lat, lng], {
                             icon: L.divIcon({
                                 className: 'user-location-marker',
-                                html: '<i class="fas fa-location-arrow" style="color: #60d394;"></i>',
-                                iconSize: [20, 20]
+                                html: `
+                                    <div class="user-location-pulse">
+                                        <div class="user-location-dot">
+                                            <i class="fas fa-crosshairs"></i>
+                                        </div>
+                                    </div>
+                                `,
+                                iconSize: [40, 40],
+                                iconAnchor: [20, 20]
                             })
                         }).addTo(map);
                         
-                        setTimeout(() => map.removeLayer(userMarker), 3000);
-                        locationBtn.innerHTML = '<i class="fas fa-location-arrow"></i>';
+                        // Afficher les POIs proches
+                        highlightNearbyPois(lat, lng, 50);
+                        
+                        setTimeout(() => map.removeLayer(userMarker), 5000);
+                        locationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
                     },
                     (error) => {
                         console.error('Erreur de géolocalisation:', error);
-                        locationBtn.innerHTML = '<i class="fas fa-location-arrow"></i>';
+                        locationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
                     }
                 );
             }
         });
     }
+}
+
+/**
+ * Met en évidence les POIs proches de la position utilisateur
+ */
+function highlightNearbyPois(userLat, userLng, radiusKm) {
+    if (!allPois || allPois.length === 0) return;
+    
+    // Calculer les POIs dans le rayon
+    const nearbyPois = allPois.filter(poi => {
+        const distance = calculateDistance(userLat, userLng, poi.lat, poi.lng);
+        return distance <= radiusKm;
+    });
+    
+    console.log(`${nearbyPois.length} POIs trouvés dans un rayon de ${radiusKm}km`);
+    
+    if (nearbyPois.length > 0) {
+        // Filtrer pour afficher seulement les POIs proches
+        filteredPois = nearbyPois;
+        displayPois();
+        updateCounter();
+        
+        // Optionnel : afficher un message
+        setTimeout(() => {
+            const message = nearbyPois.length === 1 ? 
+                `${nearbyPois.length} lieu trouvé près de vous` : 
+                `${nearbyPois.length} lieux trouvés près de vous`;
+            console.log(message);
+        }, 1000);
+    }
+}
+
+/**
+ * Calcule la distance entre deux points en kilomètres (formule haversine)
+ */
+function calculateDistance(lat1, lng1, lat2, lng2) {
+    const R = 6371; // Rayon de la Terre en km
+    const dLat = toRadians(lat2 - lat1);
+    const dLng = toRadians(lng2 - lng1);
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
+              Math.sin(dLng/2) * Math.sin(dLng/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+}
+
+/**
+ * Convertit les degrés en radians
+ */
+function toRadians(degrees) {
+    return degrees * (Math.PI / 180);
 }
 
 /**
@@ -146,15 +229,81 @@ function initMap() {
         
         console.log('Map object created:', !!map);
         
-        // Tuiles OpenStreetMap
-        const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        // Couches de cartes
+        const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
             minZoom: CONFIG.map.minZoom,
             maxZoom: CONFIG.map.maxZoom
         });
         
-        tileLayer.addTo(map);
-        console.log('Tile layer added');
+        const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; <a href="https://www.esri.com/">Esri</a>, DigitalGlobe, GeoEye, i-cubed, USDA FSA, USGS, AeroGRID, IGN, IGP, and the GIS User Community',
+            minZoom: CONFIG.map.minZoom,
+            maxZoom: 18
+        });
+        
+        // Ajouter la couche par défaut
+        osmLayer.addTo(map);
+        
+        // Bouton de basculement de couche personnalisé
+        let currentLayer = 'osm';
+        
+        // Créer le bouton après que la carte soit initialisée
+        setTimeout(() => {
+            const mapTypeControl = L.control({ position: 'topleft' });
+            mapTypeControl.onAdd = function(map) {
+                const div = L.DomUtil.create('div', 'map-type-control');
+                div.innerHTML = `
+                    <button class="map-type-btn" id="mapTypeBtn" title="Changer de vue">
+                        <i class="fas fa-map"></i>
+                    </button>
+                `;
+                
+                // Empêcher les événements de se propager à la carte
+                L.DomEvent.disableClickPropagation(div);
+                L.DomEvent.on(div, 'click', function(e) {
+                    e.stopPropagation();
+                });
+                
+                return div;
+            };
+            mapTypeControl.addTo(map);
+            console.log('Contrôle de type de carte ajouté à gauche');
+            
+            // Gérer le clic sur le bouton
+            setTimeout(() => {
+                const mapTypeBtn = document.getElementById('mapTypeBtn');
+                console.log('Bouton trouvé:', !!mapTypeBtn);
+                
+                if (mapTypeBtn) {
+                    mapTypeBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Clic sur bouton de type de carte, état actuel:', currentLayer);
+                        
+                        if (currentLayer === 'osm') {
+                            map.removeLayer(osmLayer);
+                            map.addLayer(satelliteLayer);
+                            mapTypeBtn.innerHTML = '<i class="fas fa-map"></i>';
+                            mapTypeBtn.title = 'Changer de vue';
+                            currentLayer = 'satellite';
+                            console.log('✅ Basculé vers la vue satellite');
+                        } else {
+                            map.removeLayer(satelliteLayer);
+                            map.addLayer(osmLayer);
+                            mapTypeBtn.innerHTML = '<i class="fas fa-map"></i>';
+                            mapTypeBtn.title = 'Changer de vue';
+                            currentLayer = 'osm';
+                            console.log('✅ Basculé vers la vue plan');
+                        }
+                    });
+                } else {
+                    console.error('❌ Bouton de type de carte non trouvé');
+                }
+            }, 200);
+        }, 500);
+        
+        console.log('Map layers added with control');
         
         // Forcer le redimensionnement de la carte
         setTimeout(() => {
@@ -162,7 +311,7 @@ function initMap() {
             console.log('Map size invalidated');
         }, 100);
         
-        // Groupe de marqueurs
+        // Groupe de marqueurs avec gestion des superpositions
         markersGroup = L.layerGroup().addTo(map);
         
         // Ajuster la vue sur la Bretagne
@@ -171,6 +320,11 @@ function initMap() {
             [49.0, -1.0]  // Nord-est
         ];
         map.fitBounds(bretagneBounds);
+        
+        // Optimisation : précharger les tuiles
+        map.on('load', () => {
+            console.log('Carte chargée, préchauffage des tuiles...');
+        });
         
         console.log('Carte initialisée avec succès');
     } catch (error) {
@@ -359,6 +513,17 @@ function generateSuggestions(query) {
     const suggestions = [];
     const maxSuggestions = 8;
     
+    // Fonction pour vérifier si un mot de la requête est dans le titre
+    const hasWordMatch = (title, query) => {
+        const titleWords = title.toLowerCase().split(/\s+/);
+        const queryWords = query.toLowerCase().split(/\s+/);
+        return queryWords.some(queryWord => 
+            titleWords.some(titleWord => 
+                titleWord.startsWith(queryWord) || titleWord.includes(queryWord)
+            )
+        );
+    };
+    
     // Recherche exacte d'abord (priorité haute)
     const exactTitleMatches = allPois.filter(poi => 
         poi.title.toLowerCase().startsWith(query)
@@ -374,13 +539,13 @@ function generateSuggestions(query) {
         });
     });
     
-    // Recherche partielle dans les titres
-    const partialTitleMatches = allPois.filter(poi => 
-        poi.title.toLowerCase().includes(query) && 
+    // Recherche par mots dans les titres (ex: "vieilles" trouve "Festival des Vieilles Charrues")
+    const wordMatches = allPois.filter(poi => 
+        hasWordMatch(poi.title, query) && 
         !poi.title.toLowerCase().startsWith(query)
-    ).slice(0, 3);
+    ).slice(0, 4);
     
-    partialTitleMatches.forEach(poi => {
+    wordMatches.forEach(poi => {
         suggestions.push({
             text: poi.title,
             value: poi.title,
@@ -390,12 +555,30 @@ function generateSuggestions(query) {
         });
     });
     
+    // Recherche partielle dans les titres (contient la chaîne complète)
+    const partialTitleMatches = allPois.filter(poi => 
+        poi.title.toLowerCase().includes(query) && 
+        !poi.title.toLowerCase().startsWith(query) &&
+        !hasWordMatch(poi.title, query)
+    ).slice(0, 2);
+    
+    partialTitleMatches.forEach(poi => {
+        suggestions.push({
+            text: poi.title,
+            value: poi.title,
+            category: getCategoryName(poi.categories[0]),
+            icon: getPoiIcon(poi.categories[0]),
+            priority: 3
+        });
+    });
+    
     // Recherche dans les descriptions et tags
     const descriptionMatches = allPois.filter(poi => 
         (poi.shortDescription.toLowerCase().includes(query) ||
          (poi.tags && poi.tags.some(tag => tag.toLowerCase().includes(query)))) &&
-        !poi.title.toLowerCase().includes(query)
-    ).slice(0, 2);
+        !poi.title.toLowerCase().includes(query) &&
+        !hasWordMatch(poi.title, query)
+    ).slice(0, 1);
     
     descriptionMatches.forEach(poi => {
         suggestions.push({
@@ -403,7 +586,7 @@ function generateSuggestions(query) {
             value: poi.title,
             category: getCategoryName(poi.categories[0]),
             icon: getPoiIcon(poi.categories[0]),
-            priority: 3
+            priority: 4
         });
     });
     
@@ -416,17 +599,19 @@ function generateSuggestions(query) {
                 value: dept,
                 category: 'Département',
                 icon: 'fas fa-map-marker-alt',
-                priority: 4
+                priority: 5
             });
         }
     });
     
     // Suggestions basées sur les catégories
     const categoryNames = {
-        plage: 'Plages', musee: 'Musées', monument: 'Monuments',
-        randonnee: 'Randonnées', festival: 'Festivals', village: 'Villages',
-        hotel: 'Hôtels', logement_insolite: 'Logements insolites',
-        point_de_vue: 'Points de vue', loisirs: 'Loisirs'
+        monument: 'Monuments', musee: 'Musées', point_de_vue: 'Points de vue',
+        plage: 'Plages', village: 'Villages', parc: 'Parcs / Jardins',
+        randonnee: 'Randonnées', chateau: 'Châteaux', festival: 'Festivals',
+        loisirs: 'Activités / Loisirs', hotel: 'Hôtels', villa: 'Villas',
+        logement_insolite: 'Logements insolites', camping: 'Campings',
+        restaurant: 'Restaurants'
     };
     
     Object.entries(categoryNames).forEach(([key, name]) => {
@@ -436,7 +621,7 @@ function generateSuggestions(query) {
                 value: name,
                 category: 'Catégorie',
                 icon: getPoiIcon(key),
-                priority: 5
+                priority: 6
             });
         }
     });
@@ -581,12 +766,28 @@ function checkAndShowExactMatch(searchValue) {
  */
 async function loadPois() {
     try {
+        console.log('Chargement optimisé des POIs...');
+        
         const response = await fetch('data/pois.json');
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
         const data = await response.json();
         allPois = data.pois || [];
+        
+        console.log(`${allPois.length} POIs chargés`);
+        
+        // Filtrer immédiatement pour ne garder que les POIs essentiels au premier chargement
         filteredPois = [...allPois];
-        displayPois();
-        updateCounter();
+        
+        // Afficher les POIs avec un petit délai pour laisser la carte se charger
+        setTimeout(() => {
+            displayPois();
+            updateCounter();
+            console.log('POIs affichés avec succès');
+        }, 100);
+        
     } catch (error) {
         console.error('Erreur lors du chargement des POIs:', error);
         showError('Impossible de charger les données');
@@ -597,16 +798,113 @@ async function loadPois() {
  * Affiche les POIs sur la carte et dans les cartes
  */
 function displayPois() {
-    markersGroup.clearLayers();
+    if (loadingPois) return; // Éviter les appels multiples
+    loadingPois = true;
     
-    // Afficher sur la carte
-    filteredPois.forEach(poi => {
+    console.log('=== displayPois appelée (optimisée) ===');
+    console.log('POIs filtrés à afficher:', filteredPois.length);
+    
+    if (!map || !markersGroup) {
+        console.error('Carte ou groupe de marqueurs non initialisé !');
+        loadingPois = false;
+        return;
+    }
+    
+    // Utiliser requestAnimationFrame pour ne pas bloquer l'interface
+    requestAnimationFrame(() => {
+        try {
+            markersGroup.clearLayers();
+            
+            // Appliquer le décalage automatique pour les marqueurs proches
+            const offsetPois = applyMarkerOffset(filteredPois);
+            
+            // Afficher les marqueurs par petits groupes pour éviter le blocage
+            displayMarkersInBatches(offsetPois);
+            
+            // Afficher dans les cartes (toujours tous les POIs filtrés)
+            displayPoiCards();
+            
+        } catch (error) {
+            console.error('Erreur lors de l\'affichage des POIs:', error);
+        } finally {
+            loadingPois = false;
+        }
+    });
+}
+
+/**
+ * Affiche les marqueurs par lots pour éviter le blocage de l'interface
+ */
+function displayMarkersInBatches(pois, batchSize = 25) {
+    if (pois.length === 0) {
+        console.log('Aucun marqueur à afficher');
+        return;
+    }
+    
+    const batch = pois.slice(0, batchSize);
+    const remaining = pois.slice(batchSize);
+    
+    // Ajouter le lot actuel
+    batch.forEach((poi, index) => {
         const marker = createMarker(poi);
         markersGroup.addLayer(marker);
     });
     
-    // Afficher dans les cartes
-    displayPoiCards();
+    // Programmer le lot suivant si nécessaire
+    if (remaining.length > 0) {
+        setTimeout(() => displayMarkersInBatches(remaining, batchSize), 50); // Plus lent mais plus stable
+    } else {
+        console.log(`✅ Tous les marqueurs ajoutés: ${markersGroup.getLayers().length} POIs affichés`);
+    }
+}
+
+
+
+/**
+ * Applique un décalage automatique aux marqueurs trop proches pour éviter la superposition
+ */
+function applyMarkerOffset(pois, threshold = 0.005) {
+    const offsetPois = pois.map(poi => ({ ...poi })); // Copie profonde
+    const processed = new Set();
+    
+    pois.forEach((poi, index) => {
+        if (processed.has(index)) return;
+        
+        // Chercher les POIs proches de celui-ci
+        const nearbyIndices = [index];
+        processed.add(index);
+        
+        pois.forEach((otherPoi, otherIndex) => {
+            if (otherIndex === index || processed.has(otherIndex)) return;
+            
+            const distance = Math.sqrt(
+                Math.pow(poi.lat - otherPoi.lat, 2) + 
+                Math.pow(poi.lng - otherPoi.lng, 2)
+            );
+            
+            if (distance < threshold) {
+                nearbyIndices.push(otherIndex);
+                processed.add(otherIndex);
+            }
+        });
+        
+        // Si plusieurs marqueurs sont proches, les décaler en spiral
+        if (nearbyIndices.length > 1) {
+            nearbyIndices.forEach((poiIndex, spiralIndex) => {
+                if (spiralIndex === 0) return; // Le premier reste à sa position originale
+                
+                // Calculer la position en spiral avec des décalages plus petits
+                const angle = (spiralIndex * 1.57) % (2 * Math.PI); // 90 degrés entre chaque point
+                const radius = 0.002 + (Math.floor(spiralIndex / 4) * 0.001); // Décalage plus petit
+                
+                // Appliquer le décalage
+                offsetPois[poiIndex].lat = poi.lat + Math.cos(angle) * radius;
+                offsetPois[poiIndex].lng = poi.lng + Math.sin(angle) * radius;
+            });
+        }
+    });
+    
+    return offsetPois;
 }
 
 /**
@@ -618,12 +916,12 @@ function createMarker(poi) {
     // Créer une icône personnalisée avec l'icône de la catégorie
     const customIcon = L.divIcon({
         className: 'custom-poi-marker',
-        html: `<div class="poi-marker-content">
+        html: `<div class="poi-marker-content" data-category="${poi.categories[0]}">
                    <i class="${iconClass}"></i>
                </div>`,
-        iconSize: [32, 32],
-        iconAnchor: [16, 32],
-        popupAnchor: [0, -32]
+        iconSize: [36, 36],
+        iconAnchor: [18, 18],
+        popupAnchor: [0, -18]
     });
     
     const marker = L.marker([poi.lat, poi.lng], {
@@ -657,15 +955,27 @@ function createPopupContent(poi) {
             </div>
             
             <div class="popup-image-simple">
-                <img src="${poi.image}" alt="${poi.title}" 
-                     onerror="this.src='assets/img/placeholder.jpg'">
+                ${poi.images && poi.images.length > 1 ? `
+                    <div class="popup-image-gallery">
+                        ${poi.images.map((img, index) => `
+                            <img src="${img}" alt="${poi.title} - Photo ${index + 1}" 
+                                 class="gallery-image ${index === 0 ? 'active' : ''}"
+                                 data-position="${index === 0 ? 'center-top-soft' : 'center'}"
+                                 onerror="this.src='assets/img/placeholder.jpg'">
+                        `).join('')}
+                        <div class="gallery-dots">
+                            ${poi.images.map((_, index) => `
+                                <span class="gallery-dot ${index === 0 ? 'active' : ''}" onclick="showGalleryImage(${index})"></span>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : `
+                    <img src="${poi.image}" alt="${poi.title}" 
+                         onerror="this.src='assets/img/placeholder.jpg'">
+                `}
             </div>
             
             <p class="popup-description-simple">${poi.shortDescription}</p>
-            
-            <button class="favorite-btn-simple ${isFavorite ? 'active' : ''}" onclick="toggleFavoriteInPopup('${poi.id}', this)">
-                <i class="fas fa-heart"></i>
-            </button>
             
             <div class="popup-action-simple">
                 <button class="discover-btn-simple" onclick="window.location.href='poi.html?slug=${poi.slug}'">
@@ -725,37 +1035,43 @@ function applyFilters() {
     console.log('Départements sélectionnés:', selectedDepartments);
     console.log('Terme de recherche:', searchTerm);
     
-    // Filtrer les POIs
+    // Filtrer les POIs de manière optimisée
+    const startTime = performance.now();
+    
     filteredPois = allPois.filter(poi => {
-        let matches = true;
+        // Optimisation : vérifications rapides d'abord
         
-        // Filtre de recherche textuelle
-        if (searchTerm) {
-            const searchMatch = poi.title.toLowerCase().includes(searchTerm) ||
-                              poi.shortDescription.toLowerCase().includes(searchTerm) ||
-                              poi.description.toLowerCase().includes(searchTerm) ||
-                              poi.department.toLowerCase().includes(searchTerm) ||
-                              (poi.tags && poi.tags.some(tag => tag.toLowerCase().includes(searchTerm)));
-            matches = matches && searchMatch;
+        // Filtre départements (plus rapide)
+        if (selectedDepartments.length > 0 && !selectedDepartments.includes(poi.department)) {
+            return false;
         }
         
-        // Vérifier les catégories si des catégories sont sélectionnées
+        // Filtre catégories
         if (selectedCategories.length > 0) {
-            const hasCategory = poi.categories && poi.categories.some(cat => selectedCategories.includes(cat));
-            matches = matches && hasCategory;
+            if (!poi.categories || !poi.categories.some(cat => selectedCategories.includes(cat))) {
+                return false;
+            }
         }
         
-        // Vérifier les départements si des départements sont sélectionnés
-        if (selectedDepartments.length > 0) {
-            const hasDepartment = selectedDepartments.includes(poi.department);
-            matches = matches && hasDepartment;
+        // Filtre de recherche textuelle (plus coûteux, fait en dernier)
+        if (searchTerm) {
+            const lowerTitle = poi.title.toLowerCase();
+            const lowerDesc = poi.shortDescription.toLowerCase();
+            const lowerDept = poi.department.toLowerCase();
+            
+            const searchMatch = lowerTitle.includes(searchTerm) ||
+                              lowerDesc.includes(searchTerm) ||
+                              lowerDept.includes(searchTerm) ||
+                              (poi.tags && poi.tags.some(tag => tag.toLowerCase().includes(searchTerm)));
+                              
+            if (!searchMatch) return false;
         }
         
-        if (matches) {
-            console.log(`POI "${poi.title}" correspond (recherche: "${searchTerm}", catégories: ${poi.categories?.join(', ')}, département: ${poi.department})`);
-        }
-        return matches;
+        return true;
     });
+    
+    const filterTime = performance.now() - startTime;
+    console.log(`Filtrage optimisé: ${filterTime.toFixed(2)}ms pour ${filteredPois.length}/${allPois.length} POIs`);
     
     console.log('Résultat du filtrage:', filteredPois.length, 'POIs');
     console.log('POIs filtrés:', filteredPois.map(poi => poi.title));
@@ -853,17 +1169,21 @@ function getPoiColor(category) {
  */
 function getPoiIcon(category) {
     const icons = {
-        plage: 'fas fa-umbrella-beach',
-        musee: 'fas fa-university',
-        monument: 'fas fa-landmark',
-        randonnee: 'fas fa-hiking',
-        festival: 'fas fa-music',
-        village: 'fas fa-home',
-        hotel: 'fas fa-bed',
-        villa: 'fas fa-house-user',
-        logement_insolite: 'fas fa-campground',
-        point_de_vue: 'fas fa-mountain',
-        loisirs: 'fas fa-gamepad'
+        monument: 'fas fa-landmark',          // Monument
+        musee: 'fas fa-university',           // Musée
+        point_de_vue: 'fas fa-eye',           // Point de vue
+        plage: 'fas fa-umbrella-beach',       // Plage
+        village: 'fas fa-home',               // Village
+        parc: 'fas fa-tree',                  // Parc / Jardin
+        randonnee: 'fas fa-hiking',           // Randonnée
+        chateau: 'fas fa-chess-rook',         // Château
+        festival: 'fas fa-music',             // Festival
+        loisirs: 'fas fa-star',               // Activité / Loisir
+        hotel: 'fas fa-bed',                  // Hotel
+        villa: 'fas fa-house-user',           // Villa
+        logement_insolite: 'fas fa-tree-city',   // Logement Insolite
+        camping: 'fas fa-campground',         // Camping
+        restaurant: 'fas fa-utensils'         // Restaurant
     };
     return icons[category] || 'fas fa-map-marker-alt';
 }
@@ -996,7 +1316,7 @@ function displayPoiData(poi) {
     document.title = `${poi.title} - La Belle Bretagne`;
     
     // Remplissage des données
-    updateElement('poiTitle', poi.title);
+    updateElement('poiTitleOverlay', poi.title); // Titre sur l'image
     updateElement('poiDepartment', poi.department);
     updateElement('poiShortDescription', poi.shortDescription);
     updateElement('poiDescription', poi.description);
@@ -1023,43 +1343,16 @@ function displayPoiData(poi) {
         ).join('');
     }
     
-    // Badges
+    // Badges (masqués temporairement)
     const badgesContainer = document.getElementById('poiBadges');
     if (badgesContainer) {
-        const badges = [];
-        if (poi.tested) badges.push('<span class="badge badge-tested">Testé par LBB</span>');
-        if (poi.coupDeCoeur) badges.push('<span class="badge badge-heart">Coup de ❤️ LBB</span>');
-        badgesContainer.innerHTML = badges.join('');
+        badgesContainer.innerHTML = ''; // Pas de badges pour le moment
     }
     
-    // Section avis (si testé)
+    // Section avis (masquée temporairement)
     const avisSection = document.getElementById('avisSection');
-    const avisText = document.getElementById('avisText');
-    if (avisSection && poi.tested) {
-        avisSection.style.display = 'block';
-        
-        // Texte personnalisé selon le lieu
-        let customAvisText = '';
-        switch(poi.id) {
-            case 'festival-vieilles-charrues':
-                customAvisText = '🎸 Notre rendez-vous de l\'année ! Les Vieilles Charrues est LE festival immanquable pour nous ! Une programmation exceptionnelle, une ambiance bretonne unique et des souvenirs inoubliables nous attendent chaque été à Carhaix.';
-                break;
-            case 'pointe-du-raz':
-                customAvisText = '🌊 Un site à couper le souffle ! La Pointe du Raz nous fascine par sa beauté sauvage et ses panoramas extraordinaires. Un incontournable pour découvrir la Bretagne authentique.';
-                break;
-            case 'mont-saint-michel':
-                customAvisText = '🏰 Majestueux et mystique ! Le Mont-Saint-Michel nous émerveille à chaque visite. Un joyau architectural au cœur des plus grandes marées d\'Europe.';
-                break;
-            case 'saint-malo':
-                customAvisText = '🏴‍☠️ La cité corsaire nous transporte ! Saint-Malo conjugue parfaitement histoire maritime et charme breton. Ses remparts et ses plages en font une destination parfaite.';
-                break;
-            default:
-                customAvisText = '🎆 Ce lieu a été personnellement visité et testé par notre équipe. Nous le recommandons pour son authenticité et la qualité de l\'expérience proposée.';
-        }
-        
-        if (avisText) {
-            avisText.textContent = customAvisText;
-        }
+    if (avisSection) {
+        avisSection.style.display = 'none'; // Masquée pour le moment
     }
     
     // Téléphone
@@ -1131,11 +1424,106 @@ function displayPoiData(poi) {
         itineraryBtn.onclick = () => openItinerary(poi.lat, poi.lng);
     }
     
-    // Bouton favoris
-    initFavoriteButton(poi.id);
+    // Galerie d'images supplémentaires
+    displayPoiGallery(poi);
     
     // Bouton partage
     initShareButton(poi);
+}
+
+/**
+ * Affiche la galerie d'images supplémentaires du POI
+ */
+function displayPoiGallery(poi) {
+    const gallerySection = document.getElementById('poiGallery');
+    const imagesGrid = document.getElementById('poiImagesGrid');
+    
+    if (!gallerySection || !imagesGrid) return;
+    
+    // Afficher seulement si le POI a plus d'une image
+    if (!poi.images || poi.images.length <= 1) {
+        gallerySection.style.display = 'none';
+        return;
+    }
+    
+    // Afficher la section
+    gallerySection.style.display = 'block';
+    
+    // Générer les images (toutes les images y compris la première)
+    const additionalImages = poi.images;
+    
+    const imageLabels = [
+        'Vue d\'ensemble du parc',
+        'Jardin à la française',
+        'Roseraie et parc à l\'anglaise',
+        'Jardin botanique',
+        'Vue panoramique'
+    ];
+    
+    imagesGrid.innerHTML = additionalImages.map((imageUrl, index) => `
+        <div class="poi-gallery-image" onclick="openImageModal('${imageUrl}', '${poi.title} - ${imageLabels[index] || 'Vue ' + (index + 1)}')">
+            <img src="${imageUrl}" 
+                 alt="${poi.title} - ${imageLabels[index] || 'Vue ' + (index + 1)}" 
+                 onerror="this.src='assets/img/placeholder.jpg'">
+            <div class="poi-gallery-overlay">
+                <div class="poi-gallery-caption">
+                    ${imageLabels[index] || `Vue ${index + 1}`}
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+/**
+ * Ouvre une image en modal (fonction simple pour l'instant)
+ */
+function openImageModal(imageUrl, caption) {
+    // Pour l'instant, on ouvre l'image dans un nouvel onglet
+    // On pourra améliorer avec une vraie modal plus tard
+    const newWindow = window.open('', '_blank');
+    newWindow.document.write(`
+        <html>
+            <head>
+                <title>${caption}</title>
+                <style>
+                    body { 
+                        margin: 0; 
+                        padding: 20px; 
+                        background: #000; 
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        min-height: 100vh;
+                        font-family: 'Inter', sans-serif;
+                    }
+                    img { 
+                        max-width: 100%; 
+                        max-height: 90vh; 
+                        object-fit: contain;
+                        box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+                    }
+                    .caption {
+                        color: white;
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin-top: 20px;
+                        text-align: center;
+                    }
+                    .close-hint {
+                        color: rgba(255,255,255,0.7);
+                        font-size: 14px;
+                        margin-top: 10px;
+                    }
+                </style>
+            </head>
+            <body>
+                <img src="${imageUrl}" alt="${caption}">
+                <div class="caption">${caption}</div>
+                <div class="close-hint">Fermez cet onglet pour revenir</div>
+            </body>
+        </html>
+    `);
 }
 
 /**
@@ -1239,17 +1627,21 @@ function updateElement(id, content) {
  */
 function getCategoryName(category) {
     const names = {
-        plage: 'plage',
-        musee: 'musée',
-        monument: 'monument',
-        randonnee: 'randonnée',
-        festival: 'festival',
-        village: 'village',
-        hotel: 'hôtel',
-        villa: 'villa',
-        logement_insolite: 'logement insolite',
-        point_de_vue: 'point de vue',
-        loisirs: 'loisirs'
+        monument: 'Monument',
+        musee: 'Musée',
+        point_de_vue: 'Point de vue',
+        plage: 'Plage',
+        village: 'Village',
+        parc: 'Parc / Jardin',
+        randonnee: 'Randonnée',
+        chateau: 'Château',
+        festival: 'Festival',
+        loisirs: 'Activité / Loisir',
+        hotel: 'Hôtel',
+        villa: 'Villa',
+        logement_insolite: 'Logement Insolite',
+        camping: 'Camping',
+        restaurant: 'Restaurant'
     };
     return names[category] || category;
 }
@@ -1325,6 +1717,16 @@ function showFixedPopup(poi) {
         fixedPopup.style.display = 'block';
         setTimeout(() => {
             fixedPopup.classList.add('show');
+            
+            // Initialiser la galerie si il y a plusieurs images
+            if (poi.images && poi.images.length > 1) {
+                currentGalleryIndex = 0;
+                galleryTotalImages = poi.images.length;
+                setTimeout(() => {
+                    initGalleryEvents();
+                    startGalleryAutoplay();
+                }, 100);
+            }
         }, 10);
     }
 }
@@ -1337,6 +1739,8 @@ function hideFixedPopup() {
     
     if (fixedPopup) {
         fixedPopup.classList.remove('show');
+        // Arrêter le défilement automatique
+        stopGalleryAutoplay();
         setTimeout(() => {
             fixedPopup.style.display = 'none';
         }, 400);
@@ -1426,6 +1830,27 @@ function createFiltersContent() {
                     <h4 style="margin: 16px 0 8px 0; font-size: 14px; font-weight: 600; color: var(--text-primary);">Catégories</h4>
                 <div class="categories-grid-compact">
                     <label class="category-chip">
+                        <input type="checkbox" value="monument">
+                        <div class="chip-content">
+                            <i class="fas fa-landmark"></i>
+                            <span>Monuments</span>
+                        </div>
+                    </label>
+                    <label class="category-chip">
+                        <input type="checkbox" value="musee">
+                        <div class="chip-content">
+                            <i class="fas fa-university"></i>
+                            <span>Musées</span>
+                        </div>
+                    </label>
+                    <label class="category-chip">
+                        <input type="checkbox" value="point_de_vue">
+                        <div class="chip-content">
+                            <i class="fas fa-eye"></i>
+                            <span>Points de vue</span>
+                        </div>
+                    </label>
+                    <label class="category-chip">
                         <input type="checkbox" value="plage">
                         <div class="chip-content">
                             <i class="fas fa-umbrella-beach"></i>
@@ -1440,17 +1865,10 @@ function createFiltersContent() {
                         </div>
                     </label>
                     <label class="category-chip">
-                        <input type="checkbox" value="monument">
+                        <input type="checkbox" value="parc">
                         <div class="chip-content">
-                            <i class="fas fa-landmark"></i>
-                            <span>Monuments</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="point_de_vue">
-                        <div class="chip-content">
-                            <i class="fas fa-mountain"></i>
-                            <span>Panoramas</span>
+                            <i class="fas fa-tree"></i>
+                            <span>Parcs / Jardins</span>
                         </div>
                     </label>
                     <label class="category-chip">
@@ -1461,24 +1879,10 @@ function createFiltersContent() {
                         </div>
                     </label>
                     <label class="category-chip">
-                        <input type="checkbox" value="musee">
+                        <input type="checkbox" value="chateau">
                         <div class="chip-content">
-                            <i class="fas fa-university"></i>
-                            <span>Culture</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="hotel">
-                        <div class="chip-content">
-                            <i class="fas fa-bed"></i>
-                            <span>Hébergement</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="logement_insolite">
-                        <div class="chip-content">
-                            <i class="fas fa-campground"></i>
-                            <span>Insolite</span>
+                            <i class="fas fa-chess-rook"></i>
+                            <span>Châteaux</span>
                         </div>
                     </label>
                     <label class="category-chip">
@@ -1486,6 +1890,48 @@ function createFiltersContent() {
                         <div class="chip-content">
                             <i class="fas fa-music"></i>
                             <span>Festivals</span>
+                        </div>
+                    </label>
+                    <label class="category-chip">
+                        <input type="checkbox" value="loisirs">
+                        <div class="chip-content">
+                            <i class="fas fa-star"></i>
+                            <span>Activités / Loisirs</span>
+                        </div>
+                    </label>
+                    <label class="category-chip">
+                        <input type="checkbox" value="hotel">
+                        <div class="chip-content">
+                            <i class="fas fa-bed"></i>
+                            <span>Hôtels</span>
+                        </div>
+                    </label>
+                    <label class="category-chip">
+                        <input type="checkbox" value="villa">
+                        <div class="chip-content">
+                            <i class="fas fa-house-user"></i>
+                            <span>Villas</span>
+                        </div>
+                    </label>
+                    <label class="category-chip">
+                        <input type="checkbox" value="logement_insolite">
+                        <div class="chip-content">
+                            <i class="fas fa-tree-city"></i>
+                            <span>Logements Insolites</span>
+                        </div>
+                    </label>
+                    <label class="category-chip">
+                        <input type="checkbox" value="camping">
+                        <div class="chip-content">
+                            <i class="fas fa-campground"></i>
+                            <span>Campings</span>
+                        </div>
+                    </label>
+                    <label class="category-chip">
+                        <input type="checkbox" value="restaurant">
+                        <div class="chip-content">
+                            <i class="fas fa-utensils"></i>
+                            <span>Restaurants</span>
                         </div>
                     </label>
                 </div>
@@ -1509,6 +1955,11 @@ function createFiltersContent() {
  */
 function handleApplyFilters() {
     console.log('=== handleApplyFilters appelée ===');
+    console.log('Filtres avant application:', {
+        categories: getSelectedCheckboxValues('input[type="checkbox"]:not([name="department"])'),
+        departments: getSelectedCheckboxValues('input[name="department"]')
+    });
+    
     applyFilters();
     hideFixedPopup();
     
@@ -1517,6 +1968,18 @@ function handleApplyFilters() {
     if (bottomSheet) {
         bottomSheet.classList.add('collapsed');
     }
+}
+
+/**
+ * Utilitaire pour récupérer les valeurs des checkboxes sélectionnées
+ */
+function getSelectedCheckboxValues(selector) {
+    const popup = document.getElementById('fixedPopup');
+    if (popup) {
+        return Array.from(popup.querySelectorAll(`${selector}:checked`))
+            .map(checkbox => checkbox.value);
+    }
+    return [];
 }
 
 /**
@@ -1564,6 +2027,151 @@ function testFilters() {
     });
 }
 
+// Variables globales pour la galerie
+let currentGalleryIndex = 0;
+let galleryAutoInterval = null;
+let galleryTotalImages = 0;
+
+/**
+ * Affiche une image spécifique dans la galerie de la popup
+ */
+function showGalleryImage(index) {
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    const galleryDots = document.querySelectorAll('.gallery-dot');
+    
+    if (galleryImages.length === 0) return;
+    
+    // Mettre à jour l'index global
+    currentGalleryIndex = index;
+    galleryTotalImages = galleryImages.length;
+    
+    // Retirer la classe active de tous les éléments
+    galleryImages.forEach(img => img.classList.remove('active'));
+    galleryDots.forEach(dot => dot.classList.remove('active'));
+    
+    // Ajouter la classe active aux éléments sélectionnés
+    if (galleryImages[index]) {
+        galleryImages[index].classList.add('active');
+    }
+    if (galleryDots[index]) {
+        galleryDots[index].classList.add('active');
+    }
+    
+    // Redémarrer le défilement automatique
+    restartGalleryAutoplay();
+}
+
+/**
+ * Passe à l'image suivante dans la galerie
+ */
+function nextGalleryImage() {
+    const nextIndex = (currentGalleryIndex + 1) % galleryTotalImages;
+    showGalleryImage(nextIndex);
+}
+
+/**
+ * Passe à l'image précédente dans la galerie
+ */
+function prevGalleryImage() {
+    const prevIndex = (currentGalleryIndex - 1 + galleryTotalImages) % galleryTotalImages;
+    showGalleryImage(prevIndex);
+}
+
+/**
+ * Démarre le défilement automatique de la galerie
+ */
+function startGalleryAutoplay() {
+    if (galleryTotalImages > 1) {
+        galleryAutoInterval = setInterval(() => {
+            nextGalleryImage();
+        }, 6000); // Change d'image toutes les 6 secondes
+    }
+}
+
+/**
+ * Arrête le défilement automatique
+ */
+function stopGalleryAutoplay() {
+    if (galleryAutoInterval) {
+        clearInterval(galleryAutoInterval);
+        galleryAutoInterval = null;
+    }
+}
+
+/**
+ * Redémarre le défilement automatique
+ */
+function restartGalleryAutoplay() {
+    stopGalleryAutoplay();
+    startGalleryAutoplay();
+}
+
+/**
+ * Initialise les événements de la galerie
+ */
+function initGalleryEvents() {
+    const gallery = document.querySelector('.popup-image-gallery');
+    if (!gallery) return;
+    
+    let startX = 0;
+    let startY = 0;
+    let isDragging = false;
+    
+    // Événements tactiles pour mobile
+    gallery.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isDragging = true;
+        stopGalleryAutoplay();
+    }, { passive: true });
+    
+    gallery.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+    }, { passive: false });
+    
+    gallery.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+        
+        // Seuil minimum pour déclencher le swipe
+        if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX > 0) {
+                nextGalleryImage(); // Swipe vers la gauche = image suivante
+            } else {
+                prevGalleryImage(); // Swipe vers la droite = image précédente
+            }
+        }
+        
+        isDragging = false;
+        setTimeout(() => startGalleryAutoplay(), 1000);
+    }, { passive: true });
+    
+    // Événements de clic pour desktop
+    gallery.addEventListener('click', (e) => {
+        const rect = gallery.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const galleryWidth = rect.width;
+        
+        // Clic à gauche = image précédente, clic à droite = image suivante
+        if (clickX < galleryWidth / 2) {
+            prevGalleryImage();
+        } else {
+            nextGalleryImage();
+        }
+    });
+    
+    // Arrêter l'autoplay au survol, redémarrer quand on sort
+    gallery.addEventListener('mouseenter', stopGalleryAutoplay);
+    gallery.addEventListener('mouseleave', () => {
+        setTimeout(() => startGalleryAutoplay(), 500);
+    });
+}
+
 // Exposer les fonctions globalement
 window.initPoiPage = initPoiPage;
 window.openItinerary = openItinerary;
@@ -1574,4 +2182,8 @@ window.hideFixedPopup = hideFixedPopup;
 window.handleApplyFilters = handleApplyFilters;
 window.handleResetFilters = handleResetFilters;
 window.selectSuggestion = selectSuggestion;
+window.showGalleryImage = showGalleryImage;
+window.nextGalleryImage = nextGalleryImage;
+window.prevGalleryImage = prevGalleryImage;
+window.openImageModal = openImageModal;
 window.testFilters = testFilters; // Pour debug
