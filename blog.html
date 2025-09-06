@@ -23,18 +23,186 @@
     </header>
 
     <!-- Main Content -->
-    <main class="page-main" style="padding-bottom: 100px; margin-top: 72px; position: relative; z-index: 1; width: 100%; max-width: 100vw; overflow-x: hidden;">
-        <div class="construction-message">
-            <div class="construction-icon">
-                <i class="fas fa-tools"></i>
+    <main class="blog-main">
+        <!-- Hero Section -->
+        <section class="blog-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Blog La Belle Bretagne</h1>
+                <p class="hero-subtitle">Découvrez nos conseils, bons plans et coups de cœur pour explorer la Bretagne authentique</p>
             </div>
-            <h1>Page en cours de construction</h1>
-            <p>Cette section sera bientôt disponible. Revenez nous voir prochainement !</p>
-            <a href="index.html" class="btn-primary">
-                <i class="fas fa-arrow-left"></i>
-                Retour à la carte
-            </a>
-        </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section class="blog-articles">
+            <div class="container">
+                <!-- Article principal -->
+                <article class="featured-article">
+                    <div class="article-image">
+                        <img src="assets/img/blog-lancement-site-1.jpg" alt="Lancement de La Belle Bretagne" loading="lazy" onerror="this.src='assets/img/placeholder.jpg'">
+                        <div class="article-category">
+                            <i class="fas fa-rocket"></i>
+                            <span>Actualités</span>
+                        </div>
+                    </div>
+                    
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <time datetime="2024-12-20">20 décembre 2024</time>
+                            <span class="article-reading-time">
+                                <i class="fas fa-clock"></i>
+                                3 min de lecture
+                            </span>
+                        </div>
+                        
+                        <h2 class="article-title">
+                            <a href="#article-lancement">Bienvenue sur La Belle Bretagne : votre nouveau guide incontournable !</a>
+                        </h2>
+                        
+                        <p class="article-excerpt">
+                            C'est avec une immense fierté et beaucoup d'émotion que nous lançons aujourd'hui La Belle Bretagne, 
+                            le site qui va révolutionner la façon de découvrir notre magnifique région...
+                        </p>
+                        
+                        <div class="article-actions">
+                            <a href="#article-lancement" class="read-more-btn">
+                                <span>Lire l'article complet</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="article-social">
+                                <button class="social-btn" title="Partager sur Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                                <button class="social-btn" title="Partager sur Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+                                <button class="social-btn" title="Partager par email">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article complet (masqué par défaut) -->
+                <article id="article-lancement" class="full-article" style="display: none;">
+                    <div class="article-header">
+                        <button class="back-to-blog">
+                            <i class="fas fa-arrow-left"></i>
+                            Retour aux articles
+                        </button>
+                        
+                        <div class="article-meta">
+                            <time datetime="2024-12-20">20 décembre 2024</time>
+                            <div class="article-category">
+                                <i class="fas fa-rocket"></i>
+                                <span>Actualités</span>
+                            </div>
+                        </div>
+                        
+                        <h1>Bienvenue sur La Belle Bretagne : votre nouveau guide incontournable !</h1>
+                        
+                        <div class="article-image-full">
+                            <img src="assets/img/blog-lancement-site-2.jpg" alt="Vue panoramique de la côte bretonne" loading="lazy">
+                        </div>
+                    </div>
+                    
+                    <div class="article-body">
+                        <p class="article-lead">
+                            C'est avec une immense fierté et beaucoup d'émotion que nous lançons aujourd'hui <strong>La Belle Bretagne</strong>, 
+                            le site qui va révolutionner la façon de découvrir notre magnifique région. Après des mois de préparation, 
+                            de recherches et de rencontres avec les acteurs locaux, nous sommes enfin prêts à vous accompagner 
+                            dans vos plus belles escapades bretonnes !
+                        </p>
+                        
+                        <h2>Notre vision : faire de la Bretagne votre destination de cœur</h2>
+                        
+                        <p>
+                            Que vous soyez à la recherche d'un <strong>week-end romantique</strong> face à la mer, d'un 
+                            <strong>séjour en famille</strong> riche en découvertes, ou d'une <strong>escapade entre amis</strong> 
+                            pleine d'aventures, La Belle Bretagne devient votre compagnon de route indispensable.
+                        </p>
+                        
+                        <div class="article-image-inline">
+                            <img src="assets/img/blog-lancement-site-3.jpg" alt="Carte interactive de la Bretagne" loading="lazy">
+                            <figcaption>Notre carte interactive réunit tous les incontournables de Bretagne</figcaption>
+                        </div>
+                        
+                        <h2>Ce qui vous attend sur La Belle Bretagne</h2>
+                        
+                        <h3><i class="fas fa-map-marked-alt"></i> Une carte interactive révolutionnaire</h3>
+                        <p>
+                            Fini les guides papier qui se péiment ou les sites compliqués ! Notre carte interactive vous permet 
+                            de découvrir en un coup d'œil tous les <strong>points d'intérêt</strong>, <strong>hébergements</strong> 
+                            et <strong>activités</strong> de Bretagne. Filtrez selon vos envies, zoomez sur vos coups de cœur, 
+                            et partez à l'aventure en toute sérénité.
+                        </p>
+                        
+                        <h3><i class="fas fa-bed"></i> Des hébergements sélectionnés avec passion</h3>
+                        <p>
+                            Hôtels de charme face à la mer, villas d'exception avec piscine, campings familiaux ou logements insolites... 
+                            Notre sélection d'hébergements couvre les <strong>5 départements bretons</strong> pour que chaque séjour 
+                            devienne un souvenir inoubliable.
+                        </p>
+                        
+                        <h3><i class="fas fa-camera"></i> Des lieux authentiques et leurs histoires</h3>
+                        <p>
+                            Chaque lieu référencé sur La Belle Bretagne vient avec sa description détaillée, ses photos, 
+                            et toutes les informations pratiques dont vous avez besoin. Du phare mythique au petit village de caractère, 
+                            découvrez la Bretagne dans toute sa diversité.
+                        </p>
+                        
+                        <h2>L'aventure ne fait que commencer !</h2>
+                        
+                        <p>
+                            Ce lancement marque le début d'une belle aventure. Dans les semaines et mois à venir, 
+                            La Belle Bretagne va continuer de grandir et de s'enrichir :
+                        </p>
+                        
+                        <ul>
+                            <li><strong>Nouveaux partenaires</strong> : hôtels, restaurants, activités...</li>
+                            <li><strong>Contenus exclusifs</strong> : interviews, reportages, bons plans</li>
+                            <li><strong>Fonctionnalités avancées</strong> : favoris, itinéraires personnalisés</li>
+                            <li><strong>Communauté</strong> : vos avis, photos et recommandations</li>
+                        </ul>
+                        
+                        <h2>Rejoignez l'aventure La Belle Bretagne</h2>
+                        
+                        <p>
+                            Nous avons une conviction profonde : la Bretagne est une région d'exception qui mérite d'être découverte 
+                            et redécouverte sans cesse. Que vous soyez Breton·ne de cœur ou de passage, habitant·e ou visiteur·se, 
+                            La Belle Bretagne est fait pour vous.
+                        </p>
+                        
+                        <p class="article-cta">
+                            <strong>Alors, prêt·e à explorer la Bretagne comme jamais ?</strong><br>
+                            <a href="index.html" class="cta-link">Découvrez notre carte interactive</a> et 
+                            <a href="logements.html" class="cta-link">trouvez votre hébergement de rêve</a> !
+                        </p>
+                        
+                        <div class="article-signature">
+                            <p><em>L'équipe La Belle Bretagne</em></p>
+                            <p><small>Kenavo et à très bientôt sur nos chemins bretons ! 🌊</small></p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Newsletter Section -->
+                <section class="newsletter-section">
+                    <div class="newsletter-content">
+                        <h3>Restez connecté à la Bretagne</h3>
+                        <p>Recevez nos derniers articles, bons plans et nouveautés directement dans votre boîte mail</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Votre adresse email" class="newsletter-input">
+                            <button type="submit" class="newsletter-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                S'abonner
+                            </button>
+                        </form>
+                        <p class="newsletter-disclaimer">Pas de spam, promis ! Un email par mois maximum.</p>
+                    </div>
+                </section>
+            </div>
+        </section>
     </main>
 
     <!-- Bottom Navigation -->
@@ -60,5 +228,7 @@
             <span>Instagram</span>
         </a>
     </nav>
+
+    <script src="js/blog.js"></script>
 </body>
 </html>
