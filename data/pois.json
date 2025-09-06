@@ -229,22 +229,27 @@
       "tags": ["5 étoiles", "spa CODAGE", "granit rose", "Le Bélouga", "baie des Sept-Îles"]
     },
     {
-      "id": "villa-ker-an-poul-locquirec",
-      "title": "Villa Ker an Poul",
-      "slug": "villa-ker-an-poul-locquirec",
+      "id": "villa-blockhaus-audrey",
+      "title": "Les villas d'Audrey : La villa blockhaus",
+      "slug": "villa-blockhaus-audrey",
       "department": "Finistère",
       "categories": ["villa"],
-      "lat": 48.6956,
-      "lng": -3.6503,
-      "shortDescription": "Villa d'architecte face à la mer à Locquirec, design contemporain et vue panoramique sur la baie.",
-      "description": "Cette villa d'exception à Locquirec offre une architecture contemporaine remarquable face à la mer. Conçue par un architecte renommé, elle dispose de grandes baies vitrées offrant une vue panoramique sur la baie de Lannion.",
-      "image": "assets/img/placeholder.jpg",
-      "tested": false,
+      "lat": 48.6532985016716,
+      "lng": -4.3040462376651165,
+      "shortDescription": "Villa Blockhaus – Les villas d'Audrey, Plounéour-Trez (Finistère Nord) : villa de standing, vue panoramique sur la baie de Goulven, piscine chauffée, accès plage à 2 min à pied.",
+      "description": "À Plounéour-Trez, au cœur du Finistère Nord, la Villa Blockhaus des Villas d'Audrey est une maison contemporaine haut de gamme offrant une vue mer spectaculaire sur la baie de Goulven. Située dans un quartier résidentiel prisé, elle se trouve à seulement 2 minutes à pied de la plage de sable blanc.\n\nSur 230 m², cette villa de grand confort comprend quatre chambres spacieuses avec lits 180 × 200 cm — dont une suite parentale avec salle de douche privative et dressing. Les meubles et finitions modernes garantissent une ambiance raffinée et apaisante. La piscine privée chauffée (accessible d'avril à fin septembre) est idéale pour se détendre en toute saison.\n\nParfaite pour un séjour en famille ou entre amis, la Villa Blockhaus offre espaces baignade, détente et convivialité à deux pas de la mer. Elle promet une parenthèse ressourçante dans un écrin breton, entre confort actuel et charme maritime.",
+      "image": "assets/img/villa-blockhaus-audrey-1.jpg",
+      "images": [
+        "assets/img/villa-blockhaus-audrey-1.jpg",
+        "assets/img/villa-blockhaus-audrey-2.jpg",
+        "assets/img/villa-blockhaus-audrey-3.jpg"
+      ],
+      "tested": true,
       "coupDeCoeur": true,
-      "address": "29241 Locquirec",
+      "address": "Plounéour-Trez, 29890 Finistère Nord",
       "website": "",
       "phone": "",
-      "tags": ["architecte", "contemporaine", "baie de Lannion", "vue mer"]
+      "tags": ["villa de standing", "baie de Goulven", "piscine chauffée", "plage 2 min", "4 chambres", "230 m²"]
     },
     {
       "id": "vallee-de-pratmeur",

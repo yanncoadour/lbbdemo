@@ -55,10 +55,109 @@ document.addEventListener('DOMContentLoaded', function() {
         initFixedPopup();
         initSearchAutoComplete();
         loadPois();
+        
+        // Vérifier si on doit filtrer les logements depuis la page logements
+        checkLogementFilter();
     } else {
         console.error('Map element not found!');
+        
+        // Si on n'est pas sur la page principale, initialiser la navigation intelligente
+        initSmartNavigation();
     }
 });
+
+/**
+ * Vérifie si on doit appliquer le filtre logements depuis l'URL
+ */
+function checkLogementFilter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const filter = urlParams.get('filter');
+    
+    if (filter === 'logements') {
+        console.log('🏠 Application du filtre logements depuis l\'URL');
+        
+        // Attendre que les POIs soient chargés
+        setTimeout(() => {
+            applyLogementFilter();
+        }, 500);
+    }
+}
+
+/**
+ * Initialise la navigation intelligente pour les pages secondaires
+ */
+function initSmartNavigation() {
+    console.log('🧭 Initialisation de la navigation intelligente...');
+    
+    const backLink = document.querySelector('.back-link');
+    if (!backLink) return;
+    
+    // Détecter la page de provenance
+    const referrer = document.referrer;
+    const currentUrl = window.location.href;
+    
+    let backUrl = 'index.html'; // URL par défaut
+    
+    // Si on vient de la page logements
+    if (referrer.includes('logements.html')) {
+        backUrl = 'logements.html';
+        console.log('🏠 Provenance détectée: page logements');
+    }
+    // Si on vient de la page festivals
+    else if (referrer.includes('festivals.html')) {
+        backUrl = 'festivals.html';
+        console.log('🎵 Provenance détectée: page festivals');
+    }
+    // Si on vient de la page blog
+    else if (referrer.includes('blog.html')) {
+        backUrl = 'blog.html';
+        console.log('📰 Provenance détectée: page blog');
+    }
+    // Sinon, utiliser l'historique du navigateur si disponible
+    else if (history.length > 1) {
+        // Utiliser le bouton retour du navigateur
+        backLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            history.back();
+        });
+        console.log('🔙 Utilisation de l\'historique du navigateur');
+        return;
+    }
+    
+    // Mettre à jour l'URL du bouton retour
+    backLink.href = backUrl;
+    console.log(`🔗 URL de retour définie: ${backUrl}`);
+}
+
+/**
+ * Applique le filtre pour n'afficher que les logements
+ */
+function applyLogementFilter() {
+    if (!allPois || allPois.length === 0) {
+        console.error('POIs non chargés pour appliquer le filtre logements');
+        return;
+    }
+    
+    // Filtrer seulement les logements
+    const logementCategories = ['hotel', 'villa', 'camping', 'logement_insolite'];
+    filteredPois = allPois.filter(poi => 
+        poi.categories && poi.categories.some(cat => logementCategories.includes(cat))
+    );
+    
+    console.log(`🏠 Filtre logements appliqué: ${filteredPois.length} logements affichés`);
+    
+    // Mettre à jour l'affichage
+    displayPois();
+    updateCounter();
+    
+    // Auto-focus sur les logements filtrés
+    autoFocusOnFilteredPois();
+    
+    // Nettoyer l'URL pour éviter de réappliquer le filtre
+    const url = new URL(window.location);
+    url.searchParams.delete('filter');
+    window.history.replaceState({}, '', url);
+}
 
 /**
  * Initialise le bottom sheet expansible

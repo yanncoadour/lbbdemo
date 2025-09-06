@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logements - La Belle Bretagne</title>
+    <title>Logements en Bretagne - La Belle Bretagne</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,18 +23,90 @@
     </header>
 
     <!-- Main Content -->
-    <main class="page-main" style="padding-bottom: 100px; margin-top: 72px; position: relative; z-index: 1; width: 100%; max-width: 100vw; overflow-x: hidden;">
-        <div class="construction-message">
-            <div class="construction-icon">
-                <i class="fas fa-tools"></i>
+    <main class="logements-main">
+        <!-- Hero Section -->
+        <section class="logements-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Logements en Bretagne</h1>
+                <p class="hero-subtitle">Découvrez notre sélection d'hébergements dans les 5 départements bretons : hôtels de charme, campings familiaux, logements insolites et villas d'exception pour un séjour inoubliable</p>
             </div>
-            <h1>Page en cours de construction</h1>
-            <p>Cette section sera bientôt disponible. Revenez nous voir prochainement !</p>
-            <a href="index.html" class="btn-primary">
-                <i class="fas fa-arrow-left"></i>
-                Retour à la carte
-            </a>
-        </div>
+        </section>
+
+        <!-- Filtres -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Type de logement</label>
+                        <div class="filter-chips">
+                            <button class="filter-chip active" data-category="all">
+                                <i class="fas fa-list"></i>
+                                <span>Tous</span>
+                            </button>
+                            <button class="filter-chip" data-category="hotel">
+                                <i class="fas fa-bed"></i>
+                                <span>Hôtels</span>
+                            </button>
+                            <button class="filter-chip" data-category="camping">
+                                <i class="fas fa-campground"></i>
+                                <span>Campings</span>
+                            </button>
+                            <button class="filter-chip" data-category="villa">
+                                <i class="fas fa-house-user"></i>
+                                <span>Villas</span>
+                            </button>
+                            <button class="filter-chip" data-category="logement_insolite">
+                                <i class="fas fa-tree-city"></i>
+                                <span>Insolites</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Département</label>
+                        <select class="filter-select" id="departmentFilter">
+                            <option value="all">Tous les départements</option>
+                            <option value="Côtes-d'Armor">Côtes-d'Armor</option>
+                            <option value="Finistère">Finistère</option>
+                            <option value="Ille-et-Vilaine">Ille-et-Vilaine</option>
+                            <option value="Loire-Atlantique">Loire-Atlantique</option>
+                            <option value="Morbihan">Morbihan</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logements Grid -->
+        <section class="logements-grid-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nos logements sélectionnés</h2>
+                    <p class="section-subtitle">Une sélection d'hébergements de qualité pour votre séjour en Bretagne</p>
+                </div>
+                <div class="logements-grid" id="logementsGrid">
+                    <!-- Les logements seront générés dynamiquement -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Suggestion Section -->
+        <section class="suggestion-section">
+            <div class="container">
+                <div class="suggestion-card">
+                    <div class="suggestion-content">
+                        <h3>Vous ne trouvez pas votre bonheur ?</h3>
+                        <p>Explorez notre carte interactive pour découvrir tous les points d'intérêt de Bretagne</p>
+                        <a href="index.html?filter=logements" class="suggestion-btn">
+                            <i class="fas fa-map"></i>
+                            Voir la carte
+                        </a>
+                    </div>
+                    <div class="suggestion-visual">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Bottom Navigation -->
