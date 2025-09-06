@@ -23,18 +23,186 @@
     </header>
 
     <!-- Main Content -->
-    <main class="festivals-main" style="padding-bottom: 100px; margin-top: 72px; position: relative; z-index: 1; width: 100%; max-width: 100vw; overflow-x: hidden;">
-        <div class="construction-message">
-            <div class="construction-icon">
-                <i class="fas fa-tools"></i>
+    <main class="festivals-main">
+        <!-- Hero Section -->
+        <section class="festivals-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Festivals en Bretagne</h1>
+                <p class="hero-subtitle">Découvrez les événements culturels et musicaux qui font vibrer la Bretagne toute l'année</p>
             </div>
-            <h1>Page en cours de construction</h1>
-            <p>Cette section sera bientôt disponible. Revenez nous voir prochainement !</p>
-            <a href="index.html" class="btn-primary">
-                <i class="fas fa-arrow-left"></i>
-                Retour à la carte
-            </a>
-        </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="festivals-filters">
+            <div class="container">
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Département</label>
+                        <div class="filter-chips">
+                            <button class="filter-chip active" data-department="">
+                                <i class="fas fa-map"></i>
+                                <span>Tous</span>
+                            </button>
+                            <button class="filter-chip" data-department="22">
+                                <span>Côtes-d'Armor</span>
+                            </button>
+                            <button class="filter-chip" data-department="29">
+                                <span>Finistère</span>
+                            </button>
+                            <button class="filter-chip" data-department="35">
+                                <span>Ille-et-Vilaine</span>
+                            </button>
+                            <button class="filter-chip" data-department="44">
+                                <span>Loire-Atlantique</span>
+                            </button>
+                            <button class="filter-chip" data-department="56">
+                                <span>Morbihan</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Mois</label>
+                        <div class="filter-chips">
+                            <button class="filter-chip active" data-month="">
+                                <i class="fas fa-calendar"></i>
+                                <span>Tous</span>
+                            </button>
+                            <button class="filter-chip" data-month="1">
+                                <span>Jan</span>
+                            </button>
+                            <button class="filter-chip" data-month="2">
+                                <span>Fév</span>
+                            </button>
+                            <button class="filter-chip" data-month="3">
+                                <span>Mar</span>
+                            </button>
+                            <button class="filter-chip" data-month="4">
+                                <span>Avr</span>
+                            </button>
+                            <button class="filter-chip" data-month="5">
+                                <span>Mai</span>
+                            </button>
+                            <button class="filter-chip" data-month="6">
+                                <span>Jun</span>
+                            </button>
+                            <button class="filter-chip" data-month="7">
+                                <span>Jul</span>
+                            </button>
+                            <button class="filter-chip" data-month="8">
+                                <span>Aoû</span>
+                            </button>
+                            <button class="filter-chip" data-month="9">
+                                <span>Sep</span>
+                            </button>
+                            <button class="filter-chip" data-month="10">
+                                <span>Oct</span>
+                            </button>
+                            <button class="filter-chip" data-month="11">
+                                <span>Nov</span>
+                            </button>
+                            <button class="filter-chip" data-month="12">
+                                <span>Déc</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Festivals Section -->
+        <section class="festivals-grid-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Événements incontournables</h2>
+                    <p class="section-subtitle">Les festivals qui font rayonner la culture bretonne</p>
+                </div>
+                
+                <div id="festivals-grid" class="festivals-grid">
+                
+                <!-- Festival des Vieilles Charrues -->
+                <article class="festival-card" data-department="29" data-month="7">
+                    <div class="festival-image">
+                        <img src="assets/img/vieilles-charrues.jpg" alt="Festival des Vieilles Charrues" loading="lazy" onerror="this.src='assets/img/placeholder.jpg'">
+                        <div class="festival-badge">
+                            <i class="fas fa-music"></i>
+                            <span>Festival</span>
+                        </div>
+                        <div class="festival-status">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="festival-content">
+                        <div class="festival-meta">
+                            <div class="festival-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>17-20 Juillet 2026</span>
+                            </div>
+                            <div class="festival-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Carhaix-Plouguer (29)</span>
+                            </div>
+                        </div>
+                        
+                        <h2 class="festival-title">Festival des Vieilles Charrues</h2>
+                        
+                        <p class="festival-description">
+                            L'un des plus grands festivals de France, rendez-vous incontournable de la musique en Bretagne chaque été depuis 1992.
+                        </p>
+                        
+                        <div class="festival-stats">
+                            <div class="stat">
+                                <strong>280k</strong>
+                                <span>spectateurs</span>
+                            </div>
+                            <div class="stat">
+                                <strong>4j</strong>
+                                <span>de festival</span>
+                            </div>
+                            <div class="stat">
+                                <strong>6</strong>
+                                <span>scènes</span>
+                            </div>
+                        </div>
+                        
+                        <div class="festival-genres">
+                            <span class="genre-tag">Rock</span>
+                            <span class="genre-tag">Pop</span>
+                            <span class="genre-tag">Électro</span>
+                            <span class="genre-tag">+2</span>
+                        </div>
+                        
+                        <div class="festival-actions">
+                            <a href="poi.html?slug=festival-vieilles-charrues" class="festival-btn festival-btn-primary">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Découvrir</span>
+                            </a>
+                            <a href="https://www.vieillescharrues.asso.fr" target="_blank" rel="noopener noreferrer" class="festival-btn festival-btn-secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Site officiel</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                </div>
+
+                <!-- Prochains festivals (section d'attente) -->
+                <div class="coming-soon-section">
+                    <div class="coming-soon-content">
+                        <i class="fas fa-calendar-plus"></i>
+                        <h3>D'autres festivals arrivent bientôt !</h3>
+                        <p>Nous enrichissons régulièrement notre sélection des meilleurs événements bretons. 
+                           Festival Interceltique de Lorient, Tombées de la Nuit, Route du Rock... 
+                           Restez connectés pour découvrir toute la richesse culturelle de la Bretagne.</p>
+                        <a href="index.html" class="coming-soon-btn">
+                            <i class="fas fa-map"></i>
+                            Voir tous les événements sur la carte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Bottom Navigation -->
