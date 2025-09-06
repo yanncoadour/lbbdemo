@@ -1077,7 +1077,7 @@ function createPopupContent(poi) {
             <p class="popup-description-simple">${poi.shortDescription}</p>
             
             <div class="popup-action-simple">
-                ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec') ? `
+                ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey') ? `
                     <div class="popup-actions-grid">
                         <button class="discover-btn-simple secondary" onclick="window.location.href='poi.html?slug=${poi.slug}'">
                             Découvrir
@@ -1534,8 +1534,8 @@ function displayPoiData(poi) {
         itineraryBtn.onclick = () => openItinerary(poi.lat, poi.lng);
     }
     
-    // Boutons réserver (pour certains POIs comme la Vallée de Pratmeur et l'Agapa Hotel)
-    if ((poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec') && poi.website) {
+    // Boutons réserver (pour certains POIs comme la Vallée de Pratmeur, l'Agapa Hotel et la Villa Blockhaus)
+    if ((poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey') && poi.website) {
         const reserveTopBtn = document.getElementById('reserveTopBtn');
         const reserveBottomBtn = document.getElementById('reserveBottomBtn');
         const reserveButtonTop = document.getElementById('reserveButtonTop');
