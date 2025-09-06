@@ -4818,6 +4818,279 @@ body {
     z-index: 1;
 }
 
+/* === STYLES POUR LA PAGE INSTAGRAM === */
+
+.instagram-main {
+    margin-top: 72px;
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Section */
+.instagram-hero {
+    background: linear-gradient(135deg, #e1306c 0%, #fd1d1d 50%, #f77737 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="3" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="2" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="4" fill="white" opacity="0.1"/><circle cx="70" cy="10" r="2" fill="white" opacity="0.1"/></svg>') repeat;
+    background-size: 100px 100px;
+}
+
+.instagram-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.instagram-hero .hero-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.instagram-hero .hero-title i {
+    font-size: 2rem;
+}
+
+.instagram-hero .hero-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.instagram-follow-btn {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.instagram-follow-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Instagram Grid Section */
+.instagram-grid-section {
+    padding: 40px 0 60px;
+}
+
+.instagram-grid-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.instagram-grid-section .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.instagram-grid-section .section-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.instagram-grid-section .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* Instagram Grid */
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.instagram-post {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.instagram-post:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.post-image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.instagram-post:hover .post-image img {
+    transform: scale(1.05);
+}
+
+.post-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-post:hover .post-overlay {
+    opacity: 1;
+}
+
+.post-stats {
+    display: flex;
+    gap: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.post-stats span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.post-caption {
+    padding: 16px;
+}
+
+.post-caption p {
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Instagram Footer */
+.instagram-footer {
+    text-align: center;
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.hashtag-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.hashtag-section p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.popular-hashtags {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.hashtag {
+    background: linear-gradient(135deg, #e1306c, #fd1d1d);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.instagram-main-btn {
+    background: linear-gradient(135deg, #e1306c, #fd1d1d);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);
+}
+
+.instagram-main-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .instagram-hero .hero-title {
+        font-size: 1.8rem;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .instagram-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
+    }
+    
+    .instagram-footer {
+        padding: 30px 16px;
+    }
+    
+    .popular-hashtags {
+        gap: 6px;
+    }
+    
+    .hashtag {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
 /* Festivals Hero Section */
 .festivals-hero {
     background: var(--gradient-sunset);

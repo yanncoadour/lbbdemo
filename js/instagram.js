@@ -1,6 +1,6 @@
 /**
- * Instagram Page JavaScript
- * Gestion de l'affichage des posts Instagram et interactions
+ * INSTAGRAM - LA BELLE BRETAGNE
+ * Gestion de la galerie Instagram simplifiée
  */
 
 // Configuration
@@ -527,27 +527,44 @@ function clearInstagramCache() {
 }
 
 /**
- * Initialisation de la page
+ * Initialisation simple
  */
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Page Instagram chargée, début chargement posts...');
+    console.log('📸 Page Instagram chargée');
     
-    // Vider le cache une seule fois si nécessaire
-    if (localStorage.getItem('labellebretagne_instagram_cache')) {
-        console.log('Nettoyage du cache Instagram...');
-        localStorage.removeItem('labellebretagne_instagram_cache');
-    }
+    // Animations au scroll
+    initScrollAnimations();
     
-    loadInstagramPosts();
-    
-    // Écouter les erreurs de chargement d'images
-    document.addEventListener('error', function(e) {
-        if (e.target.tagName === 'IMG' && e.target.classList.contains('instagram-post-image')) {
-            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjZTJlOGYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiPkltYWdlIG5vbiBkaXNwb25pYmxlPC90ZXh0Pgo8L3N2Zz4K';
-        }
-    }, true);
+    // Gestionnaire de clics pour les hashtags
+    const hashtags = document.querySelectorAll('.hashtag');
+    hashtags.forEach(hashtag => {
+        hashtag.style.cursor = 'pointer';
+        hashtag.addEventListener('click', () => {
+            const tag = hashtag.textContent.replace('#', '');
+            window.open(`https://www.instagram.com/explore/tags/${tag}/`, '_blank');
+        });
+    });
 });
 
-// Exposition des fonctions globales
-window.shareInstagram = shareInstagram;
-window.openInstagramPost = openInstagramPost;
+/**
+ * Animations au scroll
+ */
+function initScrollAnimations() {
+    const posts = document.querySelectorAll('.instagram-post');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    posts.forEach((post, index) => {
+        post.style.opacity = '0';
+        post.style.transform = 'translateY(30px)';
+        post.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(post);
+    });
+}
