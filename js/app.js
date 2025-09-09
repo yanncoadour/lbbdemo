@@ -867,7 +867,7 @@ async function loadPois() {
     try {
         console.log('Chargement optimisé des POIs...');
         
-        const response = await fetch('data/pois.json?' + Date.now());
+        const response = await fetch('data/pois.json?v=' + Date.now() + '&mobile=' + Math.random());
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
@@ -1393,7 +1393,7 @@ function initPoiPage() {
  */
 async function loadPoiData(slug) {
     try {
-        const response = await fetch('data/pois.json?' + Date.now());
+        const response = await fetch('data/pois.json?v=' + Date.now() + '&mobile=' + Math.random());
         const data = await response.json();
         const poi = data.pois.find(p => p.slug === slug);
         
