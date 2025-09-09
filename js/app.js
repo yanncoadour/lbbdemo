@@ -1,6 +1,7 @@
 /**
- * La Belle Bretagne - Application JavaScript
+ * La Belle Bretagne - Application JavaScript v2025.01.09.2
  * Gestion de la carte interactive, filtres, et favoris
+ * MARKER OFFSET DISABLED - GPS EXACT COORDINATES ONLY
  */
 
 // Configuration globale
@@ -959,7 +960,7 @@ function displayMarkersInBatches(pois, batchSize = 25) {
 /**
  * Applique un décalage automatique aux marqueurs trop proches pour éviter la superposition
  */
-function applyMarkerOffset(pois, threshold = 0.005) {
+function applyMarkerOffset_DISABLED_OLD(pois, threshold = 0.005) {
     const offsetPois = pois.map(poi => ({ ...poi })); // Copie profonde
     const processed = new Set();
     
