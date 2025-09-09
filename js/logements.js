@@ -18,7 +18,7 @@ let logementsData = [];
  */
 async function loadLogementsFromPois() {
     try {
-        const response = await fetch('data/pois.json');
+        const response = await fetch('data/pois.json?' + Date.now());
         const data = await response.json();
         
         // Filtrer seulement les logements (hotel, villa, camping, logement_insolite)

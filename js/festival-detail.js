@@ -24,7 +24,7 @@ async function loadFestivalDetail() {
         showLoading(true);
         
         // Load festival data
-        const response = await fetch('data/pois.json');
+        const response = await fetch('data/pois.json?' + Date.now());
         const data = await response.json();
         
         // Find the specific festival

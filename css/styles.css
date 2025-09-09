@@ -1785,6 +1785,11 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* Ajustement spécifique pour le Grand Hôtel Barrière Dinard */
+[data-poi-slug="grand-hotel-barriere-dinard"] .poi-gallery-image:first-child img {
+    object-position: center bottom;
+}
+
 .poi-gallery-image:hover img {
     transform: scale(1.05);
 }

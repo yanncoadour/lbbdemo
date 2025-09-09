@@ -254,6 +254,29 @@
       "tags": ["5 étoiles", "spa CODAGE", "granit rose", "Le Bélouga", "baie des Sept-Îles"]
     },
     {
+      "id": "grand-hotel-barriere-dinard",
+      "title": "Grand Hôtel Barrière Dinard",
+      "slug": "grand-hotel-barriere-dinard",
+      "department": "Ille-et-Vilaine",
+      "categories": ["hotel"],
+      "lat": 48.63328033733001,
+      "lng": -2.051487762293125,
+      "shortDescription": "Grand Hôtel Barrière Dinard, hôtel 5 * Belle Époque sur la Côte d'Émeraude : spa Shiseido, restaurant George V, bar 333 Café et vue panoramique sur la baie de Saint-Malo.",
+      "description": "Le Grand Hôtel Barrière de Dinard, palace 5 * emblématique de la Côte d'Émeraude, incarne l'élégance Belle Époque et le raffinement breton. Entièrement rénové en 2019 par l'architecte Alexandre Danan, il propose des chambres et suites lumineuses, mariant confort moderne et charme historique, avec pour certaines une vue imprenable sur la baie de Saint-Malo.\n\nL'espace bien-être est centré autour du spa Shiseido, avec piscine intérieure chauffée, sauna, hammam et salle de fitness. Côté gastronomie, le restaurant George V sublime les produits de la mer et du terroir, tandis que le 333 Café offre une ambiance feutrée et conviviale. En été, les Terrasses du 333 permettent de profiter d'une restauration face à la mer dans une atmosphere décontractée.\n\nIdéal pour un séjour romantique, un week-end bien-être ou des vacances en famille, le Grand Hôtel Barrière propose également un Kid's Club et organise des activités sportives et culturelles dans un cadre naturel exceptionnel. Avec sa vue panoramique et son cadre luxueux, il reste une adresse incontournable de Dinard et de toute la Bretagne nord.",
+      "image": "assets/img/grand-hotel-barriere-dinard-1.jpg",
+      "images": [
+        "assets/img/grand-hotel-barriere-dinard-1.jpg",
+        "assets/img/grand-hotel-barriere-dinard-2.jpg",
+        "assets/img/grand-hotel-barriere-dinard-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "46 Avenue George V, 35800 Dinard",
+      "website": "https://www.booking.com/Share-RBhv1Y",
+      "phone": "02 99 88 26 26",
+      "tags": ["5 étoiles", "Belle Époque", "spa Shiseido", "George V", "333 Café", "baie Saint-Malo"]
+    },
+    {
       "id": "villa-blockhaus-audrey",
       "title": "Les villas d'Audrey : La villa blockhaus",
       "slug": "villa-blockhaus-audrey",
@@ -344,6 +367,190 @@
       "website": "https://www.nicolas-carro.com",
       "phone": "02 98 67 00 47",
       "tags": ["étoilé", "gastronomique", "baie de Morlaix", "créatif"]
+    },
+    {
+      "id": "hotel-castelbrac-dinard-v2",
+      "title": "Hôtel Castelbrac Dinard",
+      "slug": "hotel-castelbrac-dinard-v2", 
+      "department": "Ille-et-Vilaine",
+      "categories": ["hotel"],
+      "lat": 48.63453158518207,
+      "lng": -2.049043187476866,
+      "shortDescription": "Hôtel Castelbrac Dinard, hôtel-boutique 5 * Belle Époque au charme Art Déco, face à la mer : spa, piscine sur plage, restaurant étoilé \"Pourquoi Pas\", bar Aquarium & vue panoramique sur la baie.",
+      "description": "L'Hôtel Castelbrac, ancien musée d'histoire naturelle du XIXᵉ siècle, s'impose comme un refuge de luxe 5 * au style Belle Époque sur la Côte d'Émeraude à Dinard. Transformé en hôtel-boutique raffiné, il compte 23 chambres et suites, toutes tournées vers la mer, certaines avec terrasses privées, décorées avec élégance (duvets en plumes, salles de bains en marbre, produits Thémaé, machines Nespresso).\n\nL'établissement est doté d'un spa intimiste niché dans une cour intérieure hortensia, proposant massages, soins visage et corps avec produits Thémaé, hammam et solarium, incitant à la détente absolue. La piscine chauffée, ouvrant sur la baie, est parfaite pour des longueurs tranquilles ou des instants de contemplation.\n\nCôté gastronomie, le restaurant \"Pourquoi Pas\", récompensé d'une étoile Michelin, met en œuvre une cuisine moderne et raffinée issue du terroir, dans un cadre Art Déco surplombant l'océan. Pour un moment plus décontracté, le Aquarium Bar transforme l'ancienne galerie en un lieu unique pour cocktails et déjeuners légers, et le Salon Charcot offre une ambiance cosy propice au tea-time.\n\nAu-delà du service haut de gamme, Castelbrac propose des services personnalisés : service de conciergerie 24 h/24, transferts en Tesla ou yacht privé pour des excursions sur la baie, parking sécurisé, et une forte démarche écoresponsable. Cet hôtel mythique marie avec finesse l'élégance artistique, le confort moderne et l'art de vivre breton.",
+      "image": "assets/img/hotel-castelbrac-dinard-1.jpg",
+      "images": [
+        "assets/img/hotel-castelbrac-dinard-1.jpg",
+        "assets/img/hotel-castelbrac-dinard-2.jpg", 
+        "assets/img/hotel-castelbrac-dinard-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "17 Avenue George V, 35800 Dinard",
+      "website": "https://www.castelbrac.com",
+      "phone": "02 99 80 10 27",
+      "tags": ["5 étoiles", "étoilé Michelin", "spa", "boutique", "Belle Époque"]
+    },
+    {
+      "id": "balthazar-hotel-spa-rennes",
+      "title": "Balthazar Hôtel & Spa Rennes",
+      "slug": "balthazar-hotel-spa-rennes", 
+      "department": "Ille-et-Vilaine",
+      "categories": ["hotel"],
+      "lat": 48.10833311120004,
+      "lng": -1.6777293728746048,
+      "shortDescription": "Balthazar Hôtel & Spa à Rennes, boutique-hôtel 5 * MGallery au cœur de la ville : spa Nuxe élégant, restaurant moderne, bar cosy, suites design et ambiance chaleureuse.",
+      "description": "Le Balthazar Hôtel & Spa, hôtel 5 * de la collection MGallery, offre une expérience urbaine raffinée en plein cœur de Rennes, à deux pas du Parlement de Bretagne. Son décor contemporain et chaleureux allie élégance et esprit de maison familiale, avec un lobby cosy, des fauteuils design, des tapis en laine et un parquet en chêne.\n\nLes 56 chambres et suites sont décorées dans des tons beige, brun et touches d'orange, avec literie premium, machine Nespresso, écran LED et salle de bains soignée.\n\nLe spa Nuxe de 300 m² invite à la détente avec son espace sensoriel comprenant hammam, sauna, parcours aquatique (jets, nage à contre-courant) et fontaine de glace. Une salle de fitness dernier cri prolonge l'offre bien-être.\n\nCôté restauration, une table gastronomique élégante et un bar lounge convivial assurent des moments gourmands et détendus. L'établissement est également éco-certifié (Green Key), propose un parking avec service voiturier, wifi, bibliothèque, terrasse et reste adapté aux familles.",
+      "image": "assets/img/balthazar-hotel-spa-rennes-1.jpg",
+      "images": [
+        "assets/img/balthazar-hotel-spa-rennes-1.jpg",
+        "assets/img/balthazar-hotel-spa-rennes-2.jpg", 
+        "assets/img/balthazar-hotel-spa-rennes-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "Rue du Maréchal Joffre, 35000 Rennes",
+      "website": "https://www.booking.com/Share-4LF5vfm",
+      "phone": "02 99 32 32 32",
+      "tags": ["5 étoiles", "MGallery", "spa Nuxe", "boutique", "centre-ville"]
+    },
+    {
+      "id": "grand-hotel-thermes-saint-malo",
+      "title": "Grand Hôtel des Thermes Saint-Malo",
+      "slug": "grand-hotel-thermes-saint-malo", 
+      "department": "Ille-et-Vilaine",
+      "categories": ["hotel"],
+      "lat": 48.658233842330205,
+      "lng": -1.9994177649307558,
+      "shortDescription": "Grand Hôtel des Thermes Saint-Malo, palace 5 * Belle Époque en front de mer : thalasso, parcours Aquatonic, 3 restaurants vue mer, spa complet, suites élégantes face à la plage du Sillon.",
+      "description": "Le Grand Hôtel des Thermes, élégant hôtel 5 * de style Belle Époque, trône directement face à la plage du Sillon, à Saint-Malo. Datant de la fin du XIXᵉ siècle, il incarne une alliance parfaite entre histoire, architecture raffinée et confort contemporain. L'établissement compte 174 chambres et suites, toutes avec vue mer ou décor cossu, et offre un accès direct au célèbre centre de thalassothérapie \"Thermes Marins\", reconnu pour ses soins marins.\n\nLe centre de bien-être propose un parcours Aquatonic (piscine d'eau de mer chauffée avec jets massants, bains bouillonnants, contre-courants), une piscine de relaxation, sauna, hammam, et salle de fitness. Tous ces équipements réunis en font un lieu de bien-être exceptionnel.\n\nCôté gastronomie, l'hôtel possède trois restaurants (dont Le Cap Horn avec vue mer panoramique), un bar-salon face à l'océan (La Passerelle) et une terrasse ouverte en période estivale. Des services haut de gamme complètent l'offre : espace enfants, salon de coiffure, boutique, parking, accès direct à la plage, et options de stays variées (thalasso, spa, escapade gourmande).",
+      "image": "assets/img/grand-hotel-thermes-saint-malo-1.jpg",
+      "images": [
+        "assets/img/grand-hotel-thermes-saint-malo-1.jpg",
+        "assets/img/grand-hotel-thermes-saint-malo-2.jpg", 
+        "assets/img/grand-hotel-thermes-saint-malo-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "100 Boulevard Hébert, 35400 Saint-Malo",
+      "website": "https://www.booking.com/Share-6DTWIu",
+      "phone": "02 99 40 75 75",
+      "tags": ["5 étoiles", "thalasso", "Belle Époque", "front de mer", "palace"]
+    },
+    {
+      "id": "chateau-apigne-le-rheu",
+      "title": "Château d'Apigné",
+      "slug": "chateau-apigne-le-rheu", 
+      "department": "Ille-et-Vilaine",
+      "categories": ["hotel"],
+      "lat": 48.09260692182979,
+      "lng": -1.7637913107593166,
+      "shortDescription": "Château d'Apigné, hôtel-restaurant 5 * à Le Rheu (près de Rennes) : demeure romantique du XIXᵉ, restaurant gastronomique Les Tourelles, parc de 25 ha, idéal pour séjours, mariages ou événements haut de gamme.",
+      "description": "Le Château d'Apigné, luxueux hôtel 5 * et restaurant gastronomique situé à Le Rheu, à seulement 10–15 minutes de Rennes et de son aéroport, est un écrin romantique bâti au XIXᵉ siècle. Entouré d'un parc à l'anglaise de 25 hectares, ce domaine allie architecture Renaissance, atmosphère raffinée et confort contemporain.\n\nL'établissement propose 16 chambres et suites au charme romantique, certaines aménagées dans les tourelles, avec décor élégant (literie de qualité, salles de bains modernes), parfaites pour des escapades romantiques ou des séjours haut de gamme. Le restaurant Les Tourelles, dirigé par le chef Nicolas Briand, célèbre les terroirs locaux avec une cuisine moderne et inventive.\n\nLe château dispose également de salles de réunion, séminaires et réception, un salon de caractère pour mariages ou événements, et des infrastructures personnalisables pour accueillir jusqu'à 200 personnes. Sans oublier un service accueillant dans un cadre reposant, loin de l'agitation de la ville, tout en restant accessible. Le Château d'Apigné incarne l'élégance, la gastronomie et la sérénité à quelques minutes de Rennes.",
+      "image": "assets/img/chateau-apigne-le-rheu-1.jpg",
+      "images": [
+        "assets/img/chateau-apigne-le-rheu-1.jpg",
+        "assets/img/chateau-apigne-le-rheu-2.jpg", 
+        "assets/img/chateau-apigne-le-rheu-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "Le Rheu, 35650 Le Rheu",
+      "website": "https://www.booking.com/Share-KQkQ2f",
+      "phone": "02 99 14 81 16",
+      "tags": ["5 étoiles", "château", "gastronomique", "romantique", "mariage"]
+    },
+    {
+      "id": "domaine-locguenole-spa-kervignac",
+      "title": "Domaine de Locguénolé & Spa",
+      "slug": "domaine-locguenole-spa-kervignac", 
+      "department": "Morbihan",
+      "categories": ["hotel"],
+      "lat": 47.76971382535981,
+      "lng": -3.2823744290569596,
+      "shortDescription": "Domaine de Locguénolé & Spa, relais 5 * Relais & Châteaux en Bretagne sud : château et manoir sur parc boisé, spa Macha, piscines intérieure et extérieure, restaurants raffinés, cadre romantique au bord du Blavet.",
+      "description": "Au cœur d'un domaine boisée en bordure du Blavet, le Domaine de Locguénolé & Spa incarne le luxe discret à quelques minutes de Lorient. Membre de Relais & Châteaux, ce relais 5 * combine élégance historique — château, manoir, orangerie et ancien Club — et confort contemporain avec 44 chambres et suites, dont certaines offrent une vue sur la rivière ou le parc.\n\nLe Spa Macha, aménagé dans l'ancienne écurie du domaine, propose une expérience de bien-être raffinée : piscine intérieure, sauna, hammam, solarium et 6 cabines de soins, dont une suite duo, avec produits haut de gamme. Deux piscines (intérieure et extérieure), un court de tennis, des promenades dans le parc et une atmosphère paisible complètent l'offre.\n\nCôté gastronomie, savourez une cuisine inventive au restaurant L'Inattendu, étoilé Michelin, niché dans une verrière avec vue sur le domaine, ou optez pour la convivialité du bistrot La Maison Alyette. Pour la détente autour d'un verre, le bar L'Apparat propose cocktails et thés d'exception avec vue sur le parc.\n\nIdéal pour les escapades romantiques, les séjours bien-être ou les événements privés (mariages, séminaires), le Domaine de Locguénolé est un lieu d'exception alliant patrimoine, nature et art de vivre breton.",
+      "image": "assets/img/domaine-locguenole-spa-kervignac-1.jpg",
+      "images": [
+        "assets/img/domaine-locguenole-spa-kervignac-1.jpg",
+        "assets/img/domaine-locguenole-spa-kervignac-2.jpg", 
+        "assets/img/domaine-locguenole-spa-kervignac-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "Route de Port-Louis, 56700 Kervignac",
+      "website": "https://www.booking.com/Share-dJJJf5T",
+      "phone": "02 97 76 76 76",
+      "tags": ["5 étoiles", "Relais & Châteaux", "étoilé Michelin", "spa", "domaine"]
+    },
+    {
+      "id": "domaine-bretesche-golf-spa-missillac",
+      "title": "Domaine de la Bretesche Golf & Spa",
+      "slug": "domaine-bretesche-golf-spa-missillac", 
+      "department": "Loire-Atlantique",
+      "categories": ["hotel"],
+      "lat": 47.48132121583932,
+      "lng": -2.1719658040704846,
+      "shortDescription": "Domaine de la Bretesche, relais-château 5 * Golf & Spa à Missillac : château du XVe, golf 18 trous, spa Cinq Mondes, piscines intérieure et extérieure, restaurants raffinés.",
+      "description": "Le Domaine de la Bretesche, Relais & Châteaux 5 * à Missillac, entre Loire-Atlantique et Bretagne, se déploie dans un château du XVe siècle et ses dépendances, au cœur d'un domaine boisé de 200 hectares. Il réunit chambres, suites et villas de charme, un golf 18 trous mythique dessiné par Henri Cotton, un spa sensoriel Cinq Mondes sous verrière lumineuse, ainsi que piscine intérieure chauffée, piscine extérieure de saison, restaurant gastronomique Le Montaigu, et un bar cosy niché dans l'ancienne écurie.\n\nParfait pour une escapade romantique, un séjour bien-être ou un break golfique, le domaine allie élégance intemporelle, nature préservée et prestations haut de gamme. Accessible depuis Paris en seulement deux heures (TGV + voiture), il constitue un havre de sérénité unique entre luxe, patrimoine et ressourcement.",
+      "image": "assets/img/domaine-bretesche-golf-spa-missillac-1.jpg",
+      "images": [
+        "assets/img/domaine-bretesche-golf-spa-missillac-1.jpg",
+        "assets/img/domaine-bretesche-golf-spa-missillac-2.jpg", 
+        "assets/img/domaine-bretesche-golf-spa-missillac-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "Domaine de la Bretesche, 44780 Missillac",
+      "website": "https://www.booking.com/Share-z3w9AJ",
+      "phone": "02 51 76 86 96",
+      "tags": ["5 étoiles", "Relais & Châteaux", "golf", "spa", "château"]
+    },
+    {
+      "id": "miramar-la-cigale-arzon",
+      "title": "Miramar La Cigale",
+      "slug": "miramar-la-cigale-arzon", 
+      "department": "Morbihan",
+      "categories": ["hotel"],
+      "lat": 47.54143945832893,
+      "lng": -2.890189502416814,
+      "shortDescription": "Miramar La Cigale, hôtel 5 * et centre de thalasso face à l'océan sur la presqu'île de Rhuys (Arzon) : spa marin, piscine d'eau de mer chauffée, restaurants, bar lounge et vue panoramique sur le Golfe du Morbihan.",
+      "description": "Le Miramar La Cigale, hôtel 5 * situé à l'entrée du Golfe du Morbihan sur la presqu'île de Rhuys à Arzon, est un lieu d'exception associant thalassothérapie, bien-être et élégance architecturale. Dessiné telle une silhouette de paquebot blanc, l'établissement propose 113 chambres et suites lumineuses avec balcons, face à l'océan et au lac marin.\n\nLe centre de thalasso & spa offre une palette complète de soins marins (cures santé, minceur, imminentes…), un parcours marin, ainsi qu'une piscine d'eau de mer chauffée, un jacuzzi, sauna, hammam et une salle de fitness avec vue océan. Pour prolonger la détente, profitez du bar panoramique ou des restaurants raffinés sur place.\n\nNichée dans un décor naturel apaisant, cette adresse est idéale pour un séjour bien-être, une escapade romantique ou une pause revitalisante en Bretagne sud, alliant luxe moderne, soins performants et cadre marin ressourçant.",
+      "image": "assets/img/miramar-la-cigale-arzon-1.jpg",
+      "images": [
+        "assets/img/miramar-la-cigale-arzon-1.jpg",
+        "assets/img/miramar-la-cigale-arzon-2.jpg", 
+        "assets/img/miramar-la-cigale-arzon-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "5 Avenue de la Plage, 56640 Arzon",
+      "website": "https://www.booking.com/Share-X8ib1n6",
+      "phone": "02 97 53 49 00",
+      "tags": ["5 étoiles", "thalasso", "spa marin", "golfe du Morbihan", "luxe"]
+    },
+    {
+      "id": "sofitel-quiberon-thalassa-sea-spa",
+      "title": "Sofitel Quiberon Thalassa Sea & Spa",
+      "slug": "sofitel-quiberon-thalassa-sea-spa", 
+      "department": "Morbihan",
+      "categories": ["hotel"],
+      "lat": 47.47433572301734,
+      "lng": -3.1040488024200146,
+      "shortDescription": "Sofitel Quiberon Thalassa Sea & Spa, resort 5 * en baie de Quiberon (Bretagne sud) : thalasso de 6 000 m², vaste piscine d'eau de mer chauffée, spa marin, chambres contemporaines face océan.",
+      "description": "Le Sofitel Quiberon Thalassa Sea & Spa, situé à l'extrémité de la presqu'île de Quiberon en Bretagne sud, est un resort 5 * labellisé Green Key, dédié au bien-être et à la thalassothérapie. Son institut de soins marins – le plus vaste centre Thalassa Sea & Spa – s'étend sur 6 000 m² et propose des soins avec des marques prestigieuses comme Algologie et Swissline, dans un décor baigné de lumière, face à l'océan.\n\nAu cœur de l'établissement se trouve une grande piscine d'eau de mer chauffée (plus de 25 m), combinée à un parcours hydro-thérapeutique complet avec jets massants, jacuzzi extérieur, sauna et hammam pour une expérience sensorielle inoubliable.\n\nLes chambres et suites, modernes et élégantes, offrent une vue apaisante sur l'océan et sont parfaitement conçues pour une détente optimale. Côté restauration, savoure une cuisine raffinée inspirée des produits locaux au restaurant La Presqu'île, ou profite d'un moment convivial au Blue Bar, tous deux dotés de panoramas marins exceptionnels.\n\nQue ce soit pour un séjour bien-être, une parenthèse zen en bord de mer ou une escapade gourmande en Bretagne, le Sofitel Quiberon Thalassa Sea & Spa combine luxe, soins marins haut de gamme et nature préservée pour une évasion incomparable.",
+      "image": "assets/img/sofitel-quiberon-thalassa-sea-spa-1.jpg",
+      "images": [
+        "assets/img/sofitel-quiberon-thalassa-sea-spa-1.jpg",
+        "assets/img/sofitel-quiberon-thalassa-sea-spa-2.jpg", 
+        "assets/img/sofitel-quiberon-thalassa-sea-spa-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "Pointe de Goulvars, 56170 Quiberon",
+      "website": "https://www.booking.com/Share-0h3TEdx",
+      "phone": "02 97 50 20 00",
+      "tags": ["5 étoiles", "Sofitel", "thalasso", "Green Key", "resort"]
     }
   ]
 }

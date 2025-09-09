@@ -867,7 +867,7 @@ async function loadPois() {
     try {
         console.log('Chargement optimisé des POIs...');
         
-        const response = await fetch('data/pois.json');
+        const response = await fetch('data/pois.json?' + Date.now());
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
@@ -914,11 +914,8 @@ function displayPois() {
         try {
             markersGroup.clearLayers();
             
-            // Appliquer le décalage automatique pour les marqueurs proches
-            const offsetPois = applyMarkerOffset(filteredPois);
-            
             // Afficher les marqueurs par petits groupes pour éviter le blocage
-            displayMarkersInBatches(offsetPois);
+            displayMarkersInBatches(filteredPois);
             
             // Afficher dans les cartes (toujours tous les POIs filtrés)
             displayPoiCards();
@@ -1077,7 +1074,7 @@ function createPopupContent(poi) {
             <p class="popup-description-simple">${poi.shortDescription}</p>
             
             <div class="popup-action-simple">
-                ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey') ? `
+                ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v2' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa') ? `
                     <div class="popup-actions-grid">
                         <button class="discover-btn-simple secondary" onclick="window.location.href='poi.html?slug=${poi.slug}'">
                             Découvrir
@@ -1396,7 +1393,7 @@ function initPoiPage() {
  */
 async function loadPoiData(slug) {
     try {
-        const response = await fetch('data/pois.json');
+        const response = await fetch('data/pois.json?' + Date.now());
         const data = await response.json();
         const poi = data.pois.find(p => p.slug === slug);
         
@@ -1534,8 +1531,8 @@ function displayPoiData(poi) {
         itineraryBtn.onclick = () => openItinerary(poi.lat, poi.lng);
     }
     
-    // Boutons réserver (pour certains POIs comme la Vallée de Pratmeur, l'Agapa Hotel et la Villa Blockhaus)
-    if ((poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey') && poi.website) {
+    // Boutons réserver (pour certains POIs comme la Vallée de Pratmeur, l'Agapa Hotel, la Villa Blockhaus, le Grand Hôtel Barrière, le Camping Sandaya et l'Hôtel Castelbrac)
+    if ((poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v2' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa') && poi.website) {
         const reserveTopBtn = document.getElementById('reserveTopBtn');
         const reserveBottomBtn = document.getElementById('reserveBottomBtn');
         const reserveButtonTop = document.getElementById('reserveButtonTop');
@@ -1576,8 +1573,9 @@ function displayPoiGallery(poi) {
         return;
     }
     
-    // Afficher la section
+    // Afficher la section et ajouter l'attribut data-poi-slug pour le CSS
     gallerySection.style.display = 'block';
+    gallerySection.setAttribute('data-poi-slug', poi.slug);
     
     // Générer les images (toutes les images y compris la première)
     const additionalImages = poi.images;
