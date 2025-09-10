@@ -44,10 +44,18 @@
     --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.16);
 }
 
+/* ===== POI CONTENT WRAPPER ===== */
+.poi-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* ===== NEARBY POINTS OF INTEREST CAROUSEL ===== */
 .nearby-section {
     background: var(--surface);
     margin: 1.5rem 0;
+    padding: 16px 0;
 }
 
 .nearby-card {
@@ -239,6 +247,10 @@
 .category-restaurant { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
 
 @media (max-width: 768px) {
+    .poi-content-wrapper {
+        padding: 0 16px;
+    }
+    
     .nearby-poi-card {
         flex: 0 0 260px;
     }
