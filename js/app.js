@@ -1555,6 +1555,9 @@ function displayPoiData(poi) {
     // Galerie d'images supplémentaires
     displayPoiGallery(poi);
     
+    // Carrousel de lieux proches
+    displayNearbyPois(poi);
+    
     // Bouton partage
     initShareButton(poi);
 }
@@ -2338,6 +2341,142 @@ function initGalleryEvents() {
     gallery.addEventListener('mouseleave', () => {
         setTimeout(() => startGalleryAutoplay(), 500);
     });
+}
+
+/**
+ * Calcule la distance entre deux points GPS en kilomètres (formule de Haversine)
+ */
+function calculateDistance(lat1, lng1, lat2, lng2) {
+    const R = 6371; // Rayon de la Terre en km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLng/2) * Math.sin(dLng/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+}
+
+/**
+ * Affiche les points d'intérêt à proximité du POI actuel
+ */
+async function displayNearbyPois(currentPoi) {
+    const nearbySection = document.getElementById('nearbySection');
+    const nearbyCarousel = document.getElementById('nearbyCarousel');
+    
+    if (!nearbySection || !nearbyCarousel) return;
+    
+    try {
+        // Charger tous les POIs si pas déjà fait
+        if (allPois.length === 0) {
+            const response = await fetch('data/pois.json');
+            const data = await response.json();
+            allPois = data.pois || [];
+        }
+        
+        // Filtrer et trier les POIs par distance (exclure le POI actuel)
+        const nearbyPois = allPois
+            .filter(poi => poi.id !== currentPoi.id)
+            .map(poi => ({
+                ...poi,
+                distance: calculateDistance(currentPoi.lat, currentPoi.lng, poi.lat, poi.lng)
+            }))
+            .filter(poi => poi.distance <= 50) // Dans un rayon de 50km
+            .sort((a, b) => a.distance - b.distance)
+            .slice(0, 8); // Limiter à 8 POIs maximum
+            
+        if (nearbyPois.length === 0) {
+            nearbySection.style.display = 'none';
+            return;
+        }
+        
+        // Générer le HTML des cartes
+        nearbyCarousel.innerHTML = nearbyPois.map(poi => createNearbyPoiCard(poi)).join('');
+        
+        // Afficher la section
+        nearbySection.style.display = 'block';
+        
+        // Initialiser les contrôles du carrousel
+        initNearbyCarousel();
+        
+    } catch (error) {
+        console.error('Erreur lors du chargement des POIs proches:', error);
+        nearbySection.style.display = 'none';
+    }
+}
+
+/**
+ * Crée une carte pour un POI proche
+ */
+function createNearbyPoiCard(poi) {
+    const categoryName = getCategoryName(poi.categories[0]);
+    const distanceText = poi.distance < 1 ? 
+        `${Math.round(poi.distance * 1000)}m` : 
+        `${Math.round(poi.distance)}km`;
+    
+    return `
+        <div class="nearby-poi-card" onclick="window.location.href='poi.html?slug=${poi.slug}'">
+            <img src="${poi.image}" alt="${poi.title}" class="nearby-poi-image" 
+                 onerror="this.src='assets/img/placeholder.jpg'">
+            <div class="nearby-poi-content">
+                <div class="nearby-poi-meta">
+                    <span class="nearby-poi-department">${poi.department}</span>
+                    <span class="nearby-poi-distance">${distanceText}</span>
+                </div>
+                <span class="nearby-poi-category category-${poi.categories[0]}">
+                    <i class="${getPoiIcon(poi.categories[0])}"></i>
+                    ${categoryName}
+                </span>
+                <h3 class="nearby-poi-title">${poi.title}</h3>
+                <p class="nearby-poi-description">${poi.shortDescription}</p>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Initialise les contrôles du carrousel de POIs proches
+ */
+function initNearbyCarousel() {
+    const carousel = document.getElementById('nearbyCarousel');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    
+    if (!carousel || !prevBtn || !nextBtn) return;
+    
+    const cardWidth = 280 + 16; // largeur carte + gap
+    let currentPosition = 0;
+    
+    const updateButtons = () => {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        prevBtn.disabled = currentPosition <= 0;
+        nextBtn.disabled = currentPosition >= maxScroll;
+    };
+    
+    prevBtn.addEventListener('click', () => {
+        currentPosition = Math.max(0, currentPosition - cardWidth * 2);
+        carousel.scrollTo({
+            left: currentPosition,
+            behavior: 'smooth'
+        });
+        setTimeout(updateButtons, 300);
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        currentPosition = Math.min(maxScroll, currentPosition + cardWidth * 2);
+        carousel.scrollTo({
+            left: currentPosition,
+            behavior: 'smooth'
+        });
+        setTimeout(updateButtons, 300);
+    });
+    
+    // Mise à jour initiale des boutons
+    updateButtons();
+    
+    // Mise à jour lors du redimensionnement
+    window.addEventListener('resize', updateButtons);
 }
 
 // Exposer les fonctions globalement

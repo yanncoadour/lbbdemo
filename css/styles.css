@@ -44,6 +44,220 @@
     --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.16);
 }
 
+/* ===== NEARBY POINTS OF INTEREST CAROUSEL ===== */
+.nearby-section {
+    background: var(--surface);
+    margin: 1.5rem 0;
+}
+
+.nearby-card {
+    background: var(--surface-card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+}
+
+.nearby-section-title {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.nearby-section-title i {
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+.nearby-subtitle {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.nearby-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.nearby-carousel-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 0.25rem 0 1rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.nearby-carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.nearby-poi-card {
+    flex: 0 0 280px;
+    background: var(--surface-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nearby-poi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.nearby-poi-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background: var(--surface-elevated);
+}
+
+.nearby-poi-content {
+    padding: 1rem;
+}
+
+.nearby-poi-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.nearby-poi-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.nearby-poi-department {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nearby-poi-distance {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 500;
+    background: var(--secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+}
+
+.nearby-poi-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.nearby-poi-description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--surface-card);
+    box-shadow: var(--shadow-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.carousel-btn:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+    left: -20px;
+}
+
+.carousel-next {
+    right: -20px;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Category colors for nearby POI cards */
+.category-monument { background: rgba(217, 119, 6, 0.1); color: #d97706; }
+.category-musee { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+.category-point_de_vue { background: rgba(5, 150, 105, 0.1); color: #059669; }
+.category-plage { background: rgba(6, 182, 212, 0.1); color: #06b6d4; }
+.category-village { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.category-parc { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+.category-randonnee { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.category-chateau { background: rgba(146, 64, 14, 0.1); color: #92400e; }
+.category-festival { background: rgba(249, 115, 22, 0.1); color: #f97316; }
+.category-loisirs { background: rgba(99, 102, 241, 0.1); color: #6366f1; }
+.category-hotel { background: rgba(100, 116, 139, 0.1); color: #64748b; }
+.category-villa { background: rgba(148, 163, 184, 0.1); color: #94a3b8; }
+.category-logement_insolite { background: rgba(236, 72, 153, 0.1); color: #ec4899; }
+.category-camping { background: rgba(52, 211, 153, 0.1); color: #34d399; }
+.category-restaurant { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+@media (max-width: 768px) {
+    .nearby-poi-card {
+        flex: 0 0 260px;
+    }
+    
+    .carousel-prev {
+        left: -15px;
+    }
+    
+    .carousel-next {
+        right: -15px;
+    }
+    
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.8rem;
+    }
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background: var(--surface-elevated);
