@@ -485,24 +485,24 @@
     },
     {
       "id": "domaine-bretesche-golf-spa-missillac",
-      "title": "Domaine de la Bretesche Golf & Spa",
+      "title": "Hôtel & Spa de La Bretesche",
       "slug": "domaine-bretesche-golf-spa-missillac", 
       "department": "Loire-Atlantique",
       "categories": ["hotel"],
-      "lat": 47.48132121583932,
-      "lng": -2.1719658040704846,
-      "shortDescription": "Domaine de la Bretesche, relais-château 5 * Golf & Spa à Missillac : château du XVe, golf 18 trous, spa Cinq Mondes, piscines intérieure et extérieure, restaurants raffinés.",
-      "description": "Le Domaine de la Bretesche, Relais & Châteaux 5 * à Missillac, entre Loire-Atlantique et Bretagne, se déploie dans un château du XVe siècle et ses dépendances, au cœur d'un domaine boisé de 200 hectares. Il réunit chambres, suites et villas de charme, un golf 18 trous mythique dessiné par Henri Cotton, un spa sensoriel Cinq Mondes sous verrière lumineuse, ainsi que piscine intérieure chauffée, piscine extérieure de saison, restaurant gastronomique Le Montaigu, et un bar cosy niché dans l'ancienne écurie.\n\nParfait pour une escapade romantique, un séjour bien-être ou un break golfique, le domaine allie élégance intemporelle, nature préservée et prestations haut de gamme. Accessible depuis Paris en seulement deux heures (TGV + voiture), il constitue un havre de sérénité unique entre luxe, patrimoine et ressourcement.",
-      "image": "assets/img/domaine-bretesche-golf-spa-missillac-1.jpg",
+      "lat": 47.4813072001117,
+      "lng": -2.17198564301856,
+      "shortDescription": "Hôtel & Spa de La Bretesche, relais-château 5 * à Missillac : charme historique, spa Cinq Mondes sous verrière, golf 18 trous, piscines intérieure et extérieure, gastronomie raffinée au cœur d'un parc majestueux.",
+      "description": "Au cœur de la nature et d'un parc boisé de 200 hectares, l'Hôtel & Spa de La Bretesche, relais-château 5 * à Missillac, incarne une parenthèse de luxe et de sérénité. Installé dans les dépendances d'un château médiéval inscrit, l'établissement offre chambres, suites et villas de caractère, décorées avec charme et élégance, face à un étang paisible ou la cour intérieure.\n\nAmateur de sport ? Le domaine abrite un golf 18 trous d'exception niché entre arbres centenaires et vallons verdoyants. Pour un moment de bien-être absolu, le spa de la Cour Carrée, baigné par une verrière lumineuse, propose des soins sensoriels Cinq Mondes, une piscine intérieure chauffée ouverte toute l'année, ainsi qu'un jardin d'hiver pour se détendre après un massage.\n\nCôté gourmandise, laisse-toi séduire par la table gastronomique Le Montaigu (vue lac), ou privilégie la convivialité du bistrot Le Club, tandis que le Bar des Écuries, installé dans les anciennes écuries, invite à des instants feutrés autour d'un verre.\n\nRéputé pour son cadre romantique et ses prestations haut de gamme (club enfants, prêt de vélos, tennis, spa, restaurant), l'hôtel est un lieu incontournable pour une escapade en duo, un séjour ressourçant ou un événement d'exception entre patrimoine, luxe et nature en Bretagne sud.",
+      "image": "assets/img/hotel-spa-bretesche-missillac-1.jpg",
       "images": [
-        "assets/img/domaine-bretesche-golf-spa-missillac-1.jpg",
-        "assets/img/domaine-bretesche-golf-spa-missillac-2.jpg", 
-        "assets/img/domaine-bretesche-golf-spa-missillac-3.jpg"
+        "assets/img/hotel-spa-bretesche-missillac-1.jpg",
+        "assets/img/hotel-spa-bretesche-missillac-2.jpg", 
+        "assets/img/hotel-spa-bretesche-missillac-3.jpg"
       ],
       "tested": true,
       "coupDeCoeur": true,
       "address": "Domaine de la Bretesche, 44780 Missillac",
-      "website": "https://www.booking.com/Share-z3w9AJ",
+      "website": "https://www.booking.com/Share-pSKrW6R",
       "phone": "02 51 76 86 96",
       "tags": ["5 étoiles", "Relais & Châteaux", "golf", "spa", "château"]
     },
@@ -551,6 +551,121 @@
       "website": "https://www.booking.com/Share-0h3TEdx",
       "phone": "02 97 50 20 00",
       "tags": ["5 étoiles", "Sofitel", "thalasso", "Green Key", "resort"]
+    },
+    {
+      "id": "hotel-barriere-hermitage-la-baule",
+      "title": "Hôtel Barrière L'Hermitage",
+      "slug": "hotel-barriere-hermitage-la-baule", 
+      "department": "Loire-Atlantique",
+      "categories": ["hotel"],
+      "lat": 47.280242728328375,
+      "lng": -2.410144131265744,
+      "shortDescription": "Hôtel Barrière L'Hermitage, palace 5 * Belle Époque face à la plage de La Baule : spa Augustinus Bader, piscines d'eau de mer intérieure et extérieure, restaurants Ciro's, Le Pavillon, Les Évens & cadre historique raffiné.",
+      "description": "L'Hôtel Barrière L'Hermitage, palace 5 * emblématique de style anglo-normand construit en 1926, domine la plage mythique de La Baule. Réputé pour son élégance intemporelle, il propose 207 chambres et suites, dont certaines offrent vue mer, terrasses ou balcons, décorées avec raffinement.\n\nL'établissement abrite un luxueux spa Augustinus Bader, avec piscines d'eau de mer intérieure et extérieure, sauna, hammam et salle de fitness, pour une expérience bien-être complète.\n\nCôté gastronomie, trois adresses exclusives s'imposent : Ciro's La Baule, restaurant de fruits de mer au design yachting, Le Pavillon, cuisine raffinée dans un cadre élégant avec terrasse, et Les Évens, bar lounge cosy parfait pour des cocktails face à l'océan.\n\nParfait pour les séjours romantiques, familles ou séminaires, L'Hermitage offre également de nombreuses activités (golf, tennis, équitation…) et clubs enfants, encapsulant le luxe, l'histoire et l'art de vivre baulois dans un cadre d'exception.",
+      "image": "assets/img/hotel-barriere-hermitage-la-baule-1.jpg",
+      "images": [
+        "assets/img/hotel-barriere-hermitage-la-baule-1.jpg",
+        "assets/img/hotel-barriere-hermitage-la-baule-2.jpg", 
+        "assets/img/hotel-barriere-hermitage-la-baule-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "5 Esplanade François André, 44500 La Baule-Escoublac",
+      "website": "https://www.booking.com/Share-4wcqLd3",
+      "phone": "02 40 11 46 46",
+      "tags": ["5 étoiles", "palace", "Barrière", "Belle Époque", "front de mer"]
+    },
+    {
+      "id": "hotel-barriere-royal-thalasso-la-baule",
+      "title": "Hôtel Barrière Le Royal – Royal-Thalasso",
+      "slug": "hotel-barriere-royal-thalasso-la-baule",
+      "department": "Loire-Atlantique",
+      "categories": ["hotel"],
+      "lat": 47.28176067327236,
+      "lng": -2.405041259521583,
+      "shortDescription": "Hôtel Barrière Le Royal – Royal-Thalasso, palace 5 * Belle Époque à La Baule : thalasso & spa Diane Barrière, piscines d'eau de mer intérieure et extérieure, restaurants Fouquet's & Le Ponton, cadre art déco face à l'océan.",
+      "description": "Le Hôtel Barrière Le Royal – Royal-Thalasso est un palace 5 * emblématique de style néo-roman et Belle Époque, situé en front de mer à La Baule-Escoublac, face à la baie du Pouliguen. Construit au début du XXᵉ siècle et rénové pour moderniser ses espaces tout en préservant son charme historique, il propose 87 chambres raffinées, dont certaines avec vues mer ou jardins, et des suites spacieuses.\n\nL'établissement accueille le prestigieux Thalasso & Spa Diane Barrière, offrant plus de 3 000 m² de soins marins : spa, massages, hydrothérapie, sauna, hammam, parcours marin, soins visage & corps, dans une ambiance zen et élégante.\n\nCôté gastronomie, deux restaurants de renom nourrissent la cuisine du lieu :\n\nFouquet's La Baule, brasserie chic revisitant les classiques,\n\nLe Ponton, cuisine de plage décontractée avec vue sur l'océan.\n\nLe Royal complète son offre avec un bar élégant ouvrant sur la mer, des espaces bien-être, une piscine intérieure, une piscine extérieure saisonnière, un club pour enfants et des installations sportives. Parfait pour une parenthèse bien-être, un séjour gourmand ou une escapade familiale, l'hôtel incarne l'art de vivre balnéaire dans un cadre luxueux et emblématique.",
+      "image": "assets/img/hotel-barriere-royal-thalasso-la-baule-1.jpg",
+      "images": [
+        "assets/img/hotel-barriere-royal-thalasso-la-baule-1.jpg",
+        "assets/img/hotel-barriere-royal-thalasso-la-baule-2.jpg",
+        "assets/img/hotel-barriere-royal-thalasso-la-baule-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "6 Avenue Pierre Loti, 44500 La Baule-Escoublac",
+      "website": "https://www.booking.com/Share-n54q91N",
+      "phone": "02 40 11 48 48",
+      "tags": ["5 étoiles", "palace", "Barrière", "thalasso", "Belle Époque", "Fouquet's"]
+    },
+    {
+      "id": "hotel-castel-marie-louise-la-baule",
+      "title": "Hôtel Le Castel Marie-Louise",
+      "slug": "hotel-castel-marie-louise-la-baule",
+      "department": "Loire-Atlantique",
+      "categories": ["hotel"],
+      "lat": 47.28079792850155,
+      "lng": -2.4079077816832286,
+      "shortDescription": "Hôtel 5 * Le Castel Marie-Louise à La Baule, manoir Belle Époque Relais & Châteaux : 31 chambres signées Jacques Garcia, restaurant gastronomique, bar raffiné en cœur de parc face à l'océan.",
+      "description": "Le Hôtel Le Castel Marie-Louise, élégant manoir Belle Époque appartenant au réseau Relais & Châteaux, est une véritable adresse de charme à La Baule. Membre du prestigieux groupe Barrière, il allie raffinement classique et confort contemporain. Redécoré avec délicatesse par Jacques Garcia, ses 31 chambres et suites offrent des vues sur le parc boisé ou la mer, et dégagent une atmosphère romantique propice à la sérénité.\n\nAu cœur de la propriété, le restaurant gastronomique \"La Table du Castel\", réalisé dans un décor enveloppant, propose une cuisine inventive inspirée des produits régionaux, à savourer en terrasse dans un cadre verdoyant. Pour une pause conviviale, le bar du Castel propose cocktails, thés ou cognacs dans une ambiance chaleureuse et élégante.\n\nCet hôtel est également un point de départ idéal pour profiter des plages de La Baule, des balades à cheval ou à vélo, et des activités de bien-être (thalasso, golf, tennis…) à proximité. Entre parc et océan, Le Castel Marie-Louise incarne un véritable havre de paix esthétique et romantique sur la Côte d'Amour.",
+      "image": "assets/img/hotel-castel-marie-louise-la-baule-1.jpg",
+      "images": [
+        "assets/img/hotel-castel-marie-louise-la-baule-1.jpg",
+        "assets/img/hotel-castel-marie-louise-la-baule-2.jpg",
+        "assets/img/hotel-castel-marie-louise-la-baule-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "1 Avenue Andrieu, 44500 La Baule-Escoublac",
+      "website": "https://www.booking.com/Share-aoHaZHF",
+      "phone": "02 40 11 48 38",
+      "tags": ["5 étoiles", "Relais & Châteaux", "Barrière", "Jacques Garcia", "manoir", "Belle Époque"]
+    },
+    {
+      "id": "chateau-maubreuil-carquefou",
+      "title": "Château de Maubreuil",
+      "slug": "chateau-maubreuil-carquefou",
+      "department": "Loire-Atlantique",
+      "categories": ["hotel"],
+      "lat": 47.297309152957105,
+      "lng": -1.4652549780520787,
+      "shortDescription": "Château de Maubreuil, hôtel-boutique 5 * Relais & Châteaux à Carquefou : château d'exception aux suites thématiques, spa Cinq Mondes, deux piscines, restaurant raffiné, entre Nantes et nature.",
+      "description": "Le Château de Maubreuil, unique hôtel 5 * en périphérie de Nantes et membre prestigieux des Small Luxury Hotels of the World, allie élégance architecturale et destinations du monde à travers ses chambres thématiques (Japon, Venise…). Il offre un cadre luxueux et apaisant, idéal pour une escapade raffinée en Loire-Atlantique.\n\nLe domaine met à disposition deux piscines, dont une extérieure saisonnière, ainsi qu'un restaurant gastronomique et un bar-cocktail, parfaits pour prolonger les moments de détente.\n\nLe spa Le Maubreuil, niché dans les voûtes en pierre du château, est en partenariat avec Cinq Mondes. Il propose des soins holistiques raffinés dans une ambiance feutrée, avec cabines de soins doubles et lounge cosy.\n\nParfaitement situé à quelques kilomètres du centre de Nantes, avec parking gratuit et Wi-Fi, cet hôtel est une adresse idéale pour les séjours romantiques, les événements privés ou les pauses bien-être, dans un écrin discret et sensoriel.",
+      "image": "assets/img/chateau-maubreuil-carquefou-1.jpg",
+      "images": [
+        "assets/img/chateau-maubreuil-carquefou-1.jpg",
+        "assets/img/chateau-maubreuil-carquefou-2.jpg",
+        "assets/img/chateau-maubreuil-carquefou-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "1 Rue de Maubreuil, 44470 Carquefou",
+      "website": "https://www.booking.com/Share-iymXgHh",
+      "phone": "02 40 25 07 00",
+      "tags": ["5 étoiles", "Relais & Châteaux", "château", "spa Cinq Mondes", "suites thématiques", "Small Luxury Hotels"]
+    },
+    {
+      "id": "hotel-de-carantec",
+      "title": "Hôtel de Carantec",
+      "slug": "hotel-de-carantec",
+      "department": "Finistère",
+      "categories": ["hotel"],
+      "lat": 48.67070238298057,
+      "lng": -3.9127049347136573,
+      "shortDescription": "Hôtel de Carantec, hôtel 4 * Logis & restaurant étoilé à Carantec : vue imprenable sur la baie de Morlaix, jardin, bibliothèque, bar cosy, parking pratique, ambiance chaleureuse et raffinée.",
+      "description": "Au cœur de Carantec, face à la baie de Morlaix, l'Hôtel de Carantec (Logis, parfois classé 4 étoiles) incarne l'élégance sereine d'une station balnéaire historique. Ses douze chambres et suites raffinées, certaines dotées de terrasses ou balcons, offrent toutes une vue époustouflante sur l'océan, véritables havres de calme & bien-être.\n\nAu sein de l'hôtel, un jardin paisible, une bibliothèque et un bar accueillant, alliés au restaurant étoilé du chef Nicolas Carro, créent une atmosphère conviviale et gourmande. Les services pratiques—Wi-Fi, parking gratuit, accès PMR, petit-déjeuner—assurent un séjour confortable et sans souci.\n\nQue ce soit pour un séjour romantique, une escale gastronomique ou une pause ressourçante, l'Hôtel de Carantec vous plonge dans une parenthèse bretonne authentique, entre nature, raffinement et plaisir des sens.",
+      "image": "assets/img/hotel-de-carantec-1.jpg",
+      "images": [
+        "assets/img/hotel-de-carantec-1.jpg",
+        "assets/img/hotel-de-carantec-2.jpg",
+        "assets/img/hotel-de-carantec-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "29660 Carantec",
+      "website": "https://www.booking.com/Share-phTGJd",
+      "phone": "02 98 67 00 47",
+      "tags": ["4 étoiles", "Logis", "restaurant étoilé", "baie de Morlaix", "jardin"]
     }
   ]
 }
