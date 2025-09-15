@@ -18,15 +18,15 @@ let logementsData = [];
  */
 async function loadLogementsFromPois() {
     try {
-        const response = await fetch('data/pois.json?' + Date.now());
+        const response = await fetch(`data/pois.json?${Date.now()}`);
         const data = await response.json();
-        
+
         // Filtrer seulement les logements (hotel, villa, camping, logement_insolite)
         const logementCategories = ['hotel', 'villa', 'camping', 'logement_insolite'];
-        const logements = data.pois.filter(poi => 
+        const logements = data.pois.filter(poi =>
             poi.categories && poi.categories.some(cat => logementCategories.includes(cat))
         );
-        
+
         // Adapter les données au format attendu par la page logements
         logementsData = logements.map(poi => ({
             id: poi.id,
@@ -44,8 +44,7 @@ async function loadLogementsFromPois() {
             coupDeCoeur: poi.coupDeCoeur || false,
             tested: poi.tested || false
         }));
-        
-        console.log(`✅ ${logementsData.length} logements chargés depuis pois.json`);
+
         return logementsData;
     } catch (error) {
         console.error('❌ Erreur lors du chargement des logements:', error);
@@ -72,18 +71,18 @@ let filteredLogements = [...logementsData];
 function updateResultsHeader(category, count) {
     const resultsTitle = document.getElementById('resultsTitle');
     const resultsCount = document.getElementById('resultsCount');
-    
+
     const titles = {
         'all': 'Tous nos hébergements',
         'villa': 'Villas de charme',
         'hotel': 'Hôtels 4-5 étoiles',
         'insolite': 'Logements insolites'
     };
-    
+
     if (resultsTitle) {
         resultsTitle.textContent = titles[category] || 'Hébergements';
     }
-    
+
     if (resultsCount) {
         const logementText = count <= 1 ? 'hébergement trouvé' : 'hébergements trouvés';
         resultsCount.textContent = `${count} ${logementText}`;
@@ -100,16 +99,16 @@ function generateLogementCard(logement) {
         .slice(0, 4)
         .map(feature => `<span class="feature-tag">${feature}</span>`)
         .join('');
-    
+
     const categoryInfo = {
         'villa': { icon: 'fas fa-house-user', label: 'Villa' },
         'hotel': { icon: 'fas fa-bed', label: 'Hôtel' },
         'camping': { icon: 'fas fa-campground', label: 'Camping' },
         'logement_insolite': { icon: 'fas fa-tree-city', label: 'Insolite' }
     };
-    
+
     const category = categoryInfo[logement.category] || { icon: 'fas fa-home', label: 'Logement' };
-    
+
     return `
         <div class="logement-card" data-category="${logement.category}">
             <div class="logement-image">
@@ -174,11 +173,13 @@ function getSlugFromId(id) {
  */
 function displayLogements(logements) {
     const grid = document.getElementById('logementsGrid');
-    
-    if (!grid) return;
-    
+
+    if (!grid) {
+        return;
+    }
+
     if (logements.length === 0) {
-        grid.innerHTML = `
+        const noResultsHTML = `
             <div class="no-results">
                 <div class="no-results-icon">
                     <i class="fas fa-search"></i>
@@ -191,11 +192,23 @@ function displayLogements(logements) {
                 </button>
             </div>
         `;
+
+        if (window.Security && window.Security.safeSetInnerHTML) {
+            window.Security.safeSetInnerHTML(grid, noResultsHTML);
+        } else {
+            grid.innerHTML = noResultsHTML;
+        }
         return;
     }
-    
-    grid.innerHTML = logements.map(logement => generateLogementCard(logement)).join('');
-    
+
+    const logementsHTML = logements.map(logement => generateLogementCard(logement)).join('');
+
+    if (window.Security && window.Security.safeSetInnerHTML) {
+        window.Security.safeSetInnerHTML(grid, logementsHTML);
+    } else {
+        grid.innerHTML = logementsHTML;
+    }
+
     // Attacher les event listeners pour sauvegarder l'état avant de partir
     attachDiscoverLinkListeners();
 }
@@ -208,7 +221,6 @@ function attachDiscoverLinkListeners() {
         link.addEventListener('click', (e) => {
             // Sauvegarder l'état avant de naviguer vers la fiche
             saveFiltersState();
-            console.log('🔗 Navigation vers fiche POI, état sauvegardé');
         });
     });
 }
@@ -223,20 +235,20 @@ function attachDiscoverLinkListeners() {
  */
 function filterByCategory(category) {
     currentFilter = category;
-    
+
     // Mettre à jour les boutons actifs
     document.querySelectorAll('.filter-chip').forEach(btn => {
         btn.classList.remove('active');
     });
-    
+
     const activeButton = document.querySelector(`[data-category="${category}"]`);
     if (activeButton) {
         activeButton.classList.add('active');
     }
-    
+
     // Appliquer tous les filtres
     applyFilters();
-    
+
     // Sauvegarder l'état des filtres
     saveFiltersState();
 }
@@ -247,30 +259,29 @@ function filterByCategory(category) {
 function applyFilters() {
     const departmentFilter = document.getElementById('departmentFilter');
     const selectedDepartment = departmentFilter ? departmentFilter.value : 'all';
-    
+
     // Filtrer par catégorie
     let filtered = [...logementsData];
     if (currentFilter !== 'all') {
         filtered = filtered.filter(logement => logement.category === currentFilter);
     }
-    
+
     // Filtrer par département
     if (selectedDepartment !== 'all') {
-        filtered = filtered.filter(logement => 
+        filtered = filtered.filter(logement =>
             logement.department === selectedDepartment
         );
     }
-    
+
     filteredLogements = filtered;
-    
+
     // Mettre à jour l'affichage
     updateResultsHeader(currentFilter, filteredLogements.length);
     displayLogements(filteredLogements);
-    
+
     // Sauvegarder l'état des filtres
     saveFiltersState();
-    
-    console.log(`🏠 Filtres appliqués: ${currentFilter} + ${selectedDepartment} (${filteredLogements.length} résultats)`);
+
 }
 
 /**
@@ -282,7 +293,7 @@ function resetFilters() {
     if (departmentFilter) {
         departmentFilter.value = 'all';
     }
-    
+
     filterByCategory('all');
 }
 
@@ -296,16 +307,15 @@ function resetFilters() {
 function saveFiltersState() {
     const departmentFilter = document.getElementById('departmentFilter');
     const selectedDepartment = departmentFilter ? departmentFilter.value : 'all';
-    
+
     const state = {
         categoryFilter: currentFilter,
         departmentFilter: selectedDepartment,
         scrollPosition: window.scrollY,
         timestamp: Date.now()
     };
-    
+
     sessionStorage.setItem('logementsFiltersState', JSON.stringify(state));
-    console.log('💾 État des filtres sauvegardé:', state);
 }
 
 /**
@@ -315,44 +325,41 @@ function restoreFiltersState() {
     try {
         const savedState = sessionStorage.getItem('logementsFiltersState');
         if (!savedState) {
-            console.log('📝 Aucun état de filtres sauvegardé trouvé');
             return false;
         }
-        
+
         const state = JSON.parse(savedState);
-        
+
         // Vérifier que l'état n'est pas trop ancien (30 minutes max)
         const maxAge = 30 * 60 * 1000; // 30 minutes
         if (Date.now() - state.timestamp > maxAge) {
-            console.log('⏰ État des filtres trop ancien, ignoré');
             sessionStorage.removeItem('logementsFiltersState');
             return false;
         }
-        
-        console.log('🔄 Restauration de l\'état des filtres:', state);
-        
+
+
         // Restaurer le filtre de département
         const departmentFilter = document.getElementById('departmentFilter');
         if (departmentFilter && state.departmentFilter) {
             departmentFilter.value = state.departmentFilter;
         }
-        
+
         // Restaurer le filtre de catégorie (sans sauvegarder à nouveau)
         currentFilter = state.categoryFilter || 'all';
-        
+
         // Mettre à jour les boutons actifs
         document.querySelectorAll('.filter-chip').forEach(btn => {
             btn.classList.remove('active');
         });
-        
+
         const activeButton = document.querySelector(`[data-category="${currentFilter}"]`);
         if (activeButton) {
             activeButton.classList.add('active');
         }
-        
+
         // Appliquer les filtres sans sauvegarder
         applyFiltersWithoutSave();
-        
+
         // Restaurer la position de scroll après un petit délai
         if (state.scrollPosition) {
             setTimeout(() => {
@@ -360,10 +367,9 @@ function restoreFiltersState() {
                     top: state.scrollPosition,
                     behavior: 'smooth'
                 });
-                console.log(`📍 Position de scroll restaurée: ${state.scrollPosition}px`);
             }, 300);
         }
-        
+
         return true;
     } catch (error) {
         console.error('❌ Erreur lors de la restauration des filtres:', error);
@@ -378,27 +384,26 @@ function restoreFiltersState() {
 function applyFiltersWithoutSave() {
     const departmentFilter = document.getElementById('departmentFilter');
     const selectedDepartment = departmentFilter ? departmentFilter.value : 'all';
-    
+
     // Filtrer par catégorie
     let filtered = [...logementsData];
     if (currentFilter !== 'all') {
         filtered = filtered.filter(logement => logement.category === currentFilter);
     }
-    
+
     // Filtrer par département
     if (selectedDepartment !== 'all') {
-        filtered = filtered.filter(logement => 
+        filtered = filtered.filter(logement =>
             logement.department === selectedDepartment
         );
     }
-    
+
     filteredLogements = filtered;
-    
+
     // Mettre à jour l'affichage
     updateResultsHeader(currentFilter, filteredLogements.length);
     displayLogements(filteredLogements);
-    
-    console.log(`🏠 Filtres restaurés: ${currentFilter} + ${selectedDepartment} (${filteredLogements.length} résultats)`);
+
 }
 
 /**
@@ -407,9 +412,11 @@ function applyFiltersWithoutSave() {
  */
 function showLogementDetails(logementId) {
     const logement = logementsData.find(l => l.id === logementId);
-    
-    if (!logement) return;
-    
+
+    if (!logement) {
+        return;
+    }
+
     // Pour l'instant, simple alert avec les détails
     // Plus tard, on pourrait créer une modal ou une page détail
     const details = `
@@ -424,7 +431,7 @@ ${logement.description}
 ✨ Équipements:
 • ${logement.features.join('\n• ')}
     `;
-    
+
     if (confirm(`${details}\n\nVoulez-vous être redirigé vers Booking.com pour réserver ?`)) {
         window.open(logement.bookingUrl, '_blank', 'noopener,noreferrer');
     }
@@ -438,11 +445,10 @@ ${logement.description}
  * Initialise la page des logements
  */
 async function initLogements() {
-    console.log('🏠 Initialisation de la page logements...');
-    
+
     // Charger les données depuis pois.json
     await loadLogementsFromPois();
-    
+
     // Attacher les événements aux boutons de filtre de catégorie
     document.querySelectorAll('.filter-chip').forEach(button => {
         button.addEventListener('click', () => {
@@ -450,22 +456,21 @@ async function initLogements() {
             filterByCategory(category);
         });
     });
-    
+
     // Attacher l'événement au filtre de département
     const departmentFilter = document.getElementById('departmentFilter');
     if (departmentFilter) {
         departmentFilter.addEventListener('change', applyFilters);
     }
-    
+
     // Les logements sont maintenant chargés
-    
+
     // Essayer de restaurer l'état des filtres, sinon affichage par défaut
     const restored = restoreFiltersState();
     if (!restored) {
         filterByCategory('all');
     }
-    
-    console.log('✅ Page logements initialisée avec', logementsData.length, 'hébergements');
+
 }
 
 // Initialiser quand le DOM est prêt

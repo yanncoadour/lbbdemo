@@ -666,6 +666,29 @@
       "website": "https://www.booking.com/Share-phTGJd",
       "phone": "02 98 67 00 47",
       "tags": ["4 étoiles", "Logis", "restaurant étoilé", "baie de Morlaix", "jardin"]
+    },
+    {
+      "id": "dihan-evasion-ploemel",
+      "title": "Dihan Evasion",
+      "slug": "dihan-evasion-ploemel",
+      "department": "Morbihan",
+      "categories": ["logement_insolite"],
+      "lat": 47.64637508700424,
+      "lng": -3.077166217757525,
+      "shortDescription": "Dihan Ploemel : 32 hébergements cabanes perchées spa luxe, bulles suspendues, cabanes eau spa finlandais, écolodges, piscine mélèze, Spa hammam sauna, écolabel européen Carnac Quiberon.",
+      "description": "Premier site insolite écolabel européen, Dihan à Ploemel révolutionne l'hôtellerie nature sur 25 hectares entre Carnac et Quiberon. Ses 32 hébergements conjuguent luxe et écologie : cabanes spa perchées avec jacuzzi encastré (Neizh, EnTy, Ehan), cabanes sur l'eau avec spa finlandais au feu de bois, bulles suspendues, dôme étoilé et écolodges design. Les terrasses panoramiques avec filet suspendu et vue imprenable créent des nids d'amour uniques.\n\nLe Spa by Dihan (hammam, sauna, massages du monde), la piscine en mélèze, le café lounge locavore et le parcours slow tourisme enrichissent l'expérience. Engagé LPO et permaculture, Dihan propose paniers repas bio-locaux, tyrolienne familiale et animations nature. À 7km des plages, entre Golfe du Morbihan et Ria d'Etel, ce pionnier de la cabane perchée française offre déconnexion totale et tourisme durable, parfait pour couples, familles ou séjours bien-être entre amis.",
+      "image": "assets/img/dihan-evasion-ploemel-1.jpg",
+      "images": [
+        "assets/img/dihan-evasion-ploemel-1.jpg",
+        "assets/img/dihan-evasion-ploemel-2.jpg",
+        "assets/img/dihan-evasion-ploemel-3.jpg"
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "56400 Ploemel",
+      "website": "https://www.booking.com/Share-yAd1vZM",
+      "phone": "",
+      "tags": ["cabanes perchées", "spa", "écolabel européen", "bulles suspendues", "jacuzzi", "nature"]
     }
   ]
 }

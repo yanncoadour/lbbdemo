@@ -9,8 +9,8 @@
 
 @media (max-width: 768px) {
     /* GÉNÉRAL */
-    .search-field {
-        padding: 12px 16px !important;
+    .bottom-sheet .search-interface .search-field {
+        padding: 12px 16px;
     }
     
     /* FESTIVALS */
@@ -202,8 +202,8 @@
     }
     
     /* INSTAGRAM */
-    .instagram-grid {
-        grid-template-columns: 1fr !important;
+    .instagram-page .instagram-grid {
+        grid-template-columns: 1fr;
         gap: 12px;
     }
     

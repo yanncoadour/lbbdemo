@@ -14,32 +14,51 @@ document.addEventListener('DOMContentLoaded', function() {
 async function loadFestivalDetail() {
     const urlParams = new URLSearchParams(window.location.search);
     const festivalId = urlParams.get('id');
-    
+
+    // Validation stricte du paramètre festivalId
     if (!festivalId) {
         showError('Festival non spécifié');
         return;
     }
-    
+
+    // Validation de sécurité pour le festivalId
+    if (typeof window.Security !== 'undefined' && window.Security.validateInput) {
+        if (!window.Security.validateInput(festivalId, {
+            maxLength: 100,
+            allowedChars: /^[a-z0-9\-_]+$/i,
+            required: true
+        })) {
+            showError('Identifiant de festival invalide');
+            return;
+        }
+    } else {
+        // Fallback de validation basique
+        if (!/^[a-z0-9\-_]{1,100}$/i.test(festivalId)) {
+            showError('Identifiant de festival invalide');
+            return;
+        }
+    }
+
     try {
         showLoading(true);
-        
+
         // Load festival data
-        const response = await fetch('data/pois.json?' + Date.now());
+        const response = await fetch(`data/pois.json?${Date.now()}`);
         const data = await response.json();
-        
+
         // Find the specific festival
-        const festival = data.pois.find(poi => 
+        const festival = data.pois.find(poi =>
             poi.slug === festivalId && poi.categories.includes('festival')
         );
-        
+
         if (!festival) {
             showError('Festival non trouvé');
             return;
         }
-        
+
         currentFestival = festival;
         displayFestivalDetail(festival);
-        
+
     } catch (error) {
         console.error('Erreur lors du chargement du festival:', error);
         showError('Erreur lors du chargement du festival');
@@ -54,24 +73,24 @@ async function loadFestivalDetail() {
 function displayFestivalDetail(festival) {
     // Update page title
     document.title = `${festival.title} - La Belle Bretagne`;
-    
+
     // Update hero section
     document.getElementById('festivalImage').src = festival.image;
     document.getElementById('festivalImage').alt = festival.title;
     document.getElementById('festivalTitle').textContent = festival.title;
-    
+
     // Location
     const locationElement = document.getElementById('festivalLocation').querySelector('span');
     locationElement.textContent = festival.address;
-    
+
     // Dates
     const datesElement = document.getElementById('festivalDates').querySelector('span');
     const dateDisplay = festival.dates !== 'dates à définir' ? festival.dates : 'Dates à venir';
     datesElement.textContent = dateDisplay;
-    
+
     // Description
     document.getElementById('festivalDescription').textContent = festival.description;
-    
+
     // Tags
     const tagsContainer = document.getElementById('festivalTags');
     tagsContainer.innerHTML = '';
@@ -81,7 +100,7 @@ function displayFestivalDetail(festival) {
         tagElement.textContent = `#${tag}`;
         tagsContainer.appendChild(tagElement);
     });
-    
+
     // Website link
     const websiteBtn = document.getElementById('festivalWebsite');
     if (festival.website) {
@@ -90,16 +109,16 @@ function displayFestivalDetail(festival) {
     } else {
         websiteBtn.style.display = 'none';
     }
-    
+
     // Map button
     const mapBtn = document.getElementById('festivalMap');
     mapBtn.onclick = () => showOnMap(festival.lat, festival.lng, festival.title);
-    
+
     // Practical info
     document.getElementById('festivalAddress').textContent = festival.address;
     document.getElementById('festivalDatesFull').textContent = dateDisplay;
     document.getElementById('festivalDepartment').textContent = festival.department;
-    
+
     // Update header tagline with festival name
     const tagline = document.querySelector('.brand-tagline');
     if (tagline) {
@@ -117,7 +136,7 @@ function showOnMap(lat, lng, title) {
         lng: lng,
         title: title
     }));
-    
+
     // Navigate to map page
     window.location.href = 'index.html';
 }
@@ -126,8 +145,10 @@ function showOnMap(lat, lng, title) {
  * Share festival
  */
 function shareFestival() {
-    if (!currentFestival) return;
-    
+    if (!currentFestival) {
+        return;
+    }
+
     if (navigator.share) {
         // Use native sharing if available
         navigator.share({
@@ -135,7 +156,6 @@ function shareFestival() {
             text: currentFestival.shortDescription,
             url: window.location.href
         }).catch(error => {
-            console.log('Error sharing:', error);
             fallbackShare();
         });
     } else {
@@ -148,10 +168,12 @@ function shareFestival() {
  * Fallback sharing method
  */
 function fallbackShare() {
-    if (!currentFestival) return;
-    
+    if (!currentFestival) {
+        return;
+    }
+
     const shareText = `${currentFestival.title} - ${currentFestival.shortDescription}\\n\\n${window.location.href}`;
-    
+
     // Copy to clipboard
     if (navigator.clipboard) {
         navigator.clipboard.writeText(shareText).then(() => {
@@ -183,15 +205,15 @@ function showNotification(message) {
     const notification = document.createElement('div');
     notification.className = 'notification';
     notification.textContent = message;
-    
+
     // Add to page
     document.body.appendChild(notification);
-    
+
     // Show notification
     setTimeout(() => {
         notification.classList.add('show');
     }, 10);
-    
+
     // Remove notification after 3 seconds
     setTimeout(() => {
         notification.classList.remove('show');
@@ -218,7 +240,7 @@ function showLoading(show) {
  */
 function showError(message) {
     const main = document.getElementById('festivalMain');
-    main.innerHTML = `
+    const errorHTML = `
         <div class="error-container">
             <div class="error-content">
                 <i class="fas fa-exclamation-triangle"></i>
@@ -231,4 +253,10 @@ function showError(message) {
             </div>
         </div>
     `;
+
+    if (window.Security && window.Security.safeSetInnerHTML) {
+        window.Security.safeSetInnerHTML(main, errorHTML);
+    } else {
+        main.innerHTML = errorHTML;
+    }
 }

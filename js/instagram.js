@@ -11,12 +11,12 @@ const INSTAGRAM_CONFIG = {
     // URLs de posts Instagram réels du compte @labellebretagne
     // Dernière mise à jour : Janvier 2025
     realPosts: [
-        'https://www.instagram.com/p/DNvzpgp2OZR/',  // Post le plus récent
-        'https://www.instagram.com/p/DNvu-hEWLdA/',  // Post 2
-        'https://www.instagram.com/p/DNtLnC2UDhG/',  // Post 3
-        'https://www.instagram.com/p/DNqn8xgtwD6/',  // Post 4
-        'https://www.instagram.com/p/DNkEfRFigly/',  // Post 5
-        'https://www.instagram.com/p/DNi5ue6MVxt/',  // Post 6
+        'https://www.instagram.com/p/DNvzpgp2OZR/', // Post le plus récent
+        'https://www.instagram.com/p/DNvu-hEWLdA/', // Post 2
+        'https://www.instagram.com/p/DNtLnC2UDhG/', // Post 3
+        'https://www.instagram.com/p/DNqn8xgtwD6/', // Post 4
+        'https://www.instagram.com/p/DNkEfRFigly/', // Post 5
+        'https://www.instagram.com/p/DNi5ue6MVxt/' // Post 6
     ],
     // Données de fallback si l'API ne fonctionne pas
     fallbackPosts: [
@@ -76,25 +76,20 @@ const INSTAGRAM_CONFIG = {
  */
 async function loadInstagramPosts() {
     const grid = document.getElementById('instagramGrid');
-    
+
     try {
         // Vérifier d'abord le cache
         const cachedPosts = getCachedInstagramData();
         if (cachedPosts && cachedPosts.length > 0) {
-            console.log('Utilisation des données en cache:', cachedPosts.length, 'posts');
             displayInstagramPosts(cachedPosts);
             return;
         } else {
-            console.log('Aucune donnée en cache ou cache vide');
         }
-        
+
         // Pour l'instant, utiliser directement les posts de fallback (plus fiables)
-        console.log('Génération des posts Instagram avec vraies URLs...');
-        console.log('realPosts config:', INSTAGRAM_CONFIG.realPosts);
-        
+
         const posts = INSTAGRAM_CONFIG.realPosts.map((url, index) => {
-            console.log(`Génération post ${index + 1}:`, url);
-            
+
             const post = {
                 id: extractPostId(url),
                 image: generateFallbackImage(index + 1),
@@ -103,22 +98,19 @@ async function loadInstagramPosts() {
                 comments: Math.floor(Math.random() * 150) + 30,
                 url: url
             };
-            
-            console.log(`Post ${index + 1} généré:`, post);
+
             return post;
         });
-        
-        console.log('Tous les posts générés:', posts.length);
-        
+
+
         // Sauvegarder en cache
         setCachedInstagramData(posts);
         displayInstagramPosts(posts);
-        
+
     } catch (error) {
         console.error('Erreur lors du chargement des posts Instagram:', error);
-        
+
         // Utiliser les données de fallback complètes
-        console.log('Utilisation des données de fallback complètes');
         displayInstagramPosts(INSTAGRAM_CONFIG.fallbackPosts);
     }
 }
@@ -128,32 +120,29 @@ async function loadInstagramPosts() {
  */
 async function fetchRealInstagramPosts() {
     const posts = [];
-    
+
     for (let i = 0; i < INSTAGRAM_CONFIG.realPosts.length; i++) {
         const postUrl = INSTAGRAM_CONFIG.realPosts[i];
         try {
-            console.log(`Récupération du post ${i + 1}/6: ${postUrl}`);
-            
+
             // Méthode 1: API oEmbed d'Instagram
             const oembedUrl = `https://api.instagram.com/oembed/?url=${encodeURIComponent(postUrl)}`;
-            
+
             const response = await fetch(oembedUrl);
             if (response.ok) {
                 const data = await response.json();
-                console.log('Données oEmbed reçues:', data);
-                
+
                 const post = {
                     id: extractPostId(postUrl),
                     image: extractImageFromHtml(data.html) || generateFallbackImage(i + 1),
-                    caption: data.title || extractCaptionFromHtml(data.html) || `Post Instagram @labellebretagne`,
+                    caption: data.title || extractCaptionFromHtml(data.html) || 'Post Instagram @labellebretagne',
                     likes: Math.floor(Math.random() * 2000) + 500,
                     comments: Math.floor(Math.random() * 100) + 20,
                     url: postUrl,
                     html: data.html
                 };
-                
+
                 posts.push(post);
-                console.log(`Post ${i + 1} récupéré avec succès`);
             } else {
                 console.warn(`Échec oEmbed pour ${postUrl}:`, response.status);
                 // Créer un post de fallback
@@ -164,12 +153,11 @@ async function fetchRealInstagramPosts() {
             // Créer un post de fallback
             posts.push(createFallbackPost(postUrl, i + 1));
         }
-        
+
         // Délai pour éviter le rate limiting
         await new Promise(resolve => setTimeout(resolve, 300));
     }
-    
-    console.log(`${posts.length} posts récupérés au total`);
+
     return posts;
 }
 
@@ -180,7 +168,7 @@ function createFallbackPost(url, index) {
     return {
         id: extractPostId(url),
         image: generateFallbackImage(index),
-        caption: `Post Instagram @labellebretagne - Cliquez pour voir sur Instagram`,
+        caption: 'Post Instagram @labellebretagne - Cliquez pour voir sur Instagram',
         likes: Math.floor(Math.random() * 1500) + 800,
         comments: Math.floor(Math.random() * 80) + 25,
         url: url
@@ -193,7 +181,7 @@ function createFallbackPost(url, index) {
 function generateFallbackImage(index) {
     const colors = ['#833ab4', '#fd1d1d', '#fcb045', '#405de6', '#5851db', '#c13584'];
     const color = colors[index % colors.length];
-    
+
     const svg = `
         <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -210,8 +198,8 @@ function generateFallbackImage(index) {
             <text x="200" y="310" text-anchor="middle" fill="white" font-family="Arial" font-size="14" opacity="0.9">Post Instagram #${index}</text>
         </svg>
     `;
-    
-    return 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg)));
+
+    return `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svg)))}`;
 }
 
 /**
@@ -219,15 +207,15 @@ function generateFallbackImage(index) {
  */
 function generateCaption(index) {
     const captions = [
-        "🏴‍☠️ Les falaises bretonnes au coucher du soleil... Magique ! #Bretagne #CoucherDeSoleil",
+        '🏴‍☠️ Les falaises bretonnes au coucher du soleil... Magique ! #Bretagne #CoucherDeSoleil',
         "🎪 Festival traditionnel breton - L'âme de la Bretagne en musique ! #FestivalBretagne #Musique",
-        "🏠 Les maisons colorées qui font le charme de nos côtes bretonnes ✨ #ArchitectureBretonne", 
-        "🗼 Phare de Bretagne dans la brume matinale - Mystérieux et fascinant #PhareBretagne #Matin",
-        "🥖 Marché breton authentique - Saveurs et traditions au rendez-vous ! #MarchéBretagne #Gastronomie",
-        "🥾 Randonnée sur le GR34, le sentier des douaniers - À vos baskets ! #Randonnée #GR34"
+        '🏠 Les maisons colorées qui font le charme de nos côtes bretonnes ✨ #ArchitectureBretonne',
+        '🗼 Phare de Bretagne dans la brume matinale - Mystérieux et fascinant #PhareBretagne #Matin',
+        '🥖 Marché breton authentique - Saveurs et traditions au rendez-vous ! #MarchéBretagne #Gastronomie',
+        '🥾 Randonnée sur le GR34, le sentier des douaniers - À vos baskets ! #Randonnée #GR34'
     ];
-    
-    return captions[index - 1] || `🏴‍☠️ Découvrez la Bretagne authentique avec @labellebretagne ! #Bretagne #Découverte`;
+
+    return captions[index - 1] || '🏴‍☠️ Découvrez la Bretagne authentique avec @labellebretagne ! #Bretagne #Découverte';
 }
 
 /**
@@ -254,12 +242,12 @@ function extractPostId(url) {
 function extractImageFromHtml(html) {
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = html;
-    
+
     const img = tempDiv.querySelector('img');
     if (img) {
         return img.src;
     }
-    
+
     // Fallback avec regex
     const imgMatch = html.match(/src="([^"]*\.jpg[^"]*)"/i);
     return imgMatch ? imgMatch[1] : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjZTJlOGYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjQ3NDhiIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiPkluc3RhZ3JhbSBQb3N0PC90ZXh0Pgo8L3N2Zz4K';
@@ -271,17 +259,17 @@ function extractImageFromHtml(html) {
 function extractCaptionFromHtml(html) {
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = html;
-    
+
     // Chercher dans différents éléments possibles
     const captionSelectors = ['blockquote p', '.caption', '[data-caption]', 'p'];
-    
+
     for (const selector of captionSelectors) {
         const element = tempDiv.querySelector(selector);
         if (element && element.textContent.trim().length > 10) {
-            return element.textContent.trim().slice(0, 150) + '...';
+            return `${element.textContent.trim().slice(0, 150)}...`;
         }
     }
-    
+
     return 'Découvrez la Bretagne avec @labellebretagne 🏴‍☠️✨';
 }
 
@@ -291,11 +279,13 @@ function extractCaptionFromHtml(html) {
 function getCachedInstagramData() {
     try {
         const cached = localStorage.getItem('labellebretagne_instagram_cache');
-        if (!cached) return null;
-        
+        if (!cached) {
+            return null;
+        }
+
         const data = JSON.parse(cached);
         const now = new Date().getTime();
-        
+
         // Vérifier si le cache n'est pas expiré
         if (now - data.timestamp < INSTAGRAM_CONFIG.cacheDuration) {
             return data.posts;
@@ -326,31 +316,23 @@ function setCachedInstagramData(posts) {
  * Affiche les posts Instagram dans la grille
  */
 function displayInstagramPosts(posts) {
-    console.log('displayInstagramPosts appelée avec:', posts.length, 'posts');
-    
+
     const grid = document.getElementById('instagramGrid');
     if (!grid) {
         console.error('Element instagramGrid non trouvé !');
         return;
     }
-    
-    console.log('Grid trouvé, génération HTML...');
-    
+
+
     const htmlContent = posts.map((post, index) => {
-        console.log(`Post ${index + 1}:`, {
-            url: post.url,
-            image: post.image.substring(0, 50) + '...',
-            caption: post.caption.substring(0, 50) + '...'
-        });
-        
+
         return `
             <div class="instagram-post" onclick="openInstagramPost('${post.url}')">
                 <img src="${post.image}" 
                      alt="${post.caption}" 
                      class="instagram-post-image"
                      loading="lazy"
-                     onload="console.log('Image ${index + 1} chargée')"
-                     onerror="console.error('Erreur image ${index + 1}')">
+                     loading="lazy">
                 <div class="instagram-post-overlay">
                     <div class="post-stats">
                         <span>
@@ -366,31 +348,14 @@ function displayInstagramPosts(posts) {
             </div>
         `;
     }).join('');
-    
-    console.log('HTML généré, insertion dans la grille...');
-    grid.innerHTML = htmlContent;
-    console.log('Posts affichés dans la grille');
-    
-    // Debug CSS
-    console.log('Style de la grille:', {
-        display: getComputedStyle(grid).display,
-        gridTemplateColumns: getComputedStyle(grid).gridTemplateColumns,
-        gap: getComputedStyle(grid).gap,
-        width: getComputedStyle(grid).width,
-        height: getComputedStyle(grid).height
-    });
-    
-    // Vérifier les posts enfants
-    const childPosts = grid.querySelectorAll('.instagram-post');
-    console.log(`${childPosts.length} posts trouvés dans le DOM`);
-    childPosts.forEach((post, index) => {
-        console.log(`Post ${index + 1} style:`, {
-            display: getComputedStyle(post).display,
-            width: getComputedStyle(post).width,
-            height: getComputedStyle(post).height,
-            visibility: getComputedStyle(post).visibility
-        });
-    });
+
+    if (window.Security && window.Security.safeSetInnerHTML) {
+        window.Security.safeSetInnerHTML(grid, htmlContent);
+    } else {
+        grid.innerHTML = htmlContent;
+    }
+
+
 }
 
 /**
@@ -398,7 +363,7 @@ function displayInstagramPosts(posts) {
  */
 function showErrorMessage() {
     const grid = document.getElementById('instagramGrid');
-    grid.innerHTML = `
+    const errorHTML = `
         <div class="instagram-error">
             <i class="fas fa-exclamation-triangle"></i>
             <h3>Impossible de charger les posts</h3>
@@ -412,6 +377,12 @@ function showErrorMessage() {
             </a>
         </div>
     `;
+
+    if (window.Security && window.Security.safeSetInnerHTML) {
+        window.Security.safeSetInnerHTML(grid, errorHTML);
+    } else {
+        grid.innerHTML = errorHTML;
+    }
 }
 
 /**
@@ -426,7 +397,7 @@ function openInstagramPost(url) {
             value: 1
         });
     }
-    
+
     window.open(url, '_blank', 'noopener,noreferrer');
 }
 
@@ -439,11 +410,11 @@ function shareInstagram() {
         text: 'Découvrez la Bretagne authentique sur Instagram @labellebretagne',
         url: `https://instagram.com/${INSTAGRAM_CONFIG.username}`
     };
-    
+
     if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
         navigator.share(shareData)
-            .then(() => console.log('Partage réussi'))
-            .catch(error => console.log('Erreur de partage:', error));
+            .then(() => {})
+            .catch(() => {});
     } else {
         // Fallback pour les navigateurs qui ne supportent pas l'API Web Share
         copyToClipboard(`https://instagram.com/${INSTAGRAM_CONFIG.username}`);
@@ -482,20 +453,26 @@ async function copyToClipboard(text) {
 function showNotification(message) {
     const notification = document.createElement('div');
     notification.className = 'instagram-notification';
-    notification.innerHTML = `
+    const notificationHTML = `
         <div class="notification-content">
             <i class="fas fa-check-circle"></i>
             <span>${message}</span>
         </div>
     `;
-    
+
+    if (window.Security && window.Security.safeSetInnerHTML) {
+        window.Security.safeSetInnerHTML(notification, notificationHTML);
+    } else {
+        notification.innerHTML = notificationHTML;
+    }
+
     document.body.appendChild(notification);
-    
+
     // Animation d'apparition
     setTimeout(() => {
         notification.classList.add('show');
     }, 100);
-    
+
     // Suppression automatique
     setTimeout(() => {
         notification.classList.remove('show');
@@ -510,19 +487,18 @@ function showNotification(message) {
  */
 function formatNumber(num) {
     if (num >= 1000000) {
-        return (num / 1000000).toFixed(1) + 'M';
+        return `${(num / 1000000).toFixed(1)}M`;
     } else if (num >= 1000) {
-        return (num / 1000).toFixed(1) + 'k';
+        return `${(num / 1000).toFixed(1)}k`;
     }
     return num.toString();
 }
 
 /**
- * Fonction pour vider le cache (debug)
+ * Fonction pour vider le cache
  */
 function clearInstagramCache() {
     localStorage.removeItem('labellebretagne_instagram_cache');
-    console.log('Cache Instagram vidé');
     location.reload();
 }
 
@@ -530,11 +506,10 @@ function clearInstagramCache() {
  * Initialisation simple
  */
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('📸 Page Instagram chargée');
-    
+
     // Animations au scroll
     initScrollAnimations();
-    
+
     // Gestionnaire de clics pour les hashtags
     const hashtags = document.querySelectorAll('.hashtag');
     hashtags.forEach(hashtag => {
@@ -551,7 +526,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function initScrollAnimations() {
     const posts = document.querySelectorAll('.instagram-post');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -560,7 +535,7 @@ function initScrollAnimations() {
             }
         });
     }, { threshold: 0.1 });
-    
+
     posts.forEach((post, index) => {
         post.style.opacity = '0';
         post.style.transform = 'translateY(30px)';

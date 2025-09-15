@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Belle Bretagne</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -221,6 +224,11 @@
                 </button>
             </div>
         </div>
+        
+        <!-- Contenu des filtres (généré dynamiquement) -->
+        <div class="filter-content">
+            <!-- Contenu généré par filters.js -->
+        </div>
     </div>
     
     <!-- Popup fixe pour les POI -->
@@ -261,6 +269,13 @@
     <div class="overlay" id="overlay"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/logger.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/utils.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/simple-filters.js"></script>
+    <script src="js/map.js"></script>
 </body>
 </html>

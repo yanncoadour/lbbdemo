@@ -7,31 +7,8 @@
 // CONFIGURATION GLOBALE
 // ===================================================================
 
-window.LaBelleBretagne = {
-    config: {
-        map: {
-            center: [48.2020, -2.9326],
-            zoom: 8,
-            minZoom: 7,
-            maxZoom: 16
-        },
-        colors: {
-            plage: '#06b6d4',
-            musee: '#8b5cf6',
-            monument: '#f59e0b',
-            randonnee: '#10b981',
-            festival: '#f97316',
-            village: '#ef4444',
-            hotel: '#64748b',
-            logement_insolite: '#ec4899',
-            point_de_vue: '#059669',
-            loisirs: '#6366f1'
-        },
-        cache: {
-            defaultDuration: 3600000, // 1 heure
-            maxSize: 50000 // 50KB
-        }
-    },
+// Configuration centralisée désormais dans config.js
+window.LaBelleBretagne = window.LaBelleBretagne || {
     modules: {}
 };
 
@@ -39,12 +16,12 @@ window.LaBelleBretagne = {
 // UTILITAIRES DE STOCKAGE
 // ===================================================================
 
-const Storage = {
+const StorageUtils = {
     /**
      * Stockage sécurisé avec fallback
      */
     set(key, value) {
-        return window.Security ? 
+        return window.Security ?
             window.Security.secureLocalStorage(key, value) :
             this.fallbackSet(key, value);
     },
@@ -53,7 +30,7 @@ const Storage = {
      * Lecture sécurisée avec fallback
      */
     get(key, defaultValue = null) {
-        return window.Security ? 
+        return window.Security ?
             window.Security.secureGetLocalStorage(key, defaultValue) :
             this.fallbackGet(key, defaultValue);
     },
@@ -122,7 +99,7 @@ const DOM = {
      */
     create(tag, attributes = {}, content = '') {
         const element = document.createElement(tag);
-        
+
         Object.entries(attributes).forEach(([key, value]) => {
             if (key === 'className') {
                 element.className = value;
@@ -132,11 +109,11 @@ const DOM = {
                 element.setAttribute(key, value);
             }
         });
-        
+
         if (content) {
             element.textContent = content;
         }
-        
+
         return element;
     },
 
@@ -157,7 +134,7 @@ const DOM = {
         if (show === null) {
             show = element.style.display === 'none';
         }
-        
+
         element.style.display = show ? 'block' : 'none';
         return show;
     }
@@ -172,7 +149,7 @@ const DataUtils = {
      * Validation et sanitisation des entrées
      */
     sanitize(input, type = 'text') {
-        return window.Security ? 
+        return window.Security ?
             window.Security.validateAndSanitize(input, type) :
             this.basicSanitize(input);
     },
@@ -181,7 +158,9 @@ const DataUtils = {
      * Sanitisation basique sans module sécurité
      */
     basicSanitize(input) {
-        if (typeof input !== 'string') return '';
+        if (typeof input !== 'string') {
+            return '';
+        }
         return input.replace(/[<>]/g, '').substring(0, 500).trim();
     },
 
@@ -235,13 +214,13 @@ const UIUtils = {
                 <span>${message}</span>
             `
         });
-        
+
         document.body.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.classList.add('show');
         }, 100);
-        
+
         setTimeout(() => {
             notification.classList.remove('show');
             setTimeout(() => {
@@ -299,11 +278,11 @@ const GeoUtils = {
         const R = 6371; // Rayon de la Terre en km
         const dLat = this.deg2rad(lat2 - lat1);
         const dLon = this.deg2rad(lon2 - lon1);
-        const a = 
-            Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
-            Math.sin(dLon/2) * Math.sin(dLon/2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         return R * c * 1000; // Distance en mètres
     },
 
@@ -311,16 +290,16 @@ const GeoUtils = {
      * Conversion degrés vers radians
      */
     deg2rad(deg) {
-        return deg * (Math.PI/180);
+        return deg * (Math.PI / 180);
     },
 
     /**
      * Validation des coordonnées
      */
     isValidCoords(lat, lng) {
-        return typeof lat === 'number' && 
-               typeof lng === 'number' && 
-               lat >= -90 && lat <= 90 && 
+        return typeof lat === 'number' &&
+               typeof lng === 'number' &&
+               lat >= -90 && lat <= 90 &&
                lng >= -180 && lng <= 180;
     }
 };
@@ -339,12 +318,12 @@ const EventManager = {
         if (!this.listeners.has(namespace)) {
             this.listeners.set(namespace, new Map());
         }
-        
+
         const namespaceListeners = this.listeners.get(namespace);
         if (!namespaceListeners.has(eventName)) {
             namespaceListeners.set(eventName, []);
         }
-        
+
         namespaceListeners.get(eventName).push(callback);
     },
 
@@ -377,7 +356,7 @@ const EventManager = {
 // ===================================================================
 
 // Attacher aux modules globaux
-window.LaBelleBretagne.Storage = Storage;
+window.LaBelleBretagne.Storage = StorageUtils;
 window.LaBelleBretagne.DOM = DOM;
 window.LaBelleBretagne.DataUtils = DataUtils;
 window.LaBelleBretagne.UIUtils = UIUtils;
@@ -386,7 +365,7 @@ window.LaBelleBretagne.EventManager = EventManager;
 
 // Alias pour compatibilité
 window.Utils = {
-    Storage,
+    Storage: StorageUtils,
     DOM,
     DataUtils,
     UIUtils,
@@ -394,4 +373,3 @@ window.Utils = {
     EventManager
 };
 
-console.log('🔧 Utilitaires La Belle Bretagne initialisés');

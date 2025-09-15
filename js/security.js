@@ -13,8 +13,10 @@
  * @returns {string} - La chaîne sanitisée
  */
 function sanitizeHTML(str) {
-    if (typeof str !== 'string') return '';
-    
+    if (typeof str !== 'string') {
+        return '';
+    }
+
     const temp = document.createElement('div');
     temp.textContent = str;
     return temp.innerHTML;
@@ -27,50 +29,123 @@ function sanitizeHTML(str) {
  * @returns {string} - L'entrée sanitisée
  */
 function validateAndSanitize(input, type = 'text') {
-    if (typeof input !== 'string') return '';
-    
+    if (typeof input !== 'string') {
+        return '';
+    }
+
     // Suppression des caractères dangereux de base
     let sanitized = input
         .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
         .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
         .replace(/javascript:/gi, '')
         .replace(/on\w+\s*=/gi, '');
-    
+
     switch (type) {
-        case 'search':
-            // Pour les recherches, garder uniquement alphanumérique, espaces et accents
-            sanitized = sanitized.replace(/[^\w\sÀ-ÿ\-']/g, '').substring(0, 100);
-            break;
-        case 'url':
-            // Validation basique d'URL
-            const urlPattern = /^https?:\/\/.+/i;
-            sanitized = urlPattern.test(sanitized) ? sanitized : '';
-            break;
-        case 'text':
-        default:
-            // Sanitisation générale
-            sanitized = sanitized.substring(0, 500);
-            break;
+    case 'search':
+        // Pour les recherches, garder uniquement alphanumérique, espaces et accents
+        sanitized = sanitized.replace(/[^\w\sÀ-ÿ\-']/g, '').substring(0, 100);
+        break;
+    case 'url':
+        // Validation basique d'URL
+        const urlPattern = /^https?:\/\/.+/i;
+        sanitized = urlPattern.test(sanitized) ? sanitized : '';
+        break;
+    case 'text':
+    default:
+        // Sanitisation générale
+        sanitized = sanitized.substring(0, 500);
+        break;
     }
-    
+
     return sanitized.trim();
 }
 
 /**
- * Utilisation sécurisée d'innerHTML avec sanitisation
+ * Utilisation sécurisée d'innerHTML avec sanitisation DOMPurify
  * @param {HTMLElement} element - L'élément cible
  * @param {string} content - Le contenu à insérer
+ * @param {Object} config - Configuration DOMPurify optionnelle
  */
-function safeSetInnerHTML(element, content) {
-    if (!element || typeof content !== 'string') return;
-    
-    // Créer un DocumentFragment pour parser le HTML de manière sécurisée
-    const fragment = document.createRange().createContextualFragment(
-        sanitizeHTML(content)
-    );
-    
-    element.innerHTML = '';
-    element.appendChild(fragment);
+function safeSetInnerHTML(element, content, config = {}) {
+    if (!element || typeof content !== 'string') {
+        return;
+    }
+
+    // Vérifier si DOMPurify est disponible
+    if (typeof DOMPurify === 'undefined') {
+        console.error('DOMPurify n\'est pas disponible. Contenu non inséré pour des raisons de sécurité.');
+        element.textContent = 'Erreur de sécurité: contenu non affiché';
+        return;
+    }
+
+    // Configuration par défaut de DOMPurify
+    const defaultConfig = {
+        ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'p', 'br', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'img', 'div', 'span', 'button'],
+        ALLOWED_ATTR: ['href', 'src', 'alt', 'class', 'id', 'title', 'data-*'],
+        ALLOW_DATA_ATTR: true,
+        FORBID_TAGS: ['script', 'object', 'embed', 'base', 'link', 'meta', 'style'],
+        FORBID_ATTR: ['onerror', 'onload', 'onclick', 'onmouseover', 'onfocus', 'onblur'],
+        ...config
+    };
+
+    // Sanitiser le contenu avec DOMPurify
+    const sanitizedContent = DOMPurify.sanitize(content, defaultConfig);
+
+    // Insérer le contenu sanitisé
+    element.innerHTML = sanitizedContent;
+}
+
+/**
+ * Validation sécurisée des entrées utilisateur
+ * @param {string} input - L'entrée à valider
+ * @param {Object} rules - Règles de validation
+ * @returns {boolean} True si valide, false sinon
+ */
+function validateInput(input, rules = {}) {
+    if (typeof input !== 'string') {
+        return false;
+    }
+
+    // Règles par défaut
+    const defaultRules = {
+        maxLength: 255,
+        minLength: 0,
+        required: false,
+        allowedChars: null, // RegExp ou null pour tout autoriser
+        forbiddenPatterns: [
+            /<script/i,
+            /javascript:/i,
+            /vbscript:/i,
+            /data:/i,
+            /on\w+\s*=/i
+        ]
+    };
+
+    const validationRules = { ...defaultRules, ...rules };
+
+    // Vérifier si requis
+    if (validationRules.required && (!input || input.trim().length === 0)) {
+        return false;
+    }
+
+    // Vérifier la longueur
+    if (input.length < validationRules.minLength || input.length > validationRules.maxLength) {
+        return false;
+    }
+
+    // Vérifier les caractères autorisés
+    if (validationRules.allowedChars && !validationRules.allowedChars.test(input)) {
+        return false;
+    }
+
+    // Vérifier les patterns interdits
+    for (const pattern of validationRules.forbiddenPatterns) {
+        if (pattern.test(input)) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 // ===================================================================
@@ -89,14 +164,14 @@ function secureLocalStorage(key, value) {
             console.warn('Clé localStorage invalide');
             return false;
         }
-        
+
         // Validation et serialisation sécurisée
         const sanitizedValue = JSON.stringify(value);
         if (sanitizedValue.length > 50000) { // Limite de 50KB
             console.warn('Données trop volumineuses pour localStorage');
             return false;
         }
-        
+
         localStorage.setItem(key, sanitizedValue);
         return true;
     } catch (error) {
@@ -114,15 +189,17 @@ function secureLocalStorage(key, value) {
 function secureGetLocalStorage(key, defaultValue = null) {
     try {
         const item = localStorage.getItem(key);
-        if (item === null) return defaultValue;
-        
+        if (item === null) {
+            return defaultValue;
+        }
+
         const parsed = JSON.parse(item);
-        
+
         // Validation basique du contenu
         if (typeof parsed === 'object' && parsed !== null) {
             return parsed;
         }
-        
+
         return parsed;
     } catch (error) {
         console.error('Erreur lecture localStorage:', error);
@@ -140,11 +217,13 @@ function secureGetLocalStorage(key, defaultValue = null) {
  * @returns {boolean} - True si les données semblent sûres
  */
 function validateJSON(jsonString) {
-    if (typeof jsonString !== 'string') return false;
-    
+    if (typeof jsonString !== 'string') {
+        return false;
+    }
+
     try {
         const parsed = JSON.parse(jsonString);
-        
+
         // Vérification de patterns suspects
         const suspicious = [
             '<script',
@@ -154,16 +233,16 @@ function validateJSON(jsonString) {
             'setTimeout(',
             'setInterval('
         ];
-        
+
         const stringified = JSON.stringify(parsed).toLowerCase();
-        
+
         for (const pattern of suspicious) {
             if (stringified.includes(pattern.toLowerCase())) {
                 console.warn('Contenu JSON suspect détecté');
                 return false;
             }
         }
-        
+
         return true;
     } catch (error) {
         return false;
@@ -175,27 +254,27 @@ function validateJSON(jsonString) {
  */
 const rateLimiter = {
     requests: new Map(),
-    
+
     isAllowed(identifier, maxRequests = 60, timeWindow = 60000) {
         const now = Date.now();
         const key = identifier;
-        
+
         if (!this.requests.has(key)) {
             this.requests.set(key, []);
         }
-        
+
         const requests = this.requests.get(key);
-        
+
         // Nettoyer les anciennes requêtes
         const validRequests = requests.filter(time => now - time < timeWindow);
-        
+
         if (validRequests.length >= maxRequests) {
             return false;
         }
-        
+
         validRequests.push(now);
         this.requests.set(key, validRequests);
-        
+
         return true;
     }
 };
@@ -220,12 +299,12 @@ function generateNonce() {
  */
 function getCSRFToken() {
     let token = secureGetLocalStorage('csrf_token');
-    
+
     if (!token) {
         token = generateNonce();
         secureLocalStorage('csrf_token', token);
     }
-    
+
     return token;
 }
 
@@ -251,11 +330,11 @@ function initSecurity() {
     document.addEventListener('dragover', (e) => {
         e.preventDefault();
     }, false);
-    
+
     document.addEventListener('drop', (e) => {
         e.preventDefault();
     }, false);
-    
+
     // Protection contre l'ouverture de nouvelles fenêtres non autorisées
     const originalOpen = window.open;
     window.open = function(...args) {
@@ -271,13 +350,13 @@ function initSecurity() {
                 'instagram.com',
                 'www.instagram.com'
             ];
-            
+
             try {
                 const urlObj = new URL(url, location.origin);
-                const isAllowed = allowedDomains.some(domain => 
-                    urlObj.hostname === domain || urlObj.hostname.endsWith('.' + domain)
+                const isAllowed = allowedDomains.some(domain =>
+                    urlObj.hostname === domain || urlObj.hostname.endsWith(`.${domain}`)
                 );
-                
+
                 if (isAllowed) {
                     return originalOpen.apply(this, args);
                 } else {
@@ -289,10 +368,10 @@ function initSecurity() {
                 return null;
             }
         }
-        
+
         return originalOpen.apply(this, args);
     };
-    
+
     // Nettoyer localStorage périodiquement
     setInterval(() => {
         try {
@@ -306,7 +385,7 @@ function initSecurity() {
             console.error('Erreur nettoyage localStorage:', error);
         }
     }, 300000); // Toutes les 5 minutes
-    
+
     console.log('🔒 Système de sécurité initialisé');
 }
 
@@ -321,6 +400,7 @@ if (document.readyState === 'loading') {
 window.Security = {
     sanitizeHTML,
     validateAndSanitize,
+    validateInput,
     safeSetInnerHTML,
     secureLocalStorage,
     secureGetLocalStorage,

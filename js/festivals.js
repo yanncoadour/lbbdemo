@@ -11,12 +11,10 @@
  * Initialise la page festivals
  */
 function initFestivals() {
-    console.log('🎭 Initialisation de la page festivals...');
-    
+
     // Initialiser les filtres
     initFilters();
-    
-    console.log('✅ Page festivals initialisée');
+
 }
 
 /**
@@ -34,7 +32,7 @@ function initFilters() {
             applyFilters();
         });
     });
-    
+
     // Filtres mois
     const monthChips = document.querySelectorAll('[data-month]');
     monthChips.forEach(chip => {
@@ -57,36 +55,36 @@ function initFilters() {
  */
 function applyFilters() {
     const festivalsGrid = document.getElementById('festivals-grid');
-    
+
     if (!festivalsGrid) {
         return;
     }
-    
+
     // Récupérer les filtres actifs
     const activeDepartmentChip = document.querySelector('[data-department].active');
     const activeMonthChip = document.querySelector('[data-month].active');
-    
+
     const selectedDepartment = activeDepartmentChip ? activeDepartmentChip.dataset.department : '';
     const selectedMonth = activeMonthChip ? activeMonthChip.dataset.month : '';
-    
+
     // Récupérer toutes les cartes de festival
     const festivalCards = festivalsGrid.querySelectorAll('.festival-card');
-    
+
     let visibleCount = 0;
-    
+
     festivalCards.forEach(card => {
         let shouldShow = true;
-        
+
         // Filtre département
         if (selectedDepartment && card.dataset.department !== selectedDepartment) {
             shouldShow = false;
         }
-        
+
         // Filtre mois
         if (selectedMonth && card.dataset.month !== selectedMonth) {
             shouldShow = false;
         }
-        
+
         // Afficher/masquer la carte
         if (shouldShow) {
             card.style.display = 'block';
@@ -95,11 +93,10 @@ function applyFilters() {
             card.style.display = 'none';
         }
     });
-    
+
     // Afficher un message si aucun résultat
     showNoResultsMessage(visibleCount, festivalsGrid);
-    
-    console.log(`🔍 Filtres appliqués: ${visibleCount} festival(s) affiché(s)`);
+
 }
 
 /**
@@ -111,13 +108,13 @@ function resetFilters() {
     departmentChips.forEach(chip => {
         chip.classList.toggle('active', chip.dataset.department === '');
     });
-    
+
     // Réinitialiser les filtres mois
     const monthChips = document.querySelectorAll('[data-month]');
     monthChips.forEach(chip => {
         chip.classList.toggle('active', chip.dataset.month === '');
     });
-    
+
     // Afficher toutes les cartes
     const festivalsGrid = document.getElementById('festivals-grid');
     if (festivalsGrid) {
@@ -125,15 +122,14 @@ function resetFilters() {
         festivalCards.forEach(card => {
             card.style.display = 'block';
         });
-        
+
         // Supprimer le message "aucun résultat"
         const noResultsMsg = festivalsGrid.querySelector('.no-results-message');
         if (noResultsMsg) {
             noResultsMsg.remove();
         }
     }
-    
-    console.log('🔄 Filtres réinitialisés');
+
 }
 
 /**
@@ -145,7 +141,7 @@ function showNoResultsMessage(visibleCount, container) {
     if (existingMessage) {
         existingMessage.remove();
     }
-    
+
     // Ajouter le message si nécessaire
     if (visibleCount === 0) {
         const message = document.createElement('div');
