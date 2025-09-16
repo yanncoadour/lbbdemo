@@ -689,6 +689,167 @@
       "website": "https://www.booking.com/Share-yAd1vZM",
       "phone": "",
       "tags": ["cabanes perchées", "spa", "écolabel européen", "bulles suspendues", "jacuzzi", "nature"]
+    },
+    {
+      "id": "domaine-des-ormes",
+      "title": "Domaine des Ormes",
+      "slug": "domaine-des-ormes",
+      "department": "Ille-et-Vilaine",
+      "categories": ["logement_insolite"],
+      "lat": 48.48812323196565,
+      "lng": -1.7322107540305227,
+      "shortDescription": "Domaine des Ormes - Parc de loisirs et hébergements insolites près de Dol-de-Bretagne (35). Cabanes dans les arbres, bulles transparentes, parc aquatique, golf 18 trous sur 200 hectares entre Saint-Malo et Mont-Saint-Michel.",
+      "description": "Le Domaine des Ormes, destination phare du tourisme insolite en Bretagne, s'étend sur plus de 200 hectares entre Saint-Malo et le Mont-Saint-Michel près de Dol-de-Bretagne (35). Ce parc de loisirs familial propose une expérience unique alliant hébergements atypiques et activités de plein air.\n\n**Hébergements insolites en Bretagne** : Le domaine offre un large choix de logements originaux pour tous les goûts : cabanes perchées dans les arbres de 4 à 20 mètres de hauteur, cabanes sur l'eau pour un réveil au fil de l'eau, bulles transparentes pour dormir sous les étoiles, tonneaux cosy, lodge safari et cottages familiaux. Chaque hébergement est intégré harmonieusement dans un environnement naturel préservé.\n\n**Activités et infrastructures** : Le complexe dispose d'équipements de qualité avec un parc aquatique couvert chauffé, piscines extérieures, golf 18 trous, centre équestre, parcours aventure en hauteur, base nautique, restaurants et espaces de détente. Les animations familiales et les activités nature rythment les séjours toute l'année.\n\nIdéal pour un week-end romantique, des vacances en famille ou une escapade nature entre amis, le Domaine des Ormes conjugue confort moderne et authenticité bretonne dans un cadre exceptionnel.",
+      "image": "assets/img/domaine-des-ormes-1.jpg",
+      "images": [
+        "assets/img/domaine-des-ormes-1.jpg",
+        "assets/img/domaine-des-ormes-2.jpg",
+        "assets/img/domaine-des-ormes-3.jpg"
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "Domaine des Ormes, 35120 Dol-de-Bretagne",
+      "website": "https://www.booking.com/Share-RYqnsX",
+      "phone": "",
+      "tags": ["cabanes dans les arbres", "bulles transparentes", "parc aquatique", "golf", "hébergements insolites", "200 hectares"]
+    },
+    {
+      "id": "domaine-de-meros",
+      "title": "Domaine de Meros",
+      "slug": "domaine-de-meros",
+      "department": "Finistère",
+      "categories": ["logement_insolite"],
+      "lat": 48.20906951340927,
+      "lng": -3.750157708674379,
+      "shortDescription": "Domaine de Meros, hébergements insolites de luxe en Finistère : suites & cabanes-spa privatisées, piscine chauffée, sauna, décor cocooning, cadre romantique surplombant le Canal de Nantes à Brest.",
+      "description": "Le Domaine de Meros, situé à Plonévez-du-Faou en plein Finistère, est un véritable refuge romantique composé de suites et cabanes-spa luxueuses, conçues pour la détente et la déconnexion. Niché dans un parc verdoyant de ≈ 4 hectares surplombant le Canal de Nantes à Brest et la vallée de l'Aulne, chaque logement offre piscine privée ou intérieure chauffée, sauna, bain à remous, et équipements haut de gamme dans un décor intimiste.\n\nParmi les hébergements, la Suite de Filaë (piscine intérieure chauffée, sauna, fauteuil massant) ou la Suite de Kelian (ambiance japonisante, bain à remous 2 places, sauna infrarouge) se distinguent pour des séjours premium. Pour les amateurs de nature, le Domaine propose des chemins de balade au bois de Meros, des panoramas sur les jardins fleuris, et une atmosphère paisible à toute saison.\n\nCôté restauration, Meros propose des paniers petits-déjeuners, des paniers apéritifs et repas élaborés avec des produits locaux, livrés directement dans les suites ou cabanes pour préserver l'intimité. Idéal pour un week-end en amoureux, une escapade bien-être ou un moment spécial à deux, le Domaine de Meros est une adresse d'exception en centre Bretagne.",
+      "image": "assets/img/domaine-de-meros-1.jpg",
+      "images": [
+        "assets/img/domaine-de-meros-1.jpg",
+        "assets/img/domaine-de-meros-2.jpg",
+        "assets/img/domaine-de-meros-3.jpg"
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "29530 Plonévez-du-Faou",
+      "website": "https://www.booking.com/Share-Nk5wSto",
+      "phone": "",
+      "tags": ["suites spa", "piscine chauffée", "sauna", "canal de Nantes", "romantique", "luxe"]
+    },
+    {
+      "id": "villa-lily-spa",
+      "title": "Villa Lily Spa",
+      "slug": "villa-lily-spa",
+      "department": "Côtes-d'Armor",
+      "categories": ["logement_insolite"],
+      "lat": 48.493513401443714,
+      "lng": -1.9814469312073089,
+      "shortDescription": "Villa Lily Spa, chambre d'hôtes de charme à La Vicomté-sur-Rance : spa privatif, jacuzzi, ambiance cocooning & accueil personnalisé pour une escapade romantique en Bretagne.",
+      "description": "Située au cœur de La Vicomté-sur-Rance, la Villa Lily Spa est une chambre d'hôtes haut de gamme avec spa privatif, idéale pour se ressourcer à deux. La maison offre une chambre spacieuse avec lit King-Size, entrée privée, dressing, salle de bain moderne et douche à l'italienne. Le véritable atout : un jacuzzi privatif pour 2 à 4 personnes dans un patio couvert, garantissant intimité et détente.\n\nLe petit-déjeuner continental est inclus, préparé avec soin et adapté aux préférences alimentaires. L'hébergement bénéficie d'un parking privé gratuit, d'une décoration soignée, d'une propreté irréprochable, d'une atmosphère calme et cosy. Les hôtes sont chaleureusement accueillants, attentifs aux détails pour rendre chaque séjour exceptionnel.\n\nParfaitement situé pour explorer la Bretagne : dinan, Saint-Malo, Cancale ou encore le Mont Saint-Michel sont à portée de route. Que ce soit pour une escapade romantique, une pause bien-être ou une nuit hors du temps, la Villa Lily Spa promet une expérience intime et ressourçante.",
+      "image": "assets/img/villa-lily-spa-1.jpg",
+      "images": [
+        "assets/img/villa-lily-spa-1.jpg",
+        "assets/img/villa-lily-spa-2.jpg",
+        "assets/img/villa-lily-spa-3.jpg"
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "22690 La Vicomté-sur-Rance",
+      "website": "https://www.booking.com/Share-BKNlDj5",
+      "phone": "",
+      "tags": ["chambre d'hôtes", "spa privatif", "jacuzzi", "romantique", "charme", "King-Size"]
+    },
+    {
+      "id": "5-etoiles-hebergement-insolite-luxe",
+      "title": "5 Etoiles hébergement insolite de luxe",
+      "slug": "5-etoiles-hebergement-insolite-luxe",
+      "department": "Côtes-d'Armor",
+      "categories": ["logement_insolite"],
+      "lat": 48.603232599788626,
+      "lng": -2.5044843261623124,
+      "shortDescription": "Hébergement insolite de luxe 5 *, pour une escapade unique : spa privatif, déco raffinée, confort haut de gamme et cadre exceptionnel pour un séjour intimiste.",
+      "description": "Dans un cadre exceptionnel alliant luxe, nature et design, cet hébergement insolite 5 étoiles vous propose une expérience rare : spacieux logement décoré avec goût, spa privatif, literie ultra confortable, équipements premium (spa, jacuzzi, sauna selon logement), et prestations personnalisées.\n\nInstallé dans un environnement calme — souvent isolé ou très discret — cet hébergement permet de se ressourcer loin du tumulte, tout en profitant des plaisirs modernes : petit-déjeuner gourmet, service sur-mesure, espaces de détente, parfois piscine ou vue panoramique.\n\nIdéal pour une escapade romantique, une célébration spéciale ou simplement une pause bien-être, ce logement offre une parenthèse de luxe empreinte d'authenticité, repensée autour du confort, de l'intimité et de la tranquillité.",
+      "image": "assets/img/5-etoiles-hebergement-insolite-luxe-1.jpg",
+      "images": [
+        "assets/img/5-etoiles-hebergement-insolite-luxe-1.jpg",
+        "assets/img/5-etoiles-hebergement-insolite-luxe-2.jpg",
+        "assets/img/5-etoiles-hebergement-insolite-luxe-3.jpg"
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "22000 Côtes-d'Armor",
+      "website": "https://www.booking.com/Share-Uzt74lJ",
+      "phone": "",
+      "tags": ["5 étoiles", "hébergement insolite", "spa privatif", "luxe", "design", "romantique"]
+    },
+    {
+      "id": "domaine-du-treuscoat",
+      "title": "Domaine du Treuscoat",
+      "slug": "domaine-du-treuscoat",
+      "department": "Finistère",
+      "categories": ["logement_insolite"],
+      "lat": 48.53835115162458,
+      "lng": -3.8542899832318653,
+      "shortDescription": "Domaine du Treuscoat, hébergements insolites en Finistère : cabanes perchées, yourtes, Nid'Île, spa & sauna, parc de loisirs en pleine nature près de Morlaix.",
+      "description": "Le Domaine du Treuscoat est un parc résidentiel de loisirs insolite de 63 hectares situé à Pleyber-Christ, près de Morlaix, en Finistère. Il propose une variété d'hébergements atypiques : cabanes perchées, cabanes dans les arbres, yourtes, Nid'Île, lodges dans les arbres — tous avec charme, confort et équipements modernes.\n\nLe domaine combine nature, détente et activités : un espace bien-être avec sauna et spa privatif, un mini-golf 9 trous, un Parcabout® (filets tendus entre les arbres), balades en forêt, jeux extérieurs, sentiers balisés, animation nature, location de vélos, trottinettes électriques, etc.\n\nEngagé dans une démarche de tourisme durable, le Domaine met en œuvre des pratiques respectueuses de l'environnement : énergies renouvelables, chauffage collectif issu de bois, toilettes sèches, usage du bois local, gestion raisonnée de la forêt, respect des corridors écologiques.\n\nParfait pour un séjour romantique, en famille ou entre amis, le Treuscoat offre une immersion en pleine nature tout en préservant le confort : petits-déjeuners, paniers repas, restauration légère, cadre paisible, déconnexion garantie.",
+      "image": "assets/img/domaine-du-treuscoat-1.jpg",
+      "images": [
+        "assets/img/domaine-du-treuscoat-1.jpg",
+        "assets/img/domaine-du-treuscoat-2.jpg",
+        "assets/img/domaine-du-treuscoat-3.jpg"
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "29410 Pleyber-Christ",
+      "website": "https://www.domaine-treuscoat.fr/",
+      "phone": "",
+      "tags": ["cabanes perchées", "yourtes", "Nid'Île", "spa", "sauna", "63 hectares", "tourisme durable", "Morlaix"]
+    },
+    {
+      "id": "les-cabanes-de-koaddour",
+      "title": "Les Cabanes de Koad'dour",
+      "slug": "les-cabanes-de-koaddour",
+      "department": "Ille-et-Vilaine",
+      "categories": ["logement_insolite"],
+      "lat": 48.47360666658317,
+      "lng": -1.3438097134831417,
+      "shortDescription": "Cabanes Koad'dour Coglais : cabane arbres spa jacuzzi îlot étang, chalet pilotis privatif, Mont-Saint-Michel 30min, séjour romantique adultes, pêche nature, hébergement insolite Ille-et-Vilaine luxe.",
+      "description": "À Les Portes du Coglais en Ille-et-Vilaine, Les Cabanes de Koad'dour incarnent le rêve d'enfance devenu réalité luxueuse. Fruit de quatre années de passion artisanale, ce domaine propose deux hébergements d'exception : une cabane spa perchée sur îlot (6-9m hauteur) et un chalet sur pilotis vintage modernisé. Chaque refuge intègre jacuzzi privatif sur terrasse panoramique dominant un étang privé de 6000m².\n\nConstruction exemplaire en matériaux nobles : Douglas et Pin du Canada, ferronnerie d'art locale, mobilier artisanal créé avec le bois du domaine. La cabane dans les arbres, portée par cinq chênes centenaires, offre vue 360° depuis ses deux niveaux, baignoire ouverte et balcon étoilé. Le chalet années 70 réinventé marie authenticité vintage et confort moderne avec lit rond et terrasse suspendue. Activités nature : pêche catégorie 1 (étang et rivière Tronçon), pétanque, contemplation ornithologique.\n\nÀ seulement 30 minutes du Mont-Saint-Michel et 45 minutes des plages de Carolles, cette adresse adultes-only (18+) transforme la frontière Bretagne-Normandie en sanctuaire romantique. Entre \"Koad\" (bois) et \"Dour\" (eau), ce havre de paix célèbre l'amour sous les étoiles bretonnes.",
+      "image": "assets/img/les-cabanes-de-koaddour-1.jpg",
+      "images": [
+        "assets/img/les-cabanes-de-koaddour-1.jpg",
+        "assets/img/les-cabanes-de-koaddour-2.jpg",
+        "assets/img/les-cabanes-de-koaddour-3.jpg"
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "35460 Les Portes du Coglais",
+      "website": "https://www.lescabanesdekoaddour.com/",
+      "phone": "",
+      "tags": ["cabanes dans les arbres", "jacuzzi privatif", "étang privé", "adultes only", "Mont-Saint-Michel", "artisanal", "romantique", "pêche"]
+    },
+    {
+      "id": "nuances-dalcoves",
+      "title": "Nuances d'Alcôves",
+      "slug": "nuances-dalcoves",
+      "department": "Côtes-d'Armor",
+      "categories": ["logement_insolite"],
+      "lat": 48.40059674900494,
+      "lng": -2.0738317816668324,
+      "shortDescription": "Nuances d'Alcôves Trévron : love gîte 140m² spa jacuzzi privatif, décor baroque glamour, pole dance massage, Côte d'Émeraude 20km, Mont-Saint-Michel 45min, séjour romantique adultes exclusif Bretagne.",
+      "description": "À Trévron près de Dinan, Nuances d'Alcôves incarne l'excellence du love gîte breton avec ses 140m² entièrement privatisés sur deux niveaux. Ce refuge romantique d'exception intègre jacuzzi 4-5 places dans jardin d'hiver sans vis-à-vis, accessible 24h/24 avec patio privatif et salon de jardin. La décoration baroque chic cultive la sensualité : chambre en alcôve avec lit King Size et miroirs plafond, barre de pole dance, table de massage professionnelle et coffre aux trésors coquins.\n\nL'expérience wellness se prolonge avec douche tropicale effet pluie aux jeux de lumières sensuelles, baignoire XXL et ambiance musicale dans toutes les pièces. Salon cathédrale avec cheminée design, cuisine équipée complète et terrasse panoramique créent un cocon luxueux. Services premium inclus : parking discret privé, ménage complet, peignoirs fournis, petit-déjeuner gourmand offert. En saison, piscine extérieure et espaces jardins disponibles.\n\nIdéalement située à 20km de la Côte d'Émeraude (Saint-Malo, Dinard, Cancale) et 45 minutes du Mont-Saint-Michel, cette adresse adultes-only transforme chaque séjour en parenthèse voluptueuse. Entre remparts de Dinan (10min) et plages secrètes, Nuances d'Alcôves redéfinit le séjour romantique en mode discrétion absolue et luxe décomplexé pour couples exigeants cherchant l'extraordinaire.",
+      "image": "assets/img/nuances-dalcoves-1.jpg",
+      "images": [
+        "assets/img/nuances-dalcoves-1.jpg",
+        "assets/img/nuances-dalcoves-2.jpg",
+        "assets/img/nuances-dalcoves-3.jpg"
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "22100 Trévron",
+      "website": "https://www.booking.com/Share-vN8h5Q",
+      "phone": "",
+      "tags": ["love gîte", "jacuzzi privatif", "baroque chic", "adultes only", "pole dance", "massage", "140m²", "Côte d'Émeraude", "Dinan"]
     }
   ]
 }

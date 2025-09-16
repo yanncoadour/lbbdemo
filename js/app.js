@@ -938,7 +938,7 @@ function createPopupContent(poi) {
             <p class="popup-description-simple">${poi.shortDescription}</p>
             
             <div class="popup-action-simple">
-                ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v3' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa' || poi.id === 'hotel-barriere-hermitage-la-baule' || poi.id === 'hotel-barriere-royal-thalasso-la-baule' || poi.id === 'hotel-castel-marie-louise-la-baule' || poi.id === 'chateau-maubreuil-carquefou' || poi.id === 'hotel-de-carantec' || poi.id === 'dihan-evasion-ploemel') ? `
+                ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v3' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa' || poi.id === 'hotel-barriere-hermitage-la-baule' || poi.id === 'hotel-barriere-royal-thalasso-la-baule' || poi.id === 'hotel-castel-marie-louise-la-baule' || poi.id === 'chateau-maubreuil-carquefou' || poi.id === 'hotel-de-carantec' || poi.id === 'dihan-evasion-ploemel' || poi.id === 'domaine-des-ormes' || poi.id === 'domaine-de-meros' || poi.id === 'villa-lily-spa' || poi.id === '5-etoiles-hebergement-insolite-luxe' || poi.id === 'domaine-du-treuscoat' || poi.id === 'les-cabanes-de-koaddour' || poi.id === 'nuances-dalcoves') ? `
                     <div class="popup-actions-grid">
                         <a href="poi.html?slug=${poi.slug || poi.id}" class="discover-btn-simple secondary">
                             Découvrir
@@ -958,7 +958,7 @@ function createPopupContent(poi) {
 }
 
 // Rendre la fonction globale pour map.js
-window.createSimplePoiPopup = createSimplePoiPopup;
+window.createSimplePoiPopup = createPopupContent;
 
 /**
  * Affiche la popup d'un POI
@@ -1623,8 +1623,8 @@ function displayPoiData(poi) {
         itineraryBtn.onclick = () => openItinerary(poi.lat, poi.lng);
     }
 
-    // Boutons réserver (pour certains POIs comme la Vallée de Pratmeur, l'Agapa Hotel, la Villa Blockhaus, le Grand Hôtel Barrière, le Camping Sandaya, l'Hôtel Castelbrac et Dihan Evasion)
-    if ((poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v3' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa' || poi.id === 'hotel-barriere-hermitage-la-baule' || poi.id === 'hotel-barriere-royal-thalasso-la-baule' || poi.id === 'hotel-castel-marie-louise-la-baule' || poi.id === 'chateau-maubreuil-carquefou' || poi.id === 'hotel-de-carantec' || poi.id === 'dihan-evasion-ploemel') && poi.website) {
+    // Boutons réserver (pour certains POIs comme la Vallée de Pratmeur, l'Agapa Hotel, la Villa Blockhaus, le Grand Hôtel Barrière, le Camping Sandaya, l'Hôtel Castelbrac, Dihan Evasion, Domaine des Ormes, Domaine de Meros, Villa Lily Spa, 5 Etoiles hébergement insolite, Domaine du Treuscoat, Les Cabanes de Koad'dour et Nuances d'Alcôves)
+    if ((poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v3' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa' || poi.id === 'hotel-barriere-hermitage-la-baule' || poi.id === 'hotel-barriere-royal-thalasso-la-baule' || poi.id === 'hotel-castel-marie-louise-la-baule' || poi.id === 'chateau-maubreuil-carquefou' || poi.id === 'hotel-de-carantec' || poi.id === 'dihan-evasion-ploemel' || poi.id === 'domaine-des-ormes' || poi.id === 'domaine-de-meros' || poi.id === 'villa-lily-spa' || poi.id === '5-etoiles-hebergement-insolite-luxe' || poi.id === 'domaine-du-treuscoat' || poi.id === 'les-cabanes-de-koaddour' || poi.id === 'nuances-dalcoves') && poi.website) {
         const reserveTopBtn = document.getElementById('reserveTopBtn');
         const reserveBottomBtn = document.getElementById('reserveBottomBtn');
         const reserveButtonTop = document.getElementById('reserveButtonTop');
@@ -1724,32 +1724,32 @@ function displayPoiGallery(poi) {
         ];
     }
 
-    // Créer les éléments de galerie de manière sécurisée
-    if (typeof window.Security !== 'undefined' && window.Security.safeSetInnerHTML) {
-        const galleryHTML = additionalImages.map((imageUrl, index) => {
-            // Échapper les données utilisateur
-            const escapedImageUrl = imageUrl.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
-            const escapedTitle = poi.title.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
-            const escapedLabel = (imageLabels[index] || `Vue ${index + 1}`).replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+    // Créer les éléments de galerie
+    const galleryHTML = additionalImages.map((imageUrl, index) => {
+        // Échapper les données utilisateur pour éviter les injections
+        const escapedImageUrl = imageUrl.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+        const escapedTitle = poi.title.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+        const escapedLabel = (imageLabels[index] || `Vue ${index + 1}`).replace(/'/g, '&#39;').replace(/"/g, '&quot;');
 
-            return `
-                <div class="poi-gallery-image" onclick="openImageModal('${escapedImageUrl}', '${escapedTitle} - ${escapedLabel}')">
-                    <img src="${escapedImageUrl}" 
-                         alt="${escapedTitle} - ${escapedLabel}" 
-                         onerror="this.src='assets/img/placeholder.jpg'">
-                    <div class="poi-gallery-overlay">
-                        <div class="poi-gallery-caption">
-                            ${escapedLabel}
-                        </div>
+        return `
+            <div class="poi-gallery-image" onclick="openImageModal('${escapedImageUrl}', '${escapedTitle} - ${escapedLabel}')">
+                <img src="${escapedImageUrl}" 
+                     alt="${escapedTitle} - ${escapedLabel}" 
+                     onerror="this.src='assets/img/placeholder.jpg'">
+                <div class="poi-gallery-overlay">
+                    <div class="poi-gallery-caption">
+                        ${escapedLabel}
                     </div>
                 </div>
-            `;
-        }).join('');
+            </div>
+        `;
+    }).join('');
 
+    // Utiliser la méthode sécurisée si disponible, sinon innerHTML standard
+    if (typeof window.Security !== 'undefined' && window.Security.safeSetInnerHTML) {
         window.Security.safeSetInnerHTML(imagesGrid, galleryHTML);
     } else {
-        // Fallback sécurisé
-        imagesGrid.textContent = `Galerie non disponible (${additionalImages.length} images)`;
+        imagesGrid.innerHTML = galleryHTML;
     }
 }
 
