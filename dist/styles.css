@@ -1,0 +1,1388 @@
+/**
+ * BASE STYLES - LA BELLE BRETAGNE
+ * Reset, variables CSS et styles de base
+ */
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== VARIABLES CSS ===== */
+:root {
+    /* Palette Bretagne Moderne */
+    --primary: #1e40af;          /* Bleu océan profond */
+    --primary-light: #3b82f6;    /* Bleu océan clair */
+    --primary-dark: #1e3a8a;     /* Bleu marine */
+    --secondary: #f0f9ff;        /* Bleu très clair */
+    --accent: #06b6d4;           /* Cyan/turquoise */
+    --accent-warm: #f59e0b;      /* Ambre/or breton */
+    --text-primary: #1e293b;     /* Gris ardoise foncé */
+    --text-secondary: #475569;   /* Gris ardoise */
+    --text-muted: #64748b;       /* Gris moyen */
+    --surface: #ffffff;
+    --surface-elevated: #fafafa;
+    --surface-card: #ffffff;
+    --border: #e2e8f0;
+    --border-light: #f1f5f9;
+    --success: #059669;          /* Vert émeraude */
+    --warning: #d97706;          /* Orange chaleureux */
+    --danger: #dc2626;           /* Rouge */
+    
+    /* Couleurs thématiques Bretagne */
+    --ocean-blue: #0369a1;       /* Bleu océan */
+    --sea-foam: #ecfeff;         /* Écume de mer */
+    --granite-gray: #6b7280;     /* Gris granit */
+    --celtic-gold: #fbbf24;      /* Or celtique */
+    --forest-green: #166534;     /* Vert forêt */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    --gradient-ocean: linear-gradient(135deg, var(--ocean-blue) 0%, var(--accent) 100%);
+    --gradient-sunset: linear-gradient(135deg, var(--accent-warm) 0%, var(--celtic-gold) 100%);
+    
+    /* Ombres modernes */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.16);
+    
+    /* Typographie */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-xs: 0.75rem;     /* 12px */
+    --font-size-sm: 0.875rem;    /* 14px */
+    --font-size-base: 1rem;      /* 16px */
+    --font-size-lg: 1.125rem;    /* 18px */
+    --font-size-xl: 1.25rem;     /* 20px */
+    --font-size-2xl: 1.5rem;     /* 24px */
+    --font-size-3xl: 1.875rem;   /* 30px */
+    
+    /* Espacements */
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-5: 1.25rem;   /* 20px */
+    --space-6: 1.5rem;    /* 24px */
+    --space-8: 2rem;      /* 32px */
+    --space-12: 3rem;     /* 48px */
+    
+    /* Rayons de bordure */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+    
+    /* Z-index */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+}
+
+/* ===== BASE STYLES ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--surface);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== TYPOGRAPHIE ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+}
+
+h1 { font-size: var(--font-size-3xl); }
+h2 { font-size: var(--font-size-2xl); }
+h3 { font-size: var(--font-size-xl); }
+h4 { font-size: var(--font-size-lg); }
+h5 { font-size: var(--font-size-base); }
+h6 { font-size: var(--font-size-sm); }
+
+p {
+    margin-bottom: var(--space-4);
+    color: var(--text-secondary);
+}
+
+/* ===== LIENS ===== */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+/* ===== BOUTONS BASE ===== */
+button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ===== FORMULAIRES ===== */
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* ===== UTILITAIRES ===== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.no-scroll {
+    overflow: hidden;
+}/**
+ * LAYOUT STYLES - LA BELLE BRETAGNE
+ * Structure et mise en page générale
+ */
+
+/* ===== MAP LAYOUT ===== */
+.map {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: var(--surface-elevated);
+}
+
+.map.fullscreen {
+    z-index: var(--z-modal);
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page-container {
+    min-height: 100vh;
+    padding-top: 72px; /* Header height */
+}
+
+.main-content {
+    position: relative;
+    z-index: 10;
+    background: var(--surface);
+    min-height: calc(100vh - 72px);
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.section {
+    padding: var(--space-8) 0;
+}
+
+.section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-6);
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 var(--space-4);
+}
+
+/* ===== GRID SYSTEM ===== */
+.grid {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.grid-cols-1 { grid-template-columns: 1fr; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+
+/* ===== FLEX UTILITIES ===== */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+
+/* ===== SPACING UTILITIES ===== */
+.m-0 { margin: 0; }
+.m-2 { margin: var(--space-2); }
+.m-4 { margin: var(--space-4); }
+.m-6 { margin: var(--space-6); }
+.m-8 { margin: var(--space-8); }
+
+.mt-0 { margin-top: 0; }
+.mt-2 { margin-top: var(--space-2); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+
+.p-0 { padding: 0; }
+.p-2 { padding: var(--space-2); }
+.p-4 { padding: var(--space-4); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+
+.px-2 { padding-left: var(--space-2); padding-right: var(--space-2); }
+.px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+.px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+
+.py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+.py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+.py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+
+/* ===== TEXT UTILITIES ===== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+
+/* ===== VISIBILITY UTILITIES ===== */
+.hidden { display: none !important; }
+.visible { display: block !important; }
+.invisible { visibility: hidden; }
+
+.opacity-0 { opacity: 0; }
+.opacity-50 { opacity: 0.5; }
+.opacity-100 { opacity: 1; }
+
+/* ===== POSITION UTILITIES ===== */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+.top-0 { top: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+
+/* ===== BACKGROUND UTILITIES ===== */
+.bg-white { background-color: var(--surface); }
+.bg-gray-50 { background-color: var(--surface-elevated); }
+.bg-primary { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+
+/* ===== BORDER UTILITIES ===== */
+.border { border: 1px solid var(--border); }
+.border-light { border: 1px solid var(--border-light); }
+.border-primary { border: 1px solid var(--primary); }
+
+.border-t { border-top: 1px solid var(--border); }
+.border-b { border-bottom: 1px solid var(--border); }
+.border-l { border-left: 1px solid var(--border); }
+.border-r { border-right: 1px solid var(--border); }
+
+.rounded { border-radius: var(--radius-md); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* ===== SHADOW UTILITIES ===== */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+/* ===== RESPONSIVE GRID ===== */
+@media (max-width: 1024px) {
+    .lg\:grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+    .lg\:grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .md\:grid-cols-2 { grid-template-columns: 1fr; }
+    .md\:grid-cols-3 { grid-template-columns: 1fr; }
+    .md\:grid-cols-4 { grid-template-columns: 1fr; }
+    
+    .md\:flex-col {
+        flex-direction: column;
+    }
+    
+    .md\:text-center {
+        text-align: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 var(--space-3);
+    }
+    
+    .section {
+        padding: var(--space-6) 0;
+    }
+    
+    .section-title {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--space-4);
+    }
+}/**
+ * COMPONENTS - LA BELLE BRETAGNE
+ * Composants UI réutilisables
+ */
+
+/* ===== HEADER ===== */
+.modern-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-sticky);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-light);
+    padding: var(--space-3) var(--space-4);
+    transition: all 0.3s ease;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+}
+
+.brand-name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.brand-tagline {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.back-btn {
+    padding: var(--space-2);
+    color: var(--text-muted);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+    background: var(--surface-elevated);
+    color: var(--primary);
+}
+
+/* ===== BOTTOM SHEET ===== */
+.bottom-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-fixed);
+    background: var(--surface);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    box-shadow: var(--shadow-xl);
+    max-height: 85vh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.bottom-sheet.open {
+    transform: translateY(0);
+}
+
+.sheet-handle {
+    width: 40px;
+    height: 4px;
+    background: var(--border);
+    border-radius: var(--radius-full);
+    margin: var(--space-3) auto var(--space-4);
+}
+
+/* ===== SEARCH INTERFACE ===== */
+.search-interface {
+    padding: 0 var(--space-4) var(--space-4);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.search-field {
+    flex: 1;
+    position: relative;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.search-field i {
+    color: var(--text-muted);
+}
+
+.search-input-container {
+    flex: 1;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-autocomplete {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: none;
+    background: transparent;
+    pointer-events: none;
+    color: var(--text-muted);
+    opacity: 0.6;
+    font-size: var(--font-size-base);
+}
+
+.filters-btn {
+    padding: var(--space-3);
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius-lg);
+    transition: background 0.2s ease;
+}
+
+.filters-btn:hover {
+    background: var(--primary-light);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-light);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--surface-elevated);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--border-light);
+}
+
+.location-btn {
+    position: fixed;
+    top: 90px;
+    right: var(--space-4);
+    z-index: var(--z-fixed);
+    width: 48px;
+    height: 48px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.location-btn:hover {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+/* ===== CARDS ===== */
+.card {
+    background: var(--surface-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.card-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.card-subtitle {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.card-body {
+    padding: var(--space-4);
+}
+
+.card-footer {
+    padding: var(--space-4);
+    border-top: 1px solid var(--border-light);
+    background: var(--surface-elevated);
+}
+
+/* ===== LOADING STATES ===== */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8);
+    text-align: center;
+}
+
+.loading-state i {
+    font-size: var(--font-size-2xl);
+    color: var(--primary);
+    margin-bottom: var(--space-4);
+}
+
+.loading-state p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* ===== NOTIFICATIONS ===== */
+.notification {
+    position: fixed;
+    top: var(--space-4);
+    right: var(--space-4);
+    z-index: var(--z-tooltip);
+    max-width: 320px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-success {
+    border-left: 4px solid var(--success);
+}
+
+.notification-error {
+    border-left: 4px solid var(--danger);
+}
+
+.notification-warning {
+    border-left: 4px solid var(--warning);
+}
+
+.notification-info {
+    border-left: 4px solid var(--primary);
+}
+
+.notification i {
+    font-size: var(--font-size-lg);
+}
+
+.notification-success i { color: var(--success); }
+.notification-error i { color: var(--danger); }
+.notification-warning i { color: var(--warning); }
+.notification-info i { color: var(--primary); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease;
+}/**
+ * POI STYLES - LA BELLE BRETAGNE
+ * Styles spécifiques aux points d'intérêt
+ */
+
+/* ===== POI CONTENT WRAPPER ===== */
+.poi-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-5);
+}
+
+/* ===== NEARBY POINTS OF INTEREST CAROUSEL ===== */
+.nearby-section {
+    background: var(--surface);
+    margin: var(--space-6) 0;
+    padding: var(--space-4) 0;
+}
+
+.nearby-card {
+    background: var(--surface-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+}
+
+.nearby-section-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.nearby-section-title i {
+    color: var(--primary);
+    font-size: var(--font-size-lg);
+}
+
+.nearby-subtitle {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-6);
+}
+
+.nearby-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.nearby-carousel-container {
+    display: flex;
+    gap: var(--space-4);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: var(--space-1) 0 var(--space-4) 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.nearby-carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.nearby-poi-card {
+    flex: 0 0 280px;
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.nearby-poi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+}
+
+.nearby-poi-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.nearby-poi-content {
+    padding: var(--space-4);
+}
+
+.nearby-poi-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+}
+
+.nearby-poi-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.nearby-poi-department {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--text-muted);
+    font-size: var(--font-size-xs);
+}
+
+.nearby-poi-distance {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--primary);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+}
+
+.nearby-poi-category {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: white;
+    text-transform: capitalize;
+}
+
+.nearby-poi-description {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: var(--space-3);
+}
+
+/* ===== CAROUSEL CONTROLS ===== */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.carousel-btn.prev {
+    left: -20px;
+}
+
+.carousel-btn.next {
+    right: -20px;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.carousel-btn:disabled:hover {
+    background: var(--surface);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ===== POI POPUP ===== */
+.poi-popup {
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.poi-popup .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.poi-popup-content {
+    background: var(--surface);
+}
+
+.poi-popup-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.poi-popup-body {
+    padding: var(--space-4);
+}
+
+.poi-popup-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.poi-popup-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.poi-popup-category {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: white;
+    text-transform: capitalize;
+}
+
+.poi-popup-description {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin-bottom: var(--space-3);
+}
+
+.poi-popup-actions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+/* ===== POI FILTERS ===== */
+.filters-content {
+    padding: var(--space-4);
+}
+
+.filter-group {
+    margin-bottom: var(--space-6);
+}
+
+.filter-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+}
+
+.filter-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-2);
+}
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-checkbox:hover {
+    border-color: var(--primary);
+    background: var(--secondary);
+}
+
+.filter-checkbox input[type="checkbox"] {
+    margin: 0;
+}
+
+.filter-checkbox.checked {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: white;
+}
+
+/* ===== RESPONSIVE POI STYLES ===== */
+@media (max-width: 768px) {
+    .poi-content-wrapper {
+        padding: 0 var(--space-4);
+    }
+    
+    .nearby-poi-card {
+        flex: 0 0 240px;
+    }
+    
+    .filter-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .carousel-btn {
+        display: none;
+    }
+}/**
+ * RESPONSIVE DESIGN CONSOLIDÉ - LA BELLE BRETAGNE
+ * Regroupement de toutes les media queries par breakpoint
+ */
+
+/* ===================================================================
+   BREAKPOINT MOBILE LARGE (768px)
+   ================================================================ */
+
+@media (max-width: 768px) {
+    /* GÉNÉRAL */
+    .bottom-sheet .search-interface .search-field {
+        padding: 12px 16px;
+    }
+    
+    /* FESTIVALS */
+    .filter-bar, .filter-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .festivals-search-section {
+        margin-top: 120px;
+        padding: 16px;
+    }
+    
+    /* FESTIVAL DÉTAIL */
+    .festival-detail-hero {
+        height: 300px;
+        margin-top: 64px;
+    }
+    
+    /* INSTAGRAM */
+    .instagram-hero {
+        padding: 30px 16px;
+    }
+    
+    .instagram-profile-card {
+        padding: 24px 20px;
+    }
+    
+    .avatar-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .instagram-username {
+        font-size: 24px;
+    }
+    
+    .instagram-stats {
+        gap: 20px;
+        padding: 16px;
+    }
+    
+    .instagram-actions {
+        flex-direction: column;
+    }
+    
+    .instagram-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .instagram-cta {
+        padding: 40px 20px;
+    }
+    
+    .cta-title {
+        font-size: 24px;
+    }
+    
+    .cta-description {
+        font-size: 16px;
+    }
+    
+    .instagram-notification {
+        left: 20px;
+        right: 20px;
+        transform: translateY(-120%);
+    }
+    
+    .instagram-notification.show {
+        transform: translateY(0);
+    }
+    
+    /* LOGEMENTS */
+    .filters-title {
+        font-size: 24px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .filter-categories {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .category-filter {
+        min-width: 200px;
+    }
+    
+    .logements-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .logement-actions {
+        flex-direction: column;
+    }
+    
+    /* PAGES GÉNÉRALES */
+    .page-main {
+        padding-top: 64px;
+    }
+}
+
+/* ===================================================================
+   BREAKPOINT MOBILE STANDARD (480px)
+   ================================================================ */
+
+@media (max-width: 480px) {
+    /* NAVIGATION */
+    .nav-item {
+        gap: 4px;
+        padding: 8px 4px;
+    }
+    
+    .nav-item span {
+        font-size: 10px;
+    }
+    
+    .nav-item i {
+        font-size: 16px;
+    }
+    
+    .nav-item-center {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        margin: 0 8px;
+        transform: translateY(-8px);
+    }
+    
+    /* FESTIVALS */
+    .festivals-hero {
+        padding: 20px 16px;
+        margin-top: 64px;
+    }
+    
+    .festivals-title {
+        font-size: 2rem;
+    }
+    
+    .festivals-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+    
+    .festivals-search-section {
+        margin-top: 100px;
+        padding: 12px 16px;
+    }
+    
+    .quick-filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .filter-item {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .festivals-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    /* LOGEMENTS */
+    .logements-filters {
+        padding: 30px 16px;
+    }
+    
+    .logements-content {
+        padding: 24px 16px;
+    }
+    
+    .filters-title {
+        font-size: 22px;
+    }
+    
+    .category-filter {
+        min-width: 100%;
+        padding: 14px 20px;
+    }
+    
+    /* INSTAGRAM */
+    .instagram-page .instagram-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    /* GÉOLOCALISATION */
+    .location-btn-modern {
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+    
+    /* FILTRES */
+    .filter-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn-reset, .btn-apply {
+        width: 100%;
+        padding: 14px 20px;
+        border-radius: 10px;
+        font-size: 15px;
+        justify-content: center;
+    }
+}
+
+/* ===================================================================
+   BREAKPOINT MOBILE COMPACT (425px)
+   ================================================================ */
+
+@media (max-width: 425px) {
+    /* NAVIGATION COMPACTE AMÉLIORÉE */
+    .bottom-nav {
+        padding: 6px 0 max(6px, env(safe-area-inset-bottom));
+        height: 64px;
+    }
+    
+    .nav-item {
+        padding: 8px 4px;
+        gap: 4px;
+        min-height: 52px;
+    }
+    
+    .nav-item span {
+        font-size: 11px;
+        font-weight: 500;
+    }
+    
+    .nav-item i {
+        font-size: 16px;
+    }
+    
+    .nav-item-center {
+        width: 52px;
+        height: 52px;
+        transform: translateY(-8px);
+        margin: 0 8px;
+    }
+    
+    .nav-item-center i {
+        font-size: 20px;
+    }
+}
+
+/* ===================================================================
+   BREAKPOINT TRÈS PETIT (360px)
+   ================================================================ */
+
+@media (max-width: 360px) {
+    /* NAVIGATION MINIMALE AMÉLIORÉE */
+    .nav-item span {
+        font-size: 10px;
+    }
+    
+    .nav-item i {
+        font-size: 15px;
+    }
+    
+    .nav-item-center {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .nav-item-center i {
+        font-size: 18px;
+    }
+}

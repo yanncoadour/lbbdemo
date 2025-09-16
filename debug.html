@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Debug - La Belle Bretagne</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .error { color: red; }
+        .success { color: green; }
+        .info { color: blue; }
+        button { padding: 10px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug La Belle Bretagne</h1>
+    
+    <div class="debug-section">
+        <h2>1. Configuration et Scripts</h2>
+        <button onclick="checkConfig()">Vérifier CONFIG</button>
+        <button onclick="checkFunctions()">Vérifier Fonctions</button>
+        <div id="config-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>2. Test de Popup</h2>
+        <button onclick="testPopup()">Tester Popup</button>
+        <div id="popup-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>3. Test POI</h2>
+        <button onclick="testPOI()">Tester POI exemple</button>
+        <div id="poi-result"></div>
+    </div>
+    
+    <!-- Hidden popup for testing -->
+    <div class="fixed-popup" id="fixedPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border: 1px solid black; padding: 20px; z-index: 9999;">
+        <div class="fixed-popup-content" id="fixedPopupContent">
+            <!-- Content will be inserted here -->
+        </div>
+        <button onclick="closePopup()">Fermer</button>
+    </div>
+
+    <!-- Scripts dans le même ordre que l'index -->
+    <script src="js/config.js"></script>
+    <script src="js/logger.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    
+    <script>
+        function checkConfig() {
+            const result = document.getElementById('config-result');
+            let html = '<h3>État de la configuration:</h3>';
+            
+            if (typeof CONFIG !== 'undefined') {
+                html += `<div class="success">✅ CONFIG existe</div>`;
+                html += `<div class="info">Colors: ${Object.keys(CONFIG.colors).length} couleurs</div>`;
+            } else {
+                html += `<div class="error">❌ CONFIG non défini</div>`;
+            }
+            
+            if (typeof loggers !== 'undefined') {
+                html += `<div class="success">✅ loggers existe</div>`;
+            } else {
+                html += `<div class="error">❌ loggers non défini</div>`;
+            }
+            
+            result.innerHTML = html;
+        }
+        
+        function checkFunctions() {
+            const result = document.getElementById('config-result');
+            let html = '<h3>Fonctions JavaScript:</h3>';
+            
+            const functions = ['showPoiPopup', 'createSimplePoiPopup'];
+            functions.forEach(fname => {
+                if (typeof window[fname] === 'function') {
+                    html += `<div class="success">✅ ${fname}() existe</div>`;
+                } else {
+                    html += `<div class="error">❌ ${fname}() manquante</div>`;
+                }
+            });
+            
+            result.innerHTML += html;
+        }
+        
+        function testPopup() {
+            const result = document.getElementById('popup-result');
+            const popup = document.getElementById('fixedPopup');
+            const content = document.getElementById('fixedPopupContent');
+            
+            if (!popup || !content) {
+                result.innerHTML = '<div class="error">❌ Éléments popup manquants</div>';
+                return;
+            }
+            
+            content.innerHTML = '<h3>🎉 Test popup réussi!</h3><p>La popup fonctionne correctement.</p>';
+            popup.style.display = 'block';
+            
+            result.innerHTML = '<div class="success">✅ Popup affichée</div>';
+        }
+        
+        function closePopup() {
+            const popup = document.getElementById('fixedPopup');
+            popup.style.display = 'none';
+        }
+        
+        function testPOI() {
+            const result = document.getElementById('poi-result');
+            
+            // POI d'exemple pour tester
+            const testPoi = {
+                id: 'test-poi',
+                name: 'Test POI',
+                slug: 'test-poi',
+                category: 'monument',
+                shortDescription: 'Ceci est un POI de test pour débugger',
+                website: 'https://example.com'
+            };
+            
+            if (typeof showPoiPopup === 'function') {
+                showPoiPopup(testPoi);
+                result.innerHTML = '<div class="success">✅ showPoiPopup() appelée avec succès</div>';
+            } else {
+                result.innerHTML = '<div class="error">❌ showPoiPopup() non trouvée</div>';
+            }
+        }
+    </script>
+</body>
+</html>

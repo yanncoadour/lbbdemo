@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# External assets
+assets/images/
+assets/fonts/
+
+# Data files
+data/
+
+# Cache
+.cache/
+.temp/
+
+# IDE files
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Config files (already formatted)
+*.json
+*.md
+
+# Minified files
+*.min.js
+*.min.css
