@@ -6453,3 +6453,53 @@ body {
         font-size: 1rem;
     }
 }
+
+/* Map Toggle Button - même style que location-btn */
+.map-toggle-btn {
+    position: fixed;
+    top: 88px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.map-toggle-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+.map-toggle-btn:hover i {
+    color: white;
+}
+
+.map-toggle-btn:active {
+    transform: translateY(0);
+}
+
+.map-toggle-btn i {
+    color: var(--text-secondary);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Mode satellite actif */
+.map-toggle-btn.satellite {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.map-toggle-btn.satellite i {
+    color: white;
+}
