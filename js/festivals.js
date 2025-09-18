@@ -21,8 +21,8 @@ function initFestivals() {
  * Initialise les filtres
  */
 function initFilters() {
-    // Filtres département
-    const departmentChips = document.querySelectorAll('[data-department]');
+    // Filtres département - seulement les boutons de filtre, pas les cartes
+    const departmentChips = document.querySelectorAll('.filter-chip[data-department]');
     departmentChips.forEach(chip => {
         chip.addEventListener('click', () => {
             // Désactiver tous les chips département
@@ -33,8 +33,8 @@ function initFilters() {
         });
     });
 
-    // Filtres mois
-    const monthChips = document.querySelectorAll('[data-month]');
+    // Filtres mois - seulement les boutons de filtre, pas les cartes
+    const monthChips = document.querySelectorAll('.filter-chip[data-month]');
     monthChips.forEach(chip => {
         chip.addEventListener('click', () => {
             // Désactiver tous les chips mois
@@ -45,6 +45,7 @@ function initFilters() {
         });
     });
 }
+
 
 // ===================================================================
 // FILTRES
@@ -61,8 +62,8 @@ function applyFilters() {
     }
 
     // Récupérer les filtres actifs
-    const activeDepartmentChip = document.querySelector('[data-department].active');
-    const activeMonthChip = document.querySelector('[data-month].active');
+    const activeDepartmentChip = document.querySelector('.filter-chip[data-department].active');
+    const activeMonthChip = document.querySelector('.filter-chip[data-month].active');
 
     const selectedDepartment = activeDepartmentChip ? activeDepartmentChip.dataset.department : '';
     const selectedMonth = activeMonthChip ? activeMonthChip.dataset.month : '';
@@ -104,13 +105,13 @@ function applyFilters() {
  */
 function resetFilters() {
     // Réinitialiser les filtres département
-    const departmentChips = document.querySelectorAll('[data-department]');
+    const departmentChips = document.querySelectorAll('.filter-chip[data-department]');
     departmentChips.forEach(chip => {
         chip.classList.toggle('active', chip.dataset.department === '');
     });
 
     // Réinitialiser les filtres mois
-    const monthChips = document.querySelectorAll('[data-month]');
+    const monthChips = document.querySelectorAll('.filter-chip[data-month]');
     monthChips.forEach(chip => {
         chip.classList.toggle('active', chip.dataset.month === '');
     });
