@@ -180,9 +180,26 @@ function initLocationButton() {
     const locationBtn = document.getElementById('locationBtn');
     if (locationBtn) {
         locationBtn.addEventListener('click', () => {
-            if (navigator.geolocation) {
-                locationBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-                navigator.geolocation.getCurrentPosition(
+            // Afficher la popup d'instructions
+            const popup = document.getElementById('geolocationPopup');
+            if (popup) {
+                popup.style.display = 'flex';
+            }
+        });
+
+        // Gestionnaire pour le bouton "Autoriser" dans la popup
+        const btnAllow = document.getElementById('btnAllowGeolocation');
+        const btnCancel = document.getElementById('btnCancelGeolocation');
+        const popup = document.getElementById('geolocationPopup');
+
+        if (btnAllow) {
+            btnAllow.addEventListener('click', () => {
+                if (navigator.geolocation) {
+                    // Fermer la popup
+                    popup.style.display = 'none';
+                    locationBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+                    navigator.geolocation.getCurrentPosition(
                     (position) => {
                         console.log('Geolocation success!', position);
                         const lat = position.coords.latitude;
@@ -337,7 +354,6 @@ function initLocationButton() {
                     },
                     (error) => {
                         console.error('Erreur de géolocalisation:', error);
-                        alert('DEBUG: Erreur ' + error.code + ' - ' + error.message);
                         locationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
 
                         let message = '';
@@ -368,14 +384,16 @@ function initLocationButton() {
                             alert(message);
                         }
                     },
-                    {
-                        enableHighAccuracy: true,
-                        timeout: 10000,
-                        maximumAge: 60000
-                    }
-                , { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
-            }
-        });
+                    { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
+                }
+            });
+        }
+
+        if (btnCancel) {
+            btnCancel.addEventListener('click', () => {
+                popup.style.display = 'none';
+            });
+        }
     }
 }
 

@@ -312,6 +312,38 @@
         </button>
     </div>
 
+    <!-- Popup de géolocalisation -->
+    <div class="geolocation-popup" id="geolocationPopup" style="display: none;">
+        <div class="geolocation-popup-content">
+            <div class="geolocation-icon">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Découvrez les lieux près de vous</h3>
+            <p>Autorisez l'accès à votre position pour voir les points d'intérêt à proximité</p>
+
+            <div class="geolocation-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <span>Cliquez sur "Autoriser" quand votre navigateur le demande</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <span>Ou allez dans Réglages → Safari → Localisation</span>
+                </div>
+            </div>
+
+            <div class="geolocation-buttons">
+                <button class="btn-geolocation-allow" id="btnAllowGeolocation">
+                    <i class="fas fa-crosshairs"></i>
+                    Autoriser la géolocalisation
+                </button>
+                <button class="btn-geolocation-cancel" id="btnCancelGeolocation">
+                    Plus tard
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Bouton pour réafficher le carrousel de géolocalisation -->
     <button class="show-nearby-btn" id="showNearbyBtn" style="display: none;" title="Voir les lieux proches">
         <i class="fas fa-location-arrow"></i>
