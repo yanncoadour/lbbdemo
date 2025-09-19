@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Belle Bretagne</title>
+    <title>La Belle Bretagne - Guide Touristique de Bretagne</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1e40af">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Belle Bretagne">
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/assets/icons/icon-192x192.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Découvrez les plus beaux lieux de Bretagne : plages, monuments, villages et points d'intérêt incontournables. Guide touristique interactif avec carte, géolocalisation et favoris.">
+    <meta name="keywords" content="Bretagne, tourisme, guide, carte, plages, monuments, villages, Finistère, Morbihan, Côtes d'Armor, Ille-et-Vilaine">
+    <meta name="author" content="La Belle Bretagne">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="La Belle Bretagne - Guide Touristique">
+    <meta property="og:description" content="Découvrez les plus beaux lieux de Bretagne avec notre guide interactif">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yanncoadour.github.io/lbbdemo/">
+    <meta property="og:image" content="/assets/images/og-image.jpg">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <!-- Preload critical CSS -->
     <link rel="preload" href="css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -109,14 +132,14 @@
                 <i class="fas fa-route"></i>
                 <span>Itinéraire</span>
             </button>
-            <button class="quick-btn secondary">
+            <button class="quick-btn secondary" id="favoritesBtn">
                 <i class="fas fa-heart"></i>
-                <span>Favoris</span>
+                <span>Favoris (<span class="favorites-count">0</span>)</span>
             </button>
         </div>
         
-        <!-- Section des lieux proches (géolocalisation) -->
-        <div id="nearbyLocationSection" class="nearby-location-section" style="display: none;">
+        <!-- Section des lieux proches (géolocalisation) - DÉSACTIVÉE -->
+        <div id="nearbyLocationSection" class="nearby-location-section" style="display: none !important;">
             <div class="nearby-card">
                 <h2 class="nearby-section-title">
                     <i class="fas fa-location-arrow"></i>
@@ -243,7 +266,7 @@
                         <label class="option-card">
                             <input type="checkbox" value="point_de_vue">
                             <div class="card-content">
-                                <i class="fas fa-mountain"></i>
+                                <i class="fas fa-eye"></i>
                                 <span>Panoramas</span>
                             </div>
                         </label>
@@ -271,7 +294,7 @@
                         <label class="option-card">
                             <input type="checkbox" value="logement_insolite">
                             <div class="card-content">
-                                <i class="fas fa-campground"></i>
+                                <i class="fas fa-tree-city"></i>
                                 <span>Insolite</span>
                             </div>
                         </label>
@@ -280,6 +303,41 @@
                             <div class="card-content">
                                 <i class="fas fa-music"></i>
                                 <span>Festivals</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="chateau">
+                            <div class="card-content">
+                                <i class="fas fa-chess-rook"></i>
+                                <span>Châteaux</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="parc">
+                            <div class="card-content">
+                                <i class="fas fa-tree"></i>
+                                <span>Parcs</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="restaurant">
+                            <div class="card-content">
+                                <i class="fas fa-utensils"></i>
+                                <span>Restaurants</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="camping">
+                            <div class="card-content">
+                                <i class="fas fa-campground"></i>
+                                <span>Camping</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="loisirs">
+                            <div class="card-content">
+                                <i class="fas fa-star"></i>
+                                <span>Loisirs</span>
                             </div>
                         </label>
                     </div>
@@ -312,8 +370,8 @@
         </button>
     </div>
 
-    <!-- Popup de géolocalisation -->
-    <div class="geolocation-popup" id="geolocationPopup" style="display: none;">
+    <!-- Popup de géolocalisation - DÉSACTIVÉE -->
+    <div class="geolocation-popup" id="geolocationPopup" style="display: none !important;">
         <div class="geolocation-popup-content">
             <div class="geolocation-icon">
                 <i class="fas fa-map-marker-alt"></i>
@@ -393,6 +451,10 @@
     <script src="js/logger.js"></script>
     <script src="js/security.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/image-optimizer.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/share.js"></script>
+    <script src="js/offline.js"></script>
     <script src="js/theme-global.js"></script>
     <script src="js/app.js"></script>
     <script src="js/simple-filters.js"></script>

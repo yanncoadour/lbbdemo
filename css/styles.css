@@ -3794,6 +3794,79 @@ body {
     animation: markerAppear 0.4s ease-out;
 }
 
+/* Icônes dans les filtres - même style que les markers */
+.poi-marker-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--primary);
+    border: 2px solid white;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.poi-marker-icon i {
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Couleurs spécifiques par catégorie pour les filtres */
+.poi-marker-icon[data-category="monument"] { background: #d97706 !important; }
+.poi-marker-icon[data-category="musee"] { background: #8b5cf6 !important; }
+.poi-marker-icon[data-category="point_de_vue"] { background: #059669 !important; }
+.poi-marker-icon[data-category="plage"] { background: #06b6d4 !important; }
+.poi-marker-icon[data-category="village"] { background: #ef4444 !important; }
+.poi-marker-icon[data-category="parc"] { background: #22c55e !important; }
+.poi-marker-icon[data-category="randonnee"] { background: #10b981 !important; }
+.poi-marker-icon[data-category="chateau"] { background: #92400e !important; }
+.poi-marker-icon[data-category="festival"] { background: #f97316 !important; }
+.poi-marker-icon[data-category="loisirs"] { background: #6366f1 !important; }
+.poi-marker-icon[data-category="hotel"] { background: #64748b !important; }
+.poi-marker-icon[data-category="villa"] { background: #94a3b8 !important; }
+.poi-marker-icon[data-category="logement_insolite"] { background: #ec4899 !important; }
+.poi-marker-icon[data-category="camping"] { background: #34d399 !important; }
+.poi-marker-icon[data-category="restaurant"] { background: #f59e0b !important; }
+
+/* Couleurs des icônes dans les filtres (sans cercle) */
+#simpleFiltersPopup .filter-chip i[data-category="monument"] { color: #d97706 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="musee"] { color: #8b5cf6 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="point_de_vue"] { color: #059669 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="plage"] { color: #06b6d4 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="village"] { color: #ef4444 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="parc"] { color: #22c55e !important; }
+#simpleFiltersPopup .filter-chip i[data-category="randonnee"] { color: #10b981 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="chateau"] { color: #92400e !important; }
+#simpleFiltersPopup .filter-chip i[data-category="festival"] { color: #f97316 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="loisirs"] { color: #6366f1 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="hotel"] { color: #64748b !important; }
+#simpleFiltersPopup .filter-chip i[data-category="villa"] { color: #94a3b8 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="logement_insolite"] { color: #ec4899 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="camping"] { color: #34d399 !important; }
+#simpleFiltersPopup .filter-chip i[data-category="restaurant"] { color: #f59e0b !important; }
+
+/* Alternative avec classes */
+.filter-chip .icon-monument { color: #d97706 !important; }
+.filter-chip .icon-musee { color: #8b5cf6 !important; }
+.filter-chip .icon-point_de_vue { color: #059669 !important; }
+.filter-chip .icon-plage { color: #06b6d4 !important; }
+.filter-chip .icon-village { color: #ef4444 !important; }
+.filter-chip .icon-parc { color: #22c55e !important; }
+.filter-chip .icon-randonnee { color: #10b981 !important; }
+.filter-chip .icon-chateau { color: #92400e !important; }
+.filter-chip .icon-festival { color: #f97316 !important; }
+.filter-chip .icon-loisirs { color: #6366f1 !important; }
+.filter-chip .icon-hotel { color: #64748b !important; }
+.filter-chip .icon-villa { color: #94a3b8 !important; }
+.filter-chip .icon-logement_insolite { color: #ec4899 !important; }
+.filter-chip .icon-camping { color: #34d399 !important; }
+.filter-chip .icon-restaurant { color: #f59e0b !important; }
+
 
 
 /* Bouton de type de carte */
@@ -7393,6 +7466,234 @@ body {
 
 .btn-geolocation-cancel:hover {
     color: var(--text-secondary);
+}
+
+/* ===== SYSTÈME DE PARTAGE ===== */
+.share-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.share-modal-content {
+    background: var(--surface-card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 400px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: shareModalSlideIn 0.3s ease;
+}
+
+@keyframes shareModalSlideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.share-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.share-header h3 {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.share-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.share-close:hover {
+    background: var(--surface-elevated);
+    color: var(--text-secondary);
+}
+
+.share-preview {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--surface-elevated);
+    border-radius: 12px;
+}
+
+.share-preview h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.share-preview p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin: 0 0 1rem 0;
+}
+
+.share-url {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+.share-url code {
+    color: var(--primary);
+    font-size: 0.75rem;
+    word-break: break-all;
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.share-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    background: var(--surface-card);
+    cursor: pointer;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.share-btn.whatsapp {
+    border-color: #25d366;
+    color: #25d366;
+}
+
+.share-btn.whatsapp:hover {
+    background: #25d366;
+    color: white;
+}
+
+.share-btn.facebook {
+    border-color: #1877f2;
+    color: #1877f2;
+}
+
+.share-btn.facebook:hover {
+    background: #1877f2;
+    color: white;
+}
+
+.share-btn.twitter {
+    border-color: #1da1f2;
+    color: #1da1f2;
+}
+
+.share-btn.twitter:hover {
+    background: #1da1f2;
+    color: white;
+}
+
+.share-btn.email {
+    border-color: var(--text-muted);
+    color: var(--text-muted);
+}
+
+.share-btn.email:hover {
+    background: var(--text-muted);
+    color: white;
+}
+
+.share-btn.copy {
+    border-color: var(--primary);
+    color: var(--primary);
+    grid-column: 1 / -1;
+}
+
+.share-btn.copy:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.share-btn-poi {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.share-btn-poi:hover {
+    background: var(--surface-elevated);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.shared-location-marker {
+    background: var(--primary);
+    color: white;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    box-shadow: var(--shadow-lg);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.shared-marker-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .share-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .share-btn.copy {
+        grid-column: 1;
+    }
 }
 
 /* ===== CONTRÔLES BOTTOM SHEET ===== */

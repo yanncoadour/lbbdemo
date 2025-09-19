@@ -58,22 +58,8 @@ function showSimpleFiltersPopup() {
                 <!-- Catégories -->
                 <div class="filter-section">
                     <h4>Types de lieux</h4>
-                    <div class="filter-chips">
-                        <button class="filter-chip" data-value="plage">🏖️ Plages</button>
-                        <button class="filter-chip" data-value="village">🏘️ Villages</button>
-                        <button class="filter-chip" data-value="monument">🏛️ Monuments</button>
-                        <button class="filter-chip" data-value="chateau">🏰 Châteaux</button>
-                        <button class="filter-chip" data-value="musee">🎨 Musées</button>
-                        <button class="filter-chip" data-value="point_de_vue">🌄 Panoramas</button>
-                        <button class="filter-chip" data-value="randonnee">🥾 Randonnées</button>
-                        <button class="filter-chip" data-value="parc">🌳 Parcs</button>
-                        <button class="filter-chip" data-value="hotel">🛏️ Hôtels</button>
-                        <button class="filter-chip" data-value="villa">🏖️ Villas</button>
-                        <button class="filter-chip" data-value="camping">⛺ Camping</button>
-                        <button class="filter-chip" data-value="logement_insolite">🛖 Insolite</button>
-                        <button class="filter-chip" data-value="restaurant">🍽️ Restaurants</button>
-                        <button class="filter-chip" data-value="festival">🎵 Festivals</button>
-                        <button class="filter-chip" data-value="loisirs">🎪 Loisirs</button>
+                    <div class="filter-chips" id="categoryFilterChips">
+                        <!-- Les icônes seront ajoutées dynamiquement par JavaScript -->
                     </div>
                 </div>
             </div>
@@ -93,7 +79,8 @@ function showSimpleFiltersPopup() {
         popup.classList.add('show');
     }, 10);
 
-    // Ajouter les événements aux chips
+    // Créer les icônes dynamiquement puis ajouter les événements aux chips
+    createCategoryIcons();
     addChipEvents();
 }
 
@@ -106,6 +93,67 @@ function hideSimpleFiltersPopup() {
             popup.remove();
         }, 300);
     }
+}
+
+// Fonction pour créer les icônes de catégories dynamiquement
+function createCategoryIcons() {
+    const container = document.getElementById('categoryFilterChips');
+    if (!container) return;
+
+    // Fonction locale pour obtenir les icônes (copie de getPoiIcon)
+    function getLocalPoiIcon(category) {
+        const icons = {
+            monument: 'fas fa-landmark',
+            musee: 'fas fa-university',
+            point_de_vue: 'fas fa-eye',
+            plage: 'fas fa-umbrella-beach',
+            village: 'fas fa-home',
+            parc: 'fas fa-tree',
+            randonnee: 'fas fa-hiking',
+            chateau: 'fas fa-chess-rook',
+            festival: 'fas fa-music',
+            loisirs: 'fas fa-star',
+            hotel: 'fas fa-bed',
+            villa: 'fas fa-house-user',
+            logement_insolite: 'fas fa-tree-city',
+            camping: 'fas fa-campground',
+            restaurant: 'fas fa-utensils'
+        };
+        return icons[category] || 'fas fa-map-marker-alt';
+    }
+
+    const categories = [
+        { value: 'plage', label: 'Plages' },
+        { value: 'village', label: 'Villages' },
+        { value: 'monument', label: 'Monuments' },
+        { value: 'chateau', label: 'Châteaux' },
+        { value: 'musee', label: 'Musées' },
+        { value: 'point_de_vue', label: 'Panoramas' },
+        { value: 'randonnee', label: 'Randonnées' },
+        { value: 'parc', label: 'Parcs' },
+        { value: 'hotel', label: 'Hôtels' },
+        { value: 'villa', label: 'Villas' },
+        { value: 'camping', label: 'Camping' },
+        { value: 'logement_insolite', label: 'Insolite' },
+        { value: 'restaurant', label: 'Restaurants' },
+        { value: 'festival', label: 'Festivals' },
+        { value: 'loisirs', label: 'Loisirs' }
+    ];
+
+    categories.forEach(cat => {
+        const button = document.createElement('button');
+        button.className = 'filter-chip';
+        button.setAttribute('data-value', cat.value);
+
+        const icon = document.createElement('i');
+        icon.className = getLocalPoiIcon(cat.value) + ' icon-' + cat.value;
+        icon.setAttribute('data-category', cat.value);
+
+        button.appendChild(icon);
+        button.appendChild(document.createTextNode(' ' + cat.label));
+
+        container.appendChild(button);
+    });
 }
 
 // Fonction pour gérer les clics sur les chips

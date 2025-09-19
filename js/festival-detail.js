@@ -134,7 +134,9 @@ function showOnMap(lat, lng, title) {
     localStorage.setItem('mapFocus', JSON.stringify({
         lat: lat,
         lng: lng,
-        title: title
+        title: title,
+        fromPage: 'festival',
+        filterCategory: 'festival'
     }));
 
     // Navigate to map page

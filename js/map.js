@@ -161,24 +161,24 @@ function createCustomIcon(poi) {
  */
 function getCategoryIcon(category) {
     const icons = {
-        monument: 'fa-landmark',
-        musee: 'fa-university',
-        point_de_vue: 'fa-mountain',
-        plage: 'fa-umbrella-beach',
-        village: 'fa-home',
-        parc: 'fa-tree',
-        randonnee: 'fa-hiking',
-        chateau: 'fa-chess-rook',
-        festival: 'fa-music',
-        loisirs: 'fa-gamepad',
-        hotel: 'fa-bed',
-        villa: 'fa-building',
-        logement_insolite: 'fa-campground',
-        camping: 'fa-tent',
-        restaurant: 'fa-utensils'
+        monument: 'fas fa-landmark',
+        musee: 'fas fa-university',
+        point_de_vue: 'fas fa-eye',
+        plage: 'fas fa-umbrella-beach',
+        village: 'fas fa-home',
+        parc: 'fas fa-tree',
+        randonnee: 'fas fa-hiking',
+        chateau: 'fas fa-chess-rook',
+        festival: 'fas fa-music',
+        loisirs: 'fas fa-star',
+        hotel: 'fas fa-bed',
+        villa: 'fas fa-house-user',
+        logement_insolite: 'fas fa-tree-city',
+        camping: 'fas fa-campground',
+        restaurant: 'fas fa-utensils'
     };
 
-    return icons[category] || 'fa-map-marker-alt';
+    return icons[category] || 'fas fa-map-marker-alt';
 }
 
 /**

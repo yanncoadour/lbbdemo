@@ -29,11 +29,34 @@ window.addEventListener('orientationchange', () => {
 });
 
 /**
+ * Enregistrement du Service Worker
+ */
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+                console.log('Service Worker enregistré:', registration);
+
+                // Nettoyage périodique du cache
+                setInterval(() => {
+                    registration.active?.postMessage({ type: 'CLEAN_CACHE' });
+                }, 300000); // Toutes les 5 minutes
+            })
+            .catch((error) => {
+                console.error('Erreur Service Worker:', error);
+            });
+    }
+}
+
+/**
  * Initialisation de l'application
  */
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 APP.JS - DOMContentLoaded');
+    registerServiceWorker(); // Enregistrer le SW d'abord
     fixBottomNav(); // Initialiser dès le chargement
     const mapElement = document.getElementById('map');
+    console.log('🗺️ Élément map trouvé:', !!mapElement);
 
     if (mapElement) {
         initMap();
@@ -49,8 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
             window.FiltersModule.initFilters();
         }
 
-        // Vérifier si on doit filtrer les logements depuis la page logements
-        checkLogementFilter();
+        // Vérifier si on doit appliquer un filtre depuis l'URL
+        checkURLFilter();
+
+        // Vérifier si on vient de la page festival
+        checkMapFocus();
     } else {
         console.error('Map element not found!');
 
@@ -60,21 +86,162 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Vérifie si on doit appliquer le filtre logements depuis l'URL
+ * Vérifie si on doit appliquer un filtre depuis l'URL
  * Recherche le paramètre 'filter' dans l'URL et applique le filtre correspondant
- * @function checkLogementFilter
+ * @function checkURLFilter
  */
-function checkLogementFilter() {
+function checkURLFilter() {
+    console.log('🔍 Vérification des paramètres URL...');
+    console.log('URL complète:', window.location.href);
+    console.log('Search params:', window.location.search);
+
     const urlParams = new URLSearchParams(window.location.search);
     const filter = urlParams.get('filter');
 
-    if (filter === 'logements') {
+    console.log('Paramètre filter détecté:', filter);
 
+    if (filter === 'logements') {
+        console.log('📦 Applying logements filter');
         // Attendre que les POIs soient chargés
         setTimeout(() => {
             applyLogementFilter();
         }, 500);
+    } else if (filter === 'festivals') {
+        console.log('🎪 Paramètre filter=festivals détecté dans l\'URL');
+        // Attendre que les POIs soient chargés
+        if (window.allPois && window.allPois.length > 0) {
+            // POIs déjà chargés
+            applyFestivalFilter();
+        } else {
+            // Attendre l'événement de chargement des POIs
+            document.addEventListener('poisLoaded', function() {
+                console.log('🎪 POIs chargés, application du filtre festivals');
+                applyFestivalFilter();
+            }, { once: true });
+        }
+    } else {
+        console.log('ℹ️ Aucun filtre spécifique dans l\'URL');
     }
+}
+
+/**
+ * Vérifie si on vient d'une page externe (comme festivals) avec un focus spécifique
+ */
+function checkMapFocus() {
+    const mapFocusData = localStorage.getItem('mapFocus');
+
+    if (mapFocusData) {
+        try {
+            const focusInfo = JSON.parse(mapFocusData);
+            console.log('🎯 Focus détecté depuis:', focusInfo.fromPage);
+
+            // Attendre que les POIs soient chargés
+            setTimeout(() => {
+                // Appliquer le filtre de catégorie si spécifié
+                if (focusInfo.filterCategory) {
+                    applyFestivalFilter();
+                }
+
+                // Centrer sur les coordonnées si spécifiées
+                if (focusInfo.lat && focusInfo.lng && window.map) {
+                    window.map.setView([focusInfo.lat, focusInfo.lng], 12);
+
+                    // Optionnel: afficher une notification
+                    if (focusInfo.title) {
+                        console.log('📍 Centré sur:', focusInfo.title);
+                    }
+                }
+            }, 1000);
+
+            // Supprimer les données pour éviter qu'elles persistent
+            localStorage.removeItem('mapFocus');
+
+        } catch (error) {
+            console.error('Erreur lors du parsing mapFocus:', error);
+            localStorage.removeItem('mapFocus');
+        }
+    }
+}
+
+/**
+ * Applique le filtre pour afficher uniquement les festivals
+ */
+function applyFestivalFilter() {
+    console.log('🎪 Application du filtre festivals');
+    console.log('📊 window.allPois existe:', !!window.allPois);
+    console.log('📊 window.allPois.length:', window.allPois ? window.allPois.length : 'undefined');
+
+    // Méthode directe : filtrer les POIs directement
+    if (window.allPois && window.allPois.length > 0) {
+        console.log('🔍 Filtrage en cours...');
+
+        // Afficher quelques exemples de POIs pour debug
+        console.log('📝 Premiers POIs:', window.allPois.slice(0, 3).map(poi => ({
+            title: poi.title,
+            categories: poi.categories
+        })));
+
+        // Filtrer pour ne garder que les festivals
+        window.filteredPois = window.allPois.filter(poi =>
+            poi.categories && poi.categories.includes('festival')
+        );
+
+        console.log('🎪 POIs festivals trouvés:', window.filteredPois.length);
+
+        if (window.filteredPois.length > 0) {
+            console.log('🎉 Exemples de festivals:', window.filteredPois.slice(0, 2).map(poi => poi.title));
+        }
+
+        // Mettre à jour l'affichage
+        console.log('🖼️ Fonction displayPois disponible:', typeof window.displayPois);
+        console.log('🖼️ Fonction displayPois (locale):', typeof displayPois);
+
+        if (typeof window.displayPois === 'function') {
+            console.log('📱 Appel de window.displayPois()');
+            window.displayPois();
+        } else if (typeof displayPois === 'function') {
+            console.log('📱 Appel de displayPois() locale');
+            displayPois();
+        }
+
+        // Mettre à jour le compteur de résultats
+        if (typeof window.updateResultsCounter === 'function') {
+            window.updateResultsCounter();
+        } else if (typeof updateCounter === 'function') {
+            updateCounter();
+        }
+
+        // Mettre à jour l'état des checkboxes dans l'interface
+        setTimeout(() => {
+            updateCheckboxesForFestivalFilter();
+        }, 500);
+
+        console.log('✅ Filtre festivals appliqué directement');
+    } else {
+        console.log('⚠️ POIs non disponibles, réessai dans 2 secondes...');
+        setTimeout(() => {
+            applyFestivalFilter();
+        }, 2000);
+    }
+}
+
+/**
+ * Met à jour les checkboxes pour refléter le filtre festival
+ */
+function updateCheckboxesForFestivalFilter() {
+    // Décocher toutes les catégories
+    const allCategoryCheckboxes = document.querySelectorAll('input[type="checkbox"][name="category"]');
+    allCategoryCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    // Cocher uniquement "festival"
+    const festivalCheckboxes = document.querySelectorAll('input[type="checkbox"][value="festival"]');
+    festivalCheckboxes.forEach(checkbox => {
+        checkbox.checked = true;
+    });
+
+    console.log('✅ Checkboxes mises à jour pour festivals');
 }
 
 /**
@@ -193,71 +360,9 @@ function initLocationButton() {
     const locationBtn = document.getElementById('locationBtn');
     if (locationBtn) {
         locationBtn.addEventListener('click', () => {
-            // Afficher la popup ET demander immédiatement la géolocalisation
-            const popup = document.getElementById('geolocationPopup');
-            if (popup) {
-                popup.style.display = 'flex';
-            }
-
-            // Demander la géolocalisation IMMÉDIATEMENT
-            if (navigator.geolocation) {
-                locationBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        // Succès - fermer la popup
-                        popup.style.display = 'none';
-                        const lat = position.coords.latitude;
-                        const lng = position.coords.longitude;
-                        console.log('Geolocation success!', lat, lng);
-
-                        // Code existant pour la carte...
-                        const radiusInDegrees = 25 / 111;
-                        const bounds = [
-                            [lat - radiusInDegrees, lng - radiusInDegrees],
-                            [lat + radiusInDegrees, lng + radiusInDegrees]
-                        ];
-
-                        map.flyToBounds(bounds, {
-                            animate: true,
-                            duration: 1.5,
-                            padding: [20, 20],
-                            maxZoom: 12
-                        });
-
-                        const userMarker = L.marker([lat, lng], {
-                            icon: L.divIcon({
-                                className: 'user-location-marker',
-                                html: `
-                                    <div class="user-location-pulse">
-                                        <div class="user-location-dot">
-                                            <i class="fas fa-crosshairs"></i>
-                                        </div>
-                                    </div>
-                                `,
-                                iconSize: [40, 40],
-                                iconAnchor: [20, 20]
-                            })
-                        }).addTo(map);
-
-                        try {
-                            highlightNearbyPois(lat, lng, 50);
-                        } catch (error) {
-                            console.error('Error calling highlightNearbyPois:', error);
-                        }
-
-                        setTimeout(() => map.removeLayer(userMarker), 5000);
-                        locationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
-                    },
-                    (error) => {
-                        // Erreur - garder la popup ouverte pour expliquer
-                        console.error('Erreur de géolocalisation:', error);
-                        locationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
-                        // La popup reste ouverte pour aider l'utilisateur
-                    },
-                    { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
-                );
-            }
+            // Fonction désactivée temporairement
+            alert('Fonction de géolocalisation temporairement désactivée');
+            console.log('Géolocalisation désactivée');
         });
 
         // Gestionnaire pour le bouton "Autoriser" dans la popup
@@ -471,11 +576,12 @@ function initLocationButton() {
 }
 
 /**
- * Met en évidence les POIs proches de la position utilisateur
+ * Affiche le carrousel des POIs proches de la position utilisateur
  */
-function highlightNearbyPois(userLat, userLng, radiusKm) {
-    console.log('highlightNearbyPois called with:', userLat, userLng, radiusKm);
-    console.log('allPois length:', allPois ? allPois.length : 'allPois is null/undefined');
+function showNearbyPoisCarousel(userLat, userLng, radiusKm) {
+    console.log('🔍 showNearbyPoisCarousel called with:', { userLat, userLng, radiusKm });
+    console.log('🔍 allPois status:', allPois ? `${allPois.length} POIs available` : 'allPois is null/undefined');
+    console.log('🔍 Current window.allPois:', window.allPois ? `${window.allPois.length} POIs` : 'not available');
     
     if (!allPois || allPois.length === 0) {
         console.log('No POIs available, trying to load them...');
@@ -483,7 +589,7 @@ function highlightNearbyPois(userLat, userLng, radiusKm) {
         if (typeof loadPois === 'function') {
             loadPois().then(() => {
                 console.log('POIs loaded, retrying...');
-                highlightNearbyPois(userLat, userLng, radiusKm);
+                showNearbyPoisCarousel(userLat, userLng, radiusKm);
             });
         }
         return;
@@ -524,9 +630,12 @@ function highlightNearbyPois(userLat, userLng, radiusKm) {
         // Trier par distance
         nearbyPois.sort((a, b) => a.distance - b.distance);
 
-        console.log('Calling displayNearbyLocationCarousel with', nearbyPois.length, 'POIs');
+        console.log('🎠 Calling displayNearbyLocationCarousel with', nearbyPois.length, 'POIs');
+        console.log('🎠 Sample POI:', nearbyPois[0] ? nearbyPois[0].title : 'no POIs');
+
         // Afficher le carrousel des lieux proches
         displayNearbyLocationCarousel(nearbyPois);
+        console.log('🎠 displayNearbyLocationCarousel call completed');
 
         // Filtrer pour afficher seulement les POIs proches
         filteredPois = nearbyPois;
@@ -1010,14 +1119,21 @@ async function loadPois() {
         const data = await response.json();
         allPois = data.pois || [];
 
+        // Exposer allPois globalement pour les autres modules
+        window.allPois = allPois;
+        console.log('📍 POIs chargés:', allPois.length);
 
         // Filtrer immédiatement pour ne garder que les POIs essentiels au premier chargement
         filteredPois = [...allPois];
+        window.filteredPois = filteredPois;
 
         // Afficher les POIs avec un petit délai pour laisser la carte se charger
         setTimeout(() => {
             displayPois();
             updateCounter();
+
+            // Déclencher l'événement de POIs chargés
+            document.dispatchEvent(new CustomEvent('poisLoaded'));
         }, 100);
 
     } catch (error) {
@@ -2924,19 +3040,33 @@ function displayNearbyLocationCarousel(nearbyPois) {
     let nearbyHTML;
     
     if (limitedPois.length > 0) {
-        // Version de test simple
-        nearbyHTML = `<div style="padding: 20px; background: white; border-radius: 8px; margin: 10px;">
-            <h3>Test: ${limitedPois.length} lieux trouvés !</h3>
-            <p>Premier lieu: ${limitedPois[0].title}</p>
-        </div>`;
-        
-        // Version complète (commentée pour le debug)
-        /*
+        // Version complète du carrousel
         nearbyHTML = limitedPois.map(poi => {
             console.log('Creating card for POI:', poi.title);
-            return createNearbyPoiCard(poi);
+            const categoryName = getCategoryName(poi.categories[0]);
+            const distanceText = poi.distance < 1 ?
+                `${Math.round(poi.distance * 1000)}m` :
+                `${Math.round(poi.distance)}km`;
+
+            return `
+                <div class="nearby-poi-card" onclick="window.location.href='poi.html?slug=${poi.slug}'">
+                    <img src="${poi.image}" alt="${poi.title}" class="nearby-poi-image"
+                         onerror="this.src='assets/img/placeholder.jpg'">
+                    <div class="nearby-poi-content">
+                        <div class="nearby-poi-meta">
+                            <span class="nearby-poi-department">${poi.department}</span>
+                            <span class="nearby-poi-distance">${distanceText}</span>
+                        </div>
+                        <span class="nearby-poi-category category-${poi.categories[0]}">
+                            <i class="${getPoiIcon(poi.categories[0])}"></i>
+                            ${categoryName}
+                        </span>
+                        <h3 class="nearby-poi-title">${poi.title}</h3>
+                        <p class="nearby-poi-description">${poi.shortDescription}</p>
+                    </div>
+                </div>
+            `;
         }).join('');
-        */
     } else {
         nearbyHTML = '<div>Aucun lieu trouvé</div>';
     }
