@@ -338,6 +338,12 @@ function initLocationButton() {
                     (error) => {
                         console.error('Erreur de géolocalisation:', error);
                         locationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
+                        alert('Erreur de géolocalisation. Vérifiez vos autorisations.');
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 60000
                     }
                 );
             }
