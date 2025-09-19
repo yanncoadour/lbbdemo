@@ -180,10 +180,70 @@ function initLocationButton() {
     const locationBtn = document.getElementById('locationBtn');
     if (locationBtn) {
         locationBtn.addEventListener('click', () => {
-            // Afficher la popup d'instructions
+            // Afficher la popup ET demander immédiatement la géolocalisation
             const popup = document.getElementById('geolocationPopup');
             if (popup) {
                 popup.style.display = 'flex';
+            }
+
+            // Demander la géolocalisation IMMÉDIATEMENT
+            if (navigator.geolocation) {
+                locationBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // Succès - fermer la popup
+                        popup.style.display = 'none';
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+                        console.log('Geolocation success!', lat, lng);
+
+                        // Code existant pour la carte...
+                        const radiusInDegrees = 25 / 111;
+                        const bounds = [
+                            [lat - radiusInDegrees, lng - radiusInDegrees],
+                            [lat + radiusInDegrees, lng + radiusInDegrees]
+                        ];
+
+                        map.flyToBounds(bounds, {
+                            animate: true,
+                            duration: 1.5,
+                            padding: [20, 20],
+                            maxZoom: 12
+                        });
+
+                        const userMarker = L.marker([lat, lng], {
+                            icon: L.divIcon({
+                                className: 'user-location-marker',
+                                html: `
+                                    <div class="user-location-pulse">
+                                        <div class="user-location-dot">
+                                            <i class="fas fa-crosshairs"></i>
+                                        </div>
+                                    </div>
+                                `,
+                                iconSize: [40, 40],
+                                iconAnchor: [20, 20]
+                            })
+                        }).addTo(map);
+
+                        try {
+                            highlightNearbyPois(lat, lng, 50);
+                        } catch (error) {
+                            console.error('Error calling highlightNearbyPois:', error);
+                        }
+
+                        setTimeout(() => map.removeLayer(userMarker), 5000);
+                        locationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
+                    },
+                    (error) => {
+                        // Erreur - garder la popup ouverte pour expliquer
+                        console.error('Erreur de géolocalisation:', error);
+                        locationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
+                        // La popup reste ouverte pour aider l'utilisateur
+                    },
+                    { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
+                );
             }
         });
 
