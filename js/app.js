@@ -337,6 +337,7 @@ function initLocationButton() {
                     },
                     (error) => {
                         console.error('Erreur de géolocalisation:', error);
+                        alert('DEBUG: Erreur ' + error.code + ' - ' + error.message);
                         locationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
 
                         let message = '';
