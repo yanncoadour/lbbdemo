@@ -11,6 +11,12 @@ html {
     height: 100dvh; /* Dynamic viewport height pour les mobiles */
 }
 
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    position: relative;
+}
+
 :root {
     /* Palette Bretagne Moderne */
     --primary: #1e40af;          /* Bleu océan profond */
@@ -1271,7 +1277,6 @@ body {
 /* Bottom Navigation */
 .bottom-nav {
     position: fixed;
-    bottom: 0;
     left: 0;
     right: 0;
     background: rgba(253, 252, 248, 0.95);
@@ -1283,9 +1288,10 @@ body {
     align-items: center;
     z-index: 9999;
     height: 76px;
-    /* Fix pour viewport mobile dynamique */
-    bottom: env(safe-area-inset-bottom, 0);
-    padding-bottom: max(20px, env(safe-area-inset-bottom, 0));
+    /* Utilisation de la vraie hauteur de viewport */
+    bottom: 0;
+    top: calc(var(--real-vh, 100vh) - 76px);
+    transform: translateZ(0);
 }
 
 .nav-item {

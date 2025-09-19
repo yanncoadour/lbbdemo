@@ -16,10 +16,23 @@ let filteredPois = [];
 let isFiltersOpen = false;
 let loadingPois = false;
 
+// Fix pour viewport mobile Chrome
+function fixBottomNav() {
+    const vh = window.innerHeight;
+    document.documentElement.style.setProperty('--real-vh', `${vh}px`);
+}
+
+// Écouter les changements de taille de viewport
+window.addEventListener('resize', fixBottomNav);
+window.addEventListener('orientationchange', () => {
+    setTimeout(fixBottomNav, 100); // Petit délai pour l'orientation
+});
+
 /**
  * Initialisation de l'application
  */
 document.addEventListener('DOMContentLoaded', function() {
+    fixBottomNav(); // Initialiser dès le chargement
     const mapElement = document.getElementById('map');
 
     if (mapElement) {
