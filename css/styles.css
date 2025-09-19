@@ -1578,7 +1578,7 @@ body {
 
 /* Search Interface */
 .bottom-sheet .search-interface {
-    padding: 12px 16px;
+    padding: 16px;
     background: var(--surface-card);
     border-bottom: 1px solid var(--border-light);
 }
@@ -7246,10 +7246,19 @@ body {
 /* ===== CONTRÔLES BOTTOM SHEET ===== */
 .sheet-header {
     position: relative;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+    padding: 6px var(--space-4);
+    min-height: 24px;
+    transition: all 0.3s ease;
+}
+
+/* Header plus grand seulement quand les contrôles de géolocalisation sont visibles */
+.sheet-header.with-geolocation-controls {
+    display: flex;
     padding: var(--space-2) var(--space-4);
+    min-height: 40px;
 }
 
 .sheet-handle {
@@ -7267,9 +7276,9 @@ body {
 
 .sheet-controls {
     position: absolute;
-    right: var(--space-4);
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     top: 50%;
-    transform: translateY(-50%);
     display: none; /* Caché par défaut */
 }
 
@@ -7277,28 +7286,84 @@ body {
     display: flex;
 }
 
-.sheet-toggle-btn {
-    width: 32px;
-    height: 32px;
-    background: var(--surface-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-full);
+/* ===== BOUTON RÉAFFICHAGE CARROUSEL NEARBY ===== */
+.show-nearby-btn {
+    position: fixed;
+    bottom: 200px; /* Au-dessus de la bottom-sheet */
+    right: 20px;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--text-primary);
+    gap: 8px;
+    backdrop-filter: blur(10px);
+    max-width: 200px;
+}
+
+.show-nearby-btn:hover {
+    background: var(--gradient-ocean);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+.show-nearby-btn i {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.show-nearby-btn span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .show-nearby-btn {
+        bottom: 250px; /* Plus haut sur mobile pour éviter la bottom-sheet et nav */
+        right: 15px;
+        padding: 10px 14px;
+        font-size: 13px;
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .show-nearby-btn {
+        bottom: 220px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 12px;
+        max-width: 160px;
+    }
+}
+
+.sheet-toggle-btn {
+    background: none;
+    border: none;
+    padding: 8px;
     cursor: pointer;
+    color: var(--text-muted);
     transition: all 0.2s ease;
+    touch-action: manipulation; /* Améliore les interactions tactiles */
 }
 
 .sheet-toggle-btn:hover {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
+    color: var(--primary);
+    transform: scale(1.1);
 }
 
 .sheet-toggle-btn i {
-    font-size: 14px;
+    font-size: 20px;
     transition: transform 0.3s ease;
 }
 

@@ -1284,6 +1284,8 @@ window.handleReservation = handleReservation;
  * Applique les filtres sélectionnés
  */
 function applyFilters() {
+    // Nettoyer la section nearby quand on applique des filtres
+    clearNearbySection();
 
     if (allPois.length === 0) {
         console.error('Aucun POI chargé !');
@@ -2902,6 +2904,12 @@ function initBottomSheetControls() {
 
     // Gestionnaire pour le bouton de toggle de la sheet
     sheetToggleBtn.addEventListener('click', () => {
+        // Vérifier si les contrôles de géolocalisation sont actifs
+        const sheetControls = document.querySelector('.sheet-controls');
+        if (!sheetControls || !sheetControls.classList.contains('show-geolocation-controls')) {
+            return; // Ne rien faire si les contrôles ne sont pas actifs
+        }
+        
         const isMinimized = bottomSheet.classList.contains('minimized');
         
         if (isMinimized) {
@@ -2911,26 +2919,78 @@ function initBottomSheetControls() {
             sheetToggleBtn.title = 'Minimiser';
             carouselIndicatorBtn.style.display = 'none';
         } else {
-            // Minimiser la sheet
-            bottomSheet.classList.add('minimized');
-            sheetToggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-            sheetToggleBtn.title = 'Maximiser';
-            
-            // Afficher l'indicateur si du contenu est présent
-            const nearbySection = document.getElementById('nearbyLocationSection');
-            if (nearbySection && nearbySection.style.display !== 'none') {
-                carouselIndicatorBtn.style.display = 'flex';
-            }
+            // Minimiser la sheet et revenir à l'interface normale
+            hideNearbyCarousel();
         }
     });
 
     // Gestionnaire pour le bouton indicateur
     carouselIndicatorBtn.addEventListener('click', () => {
-        bottomSheet.classList.remove('minimized');
-        sheetToggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i>';
-        sheetToggleBtn.title = 'Minimiser';
-        carouselIndicatorBtn.style.display = 'none';
+        showNearbyCarousel();
     });
+    
+    // Gestionnaire pour le bouton de réaffichage du carrousel
+    const showNearbyBtn = document.getElementById('showNearbyBtn');
+    if (showNearbyBtn) {
+        showNearbyBtn.addEventListener('click', () => {
+            showNearbyCarousel();
+        });
+    }
+    
+    // Gestion du swipe sur la bottom-sheet pour les mobiles
+    initBottomSheetSwipe(bottomSheet);
+}
+
+/**
+ * Initialise la gestion du swipe sur la bottom-sheet
+ */
+function initBottomSheetSwipe(bottomSheet) {
+    if (!bottomSheet) return;
+    
+    let startY = 0;
+    let currentY = 0;
+    let isSwipeActive = false;
+    
+    const handleTouchStart = (e) => {
+        // Vérifier si les contrôles de géolocalisation sont actifs
+        const sheetControls = document.querySelector('.sheet-controls');
+        if (!sheetControls || !sheetControls.classList.contains('show-geolocation-controls')) {
+            return;
+        }
+        
+        startY = e.touches[0].clientY;
+        isSwipeActive = true;
+    };
+    
+    const handleTouchMove = (e) => {
+        if (!isSwipeActive) return;
+        currentY = e.touches[0].clientY;
+    };
+    
+    const handleTouchEnd = (e) => {
+        if (!isSwipeActive) return;
+        isSwipeActive = false;
+        
+        const deltaY = currentY - startY;
+        const threshold = 50; // Seuil minimum pour déclencher l'action
+        
+        if (Math.abs(deltaY) > threshold) {
+            if (deltaY > 0) {
+                // Swipe vers le bas - cacher le carrousel
+                hideNearbyCarousel();
+            } else {
+                // Swipe vers le haut - afficher le carrousel (si caché)
+                const nearbySection = document.getElementById('nearbyLocationSection');
+                if (nearbySection && nearbySection.style.display === 'none') {
+                    showNearbyCarousel();
+                }
+            }
+        }
+    };
+    
+    bottomSheet.addEventListener('touchstart', handleTouchStart, { passive: true });
+    bottomSheet.addEventListener('touchmove', handleTouchMove, { passive: true });
+    bottomSheet.addEventListener('touchend', handleTouchEnd, { passive: true });
 }
 
 /**
@@ -2938,8 +2998,14 @@ function initBottomSheetControls() {
  */
 function updateIndicatorCount(count) {
     const indicatorCount = document.getElementById('indicatorCount');
+    const nearbyCountBtn = document.getElementById('nearbyCountBtn');
+    
     if (indicatorCount) {
         indicatorCount.textContent = count;
+    }
+    
+    if (nearbyCountBtn) {
+        nearbyCountBtn.textContent = count;
     }
 }
 
@@ -2948,8 +3014,14 @@ function updateIndicatorCount(count) {
  */
 function showGeolocationControls() {
     const sheetControls = document.querySelector('.sheet-controls');
+    const sheetHeader = document.querySelector('.sheet-header');
+    
     if (sheetControls) {
         sheetControls.classList.add('show-geolocation-controls');
+    }
+    
+    if (sheetHeader) {
+        sheetHeader.classList.add('with-geolocation-controls');
     }
 }
 
@@ -2958,11 +3030,16 @@ function showGeolocationControls() {
  */
 function hideGeolocationControls() {
     const sheetControls = document.querySelector('.sheet-controls');
+    const sheetHeader = document.querySelector('.sheet-header');
     const carouselIndicatorBtn = document.getElementById('carouselIndicatorBtn');
     const bottomSheet = document.getElementById('bottomSheet');
     
     if (sheetControls) {
         sheetControls.classList.remove('show-geolocation-controls');
+    }
+    
+    if (sheetHeader) {
+        sheetHeader.classList.remove('with-geolocation-controls');
     }
     
     if (carouselIndicatorBtn) {
@@ -2971,6 +3048,96 @@ function hideGeolocationControls() {
     
     if (bottomSheet) {
         bottomSheet.classList.remove('minimized');
+    }
+}
+
+/**
+ * Nettoie la section nearby et cache les contrôles de géolocalisation
+ */
+function clearNearbySection() {
+    const nearbySection = document.getElementById('nearbyLocationSection');
+    const nearbyCarousel = document.getElementById('nearbyLocationCarousel');
+    
+    if (nearbySection) {
+        nearbySection.style.display = 'none';
+    }
+    
+    if (nearbyCarousel) {
+        nearbyCarousel.innerHTML = '';
+    }
+    
+    // Cacher les contrôles de géolocalisation
+    hideGeolocationControls();
+    
+    // Cacher le bouton de réaffichage
+    hideShowNearbyButton();
+}
+
+/**
+ * Cache le carrousel mais garde l'interface normale + bouton de réaffichage
+ */
+function hideNearbyCarousel() {
+    const nearbySection = document.getElementById('nearbyLocationSection');
+    const bottomSheet = document.getElementById('bottomSheet');
+    
+    // Cacher la section nearby
+    if (nearbySection) {
+        nearbySection.style.display = 'none';
+    }
+    
+    // Remettre la bottom sheet normale
+    if (bottomSheet) {
+        bottomSheet.classList.remove('minimized');
+    }
+    
+    // Cacher les contrôles de géolocalisation
+    hideGeolocationControls();
+    
+    // Afficher le bouton pour réafficher le carrousel
+    showShowNearbyButton();
+}
+
+/**
+ * Réaffiche le carrousel de géolocalisation
+ */
+function showNearbyCarousel() {
+    const nearbySection = document.getElementById('nearbyLocationSection');
+    const bottomSheet = document.getElementById('bottomSheet');
+    
+    // Afficher la section nearby
+    if (nearbySection) {
+        nearbySection.style.display = 'block';
+    }
+    
+    // Ouvrir la bottom sheet
+    if (bottomSheet) {
+        bottomSheet.classList.add('open');
+    }
+    
+    // Afficher les contrôles de géolocalisation
+    showGeolocationControls();
+    
+    // Cacher le bouton de réaffichage
+    hideShowNearbyButton();
+}
+
+/**
+ * Affiche le bouton de réaffichage du carrousel
+ */
+function showShowNearbyButton() {
+    const showNearbyBtn = document.getElementById('showNearbyBtn');
+    if (showNearbyBtn) {
+        showNearbyBtn.style.display = 'flex';
+    }
+}
+
+/**
+ * Cache le bouton de réaffichage du carrousel
+ */
+function hideShowNearbyButton() {
+    const showNearbyBtn = document.getElementById('showNearbyBtn');
+    if (showNearbyBtn) {
+        showNearbyBtn.style.display = 'none';
     }
 }
 
@@ -2990,3 +3157,11 @@ window.prevGalleryImage = prevGalleryImage;
 window.openImageModal = openImageModal;
 window.initBottomSheetControls = initBottomSheetControls;
 window.updateIndicatorCount = updateIndicatorCount;
+window.showGeolocationControls = showGeolocationControls;
+window.hideGeolocationControls = hideGeolocationControls;
+window.clearNearbySection = clearNearbySection;
+window.hideNearbyCarousel = hideNearbyCarousel;
+window.showNearbyCarousel = showNearbyCarousel;
+window.showShowNearbyButton = showShowNearbyButton;
+window.hideShowNearbyButton = hideShowNearbyButton;
+window.initBottomSheetSwipe = initBottomSheetSwipe;
