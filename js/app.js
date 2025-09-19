@@ -338,7 +338,34 @@ function initLocationButton() {
                     (error) => {
                         console.error('Erreur de géolocalisation:', error);
                         locationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
-                        alert('Erreur de géolocalisation. Vérifiez vos autorisations.');
+
+                        let message = '';
+                        let showRetry = false;
+
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                                message = 'Accès à la géolocalisation refusé.\n\nPour utiliser cette fonctionnalité :\n1. Cliquez sur l\'icône 🔒 dans la barre d\'adresse\n2. Autorisez la géolocalisation\n3. Rechargez la page';
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                message = 'Position GPS non disponible.\n\nVérifiez que :\n• Votre GPS est activé\n• Vous êtes en extérieur\n• La connexion est stable';
+                                showRetry = true;
+                                break;
+                            case error.TIMEOUT:
+                                message = 'Délai de géolocalisation dépassé.\n\nEssayez de :\n• Vous déplacer vers l\'extérieur\n• Vérifier votre connexion';
+                                showRetry = true;
+                                break;
+                            default:
+                                message = 'Erreur de géolocalisation.\n\nVérifiez vos paramètres de localisation.';
+                                showRetry = true;
+                        }
+
+                        if (showRetry) {
+                            if (confirm(message + '\n\nVoulez-vous réessayer ?')) {
+                                setTimeout(() => locationBtn.click(), 500);
+                            }
+                        } else {
+                            alert(message);
+                        }
                     },
                     {
                         enableHighAccuracy: true,
