@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Belle Bretagne</title>
+    <title>La Belle Bretagne - Guide Touristique de Bretagne</title>
+    <meta name="description" content="Découvrez les plus beaux lieux de Bretagne : plages, monuments, villages, châteaux et points de vue. Guide interactif avec carte, POIs et conseils pour votre séjour.">
     <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /></noscript>
     <!-- Preload critical CSS -->
@@ -442,20 +443,52 @@
     <div class="overlay" id="overlay"></div>
 
 
-    <!-- Scripts en ordre synchrone pour assurer le fonctionnement -->
-    <script src="js/config.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="js/logger.js"></script>
-    <script src="js/security.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/map.js?v=3"></script>
-    <script src="js/app.js"></script>
+    <!-- Configuration critique inline pour éviter le blocage -->
+    <script>
+        window.CONFIG = {
+            map: { center: [48.2020, -2.9326], zoom: 8, minZoom: 7, maxZoom: 16 },
+            colors: {
+                monument: '#d97706', musee: '#8b5cf6', point_de_vue: '#059669',
+                plage: '#06b6d4', village: '#ef4444', parc: '#22c55e',
+                randonnee: '#10b981', chateau: '#92400e', festival: '#f97316',
+                loisirs: '#6366f1', hotel: '#64748b', villa: '#94a3b8',
+                logement_insolite: '#ec4899', camping: '#34d399', restaurant: '#f59e0b'
+            }
+        };
+    </script>
 
-    <!-- Scripts non-critiques en defer -->
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js" defer></script>
-    <script src="js/theme-global.js" defer></script>
-    <script src="js/simple-filters.js" defer></script>
-    <script src="js/map-toggle.js" defer></script>
-    <script src="js/settings.js" defer></script>
+    <!-- Scripts chargés après le DOM pour minimiser TBT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const scripts = [
+                    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+                    'js/logger.js', 'js/security.js', 'js/utils.js', 'js/map.js?v=4', 'js/app.js'
+                ];
+                let loadedCount = 0;
+                scripts.forEach(function(src) {
+                    const script = document.createElement('script');
+                    script.src = src;
+                    script.onload = function() {
+                        loadedCount++;
+                        if (loadedCount === scripts.length) {
+                            // Charger les scripts non-critiques
+                            const nonCritical = [
+                                'https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js',
+                                'js/theme-global.js', 'js/simple-filters.js', 'js/map-toggle.js', 'js/settings.js'
+                            ];
+                            nonCritical.forEach(function(src) {
+                                const s = document.createElement('script');
+                                s.src = src; s.async = true;
+                                document.head.appendChild(s);
+                            });
+                        }
+                    };
+                    document.head.appendChild(script);
+                });
+            }, 50); // Petit délai pour améliorer FCP
+        });
+    </script>
+
 </body>
 </html>
