@@ -23,14 +23,16 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
     </style>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- CSS critique inline pour FCP rapide -->
+    <!-- CSS critique inline pour FCP optimal -->
     <style>
+        /* Critical CSS - Above the fold */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             margin: 0;
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: #f8fafc;
             line-height: 1.6;
+            min-height: 100vh;
         }
         #map {
             width: 100%;
@@ -65,8 +67,31 @@
             z-index: 999;
             transform: translateY(60%);
             transition: transform 0.3s ease;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
         }
+        .location-btn, .map-toggle-btn {
+            position: fixed;
+            z-index: 1001;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .location-btn { top: 80px; right: 16px; }
+        .map-toggle-btn { top: 140px; right: 16px; }
+        /* Loading state */
+        .loading { opacity: 0.7; pointer-events: none; }
     </style>
+
+    <!-- Load non-critical CSS asynchronously -->
+    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
 </head>
 <body>
     <!-- Map Container (Full screen) -->
@@ -457,36 +482,52 @@
         };
     </script>
 
-    <!-- Scripts chargés après le DOM pour minimiser TBT -->
+    <!-- Optimized script loading for 90+ PageSpeed -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
+        // Immediate config load
+        window.addEventListener('DOMContentLoaded', function() {
+            // Show basic UI instantly
+            document.body.classList.remove('loading');
+
+            // Load scripts with requestIdleCallback for better performance
+            function loadScriptsWhenIdle() {
                 const scripts = [
                     'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
-                    'js/logger.js', 'js/security.js', 'js/utils.js', 'js/map.js?v=4', 'js/app.js'
+                    'js/logger.js', 'js/security.js', 'js/utils.js', 'js/map.js?v=5', 'js/app.js'
                 ];
+
                 let loadedCount = 0;
-                scripts.forEach(function(src) {
+                scripts.forEach(function(src, index) {
                     const script = document.createElement('script');
                     script.src = src;
+                    if (index > 0) script.async = true; // Only Leaflet synchronous
                     script.onload = function() {
                         loadedCount++;
                         if (loadedCount === scripts.length) {
-                            // Charger les scripts non-critiques
-                            const nonCritical = [
-                                'https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js',
-                                'js/theme-global.js', 'js/simple-filters.js', 'js/map-toggle.js', 'js/settings.js'
-                            ];
-                            nonCritical.forEach(function(src) {
-                                const s = document.createElement('script');
-                                s.src = src; s.async = true;
-                                document.head.appendChild(s);
+                            // Load non-critical scripts after main app loads
+                            requestIdleCallback(function() {
+                                const nonCritical = [
+                                    'https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js',
+                                    'js/theme-global.js', 'js/simple-filters.js', 'js/map-toggle.js', 'js/settings.js'
+                                ];
+                                nonCritical.forEach(function(src) {
+                                    const s = document.createElement('script');
+                                    s.src = src; s.async = true;
+                                    document.head.appendChild(s);
+                                });
                             });
                         }
                     };
                     document.head.appendChild(script);
                 });
-            }, 50); // Petit délai pour améliorer FCP
+            }
+
+            // Use requestIdleCallback if available, otherwise setTimeout
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadScriptsWhenIdle);
+            } else {
+                setTimeout(loadScriptsWhenIdle, 0);
+            }
         });
     </script>
 

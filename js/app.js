@@ -1760,6 +1760,18 @@ function createPoiCard(poi) {
 }
 
 /**
+ * Détecte le support WebP
+ */
+let supportsWebP = false;
+(function() {
+    const webp = new Image();
+    webp.onload = webp.onerror = function() {
+        supportsWebP = webp.height === 2;
+    };
+    webp.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+})();
+
+/**
  * Crée un HTML d'image optimisé avec WebP et responsive
  */
 function createOptimizedImageHtml(originalSrc, alt) {
@@ -1767,32 +1779,36 @@ function createOptimizedImageHtml(originalSrc, alt) {
     const filename = originalSrc.split('/').pop();
     const baseName = filename.split('.')[0];
 
-    // Générer les chemins WebP
+    // Générer les chemins optimisés
     const webpBase = `assets/webp/${baseName}`;
+
+    // Détecter la taille d'écran pour choisir la bonne image
+    const screenWidth = window.innerWidth;
+    let optimalSrc;
+
+    if (supportsWebP) {
+        if (screenWidth <= 480) {
+            optimalSrc = `${webpBase}-400w.webp`;
+        } else if (screenWidth <= 768) {
+            optimalSrc = `${webpBase}-800w.webp`;
+        } else {
+            optimalSrc = `${webpBase}-1200w.webp`;
+        }
+    } else {
+        optimalSrc = originalSrc;
+    }
 
     return `
         <div class="poi-card-image">
-            <picture>
-                <source
-                    media="(max-width: 480px)"
-                    srcset="${webpBase}-400w.webp"
-                    type="image/webp">
-                <source
-                    media="(max-width: 768px)"
-                    srcset="${webpBase}-800w.webp"
-                    type="image/webp">
-                <source
-                    srcset="${webpBase}-1200w.webp"
-                    type="image/webp">
-                <img
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f1f5f9'/%3E%3C/svg%3E"
-                    data-src="${originalSrc}"
-                    alt="${alt}"
-                    loading="lazy"
-                    class="lazy-image"
-                    onload="this.classList.add('loaded')"
-                    onerror="this.src='${originalSrc}'">
-            </picture>
+            <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f1f5f9'/%3E%3C/svg%3E"
+                data-src="${optimalSrc}"
+                data-fallback="${originalSrc}"
+                alt="${alt}"
+                loading="lazy"
+                class="lazy-image optimized-image"
+                onload="this.classList.add('loaded')"
+                onerror="this.src=this.dataset.fallback">
         </div>
     `;
 }

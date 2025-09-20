@@ -3,9 +3,9 @@
  * Cache intelligent et mode offline
  */
 
-const CACHE_NAME = 'la-belle-bretagne-v1';
-const STATIC_CACHE = 'static-v1';
-const DYNAMIC_CACHE = 'dynamic-v1';
+const CACHE_NAME = 'la-belle-bretagne-v3';
+const STATIC_CACHE = 'static-v3';
+const DYNAMIC_CACHE = 'dynamic-v3';
 
 // Ressources à mettre en cache immédiatement
 const STATIC_ASSETS = [
@@ -93,8 +93,8 @@ self.addEventListener('fetch', (event) => {
     } else if (url.pathname.endsWith('.json') || url.pathname.includes('data/')) {
         // Network First pour les données
         event.respondWith(networkFirst(request));
-    } else if (url.pathname.includes('assets/img/') || url.pathname.includes('.jpg') || url.pathname.includes('.png')) {
-        // Cache First pour les images
+    } else if (url.pathname.includes('assets/') || url.pathname.includes('.jpg') || url.pathname.includes('.png') || url.pathname.includes('.webp')) {
+        // Cache First pour les images (incluant WebP)
         event.respondWith(cacheFirst(request));
     } else {
         // Stale While Revalidate pour les pages HTML
