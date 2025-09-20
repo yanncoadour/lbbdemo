@@ -1,0 +1,3351 @@
+{
+  "5-etoiles-hebergement-insolite-luxe-1.jpg": {
+    "webp": "assets/webp/5-etoiles-hebergement-insolite-luxe-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/5-etoiles-hebergement-insolite-luxe-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/5-etoiles-hebergement-insolite-luxe-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/5-etoiles-hebergement-insolite-luxe-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "5-etoiles-hebergement-insolite-luxe-2.jpg": {
+    "webp": "assets/webp/5-etoiles-hebergement-insolite-luxe-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/5-etoiles-hebergement-insolite-luxe-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/5-etoiles-hebergement-insolite-luxe-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/5-etoiles-hebergement-insolite-luxe-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "5-etoiles-hebergement-insolite-luxe-3.jpg": {
+    "webp": "assets/webp/5-etoiles-hebergement-insolite-luxe-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/5-etoiles-hebergement-insolite-luxe-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/5-etoiles-hebergement-insolite-luxe-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/5-etoiles-hebergement-insolite-luxe-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "abbaye-relecq-1.jpg": {
+    "webp": "assets/webp/abbaye-relecq-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/abbaye-relecq-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/abbaye-relecq-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/abbaye-relecq-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "abbaye-relecq-2.jpg": {
+    "webp": "assets/webp/abbaye-relecq-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/abbaye-relecq-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/abbaye-relecq-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/abbaye-relecq-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "abbaye-relecq-3.jpg": {
+    "webp": "assets/webp/abbaye-relecq-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/abbaye-relecq-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/abbaye-relecq-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/abbaye-relecq-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "agapa-hotel-perros-guirec-1.jpg": {
+    "webp": "assets/webp/agapa-hotel-perros-guirec-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/agapa-hotel-perros-guirec-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/agapa-hotel-perros-guirec-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/agapa-hotel-perros-guirec-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "agapa-hotel-perros-guirec-2.jpg": {
+    "webp": "assets/webp/agapa-hotel-perros-guirec-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/agapa-hotel-perros-guirec-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/agapa-hotel-perros-guirec-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/agapa-hotel-perros-guirec-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "agapa-hotel-perros-guirec-3.jpg": {
+    "webp": "assets/webp/agapa-hotel-perros-guirec-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/agapa-hotel-perros-guirec-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/agapa-hotel-perros-guirec-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/agapa-hotel-perros-guirec-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "art-rock-1.jpg": {
+    "webp": "assets/webp/art-rock-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/art-rock-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/art-rock-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/art-rock-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "art-rock-2.jpg": {
+    "webp": "assets/webp/art-rock-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/art-rock-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/art-rock-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/art-rock-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "art-rock-3.jpg": {
+    "webp": "assets/webp/art-rock-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/art-rock-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/art-rock-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/art-rock-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "astropolis-1.jpg": {
+    "webp": "assets/webp/astropolis-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/astropolis-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/astropolis-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/astropolis-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "astropolis-2.jpg": {
+    "webp": "assets/webp/astropolis-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/astropolis-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/astropolis-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/astropolis-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "astropolis-3.jpg": {
+    "webp": "assets/webp/astropolis-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/astropolis-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/astropolis-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/astropolis-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "balthazar-hotel-spa-rennes-1.jpg": {
+    "webp": "assets/webp/balthazar-hotel-spa-rennes-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/balthazar-hotel-spa-rennes-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/balthazar-hotel-spa-rennes-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/balthazar-hotel-spa-rennes-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "balthazar-hotel-spa-rennes-2.jpg": {
+    "webp": "assets/webp/balthazar-hotel-spa-rennes-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/balthazar-hotel-spa-rennes-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/balthazar-hotel-spa-rennes-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/balthazar-hotel-spa-rennes-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "balthazar-hotel-spa-rennes-3.jpg": {
+    "webp": "assets/webp/balthazar-hotel-spa-rennes-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/balthazar-hotel-spa-rennes-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/balthazar-hotel-spa-rennes-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/balthazar-hotel-spa-rennes-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "blog-lancement-site-1.jpg": {
+    "webp": "assets/webp/blog-lancement-site-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/blog-lancement-site-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/blog-lancement-site-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/blog-lancement-site-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "blog-lancement-site-2.jpg": {
+    "webp": "assets/webp/blog-lancement-site-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/blog-lancement-site-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/blog-lancement-site-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/blog-lancement-site-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "blog-lancement-site-3.jpg": {
+    "webp": "assets/webp/blog-lancement-site-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/blog-lancement-site-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/blog-lancement-site-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/blog-lancement-site-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "bobital-1.jpg": {
+    "webp": "assets/webp/bobital-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/bobital-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/bobital-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/bobital-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "bobital-2.jpg": {
+    "webp": "assets/webp/bobital-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/bobital-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/bobital-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/bobital-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "bobital-3.jpg": {
+    "webp": "assets/webp/bobital-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/bobital-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/bobital-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/bobital-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "bout-du-monde-1.jpg": {
+    "webp": "assets/webp/bout-du-monde-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/bout-du-monde-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/bout-du-monde-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/bout-du-monde-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "bout-du-monde-2.jpg": {
+    "webp": "assets/webp/bout-du-monde-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/bout-du-monde-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/bout-du-monde-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/bout-du-monde-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "bout-du-monde-3.jpg": {
+    "webp": "assets/webp/bout-du-monde-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/bout-du-monde-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/bout-du-monde-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/bout-du-monde-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "brehat.jpg": {
+    "webp": "assets/webp/brehat.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/brehat-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/brehat-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/brehat-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "broceliande.jpg": {
+    "webp": "assets/webp/broceliande.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/broceliande-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/broceliande-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/broceliande-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "cabanes-arbres.jpg": {
+    "webp": "assets/webp/cabanes-arbres.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/cabanes-arbres-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/cabanes-arbres-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/cabanes-arbres-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "carnac-alignements.jpg": {
+    "webp": "assets/webp/carnac-alignements.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/carnac-alignements-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/carnac-alignements-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/carnac-alignements-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "chateau-apigne-le-rheu-1.jpg": {
+    "webp": "assets/webp/chateau-apigne-le-rheu-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/chateau-apigne-le-rheu-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/chateau-apigne-le-rheu-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/chateau-apigne-le-rheu-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "chateau-apigne-le-rheu-2.jpg": {
+    "webp": "assets/webp/chateau-apigne-le-rheu-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/chateau-apigne-le-rheu-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/chateau-apigne-le-rheu-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/chateau-apigne-le-rheu-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "chateau-apigne-le-rheu-3.jpg": {
+    "webp": "assets/webp/chateau-apigne-le-rheu-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/chateau-apigne-le-rheu-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/chateau-apigne-le-rheu-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/chateau-apigne-le-rheu-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "chateau-josselin-1.jpg": {
+    "webp": "assets/webp/chateau-josselin-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/chateau-josselin-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/chateau-josselin-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/chateau-josselin-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "chateau-josselin-2.jpg": {
+    "webp": "assets/webp/chateau-josselin-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/chateau-josselin-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/chateau-josselin-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/chateau-josselin-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "chateau-josselin-3.jpg": {
+    "webp": "assets/webp/chateau-josselin-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/chateau-josselin-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/chateau-josselin-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/chateau-josselin-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "chateau-maubreuil-carquefou-1.jpg": {
+    "webp": "assets/webp/chateau-maubreuil-carquefou-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/chateau-maubreuil-carquefou-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/chateau-maubreuil-carquefou-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/chateau-maubreuil-carquefou-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "chateau-maubreuil-carquefou-2.jpg": {
+    "webp": "assets/webp/chateau-maubreuil-carquefou-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/chateau-maubreuil-carquefou-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/chateau-maubreuil-carquefou-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/chateau-maubreuil-carquefou-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "chateau-maubreuil-carquefou-3.jpg": {
+    "webp": "assets/webp/chateau-maubreuil-carquefou-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/chateau-maubreuil-carquefou-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/chateau-maubreuil-carquefou-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/chateau-maubreuil-carquefou-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "concarneau.jpg": {
+    "webp": "assets/webp/concarneau.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/concarneau-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/concarneau-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/concarneau-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "crozon.jpg": {
+    "webp": "assets/webp/crozon.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/crozon-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/crozon-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/crozon-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "dihan-evasion-ploemel-1.jpg": {
+    "webp": "assets/webp/dihan-evasion-ploemel-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/dihan-evasion-ploemel-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/dihan-evasion-ploemel-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/dihan-evasion-ploemel-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "dihan-evasion-ploemel-2.jpg": {
+    "webp": "assets/webp/dihan-evasion-ploemel-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/dihan-evasion-ploemel-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/dihan-evasion-ploemel-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/dihan-evasion-ploemel-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "dihan-evasion-ploemel-3.jpg": {
+    "webp": "assets/webp/dihan-evasion-ploemel-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/dihan-evasion-ploemel-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/dihan-evasion-ploemel-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/dihan-evasion-ploemel-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "dinan.jpg": {
+    "webp": "assets/webp/dinan.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/dinan-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/dinan-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/dinan-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-bretesche-golf-spa-missillac-1.jpg": {
+    "webp": "assets/webp/domaine-bretesche-golf-spa-missillac-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-bretesche-golf-spa-missillac-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-bretesche-golf-spa-missillac-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-bretesche-golf-spa-missillac-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-bretesche-golf-spa-missillac-2.jpg": {
+    "webp": "assets/webp/domaine-bretesche-golf-spa-missillac-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-bretesche-golf-spa-missillac-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-bretesche-golf-spa-missillac-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-bretesche-golf-spa-missillac-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-bretesche-golf-spa-missillac-3.jpg": {
+    "webp": "assets/webp/domaine-bretesche-golf-spa-missillac-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-bretesche-golf-spa-missillac-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-bretesche-golf-spa-missillac-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-bretesche-golf-spa-missillac-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-de-meros-1.jpg": {
+    "webp": "assets/webp/domaine-de-meros-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-de-meros-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-de-meros-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-de-meros-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-de-meros-2.jpg": {
+    "webp": "assets/webp/domaine-de-meros-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-de-meros-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-de-meros-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-de-meros-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-de-meros-3.jpg": {
+    "webp": "assets/webp/domaine-de-meros-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-de-meros-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-de-meros-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-de-meros-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-des-ormes-1.jpg": {
+    "webp": "assets/webp/domaine-des-ormes-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-des-ormes-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-des-ormes-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-des-ormes-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-des-ormes-2.jpg": {
+    "webp": "assets/webp/domaine-des-ormes-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-des-ormes-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-des-ormes-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-des-ormes-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-des-ormes-3.jpg": {
+    "webp": "assets/webp/domaine-des-ormes-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-des-ormes-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-des-ormes-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-des-ormes-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-du-treuscoat-1.jpg": {
+    "webp": "assets/webp/domaine-du-treuscoat-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-du-treuscoat-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-du-treuscoat-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-du-treuscoat-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-du-treuscoat-2.jpg": {
+    "webp": "assets/webp/domaine-du-treuscoat-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-du-treuscoat-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-du-treuscoat-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-du-treuscoat-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-du-treuscoat-3.jpg": {
+    "webp": "assets/webp/domaine-du-treuscoat-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-du-treuscoat-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-du-treuscoat-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-du-treuscoat-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-locguenole-spa-kervignac-1.jpg": {
+    "webp": "assets/webp/domaine-locguenole-spa-kervignac-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-locguenole-spa-kervignac-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-locguenole-spa-kervignac-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-locguenole-spa-kervignac-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-locguenole-spa-kervignac-2.jpg": {
+    "webp": "assets/webp/domaine-locguenole-spa-kervignac-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-locguenole-spa-kervignac-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-locguenole-spa-kervignac-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-locguenole-spa-kervignac-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "domaine-locguenole-spa-kervignac-3.jpg": {
+    "webp": "assets/webp/domaine-locguenole-spa-kervignac-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/domaine-locguenole-spa-kervignac-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/domaine-locguenole-spa-kervignac-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/domaine-locguenole-spa-kervignac-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "dub-camp-1.jpg": {
+    "webp": "assets/webp/dub-camp-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/dub-camp-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/dub-camp-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/dub-camp-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "dub-camp-2.jpg": {
+    "webp": "assets/webp/dub-camp-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/dub-camp-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/dub-camp-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/dub-camp-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "dub-camp-3.jpg": {
+    "webp": "assets/webp/dub-camp-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/dub-camp-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/dub-camp-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/dub-camp-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "festidreuz-1.jpg": {
+    "webp": "assets/webp/festidreuz-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/festidreuz-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/festidreuz-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/festidreuz-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "festidreuz-2.jpg": {
+    "webp": "assets/webp/festidreuz-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/festidreuz-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/festidreuz-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/festidreuz-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "festidreuz-3.jpg": {
+    "webp": "assets/webp/festidreuz-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/festidreuz-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/festidreuz-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/festidreuz-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "festival-insolent-1.jpg": {
+    "webp": "assets/webp/festival-insolent-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/festival-insolent-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/festival-insolent-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/festival-insolent-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "festival-insolent-2.jpg": {
+    "webp": "assets/webp/festival-insolent-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/festival-insolent-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/festival-insolent-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/festival-insolent-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "fete-bruit-landerneau-1.jpg": {
+    "webp": "assets/webp/fete-bruit-landerneau-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/fete-bruit-landerneau-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/fete-bruit-landerneau-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/fete-bruit-landerneau-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "fete-bruit-landerneau-2.jpg": {
+    "webp": "assets/webp/fete-bruit-landerneau-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/fete-bruit-landerneau-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/fete-bruit-landerneau-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/fete-bruit-landerneau-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "fete-bruit-landerneau-3.jpg": {
+    "webp": "assets/webp/fete-bruit-landerneau-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/fete-bruit-landerneau-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/fete-bruit-landerneau-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/fete-bruit-landerneau-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "fete-bruit-saint-nolff-1.jpg": {
+    "webp": "assets/webp/fete-bruit-saint-nolff-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/fete-bruit-saint-nolff-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/fete-bruit-saint-nolff-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/fete-bruit-saint-nolff-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "fete-bruit-saint-nolff-2.jpg": {
+    "webp": "assets/webp/fete-bruit-saint-nolff-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/fete-bruit-saint-nolff-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/fete-bruit-saint-nolff-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/fete-bruit-saint-nolff-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "fete-bruit-saint-nolff-3.jpg": {
+    "webp": "assets/webp/fete-bruit-saint-nolff-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/fete-bruit-saint-nolff-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/fete-bruit-saint-nolff-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/fete-bruit-saint-nolff-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "flume-enchantee-1.jpg": {
+    "webp": "assets/webp/flume-enchantee-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/flume-enchantee-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/flume-enchantee-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/flume-enchantee-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "flume-enchantee-2.jpg": {
+    "webp": "assets/webp/flume-enchantee-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/flume-enchantee-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/flume-enchantee-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/flume-enchantee-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "flume-enchantee-3.jpg": {
+    "webp": "assets/webp/flume-enchantee-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/flume-enchantee-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/flume-enchantee-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/flume-enchantee-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "grand-hotel-barriere-dinard-1.jpg": {
+    "webp": "assets/webp/grand-hotel-barriere-dinard-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/grand-hotel-barriere-dinard-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/grand-hotel-barriere-dinard-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/grand-hotel-barriere-dinard-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "grand-hotel-barriere-dinard-2.jpg": {
+    "webp": "assets/webp/grand-hotel-barriere-dinard-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/grand-hotel-barriere-dinard-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/grand-hotel-barriere-dinard-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/grand-hotel-barriere-dinard-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "grand-hotel-barriere-dinard-3.jpg": {
+    "webp": "assets/webp/grand-hotel-barriere-dinard-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/grand-hotel-barriere-dinard-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/grand-hotel-barriere-dinard-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/grand-hotel-barriere-dinard-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "grand-hotel-thermes-saint-malo-1.jpg": {
+    "webp": "assets/webp/grand-hotel-thermes-saint-malo-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/grand-hotel-thermes-saint-malo-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/grand-hotel-thermes-saint-malo-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/grand-hotel-thermes-saint-malo-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "grand-hotel-thermes-saint-malo-2.jpg": {
+    "webp": "assets/webp/grand-hotel-thermes-saint-malo-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/grand-hotel-thermes-saint-malo-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/grand-hotel-thermes-saint-malo-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/grand-hotel-thermes-saint-malo-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "grand-hotel-thermes-saint-malo-3.jpg": {
+    "webp": "assets/webp/grand-hotel-thermes-saint-malo-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/grand-hotel-thermes-saint-malo-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/grand-hotel-thermes-saint-malo-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/grand-hotel-thermes-saint-malo-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hellfest-1.jpg": {
+    "webp": "assets/webp/hellfest-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hellfest-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hellfest-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hellfest-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hellfest-2.jpg": {
+    "webp": "assets/webp/hellfest-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hellfest-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hellfest-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hellfest-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hellfest-3.jpg": {
+    "webp": "assets/webp/hellfest-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hellfest-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hellfest-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hellfest-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-barriere-hermitage-la-baule-1.jpg": {
+    "webp": "assets/webp/hotel-barriere-hermitage-la-baule-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-barriere-hermitage-la-baule-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-barriere-hermitage-la-baule-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-barriere-hermitage-la-baule-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-barriere-hermitage-la-baule-2.jpg": {
+    "webp": "assets/webp/hotel-barriere-hermitage-la-baule-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-barriere-hermitage-la-baule-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-barriere-hermitage-la-baule-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-barriere-hermitage-la-baule-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-barriere-hermitage-la-baule-3.jpg": {
+    "webp": "assets/webp/hotel-barriere-hermitage-la-baule-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-barriere-hermitage-la-baule-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-barriere-hermitage-la-baule-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-barriere-hermitage-la-baule-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-barriere-royal-thalasso-la-baule-1.jpg": {
+    "webp": "assets/webp/hotel-barriere-royal-thalasso-la-baule-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-barriere-royal-thalasso-la-baule-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-barriere-royal-thalasso-la-baule-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-barriere-royal-thalasso-la-baule-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-barriere-royal-thalasso-la-baule-2.jpg": {
+    "webp": "assets/webp/hotel-barriere-royal-thalasso-la-baule-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-barriere-royal-thalasso-la-baule-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-barriere-royal-thalasso-la-baule-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-barriere-royal-thalasso-la-baule-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-barriere-royal-thalasso-la-baule-3.jpg": {
+    "webp": "assets/webp/hotel-barriere-royal-thalasso-la-baule-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-barriere-royal-thalasso-la-baule-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-barriere-royal-thalasso-la-baule-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-barriere-royal-thalasso-la-baule-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-castel-marie-louise-la-baule-1.jpg": {
+    "webp": "assets/webp/hotel-castel-marie-louise-la-baule-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-castel-marie-louise-la-baule-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-castel-marie-louise-la-baule-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-castel-marie-louise-la-baule-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-castel-marie-louise-la-baule-2.jpg": {
+    "webp": "assets/webp/hotel-castel-marie-louise-la-baule-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-castel-marie-louise-la-baule-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-castel-marie-louise-la-baule-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-castel-marie-louise-la-baule-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-castel-marie-louise-la-baule-3.jpg": {
+    "webp": "assets/webp/hotel-castel-marie-louise-la-baule-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-castel-marie-louise-la-baule-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-castel-marie-louise-la-baule-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-castel-marie-louise-la-baule-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-castelbrac-dinard-1.jpg": {
+    "webp": "assets/webp/hotel-castelbrac-dinard-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-castelbrac-dinard-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-castelbrac-dinard-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-castelbrac-dinard-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-castelbrac-dinard-2.jpg": {
+    "webp": "assets/webp/hotel-castelbrac-dinard-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-castelbrac-dinard-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-castelbrac-dinard-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-castelbrac-dinard-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-castelbrac-dinard-3.jpg": {
+    "webp": "assets/webp/hotel-castelbrac-dinard-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-castelbrac-dinard-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-castelbrac-dinard-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-castelbrac-dinard-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-de-carantec-1.jpg": {
+    "webp": "assets/webp/hotel-de-carantec-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-de-carantec-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-de-carantec-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-de-carantec-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-de-carantec-2.jpg": {
+    "webp": "assets/webp/hotel-de-carantec-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-de-carantec-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-de-carantec-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-de-carantec-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-de-carantec-3.jpg": {
+    "webp": "assets/webp/hotel-de-carantec-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-de-carantec-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-de-carantec-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-de-carantec-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-spa-bretesche-missillac-1.jpg": {
+    "webp": "assets/webp/hotel-spa-bretesche-missillac-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-spa-bretesche-missillac-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-spa-bretesche-missillac-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-spa-bretesche-missillac-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-spa-bretesche-missillac-2.jpg": {
+    "webp": "assets/webp/hotel-spa-bretesche-missillac-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-spa-bretesche-missillac-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-spa-bretesche-missillac-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-spa-bretesche-missillac-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-spa-bretesche-missillac-3.jpg": {
+    "webp": "assets/webp/hotel-spa-bretesche-missillac-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-spa-bretesche-missillac-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-spa-bretesche-missillac-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-spa-bretesche-missillac-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "hotel-thermes.jpg": {
+    "webp": "assets/webp/hotel-thermes.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/hotel-thermes-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/hotel-thermes-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/hotel-thermes-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "interceltique-1.jpg": {
+    "webp": "assets/webp/interceltique-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/interceltique-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/interceltique-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/interceltique-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "interceltique-2.jpg": {
+    "webp": "assets/webp/interceltique-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/interceltique-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/interceltique-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/interceltique-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "interceltique-3.jpg": {
+    "webp": "assets/webp/interceltique-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/interceltique-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/interceltique-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/interceltique-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "les-cabanes-de-koaddour-1.jpg": {
+    "webp": "assets/webp/les-cabanes-de-koaddour-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/les-cabanes-de-koaddour-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/les-cabanes-de-koaddour-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/les-cabanes-de-koaddour-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "les-cabanes-de-koaddour-2.jpg": {
+    "webp": "assets/webp/les-cabanes-de-koaddour-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/les-cabanes-de-koaddour-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/les-cabanes-de-koaddour-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/les-cabanes-de-koaddour-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "les-cabanes-de-koaddour-3.jpg": {
+    "webp": "assets/webp/les-cabanes-de-koaddour-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/les-cabanes-de-koaddour-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/les-cabanes-de-koaddour-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/les-cabanes-de-koaddour-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "les-escales-1.jpg": {
+    "webp": "assets/webp/les-escales-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/les-escales-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/les-escales-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/les-escales-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "les-escales-2.jpg": {
+    "webp": "assets/webp/les-escales-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/les-escales-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/les-escales-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/les-escales-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "les-escales-3.jpg": {
+    "webp": "assets/webp/les-escales-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/les-escales-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/les-escales-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/les-escales-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "miramar-la-cigale-arzon-1.jpg": {
+    "webp": "assets/webp/miramar-la-cigale-arzon-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/miramar-la-cigale-arzon-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/miramar-la-cigale-arzon-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/miramar-la-cigale-arzon-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "miramar-la-cigale-arzon-2.jpg": {
+    "webp": "assets/webp/miramar-la-cigale-arzon-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/miramar-la-cigale-arzon-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/miramar-la-cigale-arzon-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/miramar-la-cigale-arzon-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "miramar-la-cigale-arzon-3.jpg": {
+    "webp": "assets/webp/miramar-la-cigale-arzon-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/miramar-la-cigale-arzon-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/miramar-la-cigale-arzon-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/miramar-la-cigale-arzon-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "mont-saint-michel-1.jpg": {
+    "webp": "assets/webp/mont-saint-michel-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/mont-saint-michel-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/mont-saint-michel-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/mont-saint-michel-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "mont-saint-michel-2.jpg": {
+    "webp": "assets/webp/mont-saint-michel-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/mont-saint-michel-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/mont-saint-michel-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/mont-saint-michel-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "mont-saint-michel-3.jpg": {
+    "webp": "assets/webp/mont-saint-michel-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/mont-saint-michel-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/mont-saint-michel-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/mont-saint-michel-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "mont-saint-michel.jpg": {
+    "webp": "assets/webp/mont-saint-michel.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/mont-saint-michel-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/mont-saint-michel-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/mont-saint-michel-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "motocultor-1.jpg": {
+    "webp": "assets/webp/motocultor-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/motocultor-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/motocultor-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/motocultor-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "motocultor-2.jpg": {
+    "webp": "assets/webp/motocultor-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/motocultor-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/motocultor-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/motocultor-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "motocultor-3.jpg": {
+    "webp": "assets/webp/motocultor-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/motocultor-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/motocultor-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/motocultor-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "musee-beaux-arts-rennes-1.jpg": {
+    "webp": "assets/webp/musee-beaux-arts-rennes-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/musee-beaux-arts-rennes-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/musee-beaux-arts-rennes-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/musee-beaux-arts-rennes-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "musee-beaux-arts-rennes-2.jpg": {
+    "webp": "assets/webp/musee-beaux-arts-rennes-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/musee-beaux-arts-rennes-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/musee-beaux-arts-rennes-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/musee-beaux-arts-rennes-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "musee-beaux-arts-rennes-3.jpg": {
+    "webp": "assets/webp/musee-beaux-arts-rennes-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/musee-beaux-arts-rennes-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/musee-beaux-arts-rennes-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/musee-beaux-arts-rennes-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "nuances-dalcoves-1.jpg": {
+    "webp": "assets/webp/nuances-dalcoves-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/nuances-dalcoves-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/nuances-dalcoves-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/nuances-dalcoves-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "nuances-dalcoves-2.jpg": {
+    "webp": "assets/webp/nuances-dalcoves-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/nuances-dalcoves-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/nuances-dalcoves-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/nuances-dalcoves-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "nuances-dalcoves-3.jpg": {
+    "webp": "assets/webp/nuances-dalcoves-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/nuances-dalcoves-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/nuances-dalcoves-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/nuances-dalcoves-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "nuit-erdre-1.jpg": {
+    "webp": "assets/webp/nuit-erdre-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/nuit-erdre-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/nuit-erdre-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/nuit-erdre-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "nuit-erdre-2.jpg": {
+    "webp": "assets/webp/nuit-erdre-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/nuit-erdre-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/nuit-erdre-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/nuit-erdre-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "nuit-erdre-3.jpg": {
+    "webp": "assets/webp/nuit-erdre-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/nuit-erdre-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/nuit-erdre-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/nuit-erdre-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "nuit-etoiles-1.jpg": {
+    "webp": "assets/webp/nuit-etoiles-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/nuit-etoiles-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/nuit-etoiles-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/nuit-etoiles-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "nuit-etoiles-2.jpg": {
+    "webp": "assets/webp/nuit-etoiles-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/nuit-etoiles-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/nuit-etoiles-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/nuit-etoiles-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "nuit-etoiles-3.jpg": {
+    "webp": "assets/webp/nuit-etoiles-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/nuit-etoiles-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/nuit-etoiles-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/nuit-etoiles-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "oceanopolis-brest-1.jpg": {
+    "webp": "assets/webp/oceanopolis-brest-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/oceanopolis-brest-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/oceanopolis-brest-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/oceanopolis-brest-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "oceanopolis-brest-2.jpg": {
+    "webp": "assets/webp/oceanopolis-brest-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/oceanopolis-brest-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/oceanopolis-brest-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/oceanopolis-brest-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "oceanopolis-brest-3.jpg": {
+    "webp": "assets/webp/oceanopolis-brest-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/oceanopolis-brest-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/oceanopolis-brest-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/oceanopolis-brest-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "parc-thabor-rennes-1.jpg": {
+    "webp": "assets/webp/parc-thabor-rennes-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/parc-thabor-rennes-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/parc-thabor-rennes-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/parc-thabor-rennes-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "parc-thabor-rennes-2.jpg": {
+    "webp": "assets/webp/parc-thabor-rennes-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/parc-thabor-rennes-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/parc-thabor-rennes-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/parc-thabor-rennes-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "parc-thabor-rennes-3.jpg": {
+    "webp": "assets/webp/parc-thabor-rennes-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/parc-thabor-rennes-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/parc-thabor-rennes-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/parc-thabor-rennes-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "petites-folies-1.jpg": {
+    "webp": "assets/webp/petites-folies-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/petites-folies-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/petites-folies-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/petites-folies-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "petites-folies-2.jpg": {
+    "webp": "assets/webp/petites-folies-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/petites-folies-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/petites-folies-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/petites-folies-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "petites-folies-3.jpg": {
+    "webp": "assets/webp/petites-folies-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/petites-folies-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/petites-folies-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/petites-folies-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "placeholder.jpg": {
+    "webp": "assets/webp/placeholder.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/placeholder-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/placeholder-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/placeholder-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "plage-des-amiets-1.jpg": {
+    "webp": "assets/webp/plage-des-amiets-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/plage-des-amiets-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/plage-des-amiets-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/plage-des-amiets-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "plage-des-amiets-2.jpg": {
+    "webp": "assets/webp/plage-des-amiets-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/plage-des-amiets-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/plage-des-amiets-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/plage-des-amiets-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "plage-des-amiets-3.jpg": {
+    "webp": "assets/webp/plage-des-amiets-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/plage-des-amiets-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/plage-des-amiets-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/plage-des-amiets-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "plage-la-baule.jpg": {
+    "webp": "assets/webp/plage-la-baule.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/plage-la-baule-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/plage-la-baule-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/plage-la-baule-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "ploumanach.jpg": {
+    "webp": "assets/webp/ploumanach.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/ploumanach-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/ploumanach-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/ploumanach-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "pointe-du-raz.jpg": {
+    "webp": "assets/webp/pointe-du-raz.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/pointe-du-raz-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/pointe-du-raz-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/pointe-du-raz-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "pont-du-rock-1.jpg": {
+    "webp": "assets/webp/pont-du-rock-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/pont-du-rock-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/pont-du-rock-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/pont-du-rock-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "pont-du-rock-2.jpg": {
+    "webp": "assets/webp/pont-du-rock-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/pont-du-rock-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/pont-du-rock-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/pont-du-rock-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "pont-du-rock-3.jpg": {
+    "webp": "assets/webp/pont-du-rock-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/pont-du-rock-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/pont-du-rock-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/pont-du-rock-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "quimper.jpg": {
+    "webp": "assets/webp/quimper.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/quimper-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/quimper-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/quimper-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "restaurant-nicolas-carro-1.jpg": {
+    "webp": "assets/webp/restaurant-nicolas-carro-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/restaurant-nicolas-carro-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/restaurant-nicolas-carro-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/restaurant-nicolas-carro-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "restaurant-nicolas-carro-2.jpg": {
+    "webp": "assets/webp/restaurant-nicolas-carro-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/restaurant-nicolas-carro-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/restaurant-nicolas-carro-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/restaurant-nicolas-carro-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "restaurant-nicolas-carro-3.jpg": {
+    "webp": "assets/webp/restaurant-nicolas-carro-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/restaurant-nicolas-carro-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/restaurant-nicolas-carro-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/restaurant-nicolas-carro-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "roazhon-rage-1.jpg": {
+    "webp": "assets/webp/roazhon-rage-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/roazhon-rage-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/roazhon-rage-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/roazhon-rage-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "roazhon-rage-2.jpg": {
+    "webp": "assets/webp/roazhon-rage-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/roazhon-rage-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/roazhon-rage-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/roazhon-rage-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "roazhon-rage-3.jpg": {
+    "webp": "assets/webp/roazhon-rage-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/roazhon-rage-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/roazhon-rage-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/roazhon-rage-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "roch-trevezel-1.jpg": {
+    "webp": "assets/webp/roch-trevezel-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/roch-trevezel-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/roch-trevezel-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/roch-trevezel-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "roch-trevezel-2.jpg": {
+    "webp": "assets/webp/roch-trevezel-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/roch-trevezel-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/roch-trevezel-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/roch-trevezel-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "roch-trevezel-3.jpg": {
+    "webp": "assets/webp/roch-trevezel-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/roch-trevezel-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/roch-trevezel-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/roch-trevezel-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "rochefort-en-terre-1.jpg": {
+    "webp": "assets/webp/rochefort-en-terre-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/rochefort-en-terre-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/rochefort-en-terre-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/rochefort-en-terre-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "rochefort-en-terre-2.jpg": {
+    "webp": "assets/webp/rochefort-en-terre-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/rochefort-en-terre-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/rochefort-en-terre-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/rochefort-en-terre-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "rochefort-en-terre-3.jpg": {
+    "webp": "assets/webp/rochefort-en-terre-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/rochefort-en-terre-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/rochefort-en-terre-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/rochefort-en-terre-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "roi-arthur-1.jpg": {
+    "webp": "assets/webp/roi-arthur-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/roi-arthur-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/roi-arthur-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/roi-arthur-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "roi-arthur-2.jpg": {
+    "webp": "assets/webp/roi-arthur-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/roi-arthur-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/roi-arthur-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/roi-arthur-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "roi-arthur-3.jpg": {
+    "webp": "assets/webp/roi-arthur-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/roi-arthur-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/roi-arthur-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/roi-arthur-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "saint-malo.jpg": {
+    "webp": "assets/webp/saint-malo.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/saint-malo-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/saint-malo-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/saint-malo-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "sandaya-carnac-1.jpg": {
+    "webp": "assets/webp/sandaya-carnac-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/sandaya-carnac-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/sandaya-carnac-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/sandaya-carnac-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "sandaya-carnac-2.jpg": {
+    "webp": "assets/webp/sandaya-carnac-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/sandaya-carnac-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/sandaya-carnac-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/sandaya-carnac-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "sandaya-carnac-3.jpg": {
+    "webp": "assets/webp/sandaya-carnac-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/sandaya-carnac-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/sandaya-carnac-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/sandaya-carnac-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "sofitel-quiberon-thalassa-sea-spa-1.jpg": {
+    "webp": "assets/webp/sofitel-quiberon-thalassa-sea-spa-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/sofitel-quiberon-thalassa-sea-spa-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/sofitel-quiberon-thalassa-sea-spa-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/sofitel-quiberon-thalassa-sea-spa-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "sofitel-quiberon-thalassa-sea-spa-2.jpg": {
+    "webp": "assets/webp/sofitel-quiberon-thalassa-sea-spa-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/sofitel-quiberon-thalassa-sea-spa-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/sofitel-quiberon-thalassa-sea-spa-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/sofitel-quiberon-thalassa-sea-spa-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "sofitel-quiberon-thalassa-sea-spa-3.jpg": {
+    "webp": "assets/webp/sofitel-quiberon-thalassa-sea-spa-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/sofitel-quiberon-thalassa-sea-spa-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/sofitel-quiberon-thalassa-sea-spa-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/sofitel-quiberon-thalassa-sea-spa-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "transmusicales-1.jpg": {
+    "webp": "assets/webp/transmusicales-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/transmusicales-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/transmusicales-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/transmusicales-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "transmusicales-2.jpg": {
+    "webp": "assets/webp/transmusicales-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/transmusicales-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/transmusicales-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/transmusicales-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "transmusicales-3.jpg": {
+    "webp": "assets/webp/transmusicales-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/transmusicales-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/transmusicales-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/transmusicales-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "vallee-pratmeur-1.jpg": {
+    "webp": "assets/webp/vallee-pratmeur-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/vallee-pratmeur-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/vallee-pratmeur-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/vallee-pratmeur-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "vallee-pratmeur-2.jpg": {
+    "webp": "assets/webp/vallee-pratmeur-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/vallee-pratmeur-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/vallee-pratmeur-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/vallee-pratmeur-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "vallee-pratmeur-3.jpg": {
+    "webp": "assets/webp/vallee-pratmeur-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/vallee-pratmeur-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/vallee-pratmeur-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/vallee-pratmeur-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "vieilles-charrues-1.jpg": {
+    "webp": "assets/webp/vieilles-charrues-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/vieilles-charrues-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/vieilles-charrues-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/vieilles-charrues-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "vieilles-charrues-2.jpg": {
+    "webp": "assets/webp/vieilles-charrues-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/vieilles-charrues-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/vieilles-charrues-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/vieilles-charrues-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "vieilles-charrues-3.jpg": {
+    "webp": "assets/webp/vieilles-charrues-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/vieilles-charrues-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/vieilles-charrues-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/vieilles-charrues-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "villa-blockhaus-audrey-1.jpg": {
+    "webp": "assets/webp/villa-blockhaus-audrey-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/villa-blockhaus-audrey-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/villa-blockhaus-audrey-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/villa-blockhaus-audrey-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "villa-blockhaus-audrey-2.jpg": {
+    "webp": "assets/webp/villa-blockhaus-audrey-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/villa-blockhaus-audrey-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/villa-blockhaus-audrey-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/villa-blockhaus-audrey-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "villa-blockhaus-audrey-3.jpg": {
+    "webp": "assets/webp/villa-blockhaus-audrey-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/villa-blockhaus-audrey-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/villa-blockhaus-audrey-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/villa-blockhaus-audrey-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "villa-lily-spa-1.jpg": {
+    "webp": "assets/webp/villa-lily-spa-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/villa-lily-spa-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/villa-lily-spa-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/villa-lily-spa-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "villa-lily-spa-2.jpg": {
+    "webp": "assets/webp/villa-lily-spa-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/villa-lily-spa-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/villa-lily-spa-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/villa-lily-spa-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "villa-lily-spa-3.jpg": {
+    "webp": "assets/webp/villa-lily-spa-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/villa-lily-spa-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/villa-lily-spa-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/villa-lily-spa-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "yaouank-1.jpg": {
+    "webp": "assets/webp/yaouank-1.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/yaouank-1-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/yaouank-1-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/yaouank-1-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "yaouank-2.jpg": {
+    "webp": "assets/webp/yaouank-2.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/yaouank-2-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/yaouank-2-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/yaouank-2-1200w.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "yaouank-3.jpg": {
+    "webp": "assets/webp/yaouank-3.webp",
+    "responsive": [
+      {
+        "src": "assets/webp/yaouank-3-400w.webp",
+        "width": 400
+      },
+      {
+        "src": "assets/webp/yaouank-3-800w.webp",
+        "width": 800
+      },
+      {
+        "src": "assets/webp/yaouank-3-1200w.webp",
+        "width": 1200
+      }
+    ]
+  }
+}

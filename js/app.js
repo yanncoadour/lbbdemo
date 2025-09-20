@@ -1727,23 +1727,14 @@ function displayPoiCards() {
 }
 
 /**
- * Crée une carte POI optimisée avec image lazy-loadée
+ * Crée une carte POI optimisée avec images WebP responsive
  */
 function createPoiCard(poi) {
     const card = document.createElement('div');
     card.className = 'poi-card';
 
-    // Image optimisée avec lazy loading
-    const imageHtml = poi.image ? `
-        <div class="poi-card-image">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f1f5f9'/%3E%3C/svg%3E"
-                 data-src="${poi.image}"
-                 alt="${poi.title || poi.name}"
-                 loading="lazy"
-                 class="lazy-image"
-                 onload="this.classList.add('loaded')">
-        </div>
-    ` : '';
+    // Image optimisée avec WebP et responsive
+    const imageHtml = poi.image ? createOptimizedImageHtml(poi.image, poi.title || poi.name) : '';
 
     card.innerHTML = `
         ${imageHtml}
@@ -1766,6 +1757,44 @@ function createPoiCard(poi) {
     `;
 
     return card;
+}
+
+/**
+ * Crée un HTML d'image optimisé avec WebP et responsive
+ */
+function createOptimizedImageHtml(originalSrc, alt) {
+    // Extraire le nom de fichier
+    const filename = originalSrc.split('/').pop();
+    const baseName = filename.split('.')[0];
+
+    // Générer les chemins WebP
+    const webpBase = `assets/webp/${baseName}`;
+
+    return `
+        <div class="poi-card-image">
+            <picture>
+                <source
+                    media="(max-width: 480px)"
+                    srcset="${webpBase}-400w.webp"
+                    type="image/webp">
+                <source
+                    media="(max-width: 768px)"
+                    srcset="${webpBase}-800w.webp"
+                    type="image/webp">
+                <source
+                    srcset="${webpBase}-1200w.webp"
+                    type="image/webp">
+                <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f1f5f9'/%3E%3C/svg%3E"
+                    data-src="${originalSrc}"
+                    alt="${alt}"
+                    loading="lazy"
+                    class="lazy-image"
+                    onload="this.classList.add('loaded')"
+                    onerror="this.src='${originalSrc}'">
+            </picture>
+        </div>
+    `;
 }
 
 /**
