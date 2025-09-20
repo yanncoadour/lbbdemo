@@ -482,54 +482,20 @@
         };
     </script>
 
-    <!-- Optimized script loading for 90+ PageSpeed -->
-    <script>
-        // Immediate config load
-        window.addEventListener('DOMContentLoaded', function() {
-            // Show basic UI instantly
-            document.body.classList.remove('loading');
+    <!-- Scripts essentiels en ordre synchrone -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/logger.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/map.js?v=5"></script>
+    <script src="js/app.js"></script>
 
-            // Load scripts with requestIdleCallback for better performance
-            function loadScriptsWhenIdle() {
-                const scripts = [
-                    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
-                    'js/logger.js', 'js/security.js', 'js/utils.js', 'js/map.js?v=5', 'js/app.js'
-                ];
-
-                let loadedCount = 0;
-                scripts.forEach(function(src, index) {
-                    const script = document.createElement('script');
-                    script.src = src;
-                    if (index > 0) script.async = true; // Only Leaflet synchronous
-                    script.onload = function() {
-                        loadedCount++;
-                        if (loadedCount === scripts.length) {
-                            // Load non-critical scripts after main app loads
-                            requestIdleCallback(function() {
-                                const nonCritical = [
-                                    'https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js',
-                                    'js/theme-global.js', 'js/simple-filters.js', 'js/map-toggle.js', 'js/settings.js'
-                                ];
-                                nonCritical.forEach(function(src) {
-                                    const s = document.createElement('script');
-                                    s.src = src; s.async = true;
-                                    document.head.appendChild(s);
-                                });
-                            });
-                        }
-                    };
-                    document.head.appendChild(script);
-                });
-            }
-
-            // Use requestIdleCallback if available, otherwise setTimeout
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(loadScriptsWhenIdle);
-            } else {
-                setTimeout(loadScriptsWhenIdle, 0);
-            }
-        });
-    </script>
+    <!-- Scripts non-critiques en defer -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js" defer></script>
+    <script src="js/theme-global.js" defer></script>
+    <script src="js/simple-filters.js" defer></script>
+    <script src="js/map-toggle.js" defer></script>
+    <script src="js/settings.js" defer></script>
 
 </body>
 </html>
