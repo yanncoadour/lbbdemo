@@ -29,8 +29,10 @@ function initMap() {
             attribution: '© OpenStreetMap'
         }).addTo(map);
 
-        // Créer le groupe de markers
+        // Créer le groupe de markers (LayerGroup simple)
+        console.log('DEBUG MAP: Création markersGroup avec L.layerGroup');
         markersGroup = L.layerGroup().addTo(map);
+        console.log('DEBUG MAP: markersGroup créé avec succès:', !!markersGroup);
 
         // Ajouter contrôle de zoom personnalisé
         L.control.zoom({

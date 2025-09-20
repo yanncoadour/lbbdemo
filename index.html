@@ -3,58 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Belle Bretagne - Guide Touristique de Bretagne</title>
-
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#1e40af">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Belle Bretagne">
-
-    <!-- Apple Touch Icons -->
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/assets/icons/icon-192x192.png">
-
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Découvrez les plus beaux lieux de Bretagne : plages, monuments, villages et points d'intérêt incontournables. Guide touristique interactif avec carte, géolocalisation et favoris.">
-    <meta name="keywords" content="Bretagne, tourisme, guide, carte, plages, monuments, villages, Finistère, Morbihan, Côtes d'Armor, Ille-et-Vilaine">
-    <meta name="author" content="La Belle Bretagne">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="La Belle Bretagne - Guide Touristique">
-    <meta property="og:description" content="Découvrez les plus beaux lieux de Bretagne avec notre guide interactif">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yanncoadour.github.io/lbbdemo/">
-    <meta property="og:image" content="/assets/images/og-image.jpg">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>La Belle Bretagne</title>
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /></noscript>
     <!-- Preload critical CSS -->
     <link rel="preload" href="css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Font display optimization -->
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+    </style>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- CSS critique inline pour FCP rapide -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #f8fafc;
+            line-height: 1.6;
+        }
+        #map {
+            width: 100%;
+            height: 100vh;
+            background: #e2e8f0;
+        }
+        .modern-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: white;
+            height: 60px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+        }
+        .brand-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1e293b;
+        }
+        .bottom-sheet {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 16px 16px 0 0;
+            z-index: 999;
+            transform: translateY(60%);
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <!-- Map Container (Full screen) -->
     <div id="map" class="map"></div>
     
     <!-- Location Button -->
-    <button class="location-btn" id="locationBtn">
-        <i class="fas fa-crosshairs"></i>
+    <button class="location-btn" id="locationBtn" aria-label="Localiser ma position" title="Localiser ma position">
+        <i class="fas fa-crosshairs" aria-hidden="true"></i>
     </button>
-    
+
     <!-- Map Style Toggle Button -->
-    <button class="map-toggle-btn" id="mapToggleBtn" title="Basculer satellite/carte">
-        <i class="fas fa-layer-group"></i>
+    <button class="map-toggle-btn" id="mapToggleBtn" aria-label="Basculer entre vue satellite et carte" title="Basculer satellite/carte">
+        <i class="fas fa-layer-group" aria-hidden="true"></i>
     </button>
     
     <!-- Bouton indicateur carrousel (affiché quand la bottom-sheet est minimisée) -->
-    <button class="carousel-indicator-btn" id="carouselIndicatorBtn" style="display: none;" title="Voir les lieux proches">
-        <i class="fas fa-location-arrow"></i>
-        <span class="indicator-count" id="indicatorCount">0</span>
+    <button class="carousel-indicator-btn" id="carouselIndicatorBtn" style="display: none;" aria-label="Voir les lieux proches" title="Voir les lieux proches">
+        <i class="fas fa-location-arrow" aria-hidden="true"></i>
+        <span class="indicator-count" id="indicatorCount" aria-label="Nombre de lieux">0</span>
     </button>
     
     <!-- Header moderne avec réglages -->
@@ -66,8 +96,8 @@
                 <div class="brand-tagline">Découvrez la magie bretonne</div>
             </div>
         </div>
-        <button class="settings-btn" id="settingsBtn" title="Réglages">
-            <i class="fas fa-cog"></i>
+        <button class="settings-btn" id="settingsBtn" aria-label="Ouvrir les réglages" title="Réglages">
+            <i class="fas fa-cog" aria-hidden="true"></i>
         </button>
     </header>
 
@@ -114,14 +144,15 @@
         <div class="search-interface">
             <div class="search-bar">
                 <div class="search-field">
-                    <i class="fas fa-search"></i>
+                    <i class="fas fa-search" aria-hidden="true"></i>
                     <div class="search-input-container">
-                        <input type="text" placeholder="Découvrir la Bretagne..." class="search-input" autocomplete="off" id="searchInput">
-                        <input type="text" class="search-autocomplete" id="searchAutocomplete" readonly tabindex="-1">
+                        <label for="searchInput" class="sr-only">Rechercher un lieu en Bretagne</label>
+                        <input type="text" placeholder="Découvrir la Bretagne..." class="search-input" autocomplete="off" id="searchInput" aria-label="Rechercher un lieu en Bretagne">
+                        <input type="text" class="search-autocomplete" id="searchAutocomplete" readonly tabindex="-1" aria-hidden="true">
                     </div>
                 </div>
-                <button class="filters-btn" id="filterBtn">
-                    <i class="fas fa-tune"></i>
+                <button class="filters-btn" id="filterBtn" aria-label="Ouvrir les filtres" title="Filtres">
+                    <i class="fas fa-tune" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
@@ -132,14 +163,14 @@
                 <i class="fas fa-route"></i>
                 <span>Itinéraire</span>
             </button>
-            <button class="quick-btn secondary" id="favoritesBtn">
+            <button class="quick-btn secondary">
                 <i class="fas fa-heart"></i>
-                <span>Favoris (<span class="favorites-count">0</span>)</span>
+                <span>Favoris</span>
             </button>
         </div>
         
-        <!-- Section des lieux proches (géolocalisation) - DÉSACTIVÉE -->
-        <div id="nearbyLocationSection" class="nearby-location-section" style="display: none !important;">
+        <!-- Section des lieux proches (géolocalisation) -->
+        <div id="nearbyLocationSection" class="nearby-location-section" style="display: none;">
             <div class="nearby-card">
                 <h2 class="nearby-section-title">
                     <i class="fas fa-location-arrow"></i>
@@ -266,7 +297,7 @@
                         <label class="option-card">
                             <input type="checkbox" value="point_de_vue">
                             <div class="card-content">
-                                <i class="fas fa-eye"></i>
+                                <i class="fas fa-mountain"></i>
                                 <span>Panoramas</span>
                             </div>
                         </label>
@@ -294,7 +325,7 @@
                         <label class="option-card">
                             <input type="checkbox" value="logement_insolite">
                             <div class="card-content">
-                                <i class="fas fa-tree-city"></i>
+                                <i class="fas fa-campground"></i>
                                 <span>Insolite</span>
                             </div>
                         </label>
@@ -303,41 +334,6 @@
                             <div class="card-content">
                                 <i class="fas fa-music"></i>
                                 <span>Festivals</span>
-                            </div>
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" value="chateau">
-                            <div class="card-content">
-                                <i class="fas fa-chess-rook"></i>
-                                <span>Châteaux</span>
-                            </div>
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" value="parc">
-                            <div class="card-content">
-                                <i class="fas fa-tree"></i>
-                                <span>Parcs</span>
-                            </div>
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" value="restaurant">
-                            <div class="card-content">
-                                <i class="fas fa-utensils"></i>
-                                <span>Restaurants</span>
-                            </div>
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" value="camping">
-                            <div class="card-content">
-                                <i class="fas fa-campground"></i>
-                                <span>Camping</span>
-                            </div>
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" value="loisirs">
-                            <div class="card-content">
-                                <i class="fas fa-star"></i>
-                                <span>Loisirs</span>
                             </div>
                         </label>
                     </div>
@@ -370,8 +366,8 @@
         </button>
     </div>
 
-    <!-- Popup de géolocalisation - DÉSACTIVÉE -->
-    <div class="geolocation-popup" id="geolocationPopup" style="display: none !important;">
+    <!-- Popup de géolocalisation -->
+    <div class="geolocation-popup" id="geolocationPopup" style="display: none;">
         <div class="geolocation-popup-content">
             <div class="geolocation-icon">
                 <i class="fas fa-map-marker-alt"></i>
@@ -386,7 +382,7 @@
                 </div>
                 <div class="step">
                     <span class="step-number">2</span>
-                    <span>Ou allez dans Réglages → Safari → Localisation</span>
+                <span>Ou allez dans Réglages → Safari → Localisation</span>
                 </div>
             </div>
 
@@ -445,21 +441,21 @@
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+
+    <!-- Scripts en ordre synchrone pour assurer le fonctionnement -->
     <script src="js/config.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="js/logger.js"></script>
     <script src="js/security.js"></script>
     <script src="js/utils.js"></script>
-    <script src="js/image-optimizer.js"></script>
-    <script src="js/favorites.js"></script>
-    <script src="js/share.js"></script>
-    <script src="js/offline.js"></script>
-    <script src="js/theme-global.js"></script>
+    <script src="js/map.js?v=3"></script>
     <script src="js/app.js"></script>
-    <script src="js/simple-filters.js"></script>
-    <script src="js/map-toggle.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/map.js"></script>
+
+    <!-- Scripts non-critiques en defer -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js" defer></script>
+    <script src="js/theme-global.js" defer></script>
+    <script src="js/simple-filters.js" defer></script>
+    <script src="js/map-toggle.js" defer></script>
+    <script src="js/settings.js" defer></script>
 </body>
 </html>

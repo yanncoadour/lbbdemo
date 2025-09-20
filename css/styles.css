@@ -5,6 +5,19 @@
     box-sizing: border-box;
 }
 
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Support viewport mobile dynamique */
 html {
     height: 100vh;
@@ -7906,5 +7919,183 @@ body {
         font-size: 9px;
         min-width: 16px;
         height: 16px;
+    }
+}
+
+/* Styles pour les cartes POI et lazy loading */
+.poi-card {
+    background: var(--surface-card);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.poi-card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--border-light);
+}
+
+.poi-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.poi-card-image img.lazy-image {
+    opacity: 0;
+    filter: blur(5px);
+}
+
+.poi-card-image img.loaded {
+    opacity: 1;
+    filter: none;
+}
+
+.poi-card-content {
+    padding: 20px;
+}
+
+.poi-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.poi-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+
+.poi-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+    flex: 1;
+}
+
+.poi-category {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--primary);
+    background: var(--secondary);
+    padding: 4px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+.poi-category i {
+    font-size: 11px;
+}
+
+.poi-description {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 12px 0;
+}
+
+.poi-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.btn-view-on-map {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-view-on-map:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-view-on-map i {
+    font-size: 12px;
+}
+
+.load-more-btn {
+    width: 100%;
+    background: var(--surface);
+    border: 2px dashed var(--border);
+    color: var(--text-secondary);
+    padding: 20px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+    transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+    background: var(--secondary);
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.load-more-btn i {
+    font-size: 16px;
+}
+
+/* Responsive pour les cartes POI */
+@media (max-width: 768px) {
+    .poi-card-image {
+        height: 160px;
+    }
+
+    .poi-card-content {
+        padding: 16px;
+    }
+
+    .poi-card {
+        margin-bottom: 12px;
+    }
+
+    .poi-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .poi-title {
+        font-size: 16px;
+    }
+
+    .poi-category {
+        align-self: flex-start;
+    }
+
+    .load-more-btn {
+        padding: 16px;
+        font-size: 13px;
     }
 }

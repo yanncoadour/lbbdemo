@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 APP.JS - DOMContentLoaded');
     registerServiceWorker(); // Enregistrer le SW d'abord
     fixBottomNav(); // Initialiser dès le chargement
+    initLazyLoading(); // Initialiser le lazy loading des images
     const mapElement = document.getElementById('map');
     console.log('🗺️ Élément map trouvé:', !!mapElement);
 
@@ -65,7 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
         initBottomSheetControls();
         initFixedPopup();
         initSearchAutoComplete();
-        loadPois();
+        // Retarder le chargement des POI pour améliorer le FCP
+        setTimeout(() => {
+            loadPois();
+        }, 100);
 
         // Initialiser le module de filtres externe
         if (typeof window.FiltersModule !== 'undefined' && window.FiltersModule.initFilters) {
@@ -1110,14 +1114,19 @@ function checkAndShowExactMatch(searchValue) {
  */
 async function loadPois() {
     try {
+        console.log('DEBUG: Début chargement POIs...');
 
-        const response = await fetch(`data/pois.json?v=${Date.now()}&mobile=${Math.random()}`);
+        // Chargement avec cache optimal et compression
+        const response = await fetch(`data/pois.json`, {
+            cache: 'force-cache'
+        });
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
 
         const data = await response.json();
         allPois = data.pois || [];
+        console.log('📍 POIs chargés:', allPois.length);
 
         // Exposer allPois globalement pour les autres modules
         window.allPois = allPois;
@@ -1150,7 +1159,6 @@ function displayPois() {
         return;
     } // Éviter les appels multiples
     loadingPois = true;
-
 
     if (!map || !markersGroup) {
         console.error('Carte ou groupe de marqueurs non initialisé !');
@@ -1667,7 +1675,7 @@ function updateCounter() {
 }
 
 /**
- * Affiche les POIs sous forme de cartes
+ * Affiche les POIs sous forme de cartes avec lazy loading
  */
 function displayPoiCards() {
     const cardsGrid = document.getElementById('cardsGrid');
@@ -1676,6 +1684,158 @@ function displayPoiCards() {
     }
 
     cardsGrid.innerHTML = '';
+
+    // Lazy loading - afficher seulement les premiers POIs
+    const initialLoad = 20;
+    const poisToShow = filteredPois.slice(0, initialLoad);
+
+    poisToShow.forEach(poi => {
+        const card = createPoiCard(poi);
+        cardsGrid.appendChild(card);
+    });
+
+    // Si il y a plus de POIs, ajouter un bouton "Charger plus"
+    if (filteredPois.length > initialLoad) {
+        const loadMoreBtn = document.createElement('button');
+        loadMoreBtn.className = 'load-more-btn';
+        loadMoreBtn.innerHTML = `
+            <i class="fas fa-plus"></i>
+            Charger ${Math.min(20, filteredPois.length - initialLoad)} lieux supplémentaires
+        `;
+
+        let currentIndex = initialLoad;
+        loadMoreBtn.addEventListener('click', () => {
+            const nextBatch = filteredPois.slice(currentIndex, currentIndex + 20);
+            nextBatch.forEach(poi => {
+                const card = createPoiCard(poi);
+                cardsGrid.insertBefore(card, loadMoreBtn);
+            });
+
+            currentIndex += 20;
+            if (currentIndex >= filteredPois.length) {
+                loadMoreBtn.remove();
+            } else {
+                loadMoreBtn.innerHTML = `
+                    <i class="fas fa-plus"></i>
+                    Charger ${Math.min(20, filteredPois.length - currentIndex)} lieux supplémentaires
+                `;
+            }
+        });
+
+        cardsGrid.appendChild(loadMoreBtn);
+    }
+}
+
+/**
+ * Crée une carte POI optimisée avec image lazy-loadée
+ */
+function createPoiCard(poi) {
+    const card = document.createElement('div');
+    card.className = 'poi-card';
+
+    // Image optimisée avec lazy loading
+    const imageHtml = poi.image ? `
+        <div class="poi-card-image">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f1f5f9'/%3E%3C/svg%3E"
+                 data-src="${poi.image}"
+                 alt="${poi.title || poi.name}"
+                 loading="lazy"
+                 class="lazy-image"
+                 onload="this.classList.add('loaded')">
+        </div>
+    ` : '';
+
+    card.innerHTML = `
+        ${imageHtml}
+        <div class="poi-card-content">
+            <div class="poi-card-header">
+                <h3 class="poi-title">${poi.title || poi.name}</h3>
+                <div class="poi-category">
+                    <i class="fas ${getPoiIcon(poi.categories[0])}"></i>
+                    ${poi.categories[0]}
+                </div>
+            </div>
+            <p class="poi-description">${poi.description ? poi.description.substring(0, 100) + '...' : 'Découvrez ce lieu magnifique'}</p>
+            <div class="poi-actions">
+                <button class="btn-view-on-map" onclick="centerMapOnPOI(${JSON.stringify(poi).replace(/"/g, '&quot;')})">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Voir sur la carte
+                </button>
+            </div>
+        </div>
+    `;
+
+    return card;
+}
+
+/**
+ * Lazy loading des images avec Intersection Observer
+ */
+function initLazyLoading() {
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy-image');
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+        });
+
+        // Observer toutes les images lazy
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        });
+
+        // Observer les nouvelles images ajoutées dynamiquement
+        const cardObserver = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (node.nodeType === 1) {
+                        const lazyImages = node.querySelectorAll('img[data-src]');
+                        lazyImages.forEach(img => imageObserver.observe(img));
+                    }
+                });
+            });
+        });
+
+        cardObserver.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+}
+
+/**
+ * Obtient l'icône pour une catégorie de POI
+ */
+function getPoiIcon(category) {
+    const icons = {
+        monument: 'fa-landmark',
+        musee: 'fa-university',
+        point_de_vue: 'fa-mountain',
+        plage: 'fa-umbrella-beach',
+        village: 'fa-home',
+        parc: 'fa-tree',
+        randonnee: 'fa-hiking',
+        chateau: 'fa-chess-rook',
+        festival: 'fa-music',
+        loisirs: 'fa-gamepad',
+        hotel: 'fa-bed',
+        villa: 'fa-building',
+        logement_insolite: 'fa-campground',
+        camping: 'fa-tent',
+        restaurant: 'fa-utensils'
+    };
+
+    return icons[category] || 'fa-map-marker-alt';
 }
 
 /**
