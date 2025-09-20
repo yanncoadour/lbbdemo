@@ -23,75 +23,7 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
     </style>
-    <!-- CSS critique inline pour FCP optimal -->
-    <style>
-        /* Critical CSS - Above the fold */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: #f8fafc;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        #map {
-            width: 100%;
-            height: 100vh;
-            background: #e2e8f0;
-        }
-        .modern-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: white;
-            height: 60px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            padding: 0 1rem;
-        }
-        .brand-name {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #1e293b;
-        }
-        .bottom-sheet {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            border-radius: 16px 16px 0 0;
-            z-index: 999;
-            transform: translateY(60%);
-            transition: transform 0.3s ease;
-            box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
-        }
-        .location-btn, .map-toggle-btn {
-            position: fixed;
-            z-index: 1001;
-            background: white;
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .location-btn { top: 80px; right: 16px; }
-        .map-toggle-btn { top: 140px; right: 16px; }
-        /* Loading state */
-        .loading { opacity: 0.7; pointer-events: none; }
-    </style>
-
-    <!-- Load non-critical CSS asynchronously -->
-    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Map Container (Full screen) -->

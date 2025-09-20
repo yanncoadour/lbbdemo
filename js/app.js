@@ -1733,8 +1733,17 @@ function createPoiCard(poi) {
     const card = document.createElement('div');
     card.className = 'poi-card';
 
-    // Image optimisée avec WebP et responsive
-    const imageHtml = poi.image ? createOptimizedImageHtml(poi.image, poi.title || poi.name) : '';
+    // Image simple avec lazy loading
+    const imageHtml = poi.image ? `
+        <div class="poi-card-image">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f1f5f9'/%3E%3C/svg%3E"
+                 data-src="${poi.image}"
+                 alt="${poi.title || poi.name}"
+                 loading="lazy"
+                 class="lazy-image"
+                 onload="this.classList.add('loaded')">
+        </div>
+    ` : '';
 
     card.innerHTML = `
         ${imageHtml}
