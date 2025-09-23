@@ -104,21 +104,14 @@ function createCategoryIcons() {
     function getLocalPoiIcon(category) {
         const icons = {
             monument: 'fas fa-landmark',
-            musee: 'fas fa-university',
-            point_de_vue: 'fas fa-eye',
-            plage: 'fas fa-umbrella-beach',
-            village: 'fas fa-home',
-            parc: 'fas fa-tree',
-            randonnee: 'fas fa-hiking',
-            chateau: 'fas fa-chess-rook',
+            musee: 'fas fa-university',            plage: 'fas fa-umbrella-beach',
+            village: 'fas fa-home',            chateau: 'fas fa-chess-rook',
             festival: 'fas fa-music',
             loisirs: 'fas fa-star',
             hotel: 'fas fa-bed',
             villa: 'fas fa-house-user',
             logement_insolite: 'fas fa-tree-city',
-            camping: 'fas fa-campground',
-            restaurant: 'fas fa-utensils'
-        };
+            camping: 'fas fa-campground'        };
         return icons[category] || 'fas fa-map-marker-alt';
     }
 
@@ -127,16 +120,10 @@ function createCategoryIcons() {
         { value: 'village', label: 'Villages' },
         { value: 'monument', label: 'Monuments' },
         { value: 'chateau', label: 'Châteaux' },
-        { value: 'musee', label: 'Musées' },
-        { value: 'point_de_vue', label: 'Panoramas' },
-        { value: 'randonnee', label: 'Randonnées' },
-        { value: 'parc', label: 'Parcs' },
-        { value: 'hotel', label: 'Hôtels' },
+        { value: 'musee', label: 'Musées' },        { value: 'randonnee', label: 'Randonnées' },        { value: 'hotel', label: 'Hôtels' },
         { value: 'villa', label: 'Villas' },
         { value: 'camping', label: 'Camping' },
-        { value: 'logement_insolite', label: 'Insolite' },
-        { value: 'restaurant', label: 'Restaurants' },
-        { value: 'festival', label: 'Festivals' },
+        { value: 'logement_insolite', label: 'Insolite' },        { value: 'festival', label: 'Festivals' },
         { value: 'loisirs', label: 'Loisirs' }
     ];
 

@@ -17,21 +17,22 @@ const CONFIG = {
 
     // Couleurs par type de POI
     colors: {
-        monument: '#d97706', // Orange foncé pour monuments
-        musee: '#8b5cf6', // Violet pour musées
-        point_de_vue: '#059669', // Vert émeraude pour points de vue
-        plage: '#06b6d4', // Cyan pour plages
-        village: '#ef4444', // Rouge pour villages
-        parc: '#22c55e', // Vert pour parcs/jardins
-        randonnee: '#10b981', // Vert teal pour randonnées
-        chateau: '#92400e', // Marron pour châteaux
-        festival: '#f97316', // Orange vif pour festivals
-        loisirs: '#6366f1', // Indigo pour activités/loisirs
-        hotel: '#64748b', // Gris ardoise pour hôtels
-        villa: '#94a3b8', // Gris clair pour villas
-        logement_insolite: '#ec4899', // Rose pour logements insolites
-        camping: '#34d399', // Vert émeraude pour camping
-        restaurant: '#f59e0b' // Amber pour restaurants
+        monument: '#ff6b35', // Orange vif pour monuments
+        musee: '#a855f7', // Violet lumineux pour musées
+        point_de_vue: '#10b981', // Vert émeraude pour points de vue
+        plage: '#0ea5e9', // Bleu ciel pour plages
+        village: '#f43f5e', // Rouge coral pour villages
+        parc: '#22c55e', // Vert lime pour parcs/jardins
+        randonnee: '#06d6a0', // Vert menthe pour randonnées
+        chateau: '#d97706', // Orange doré pour châteaux
+        festival: '#ff3b82', // Rose magenta pour festivals
+        loisirs: '#6366f1', // Indigo lumineux pour activités/loisirs
+        hotel: '#3b82f6', // Bleu vif pour hôtels
+        villa: '#8b5cf6', // Violet clair pour villas
+        logement_insolite: '#ec4899', // Rose fuchsia pour logements insolites
+        camping: '#22d3ee', // Cyan lumineux pour camping
+        panorama: '#f59e0b', // Jaune doré pour panoramas
+        restaurant: '#ef4444' // Rouge vif pour restaurants
     },
 
     // Configuration du cache
@@ -56,6 +57,9 @@ const CONFIG = {
         notificationDuration: 3000 // Durée notifications
     }
 };
+
+// Ajouter timestamp pour forcer rechargement
+CONFIG._timestamp = Date.now();
 
 // Exporter globalement
 window.CONFIG = CONFIG;

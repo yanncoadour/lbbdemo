@@ -125,11 +125,15 @@ function addMarkerToMap(poi) {
             `<div><h3>${poi.title || poi.name}</h3><p>Erreur: createSimplePoiPopup non trouvée</p></div>`;
 
         marker.bindPopup(popupContent, {
-            maxWidth: 400,
-            className: 'custom-popup'
+            maxWidth: 'none', // Permettre à la popup de prendre la largeur nécessaire
+            minWidth: 320,
+            className: 'custom-popup',
+            offset: [0, -60], // Position plus haute pour éviter le chevauchement avec la barre de recherche
+            autoPan: true,
+            keepInView: true,
+            autoPanPadding: [20, 20], // Marge autour de la popup lors du pan automatique
+            autoPanPaddingBottomRight: [20, 200] // Marge supplémentaire en bas pour éviter la barre de recherche
         });
-
-        // Plus besoin de event listener, Leaflet gère l'ouverture automatiquement
 
         markersGroup.addLayer(marker);
         return marker;
@@ -153,8 +157,8 @@ function createCustomIcon(poi) {
                 <i class="fas ${getCategoryIcon(category)}"></i>
             </div>
         `,
-        iconSize: [30, 30],
-        iconAnchor: [15, 30]
+        iconSize: [28, 28],
+        iconAnchor: [14, 28]
     });
 }
 
@@ -165,11 +169,8 @@ function getCategoryIcon(category) {
     const icons = {
         monument: 'fas fa-landmark',
         musee: 'fas fa-university',
-        point_de_vue: 'fas fa-eye',
         plage: 'fas fa-umbrella-beach',
         village: 'fas fa-home',
-        parc: 'fas fa-tree',
-        randonnee: 'fas fa-hiking',
         chateau: 'fas fa-chess-rook',
         festival: 'fas fa-music',
         loisirs: 'fas fa-star',
@@ -177,7 +178,8 @@ function getCategoryIcon(category) {
         villa: 'fas fa-house-user',
         logement_insolite: 'fas fa-tree-city',
         camping: 'fas fa-campground',
-        restaurant: 'fas fa-utensils'
+        panorama: 'fas fa-eye',
+        randonnee: 'fas fa-hiking'
     };
 
     return icons[category] || 'fas fa-map-marker-alt';

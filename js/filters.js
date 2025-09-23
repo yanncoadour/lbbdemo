@@ -235,7 +235,7 @@ function createSimpleFiltersContent() {
                         <span>Monuments</span>
                     </label>
                     <label class="checkbox-option">
-                        <input type="checkbox" value="point_de_vue" name="category" ${currentFilters.categories.includes('point_de_vue') ? 'checked' : ''}>
+                        <input type="checkbox" value="panorama" name="category" ${currentFilters.categories.includes('panorama') ? 'checked' : ''}>
                         <i class="fas fa-eye"></i>
                         <span>Panoramas</span>
                     </label>
@@ -432,9 +432,7 @@ function createCompactCategoryFilters() {
         { value: 'village', label: 'Villages', icon: 'fas fa-home' },
         { value: 'monument', label: 'Monuments', icon: 'fas fa-landmark' },
         { value: 'hotel', label: 'Hôtels', icon: 'fas fa-bed' },
-        { value: 'festival', label: 'Festivals', icon: 'fas fa-music' },
-        { value: 'randonnee', label: 'Rando', icon: 'fas fa-hiking' }
-    ];
+        { value: 'festival', label: 'Festivals', icon: 'fas fa-music' }    ];
 
     return categories.map(cat => {
         const isChecked = currentFilters.categories.includes(cat.value);
@@ -478,17 +476,11 @@ function createCategoryFilters() {
     const categories = [
         { value: 'plage', label: 'Plages', icon: 'fas fa-umbrella-beach' },
         { value: 'village', label: 'Villages', icon: 'fas fa-home' },
-        { value: 'monument', label: 'Monuments', icon: 'fas fa-landmark' },
-        { value: 'point_de_vue', label: 'Panoramas', icon: 'fas fa-eye' },
-        { value: 'randonnee', label: 'Randonnées', icon: 'fas fa-hiking' },
-        { value: 'musee', label: 'Culture', icon: 'fas fa-university' },
+        { value: 'monument', label: 'Monuments', icon: 'fas fa-landmark' },        { value: 'musee', label: 'Culture', icon: 'fas fa-university' },
         { value: 'hotel', label: 'Hébergement', icon: 'fas fa-bed' },
         { value: 'logement_insolite', label: 'Insolite', icon: 'fas fa-tree-city' },
         { value: 'festival', label: 'Festivals', icon: 'fas fa-music' },
-        { value: 'chateau', label: 'Châteaux', icon: 'fas fa-chess-rook' },
-        { value: 'parc', label: 'Parcs', icon: 'fas fa-tree' },
-        { value: 'restaurant', label: 'Restaurants', icon: 'fas fa-utensils' },
-        { value: 'camping', label: 'Camping', icon: 'fas fa-campground' },
+        { value: 'chateau', label: 'Châteaux', icon: 'fas fa-chess-rook' },        { value: 'camping', label: 'Camping', icon: 'fas fa-campground' },
         { value: 'loisirs', label: 'Loisirs', icon: 'fas fa-star' }
     ];
 

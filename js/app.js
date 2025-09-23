@@ -81,6 +81,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Vérifier si on vient de la page festival
         checkMapFocus();
+
+        // Ajouter un gestionnaire d'événements délégué pour les boutons de réservation
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.reserve-btn-modern')) {
+                e.preventDefault();
+                console.log('🎯 Reservation button clicked');
+                const button = e.target.closest('.reserve-btn-modern');
+                const website = button.getAttribute('data-website');
+                const title = button.getAttribute('data-title');
+                console.log('📝 Data:', { website, title });
+
+                if (window.handleReservation) {
+                    console.log('✅ Calling handleReservation');
+                    window.handleReservation(website, title);
+                } else {
+                    console.error('❌ handleReservation function not found');
+                    alert('Fonction de réservation non disponible');
+                }
+            }
+        });
     } else {
         console.error('Map element not found!');
 
@@ -348,6 +368,41 @@ function initBottomSheet() {
  * Initialise l'autocomplétion de recherche
  */
 function initSearchAutoComplete() {
+    const searchInput = document.getElementById('searchInput');
+
+    if (searchInput) {
+        // Event listener pour la saisie de texte
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.trim();
+            console.log('🔍 Search input:', query);
+
+            if (query.length >= 2) {
+                // Rechercher et afficher les suggestions
+                performSearch(query);
+                showSearchSuggestions(query);
+            } else {
+                // Masquer suggestions et afficher tous les POIs
+                hideSearchSuggestions();
+                if (query.length === 0) {
+                    showAllPois();
+                }
+            }
+        });
+
+        // Event listener pour les touches du clavier
+        searchInput.addEventListener('keydown', (e) => {
+            handleSearchKeyboard(e);
+        });
+
+        // Event listener pour le focus
+        searchInput.addEventListener('focus', (e) => {
+            const query = e.target.value.trim();
+            if (query.length >= 2) {
+                showSearchSuggestions(query);
+            }
+        });
+    }
+
     // Masquer l'autocomplétion quand on clique ailleurs
     document.addEventListener('click', (e) => {
         const searchField = e.target.closest('.search-field');
@@ -946,12 +1001,10 @@ function generateSuggestions(query) {
 
     // Suggestions basées sur les catégories
     const categoryNames = {
-        monument: 'Monuments', musee: 'Musées', point_de_vue: 'Points de vue',
-        plage: 'Plages', village: 'Villages', parc: 'Parcs / Jardins',
-        randonnee: 'Randonnées', chateau: 'Châteaux', festival: 'Festivals',
+        monument: 'Monuments', musee: 'Musées',
+        plage: 'Plages', village: 'Villages', chateau: 'Châteaux', festival: 'Festivals',
         loisirs: 'Activités / Loisirs', hotel: 'Hôtels', villa: 'Villas',
-        logement_insolite: 'Logements insolites', camping: 'Campings',
-        restaurant: 'Restaurants'
+        logement_insolite: 'Logements insolites', camping: 'Campings'
     };
 
     Object.entries(categoryNames).forEach(([key, name]) => {
@@ -1311,16 +1364,13 @@ function createPopupContent(poi) {
     const article = getArticleForCategory(poi.categories[0]);
 
     return `
-        <div class="popup-simple">
-            <div class="popup-header-simple">
-                <h3 class="popup-title-simple">${poi.title}</h3>
-            </div>
-            
-            <div class="popup-image-simple">
+        <div class="popup-modern">
+            <!-- Image en pleine largeur en haut -->
+            <div class="popup-image-hero">
                 ${poi.images && poi.images.length > 1 ? `
                     <div class="popup-image-gallery">
                         ${poi.images.map((img, index) => `
-                            <img src="${img}" alt="${poi.title} - Photo ${index + 1}" 
+                            <img src="${img}" alt="${poi.title} - Photo ${index + 1}"
                                  class="gallery-image ${index === 0 ? 'active' : ''}"
                                  data-position="${index === 0 ? 'center-top-soft' : 'center'}"
                                  onerror="this.src='assets/img/placeholder.jpg'">
@@ -1332,28 +1382,48 @@ function createPopupContent(poi) {
                         </div>
                     </div>
                 ` : `
-                    <img src="${poi.image}" alt="${poi.title}" 
+                    <img src="${poi.image}" alt="${poi.title}"
                          onerror="this.src='assets/img/placeholder.jpg'">
                 `}
+                <!-- Badge catégorie superposé -->
+                <div class="popup-category-badge">
+                    <i class="fas ${getCategoryIcon(poi.categories[0])}"></i>
+                    <span>${categoryName}</span>
+                </div>
             </div>
-            
-            <p class="popup-description-simple">${poi.shortDescription}</p>
-            
-            <div class="popup-action-simple">
-                ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v3' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa' || poi.id === 'hotel-barriere-hermitage-la-baule' || poi.id === 'hotel-barriere-royal-thalasso-la-baule' || poi.id === 'hotel-castel-marie-louise-la-baule' || poi.id === 'chateau-maubreuil-carquefou' || poi.id === 'hotel-de-carantec' || poi.id === 'dihan-evasion-ploemel' || poi.id === 'domaine-des-ormes' || poi.id === 'domaine-de-meros' || poi.id === 'villa-lily-spa' || poi.id === '5-etoiles-hebergement-insolite-luxe' || poi.id === 'domaine-du-treuscoat' || poi.id === 'les-cabanes-de-koaddour' || poi.id === 'nuances-dalcoves') ? `
-                    <div class="popup-actions-grid">
-                        <a href="poi.html?slug=${poi.slug || poi.id}" class="discover-btn-simple secondary">
-                            Découvrir
-                        </a>
-                        <button class="reserve-btn-simple" onclick="handleReservation('${poi.website}', '${poi.title}')">
-                            Réserver
-                        </button>
+
+            <!-- Contenu dans une zone avec padding -->
+            <div class="popup-content">
+                <div class="popup-header-modern">
+                    <h3 class="popup-title-modern">${poi.title}</h3>
+                </div>
+
+                <p class="popup-description-modern">${poi.shortDescription}</p>
+
+                ${poi.tested ? `
+                    <div class="popup-tested-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Testé par La Belle Bretagne</span>
                     </div>
-                ` : `
-                    <a href="poi.html?slug=${poi.slug || poi.id}" class="discover-btn-simple">
-                        Découvrir ${article} ${categoryName}
-                    </a>
-                `}
+                ` : ''}
+
+                <div class="popup-action-modern">
+                    ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v3' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa' || poi.id === 'hotel-barriere-hermitage-la-baule' || poi.id === 'hotel-barriere-royal-thalasso-la-baule' || poi.id === 'hotel-castel-marie-louise-la-baule' || poi.id === 'chateau-maubreuil-carquefou' || poi.id === 'hotel-de-carantec' || poi.id === 'dihan-evasion-ploemel' || poi.id === 'domaine-des-ormes' || poi.id === 'domaine-de-meros' || poi.id === 'villa-lily-spa' || poi.id === '5-etoiles-hebergement-insolite-luxe' || poi.id === 'domaine-du-treuscoat' || poi.id === 'les-cabanes-de-koaddour' || poi.id === 'nuances-dalcoves') ? `
+                        <div class="popup-actions-grid-modern">
+                            <a href="poi.html?slug=${poi.slug || poi.id}" class="discover-btn-modern secondary accommodation">
+                                Découvrir
+                            </a>
+                            <button class="reserve-btn-modern" data-website="${poi.website}" data-title="${poi.title}">
+                                <i class="fas fa-calendar-check"></i>
+                                Réserver
+                            </button>
+                        </div>
+                    ` : `
+                        <a href="poi.html?slug=${poi.slug || poi.id}" class="discover-btn-modern">
+                            Découvrir ${article} ${categoryName}
+                        </a>
+                    `}
+                </div>
             </div>
         </div>
     `;
@@ -1448,18 +1518,18 @@ function handleReservation(website, title) {
         return;
     }
 
-    // Essayer d'ouvrir le site web
+    // Toujours ouvrir dans une nouvelle fenêtre/onglet
     try {
-        console.log('Opening website:', website);
-        const newWindow = window.open(website, '_blank', 'noopener,noreferrer');
+        console.log('Opening website in new window:', website);
 
-        // Vérifier si la fenêtre s'est ouverte (peut être bloquée par un popup blocker)
-        if (!newWindow) {
-            console.warn('Popup bloqué, essai avec location.href');
-            if (confirm(`Ouvrir le site web de ${title} dans cet onglet ?`)) {
-                window.location.href = website;
-            }
-        }
+        // Créer un lien temporaire et le cliquer pour garantir l'ouverture en nouvelle fenêtre
+        const tempLink = document.createElement('a');
+        tempLink.href = website;
+        tempLink.target = '_blank';
+        tempLink.rel = 'noopener noreferrer';
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
     } catch (error) {
         console.error('Erreur lors de l\'ouverture du site web:', error);
 
@@ -1528,6 +1598,72 @@ window.handleDiscover = function handleDiscover(slug, title) {
 
 // Aussi accessible sans window.
 window.handleReservation = handleReservation;
+
+/**
+ * Effectue une recherche parmi les POIs
+ * @param {string} query - Terme de recherche
+ */
+function performSearch(query) {
+    if (!query || query.length < 2) {
+        filteredPois = [...allPois];
+        displayPois();
+        return;
+    }
+
+    const searchTerm = query.toLowerCase().trim();
+    console.log('🔍 Performing search for:', searchTerm);
+
+    // Filtrer les POIs selon le terme de recherche
+    filteredPois = allPois.filter(poi => {
+        const title = (poi.title || poi.name || '').toLowerCase();
+        const description = (poi.description || '').toLowerCase();
+        const location = (poi.location || '').toLowerCase();
+        const categories = (poi.categories || []).join(' ').toLowerCase();
+
+        return title.includes(searchTerm) ||
+               description.includes(searchTerm) ||
+               location.includes(searchTerm) ||
+               categories.includes(searchTerm);
+    });
+
+    console.log('🎯 Search results:', filteredPois.length, 'POIs found');
+    displayPois();
+}
+
+/**
+ * Affiche tous les POIs (réinitialise les filtres)
+ */
+function showAllPois() {
+    console.log('🌍 Showing all POIs');
+    filteredPois = [...allPois];
+    displayPois();
+}
+
+/**
+ * Force la mise à jour des couleurs des markers
+ */
+function forceUpdateMarkerColors() {
+    console.log('🎨 Forcing marker colors update');
+    if (markersGroup) {
+        markersGroup.eachLayer(function(marker) {
+            if (marker.poi && marker._icon) {
+                const poi = marker.poi;
+                const category = poi.categories[0];
+                const newColor = CONFIG.colors[category] || '#666666';
+
+                // Trouver l'élément marker-pin et changer sa couleur
+                const markerPin = marker._icon.querySelector('.marker-pin');
+                if (markerPin) {
+                    markerPin.style.backgroundColor = newColor;
+                    console.log(`Updated ${poi.title}: ${category} -> ${newColor}`);
+                }
+            }
+        });
+    }
+}
+
+// Exporter la fonction pour utilisation via console
+window.forceUpdateMarkerColors = forceUpdateMarkerColors;
 
 /**
  * Applique les filtres sélectionnés
@@ -1874,19 +2010,15 @@ function getPoiIcon(category) {
     const icons = {
         monument: 'fa-landmark',
         musee: 'fa-university',
-        point_de_vue: 'fa-mountain',
         plage: 'fa-umbrella-beach',
         village: 'fa-home',
-        parc: 'fa-tree',
-        randonnee: 'fa-hiking',
         chateau: 'fa-chess-rook',
         festival: 'fa-music',
         loisirs: 'fa-gamepad',
         hotel: 'fa-bed',
         villa: 'fa-building',
         logement_insolite: 'fa-campground',
-        camping: 'fa-tent',
-        restaurant: 'fa-utensils'
+        camping: 'fa-tent'
     };
 
     return icons[category] || 'fa-map-marker-alt';
@@ -1914,19 +2046,15 @@ function getPoiIcon(category) {
     const icons = {
         monument: 'fas fa-landmark', // Monument
         musee: 'fas fa-university', // Musée
-        point_de_vue: 'fas fa-eye', // Point de vue
         plage: 'fas fa-umbrella-beach', // Plage
         village: 'fas fa-home', // Village
-        parc: 'fas fa-tree', // Parc / Jardin
-        randonnee: 'fas fa-hiking', // Randonnée
         chateau: 'fas fa-chess-rook', // Château
         festival: 'fas fa-music', // Festival
         loisirs: 'fas fa-star', // Activité / Loisir
         hotel: 'fas fa-bed', // Hotel
         villa: 'fas fa-house-user', // Villa
         logement_insolite: 'fas fa-tree-city', // Logement Insolite
-        camping: 'fas fa-campground', // Camping
-        restaurant: 'fas fa-utensils' // Restaurant
+        camping: 'fas fa-campground' // Camping
     };
     return icons[category] || 'fas fa-map-marker-alt';
 }
@@ -2152,10 +2280,38 @@ function displayPoiData(poi) {
         badgesContainer.innerHTML = ''; // Pas de badges pour le moment
     }
 
-    // Section avis (masquée temporairement)
+    // Quick Info Section (pour les logements)
+    const quickInfoSection = document.getElementById('quickInfoSection');
+    if (poi.categories && isAccommodation(poi.categories)) {
+        populateQuickInfo(poi);
+        if (quickInfoSection) {
+            quickInfoSection.style.display = 'block';
+        }
+    } else if (quickInfoSection) {
+        quickInfoSection.style.display = 'none';
+    }
+
+    // Services Section (pour les logements)
+    const servicesSection = document.getElementById('servicesSection');
+    if (poi.categories && isAccommodation(poi.categories)) {
+        populateServices(poi);
+        if (servicesSection) {
+            servicesSection.style.display = 'block';
+        }
+    } else if (servicesSection) {
+        servicesSection.style.display = 'none';
+    }
+
+    // Section avis (affichée si POI testé avec avis)
     const avisSection = document.getElementById('avisSection');
-    if (avisSection) {
-        avisSection.style.display = 'none'; // Masquée pour le moment
+    const avisText = document.getElementById('avisText');
+    if (avisSection && avisText) {
+        if (poi.tested && poi.avisLaBelleBretagne) {
+            avisText.textContent = poi.avisLaBelleBretagne;
+            avisSection.style.display = 'block';
+        } else {
+            avisSection.style.display = 'none';
+        }
     }
 
     // Téléphone
@@ -2291,13 +2447,6 @@ function displayPoiGallery(poi) {
     let imageLabels = [];
 
     switch (poi.id) {
-    case 'parc-du-thabor':
-        imageLabels = [
-            'Vue d\'ensemble du parc',
-            'Jardin à la française',
-            'Roseraie et parc à l\'anglaise'
-        ];
-        break;
     case 'mont-saint-michel-bretagne':
         imageLabels = [
             'Vue d\'ensemble de l\'abbaye',
@@ -2528,18 +2677,13 @@ function getCategoryName(category) {
         musee: 'Musée',
         point_de_vue: 'Point de vue',
         plage: 'Plage',
-        village: 'Village',
-        parc: 'Parc / Jardin',
-        randonnee: 'Randonnée',
-        chateau: 'Château',
+        village: 'Village',        chateau: 'Château',
         festival: 'Festival',
         loisirs: 'Activité / Loisir',
         hotel: 'Hôtel',
         villa: 'Villa',
         logement_insolite: 'Logement Insolite',
-        camping: 'Camping',
-        restaurant: 'Restaurant'
-    };
+        camping: 'Camping',    };
     return names[category] || category;
 }
 
@@ -2550,15 +2694,11 @@ function getArticleForCategory(category) {
     const articles = {
         plage: 'la',
         musee: 'le',
-        monument: 'le',
-        randonnee: 'la',
-        festival: 'le',
+        monument: 'le',        festival: 'le',
         village: 'le',
         hotel: 'l\'',
         villa: 'la',
-        logement_insolite: 'le',
-        point_de_vue: 'le',
-        loisirs: 'les'
+        logement_insolite: 'le',        loisirs: 'les'
     };
     return articles[category] || 'le';
 }
@@ -2692,155 +2832,7 @@ function createFiltersContent() {
                 <!-- Départements -->
                 <div class="filter-section">
                     <h4 style="margin: 16px 0 8px 0; font-size: 14px; font-weight: 600; color: var(--text-primary);">Départements</h4>
-                    <div class="categories-grid-compact">
-                        <label class="category-chip">
-                            <input type="checkbox" value="Finistère" name="department">
-                            <div class="chip-content">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Finistère</span>
-                            </div>
-                        </label>
-                        <label class="category-chip">
-                            <input type="checkbox" value="Ille-et-Vilaine" name="department">
-                            <div class="chip-content">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Ille-et-Vilaine</span>
-                            </div>
-                        </label>
-                        <label class="category-chip">
-                            <input type="checkbox" value="Loire-Atlantique" name="department">
-                            <div class="chip-content">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Loire-Atlantique</span>
-                            </div>
-                        </label>
-                        <label class="category-chip">
-                            <input type="checkbox" value="Morbihan" name="department">
-                            <div class="chip-content">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Morbihan</span>
-                            </div>
-                        </label>
-                        <label class="category-chip">
-                            <input type="checkbox" value="Côtes-d'Armor" name="department">
-                            <div class="chip-content">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Côtes-d'Armor</span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-                
-                <!-- Catégories -->
-                <div class="filter-section">
-                    <h4 style="margin: 16px 0 8px 0; font-size: 14px; font-weight: 600; color: var(--text-primary);">Catégories</h4>
-                <div class="categories-grid-compact">
-                    <label class="category-chip">
-                        <input type="checkbox" value="monument">
-                        <div class="chip-content">
-                            <i class="fas fa-landmark"></i>
-                            <span>Monuments</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="musee">
-                        <div class="chip-content">
-                            <i class="fas fa-university"></i>
-                            <span>Musées</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="point_de_vue">
-                        <div class="chip-content">
-                            <i class="fas fa-eye"></i>
-                            <span>Points de vue</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="plage">
-                        <div class="chip-content">
-                            <i class="fas fa-umbrella-beach"></i>
-                            <span>Plages</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="village">
-                        <div class="chip-content">
-                            <i class="fas fa-home"></i>
-                            <span>Villages</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="parc">
-                        <div class="chip-content">
-                            <i class="fas fa-tree"></i>
-                            <span>Parcs / Jardins</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="randonnee">
-                        <div class="chip-content">
-                            <i class="fas fa-hiking"></i>
-                            <span>Randonnées</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="chateau">
-                        <div class="chip-content">
-                            <i class="fas fa-chess-rook"></i>
-                            <span>Châteaux</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="festival">
-                        <div class="chip-content">
-                            <i class="fas fa-music"></i>
-                            <span>Festivals</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="loisirs">
-                        <div class="chip-content">
-                            <i class="fas fa-star"></i>
-                            <span>Activités / Loisirs</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="hotel">
-                        <div class="chip-content">
-                            <i class="fas fa-bed"></i>
-                            <span>Hôtels</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="villa">
-                        <div class="chip-content">
-                            <i class="fas fa-house-user"></i>
-                            <span>Villas</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="logement_insolite">
-                        <div class="chip-content">
-                            <i class="fas fa-tree-city"></i>
-                            <span>Logements Insolites</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="camping">
-                        <div class="chip-content">
-                            <i class="fas fa-campground"></i>
-                            <span>Campings</span>
-                        </div>
-                    </label>
-                    <label class="category-chip">
-                        <input type="checkbox" value="restaurant">
-                        <div class="chip-content">
-                            <i class="fas fa-utensils"></i>
-                            <span>Restaurants</span>
-                        </div>
-                    </label>
-                </div>
+                    <div class="categories-grid-compact">                </div>
                 </div>
             </div>
             
@@ -3608,6 +3600,176 @@ function hideShowNearbyButton() {
     if (showNearbyBtn) {
         showNearbyBtn.style.display = 'none';
     }
+}
+
+/**
+ * Vérifie si un POI est un hébergement
+ */
+function isAccommodation(categories) {
+    const accommodationCategories = ['hotel', 'villa', 'camping', 'logement_insolite'];
+    return categories && categories.some(cat => accommodationCategories.includes(cat));
+}
+
+/**
+ * Remplit la section Quick Info pour les logements
+ */
+function populateQuickInfo(poi) {
+    // Afficher l'adresse
+    if (poi.address) {
+        const addressQuickInfo = document.getElementById('addressQuickInfo');
+        const addressValue = document.getElementById('addressValue');
+        if (addressQuickInfo && addressValue) {
+            addressValue.textContent = poi.address;
+            addressQuickInfo.style.display = 'flex';
+        }
+    }
+
+    // Afficher les étoiles pour les hôtels
+    if (poi.categories && poi.categories.includes('hotel') && poi.tags) {
+        const starsTag = poi.tags.find(tag => tag.includes('étoile'));
+        if (starsTag) {
+            const starsQuickInfo = document.getElementById('starsQuickInfo');
+            const starsValue = document.getElementById('starsValue');
+            if (starsQuickInfo && starsValue) {
+                starsValue.textContent = starsTag;
+                starsQuickInfo.style.display = 'flex';
+            }
+        }
+    }
+
+    // Afficher le prix estimé (simulation basée sur les données du POI)
+    if (poi.categories && isAccommodation(poi.categories)) {
+        const priceQuickInfo = document.getElementById('priceQuickInfo');
+        const priceValue = document.getElementById('priceValue');
+        if (priceQuickInfo && priceValue) {
+            let estimatedPrice = getEstimatedPrice(poi);
+            if (estimatedPrice) {
+                priceValue.textContent = estimatedPrice;
+                priceQuickInfo.style.display = 'flex';
+            }
+        }
+    }
+}
+
+/**
+ * Remplit la section Services pour les logements
+ */
+function populateServices(poi) {
+    const servicesList = document.getElementById('servicesList');
+    if (!servicesList) return;
+
+    let services = [];
+
+    // Services basés sur les tags du POI
+    if (poi.tags) {
+        poi.tags.forEach(tag => {
+            const service = mapTagToService(tag);
+            if (service) {
+                services.push(service);
+            }
+        });
+    }
+
+    // Services basés sur le contenu de la description
+    if (poi.description) {
+        const additionalServices = extractServicesFromDescription(poi.description);
+        services.push(...additionalServices);
+    }
+
+    // Supprimer les doublons
+    services = [...new Set(services.map(s => s.name))].map(name =>
+        services.find(s => s.name === name)
+    );
+
+    if (services.length === 0) {
+        servicesList.style.display = 'none';
+        return;
+    }
+
+    const servicesHTML = services.map(service => `
+        <div class="service-item">
+            <i class="${service.icon}"></i>
+            <span>${service.name}</span>
+        </div>
+    `).join('');
+
+    servicesList.innerHTML = servicesHTML;
+}
+
+/**
+ * Obtient un prix estimé basé sur les caractéristiques du POI
+ */
+function getEstimatedPrice(poi) {
+    // Prix simulation basé sur la catégorie et les étoiles
+    if (poi.categories && poi.categories.includes('hotel')) {
+        if (poi.tags && poi.tags.some(tag => tag.includes('5 étoiles'))) {
+            return '250€';
+        } else if (poi.tags && poi.tags.some(tag => tag.includes('4 étoiles'))) {
+            return '150€';
+        } else if (poi.tags && poi.tags.some(tag => tag.includes('3 étoiles'))) {
+            return '90€';
+        }
+        return '120€'; // prix par défaut pour les hôtels
+    }
+
+    if (poi.categories && poi.categories.includes('villa')) {
+        return '180€';
+    }
+
+    if (poi.categories && poi.categories.includes('camping')) {
+        return '35€';
+    }
+
+    if (poi.categories && poi.categories.includes('logement_insolite')) {
+        return '120€';
+    }
+
+    return null;
+}
+
+/**
+ * Mappe un tag vers un service avec icône
+ */
+function mapTagToService(tag) {
+    const tagLower = tag.toLowerCase();
+
+    if (tagLower.includes('spa')) return { name: 'Spa & Bien-être', icon: 'fas fa-spa' };
+    if (tagLower.includes('piscine')) return { name: 'Piscine', icon: 'fas fa-swimming-pool' };
+    if (tagLower.includes('restaurant')) return { name: 'Restaurant', icon: 'fas fa-utensils' };
+    if (tagLower.includes('parking')) return { name: 'Parking', icon: 'fas fa-parking' };
+    if (tagLower.includes('wifi')) return { name: 'WiFi Gratuit', icon: 'fas fa-wifi' };
+    if (tagLower.includes('plage')) return { name: 'Accès Plage', icon: 'fas fa-umbrella-beach' };
+    if (tagLower.includes('golf')) return { name: 'Golf', icon: 'fas fa-golf-ball' };
+    if (tagLower.includes('fitness')) return { name: 'Salle de Sport', icon: 'fas fa-dumbbell' };
+    if (tagLower.includes('sauna')) return { name: 'Sauna', icon: 'fas fa-hot-tub' };
+    if (tagLower.includes('jacuzzi')) return { name: 'Jacuzzi', icon: 'fas fa-hot-tub' };
+    if (tagLower.includes('vue mer')) return { name: 'Vue sur Mer', icon: 'fas fa-water' };
+    if (tagLower.includes('terrasse')) return { name: 'Terrasse', icon: 'fas fa-chair' };
+
+    return null;
+}
+
+/**
+ * Extrait les services depuis la description du POI
+ */
+function extractServicesFromDescription(description) {
+    const services = [];
+    const descLower = description.toLowerCase();
+
+    if (descLower.includes('piscine')) services.push({ name: 'Piscine', icon: 'fas fa-swimming-pool' });
+    if (descLower.includes('spa') || descLower.includes('bien-être')) services.push({ name: 'Spa & Bien-être', icon: 'fas fa-spa' });
+    if (descLower.includes('restaurant')) services.push({ name: 'Restaurant', icon: 'fas fa-utensils' });
+    if (descLower.includes('bar ')) services.push({ name: 'Bar', icon: 'fas fa-cocktail' });
+    if (descLower.includes('sauna')) services.push({ name: 'Sauna', icon: 'fas fa-hot-tub' });
+    if (descLower.includes('hammam')) services.push({ name: 'Hammam', icon: 'fas fa-hot-tub' });
+    if (descLower.includes('jacuzzi')) services.push({ name: 'Jacuzzi', icon: 'fas fa-hot-tub' });
+    if (descLower.includes('fitness') || descLower.includes('gym')) services.push({ name: 'Salle de Sport', icon: 'fas fa-dumbbell' });
+    if (descLower.includes('vue mer') || descLower.includes('vue sur la mer')) services.push({ name: 'Vue sur Mer', icon: 'fas fa-water' });
+    if (descLower.includes('terrasse')) services.push({ name: 'Terrasse', icon: 'fas fa-chair' });
+    if (descLower.includes('massage')) services.push({ name: 'Massages', icon: 'fas fa-hand-sparkles' });
+    if (descLower.includes('climatisation') || descLower.includes('climatisé')) services.push({ name: 'Climatisation', icon: 'fas fa-snowflake' });
+
+    return services;
 }
 
 // Exposer les fonctions globalement

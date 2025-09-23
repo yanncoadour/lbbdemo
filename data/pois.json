@@ -5,7 +5,9 @@
       "title": "Mont-Saint-Michel",
       "slug": "mont-saint-michel-bretagne",
       "department": "Ille-et-Vilaine",
-      "categories": ["monument"],
+      "categories": [
+        "monument"
+      ],
       "lat": 48.6361,
       "lng": -1.5115,
       "shortDescription": "Visitez le Mont-Saint-Michel en Normandie : abbaye médiévale, baie aux marées uniques, site UNESCO et destination touristique incontournable en France.",
@@ -16,19 +18,26 @@
         "assets/img/mont-saint-michel-2.jpg",
         "assets/img/mont-saint-michel-3.jpg"
       ],
-      "tested": true,
+      "tested": false,
       "coupDeCoeur": true,
       "address": "50170 Le Mont-Saint-Michel",
       "website": "https://www.ot-montsaintmichel.com/",
       "phone": "02 33 89 80 00",
-      "tags": ["UNESCO", "abbaye", "marées", "médiéval"]
+      "tags": [
+        "UNESCO",
+        "abbaye",
+        "marées",
+        "médiéval"
+      ]
     },
     {
       "id": "musee-beaux-arts-rennes",
       "title": "Musée des Beaux-Arts de Rennes",
       "slug": "musee-beaux-arts-rennes",
       "department": "Ille-et-Vilaine",
-      "categories": ["musee"],
+      "categories": [
+        "musee"
+      ],
       "lat": 48.10977650078509,
       "lng": -1.674944189333887,
       "shortDescription": "Le Musée des Beaux-Arts de Rennes abrite une riche collection d'art, de l'Antiquité aux maîtres modernes, avec expositions et visites incontournables en Bretagne.",
@@ -39,42 +48,26 @@
         "assets/img/musee-beaux-arts-rennes-2.jpg",
         "assets/img/musee-beaux-arts-rennes-3.jpg"
       ],
-      "tested": true,
+      "tested": false,
       "coupDeCoeur": false,
       "address": "20 Quai Émile Zola, 35000 Rennes",
       "website": "https://mba.rennes.fr/",
       "phone": "02 23 62 17 45",
-      "tags": ["beaux-arts", "peinture", "sculpture", "collection"]
-    },
-    {
-      "id": "roc-trevezel",
-      "title": "Roc Trevezel",
-      "slug": "roc-trevezel",
-      "department": "Finistère",
-      "categories": ["point_de_vue"],
-      "lat": 48.4000,
-      "lng": -3.8833,
-      "shortDescription": "Roc'h Trévezel, second sommet des Monts d'Arrée (Finistère, Bretagne) : panorama sauvage sur landes, bocages et horizons bretons, accessible via une courte randonnée.",
-      "description": "Perché à 384 m d'altitude, le Roc'h Trévezel est le deuxième point culminant de Bretagne dans les Monts d'Arrée. Depuis son sommet, le panorama saisissant embrasse les landes, tourbières et bocage typiques du Parc naturel régional d'Armorique.\n\nFacilement accessible depuis un parking en bord de route communale, une courte balade à travers une lande sauvage et rocheuse permet d'atteindre rapidement ce belvédère unique. On y croise peu de randonneurs, ce qui en fait un lieu paisible et ressourçant.\n\nCe point de vue constitue une destination incontournable pour les amoureux de randonnée, de nature brute et de paysages bretons exceptionnels, avec un caractère quasi alpin malgré son altitude modeste.",
-      "image": "assets/img/roch-trevezel-1.jpg",
-      "images": [
-        "assets/img/roch-trevezel-1.jpg",
-        "assets/img/roch-trevezel-2.jpg",
-        "assets/img/roch-trevezel-3.jpg"
-      ],
-      "tested": true,
-      "coupDeCoeur": true,
-      "address": "29690 Berrien",
-      "website": "https://www.pnr-armorique.fr",
-      "phone": "02 98 81 90 08",
-      "tags": ["Monts d'Arrée", "chaos", "sommet", "landes"]
+      "tags": [
+        "beaux-arts",
+        "peinture",
+        "sculpture",
+        "collection"
+      ]
     },
     {
       "id": "plage-des-amiets-cleder",
       "title": "Plage des Amiets",
       "slug": "plage-des-amiets-cleder",
       "department": "Finistère",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 48.692355212343955,
       "lng": -4.139687646255479,
       "shortDescription": "Plage des Amiets à Cléder (Finistère Nord, Bretagne) : vaste plage de sable blanc bordée de dunes, idéale pour farniente, sports nautiques (kayak, stand-up paddle), accessible et surveillée l'été.",
@@ -90,14 +83,21 @@
       "address": "29233 Cléder",
       "website": "https://www.cleder.fr",
       "phone": "02 98 69 43 01",
-      "tags": ["sauvage", "dunes", "Côte des Légendes", "île de Batz"]
+      "tags": [
+        "sauvage",
+        "dunes",
+        "Côte des Légendes",
+        "île de Batz"
+      ]
     },
     {
       "id": "rochefort-en-terre",
       "title": "Rochefort-en-Terre",
       "slug": "rochefort-en-terre",
       "department": "Morbihan",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 47.6983,
       "lng": -2.3372,
       "shortDescription": "Rochefort-en-Terre, classé parmi les plus beaux villages de France, charme par ses ruelles fleuries, ses maisons à colombages et son patrimoine en Bretagne sud.",
@@ -113,60 +113,21 @@
       "address": "56220 Rochefort-en-Terre",
       "website": "https://www.rochefortenterre-tourisme.bzh/",
       "phone": "02 97 43 33 57",
-      "tags": ["Petite Cité de Caractère", "schiste", "jardins", "château"]
-    },
-    {
-      "id": "parc-du-thabor",
-      "title": "Parc du Thabor",
-      "slug": "parc-du-thabor",
-      "department": "Ille-et-Vilaine",
-      "categories": ["parc"],
-      "lat": 48.11439859724071,
-      "lng": -1.6695098958912933,
-      "shortDescription": "Le parc du Thabor à Rennes, classé parmi les plus beaux jardins de France, offre 10 hectares de verdure : jardin à la française, parc à l'anglaise, roseraie et espaces botaniques. Un lieu incontournable pour une promenade ou une visite à Rennes.",
-      "description": "Situé en plein cœur de Rennes, à proximité du centre-ville et de l'abbaye Saint-Melaine, le parc du Thabor est un espace vert d'exception classé monument historique. Véritable poumon vert de la capitale bretonne, il s'étend sur plus de 10 hectares et séduit par sa diversité :\n\nUn jardin à la française aux allées symétriques et soignées,\n\nUn parc à l'anglaise aux formes naturelles et romantiques,\n\nUne roseraie unique rassemblant plus de 2 000 variétés,\n\nUn jardin botanique riche en essences rares.\n\nIdéal pour une balade en famille, une pause nature ou un moment de détente, le parc du Thabor attire aussi bien les habitants que les touristes. Lieu emblématique de Rennes, il accueille régulièrement des événements culturels, concerts et expositions en plein air.\n\nQue vous soyez passionné de botanique, amateur de photographie ou simplement en quête de calme, le Thabor est une visite incontournable lors d'un séjour à Rennes.",
-      "image": "assets/img/parc-thabor-rennes-1.jpg",
-      "images": [
-        "assets/img/parc-thabor-rennes-1.jpg",
-        "assets/img/parc-thabor-rennes-2.jpg",
-        "assets/img/parc-thabor-rennes-3.jpg"
-      ],
-      "tested": true,
-      "coupDeCoeur": true,
-      "address": "35000 Rennes",
-      "website": "",
-      "phone": "",
-      "tags": ["urbain", "français", "roseraie", "botanique"]
-    },
-    {
-      "id": "balade-abbaye-monts-arree",
-      "title": "Balade de l'Abbaye - Monts d'Arrée",
-      "slug": "balade-abbaye-monts-arree",
-      "department": "Finistère",
-      "categories": ["randonnee"],
-      "lat": 48.44591457511176,
-      "lng": -3.8354062437543828,
-      "shortDescription": "Randonnées depuis l'Abbaye du Relecq (Plounéour-Ménez, Finistère) : circuits pédestres entre patrimoine cistercien, étangs et landes des Monts d'Arrée, adaptés à tous niveaux.",
-      "description": "Au départ de l'Abbaye du Relecq, ancienne abbaye cistercienne du XIIᵉ siècle située dans la vallée du Queffléut, plusieurs sentiers de randonnée invitent à la découverte d'un territoire mêlant histoire, nature et paysages mystiques.\n\nLa balade de l'Abbaye du Relecq : une boucle de ≈ 13 km (≈ 3 h 15) de difficulté moyenne, entre prairies, vestiges historiques, landes et étangs.\n\nLe circuit autour de l'Abbaye : parcours plus court (≈ 10–11 km) accessible à pied, idéal pour une escapade patrimoine-nature sans trop d'effort.\n\nBoucle longer les crêtes des Monts d'Arrée : randonnée plus sportive jusqu'aux hauteurs rocheuses, avec des panoramas impressionnants sur les landes environnantes.\n\nGrand circuit de 22 km : emprunte les sommets des Monts d'Arrée (Roc'h Trédudon…), descente à travers les landes et retour à l'abbaye — pour randonneurs confirmés.\n\nTous les itinéraires offrent une immersion apaisante dans une ambiance champêtre et sauvage et mettent en valeur un patrimoine architectural remarquable. L'Abbaye du Relecq constitue un point de départ idéal pour explorer les richesses naturelles et historiques du Parc naturel régional d'Armorique au cœur des Monts d'Arrée.",
-      "image": "assets/img/abbaye-relecq-1.jpg",
-      "images": [
-        "assets/img/abbaye-relecq-1.jpg",
-        "assets/img/abbaye-relecq-2.jpg",
-        "assets/img/abbaye-relecq-3.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "29410 Plounéour-Ménez",
-      "website": "https://www.cirkwi.com/fr/circuit/58556-la-balade-de-l-abbaye-monts-d-arree",
-      "phone": "02 98 78 05 69",
-      "tags": ["abbaye", "landes", "Monts d'Arrée", "8km"]
+      "tags": [
+        "Petite Cité de Caractère",
+        "schiste",
+        "jardins",
+        "château"
+      ]
     },
     {
       "id": "chateau-de-josselin",
       "title": "Château de Josselin",
       "slug": "chateau-de-josselin",
       "department": "Morbihan",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 47.95228420882381,
       "lng": -2.5473444252004294,
       "shortDescription": "Le château de Josselin, joyau du Morbihan en Bretagne, allie forteresse médiévale et élégance Renaissance. Une visite incontournable du patrimoine breton.",
@@ -182,14 +143,22 @@
       "address": "56120 Josselin",
       "website": "https://www.chateaudejosselin.com",
       "phone": "02 97 22 36 45",
-      "tags": ["château", "Rohan", "gothique", "Renaissance", "jardins"]
+      "tags": [
+        "château",
+        "Rohan",
+        "gothique",
+        "Renaissance",
+        "jardins"
+      ]
     },
     {
       "id": "festival-vieilles-charrues",
       "title": "Festival des Vieilles Charrues",
       "slug": "festival-vieilles-charrues",
       "department": "Finistère",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.27098205393113,
       "lng": -3.5601412205639145,
       "shortDescription": "Festival des Vieilles Charrues (Carhaix-Plouguer, Bretagne) : un des plus grands festivals de musique en France, 4 jours de concerts éclectiques et festifs en plein Finistère.",
@@ -202,17 +171,28 @@
       ],
       "tested": true,
       "coupDeCoeur": true,
+      "avisLaBelleBretagne": "Les Vieilles Charrues, c'est bien plus qu'un festival : c'est le temple de la fête en Bretagne ! Chaque année, plus de 250 000 festivaliers se rassemblent à Carhaix pour quatre jours d'ambiance survoltée. Entre têtes d'affiche internationales et découvertes musicales, l'énergie est incroyable et le lâcher-prise total. Ce qui rend l'expérience unique, c'est cette atmosphère de village, presque familiale, malgré l'ampleur de l'événement. Notre conseil : plongez à fond dans l'aventure en choisissant le camping, car une partie de l'âme du festival s'y vit, entre rencontres, rires et moments inoubliables. Un rendez-vous immanquable pour tous ceux qui veulent vibrer, danser et oublier la vraie vie le temps d'un long week-end !",
       "address": "29270 Carhaix-Plouguer",
       "website": "https://www.vieillescharrues.asso.fr",
       "phone": "02 98 99 47 47",
-      "tags": ["festival", "musique", "été", "rock", "pop", "électro", "international"]
+      "tags": [
+        "festival",
+        "musique",
+        "été",
+        "rock",
+        "pop",
+        "électro",
+        "international"
+      ]
     },
     {
       "id": "roazhon-rage",
       "title": "Roazhon Rage",
       "slug": "roazhon-rage",
       "department": "Ille-et-Vilaine",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.10691697124016,
       "lng": -1.6768470023895745,
       "shortDescription": "Roazhon Rage, festival métal et hardcore à Rennes : concerts explosifs, énergie brute et têtes d'affiche internationales pour une soirée 100 % musiques extrêmes.",
@@ -228,14 +208,22 @@
       "address": "35000 Rennes",
       "website": "",
       "phone": "",
-      "tags": ["festival", "metal", "hardcore", "punk", "underground"]
+      "tags": [
+        "festival",
+        "metal",
+        "hardcore",
+        "punk",
+        "underground"
+      ]
     },
     {
       "id": "yaouank",
       "title": "Yaouank",
       "slug": "yaouank",
       "department": "Ille-et-Vilaine",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.10714464094119,
       "lng": -1.6764571773158081,
       "shortDescription": "Yaouank, grand festival de culture bretonne : concerts, festoù-noz géants, danses traditionnelles et musiques modernes, du 6 au 18 octobre 2025 à Rennes et en Bretagne.",
@@ -251,14 +239,22 @@
       "address": "35000 Rennes",
       "website": "",
       "phone": "",
-      "tags": ["festival", "culture bretonne", "fest-noz", "traditionnel", "danse"]
+      "tags": [
+        "festival",
+        "culture bretonne",
+        "fest-noz",
+        "traditionnel",
+        "danse"
+      ]
     },
     {
       "id": "festival-insolent",
       "title": "Festival Insolent",
       "slug": "festival-insolent",
       "department": "Morbihan",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 47.77818874179539,
       "lng": -3.3479436177512083,
       "shortDescription": "Festival Insolent (25 octobre 2025) : grand rendez-vous hip-hop, reggae et musiques urbaines en Bretagne, avec une programmation explosive et des artistes incontournables.",
@@ -274,14 +270,22 @@
       "address": "56000 Vannes",
       "website": "",
       "phone": "",
-      "tags": ["festival", "hip-hop", "reggae", "urbain", "rap"]
+      "tags": [
+        "festival",
+        "hip-hop",
+        "reggae",
+        "urbain",
+        "rap"
+      ]
     },
     {
       "id": "transmusicales",
       "title": "Transmusicales",
       "slug": "transmusicales",
       "department": "Ille-et-Vilaine",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.058001942152735,
       "lng": -1.7320033023919714,
       "shortDescription": "Transmusicales de Rennes (3–9 décembre 2025) : festival pionnier des musiques actuelles, tremplin international pour les découvertes musicales et sons novateurs.",
@@ -297,14 +301,22 @@
       "address": "35000 Rennes",
       "website": "https://www.lestrans.com",
       "phone": "",
-      "tags": ["festival", "découvertes", "électro", "rock", "avant-garde"]
+      "tags": [
+        "festival",
+        "découvertes",
+        "électro",
+        "rock",
+        "avant-garde"
+      ]
     },
     {
       "id": "festival-art-rock",
       "title": "Festival Art Rock",
       "slug": "art-rock",
       "department": "Côtes-d'Armor",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.51278101888887,
       "lng": -2.764411308722508,
       "shortDescription": "Festival Art Rock (22–24 mai 2026, Saint-Brieuc) : concerts, théâtre, danse et arts visuels, pour un week-end créatif et éclectique en Bretagne.",
@@ -320,14 +332,22 @@
       "address": "22000 Saint-Brieuc",
       "website": "",
       "phone": "",
-      "tags": ["festival", "arts", "rock", "pluridisciplinaire", "créatif"]
+      "tags": [
+        "festival",
+        "arts",
+        "rock",
+        "pluridisciplinaire",
+        "créatif"
+      ]
     },
     {
       "id": "petites-folies",
       "title": "Les Petites Folies",
       "slug": "petites-folies",
       "department": "Finistère",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.446565973302526,
       "lng": -4.776309826054713,
       "shortDescription": "Les Petites Folies (22–24 mai 2026, Lampaul-Plouarzel) : festival à taille humaine face à la mer, mêlant musique festive, pop, rock et ambiance conviviale en Bretagne.",
@@ -343,14 +363,22 @@
       "address": "29810 Lampaul-Plouarzel",
       "website": "",
       "phone": "",
-      "tags": ["festival", "mer", "convivial", "familial", "rock"]
+      "tags": [
+        "festival",
+        "mer",
+        "convivial",
+        "familial",
+        "rock"
+      ]
     },
     {
       "id": "les-escales",
       "title": "Les Escales",
       "slug": "les-escales",
       "department": "Loire-Atlantique",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 47.27413232420504,
       "lng": -2.1991819341313232,
       "shortDescription": "Les Escales de Saint-Nazaire : festival de musiques actuelles et du monde, dédié à la découverte et aux influences internationales, dans un cadre portuaire unique.",
@@ -366,14 +394,22 @@
       "address": "44600 Saint-Nazaire",
       "website": "",
       "phone": "",
-      "tags": ["festival", "monde", "international", "découvertes", "port"]
+      "tags": [
+        "festival",
+        "monde",
+        "international",
+        "découvertes",
+        "port"
+      ]
     },
     {
       "id": "hellfest",
       "title": "Hellfest",
       "slug": "hellfest",
       "department": "Loire-Atlantique",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 47.09662507130843,
       "lng": -1.2667527301088939,
       "shortDescription": "Hellfest (18–21 juin 2026, Clisson) : plus grand festival de metal en Europe, avec 200 groupes, 6 scènes et une ambiance unique dédiée aux musiques extrêmes.",
@@ -389,14 +425,22 @@
       "address": "44190 Clisson",
       "website": "https://www.hellfest.fr",
       "phone": "",
-      "tags": ["festival", "metal", "extrême", "international", "culte"]
+      "tags": [
+        "festival",
+        "metal",
+        "extrême",
+        "international",
+        "culte"
+      ]
     },
     {
       "id": "bobital",
       "title": "Festival Bobital – L'Armor à Sons",
       "slug": "bobital",
       "department": "Côtes-d'Armor",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.42477848646101,
       "lng": -2.0873055819682165,
       "shortDescription": "Festival Bobital – L'Armor à Sons (26–28 juin 2026) : musiques actuelles, pop, rap, rock et électro, dans une ambiance festive et intergénérationnelle en Bretagne.",
@@ -412,14 +456,22 @@
       "address": "22100 Bobital",
       "website": "",
       "phone": "",
-      "tags": ["festival", "familial", "pop", "rap", "convivial"]
+      "tags": [
+        "festival",
+        "familial",
+        "pop",
+        "rap",
+        "convivial"
+      ]
     },
     {
       "id": "nuit-erdre",
       "title": "La Nuit de l'Erdre",
       "slug": "nuit-erdre",
       "department": "Loire-Atlantique",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 47.42948754968665,
       "lng": -1.4992248786059974,
       "shortDescription": "La Nuit de l'Erdre (2–5 juillet 2026) : festival éclectique en Loire-Atlantique, réunissant têtes d'affiche internationales et ambiance conviviale.",
@@ -435,14 +487,22 @@
       "address": "44390 Nort-sur-Erdre",
       "website": "",
       "phone": "",
-      "tags": ["festival", "éclectique", "chanson française", "verdoyant", "familial"]
+      "tags": [
+        "festival",
+        "éclectique",
+        "chanson française",
+        "verdoyant",
+        "familial"
+      ]
     },
     {
       "id": "astropolis",
       "title": "Astropolis",
       "slug": "astropolis",
       "department": "Finistère",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.410342434281404,
       "lng": -4.5475409422645825,
       "shortDescription": "Astropolis (3–5 juillet 2026, Brest) : plus vieux festival de musiques électroniques en France, référence techno, électro et house.",
@@ -458,14 +518,22 @@
       "address": "29200 Brest",
       "website": "",
       "phone": "",
-      "tags": ["festival", "électro", "techno", "house", "pionnier"]
+      "tags": [
+        "festival",
+        "électro",
+        "techno",
+        "house",
+        "pionnier"
+      ]
     },
     {
       "id": "dub-camp",
       "title": "Dub Camp Festival",
       "slug": "dub-camp",
       "department": "Loire-Atlantique",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 47.510858347608604,
       "lng": -1.4193620108275724,
       "shortDescription": "Dub Camp Festival : grand rendez-vous européen du reggae et de la culture sound system, près de Nantes, dédié au dub et aux musiques jamaïcaines.",
@@ -481,14 +549,22 @@
       "address": "44000 Nantes",
       "website": "",
       "phone": "",
-      "tags": ["festival", "dub", "reggae", "sound system", "jamaïcain"]
+      "tags": [
+        "festival",
+        "dub",
+        "reggae",
+        "sound system",
+        "jamaïcain"
+      ]
     },
     {
       "id": "festidreuz",
       "title": "Festidreuz",
       "slug": "festidreuz",
       "department": "Finistère",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 47.85859686446527,
       "lng": -4.00676327356514,
       "shortDescription": "Festidreuz, festival familial et convivial à Fouesnant : musiques actuelles, pop, rock, chanson française et ambiance festive en plein air.",
@@ -504,14 +580,22 @@
       "address": "29170 Fouesnant",
       "website": "",
       "phone": "",
-      "tags": ["festival", "familial", "convivial", "chanson française", "estival"]
+      "tags": [
+        "festival",
+        "familial",
+        "convivial",
+        "chanson française",
+        "estival"
+      ]
     },
     {
       "id": "fete-bruit-saint-nolff",
       "title": "Fête du Bruit Saint-Nolff",
       "slug": "fete-bruit-saint-nolff",
       "department": "Morbihan",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 47.697407591252706,
       "lng": -2.642773424051727,
       "shortDescription": "Fête du Bruit Saint-Nolff (10–12 juillet 2026) : festival rock, électro et musiques actuelles, ambiance festive et grands noms internationaux.",
@@ -527,14 +611,22 @@
       "address": "56250 Saint-Nolff",
       "website": "",
       "phone": "",
-      "tags": ["festival", "rock", "électro", "internationaux", "énergie"]
+      "tags": [
+        "festival",
+        "rock",
+        "électro",
+        "internationaux",
+        "énergie"
+      ]
     },
     {
       "id": "bout-du-monde",
       "title": "Festival du Bout du Monde",
       "slug": "bout-du-monde",
       "department": "Finistère",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.27205974506346,
       "lng": -4.485344849672389,
       "shortDescription": "Festival du Bout du Monde (31 juillet–2 août 2026, Crozon) : musiques du monde et découvertes artistiques dans le cadre naturel exceptionnel de la presqu'île.",
@@ -545,19 +637,28 @@
         "assets/img/bout-du-monde-2.jpg",
         "assets/img/bout-du-monde-3.jpg"
       ],
-      "tested": false,
+      "tested": true,
       "coupDeCoeur": true,
+      "avisLaBelleBretagne": "Le Festival du Bout du Monde, c'est l'exemple parfait du festival à taille humaine où l'on se sent immédiatement bien. Une ambiance chaleureuse, une programmation éclectique qui fait voyager à travers toutes les musiques du monde, et surtout un cadre unique : la magnifique presqu'île du Bout du Monde. C'est un rendez-vous qui respire la convivialité, où l'on vient autant pour partager des moments forts que pour profiter d'un décor exceptionnel. Et surtout, ne manquez pas le concours de déguisements au camping : un moment déjanté et incontournable qui fait partie de la légende du festival !",
       "address": "29160 Crozon",
       "website": "",
       "phone": "",
-      "tags": ["festival", "monde", "métissage", "presqu'île", "nature"]
+      "tags": [
+        "festival",
+        "monde",
+        "métissage",
+        "presqu'île",
+        "nature"
+      ]
     },
     {
       "id": "interceltique",
       "title": "Festival Interceltique",
       "slug": "interceltique",
       "department": "Morbihan",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 47.74812026900755,
       "lng": -3.3682540167392703,
       "shortDescription": "Festival Interceltique de Lorient (31 juillet–9 août 2026) : plus grand rassemblement mondial des cultures celtiques, musique, danse, traditions et rencontres.",
@@ -573,14 +674,22 @@
       "address": "56100 Lorient",
       "website": "https://www.festival-interceltique.bzh",
       "phone": "",
-      "tags": ["festival", "celtique", "traditionnel", "bagadoù", "international"]
+      "tags": [
+        "festival",
+        "celtique",
+        "traditionnel",
+        "bagadoù",
+        "international"
+      ]
     },
     {
       "id": "fete-bruit-landerneau",
       "title": "Fête du Bruit Landerneau",
       "slug": "fete-bruit-landerneau",
       "department": "Finistère",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.44872328761026,
       "lng": -4.256738829354395,
       "shortDescription": "Fête du Bruit Landerneau (7–9 août 2026) : festival de musiques actuelles avec têtes d'affiche internationales et ambiance populaire en Bretagne.",
@@ -596,14 +705,22 @@
       "address": "29800 Landerneau",
       "website": "",
       "phone": "",
-      "tags": ["festival", "internationaux", "rock", "électro", "populaire"]
+      "tags": [
+        "festival",
+        "internationaux",
+        "rock",
+        "électro",
+        "populaire"
+      ]
     },
     {
       "id": "motocultor",
       "title": "Motocultor Festival",
       "slug": "motocultor",
       "department": "Finistère",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.27110351580913,
       "lng": -3.5561983777079313,
       "shortDescription": "Motocultor Festival (13–16 août 2026, Carhaix) : festival metal et musiques extrêmes, scène internationale et ambiance conviviale.",
@@ -619,14 +736,22 @@
       "address": "29270 Carhaix-Plouguer",
       "website": "",
       "phone": "",
-      "tags": ["festival", "metal", "extrêmes", "international", "passionnés"]
+      "tags": [
+        "festival",
+        "metal",
+        "extrêmes",
+        "international",
+        "passionnés"
+      ]
     },
     {
       "id": "nuit-etoiles",
       "title": "Festival La Nuit des Étoiles",
       "slug": "nuit-etoiles",
       "department": "Bretagne",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.56011771424812,
       "lng": -4.338486557325863,
       "shortDescription": "Festival La Nuit des Étoiles (août 2026) : observation astronomique, animations scientifiques et spectacles pour découvrir le ciel d'été en Bretagne.",
@@ -642,14 +767,22 @@
       "address": "Bretagne",
       "website": "",
       "phone": "",
-      "tags": ["festival", "astronomie", "science", "étoiles", "familial"]
+      "tags": [
+        "festival",
+        "astronomie",
+        "science",
+        "étoiles",
+        "familial"
+      ]
     },
     {
       "id": "roi-arthur",
       "title": "Festival Roi Arthur",
       "slug": "roi-arthur",
       "department": "Ille-et-Vilaine",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.04299514408979,
       "lng": -1.8774801146126043,
       "shortDescription": "Festival Roi Arthur (août 2026, Bréal-sous-Montfort) : musiques actuelles, pop, rap et électro, dans une ambiance festive et conviviale en Bretagne.",
@@ -665,14 +798,22 @@
       "address": "35310 Bréal-sous-Montfort",
       "website": "",
       "phone": "",
-      "tags": ["festival", "pop", "rap", "électro", "estival"]
+      "tags": [
+        "festival",
+        "pop",
+        "rap",
+        "électro",
+        "estival"
+      ]
     },
     {
       "id": "pont-du-rock",
       "title": "Au Pont du Rock",
       "slug": "pont-du-rock",
       "department": "Morbihan",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 47.807049946814224,
       "lng": -2.373821736234495,
       "shortDescription": "Au Pont du Rock, plus ancien festival associatif de musiques actuelles en Bretagne : rock, pop, électro et ambiance conviviale à Malestroit.",
@@ -688,14 +829,22 @@
       "address": "56140 Malestroit",
       "website": "",
       "phone": "",
-      "tags": ["festival", "associatif", "rock", "indépendant", "référence"]
+      "tags": [
+        "festival",
+        "associatif",
+        "rock",
+        "indépendant",
+        "référence"
+      ]
     },
     {
       "id": "flume-enchantee",
       "title": "La Flume Enchantée",
       "slug": "flume-enchantee",
       "department": "Ille-et-Vilaine",
-      "categories": ["festival"],
+      "categories": [
+        "festival"
+      ],
       "lat": 48.20941782686705,
       "lng": -1.7941628576187174,
       "shortDescription": "La Flume Enchantée (septembre 2026, Gévezé) : festival féérique mêlant musique, art, nature et installations lumineuses au bord de la rivière.",
@@ -711,14 +860,22 @@
       "address": "35850 Gévezé",
       "website": "",
       "phone": "",
-      "tags": ["festival", "féérique", "art visuel", "nature", "immersif"]
+      "tags": [
+        "festival",
+        "féérique",
+        "art visuel",
+        "nature",
+        "immersif"
+      ]
     },
     {
       "id": "aquarium-de-brest",
       "title": "Aquarium de Brest - Océanopolis",
       "slug": "aquarium-de-brest",
       "department": "Finistère",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 48.39000895325964,
       "lng": -4.436021416340443,
       "shortDescription": "Océanopolis à Brest (Bretagne) : centre de culture scientifique et aquarium exceptionnel, avec trois pavillons (polaire, tropical, tempéré), 10 000 animaux, loutres, requins, otaries.",
@@ -734,14 +891,23 @@
       "address": "29200 Brest",
       "website": "https://www.oceanopolis.com",
       "phone": "02 98 34 40 40",
-      "tags": ["aquarium", "océans", "scientifique", "manchots", "requins", "famille"]
+      "tags": [
+        "aquarium",
+        "océans",
+        "scientifique",
+        "manchots",
+        "requins",
+        "famille"
+      ]
     },
     {
       "id": "agapa-hotel-perros-guirec",
       "title": "L'Agapa Hôtel Spa",
       "slug": "agapa-hotel-perros-guirec",
       "department": "Côtes-d'Armor",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 48.81437921606592,
       "lng": -3.450796426802691,
       "shortDescription": "L'Agapa Hôtel Spa, 5 * à Perros-Guirec sur la Côte de Granit Rose : chambres vue mer, spa CODAGE avec piscine, sauna, jacuzzi, et restaurant panoramique Le Bélouga.",
@@ -754,17 +920,26 @@
       ],
       "tested": true,
       "coupDeCoeur": true,
+      "avisLaBelleBretagne": "Notre séjour à l'Agapa Hôtel a été une véritable parenthèse de détente. La chambre avec vue sur mer nous a offert un cadre élégant et apaisant, idéal pour se ressourcer. Nous avons profité de l'espace bien-être et de la piscine, parfaits pour un moment de relaxation totale. Le restaurant de l'hôtel nous a également séduits avec ses repas raffinés, sublimés par une vue imprenable. Tout au long du séjour, nous avons été pris en charge avec une attention irréprochable : on s'occupe vraiment de vous, et l'on comprend vite pourquoi cet établissement mérite amplement ses 5 étoiles. Une adresse où confort, sérénité et gastronomie se rencontrent harmonieusement.",
       "address": "12 Rue des Bons Enfants, 22700 Perros-Guirec",
       "website": "https://www.booking.com/Share-KRXYDh",
       "phone": "02 96 49 01 10",
-      "tags": ["5 étoiles", "spa CODAGE", "granit rose", "Le Bélouga", "baie des Sept-Îles"]
+      "tags": [
+        "5 étoiles",
+        "spa CODAGE",
+        "granit rose",
+        "Le Bélouga",
+        "baie des Sept-Îles"
+      ]
     },
     {
       "id": "grand-hotel-barriere-dinard",
       "title": "Grand Hôtel Barrière Dinard",
       "slug": "grand-hotel-barriere-dinard",
       "department": "Ille-et-Vilaine",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 48.63328033733001,
       "lng": -2.051487762293125,
       "shortDescription": "Grand Hôtel Barrière Dinard, hôtel 5 * Belle Époque sur la Côte d'Émeraude : spa Shiseido, restaurant George V, bar 333 Café et vue panoramique sur la baie de Saint-Malo.",
@@ -780,14 +955,23 @@
       "address": "46 Avenue George V, 35800 Dinard",
       "website": "https://www.booking.com/Share-RBhv1Y",
       "phone": "02 99 88 26 26",
-      "tags": ["5 étoiles", "Belle Époque", "spa Shiseido", "George V", "333 Café", "baie Saint-Malo"]
+      "tags": [
+        "5 étoiles",
+        "Belle Époque",
+        "spa Shiseido",
+        "George V",
+        "333 Café",
+        "baie Saint-Malo"
+      ]
     },
     {
       "id": "villa-blockhaus-audrey",
       "title": "Les villas d'Audrey : La villa blockhaus",
       "slug": "villa-blockhaus-audrey",
       "department": "Finistère",
-      "categories": ["villa"],
+      "categories": [
+        "villa"
+      ],
       "lat": 48.6532985016716,
       "lng": -4.3040462376651165,
       "shortDescription": "Villa Blockhaus – Les villas d'Audrey, Plounéour-Trez (Finistère Nord) : villa de standing, vue panoramique sur la baie de Goulven, piscine chauffée, accès plage à 2 min à pied.",
@@ -803,14 +987,23 @@
       "address": "Plounéour-Trez, 29890 Finistère Nord",
       "website": "https://www.airbnb.fr/rooms/48653889?guests=1&adults=1&s=67&unique_share_id=0fd64593-b636-40a7-a7cd-4e0e2e9ca921",
       "phone": "",
-      "tags": ["villa de standing", "baie de Goulven", "piscine chauffée", "plage 2 min", "4 chambres", "230 m²"]
+      "tags": [
+        "villa de standing",
+        "baie de Goulven",
+        "piscine chauffée",
+        "plage 2 min",
+        "4 chambres",
+        "230 m²"
+      ]
     },
     {
       "id": "vallee-de-pratmeur",
       "title": "Vallée de Pratmeur",
       "slug": "vallee-de-pratmeur",
       "department": "Morbihan",
-      "categories": ["logement_insolite"],
+      "categories": [
+        "logement_insolite"
+      ],
       "lat": 47.89719755998295,
       "lng": -3.1069507492516646,
       "shortDescription": "Séjournez à la Vallée de Pratmeur en Morbihan : hébergements insolites (cabanes dans les arbres, bulles, suites avec piscine), nature & bien-être garantis en Bretagne Sud.",
@@ -818,22 +1011,30 @@
       "image": "assets/img/vallee-pratmeur-1.jpg",
       "images": [
         "assets/img/vallee-pratmeur-1.jpg",
-        "assets/img/vallee-pratmeur-2.jpg", 
+        "assets/img/vallee-pratmeur-2.jpg",
         "assets/img/vallee-pratmeur-3.jpg"
       ],
-      "tested": false,
+      "tested": true,
       "coupDeCoeur": true,
+      "avisLaBelleBretagne": "La Vallée de Pratmeur offre une expérience unique en pleine nature. Notre séjour dans une cabane perchée dans les arbres, avec spa privatif, a été un véritable moment hors du temps. Nichés au cœur de la forêt, nous avons savouré un cadre ressourçant et apaisant, idéal pour se déconnecter du quotidien. Le massage dont nous avons profité a ajouté une touche de bien-être incomparable à cette parenthèse romantique. Entre charme insolite, confort et immersion totale dans la nature, c'est l'adresse parfaite pour un séjour à deux placé sous le signe du repos et de l'évasion.",
       "address": "Le Roduic, 56310 Quistinic",
       "website": "https://www.booking.com/Share-4aKZPM",
       "phone": "02 97 39 54 63",
-      "tags": ["cabanes", "écolodges", "nature", "insolite"]
+      "tags": [
+        "cabanes",
+        "écolodges",
+        "nature",
+        "insolite"
+      ]
     },
     {
       "id": "sandaya-camping-carnac",
       "title": "Sandaya Camping Carnac",
       "slug": "sandaya-camping-carnac",
       "department": "Morbihan",
-      "categories": ["camping"],
+      "categories": [
+        "camping"
+      ],
       "lat": 47.602233728272815,
       "lng": -3.0703044489707634,
       "shortDescription": "Camping Sandaya Carnac (Morbihan, Bretagne) : camping 4 * tout confort avec parc aquatique, spa, clubs enfants, situé à deux pas des menhirs, des plages et de la nature bretonne.",
@@ -841,7 +1042,7 @@
       "image": "assets/img/sandaya-carnac-1.jpg",
       "images": [
         "assets/img/sandaya-carnac-1.jpg",
-        "assets/img/sandaya-carnac-2.jpg", 
+        "assets/img/sandaya-carnac-2.jpg",
         "assets/img/sandaya-carnac-3.jpg"
       ],
       "tested": true,
@@ -849,37 +1050,21 @@
       "address": "56340 Carnac",
       "website": "https://www.sandaya.fr/nos-campings/carnac",
       "phone": "02 97 52 15 90",
-      "tags": ["5 étoiles", "mégalithes", "parc aquatique", "famille"]
-    },
-    {
-      "id": "restaurant-nicolas-carro-carantec",
-      "title": "Restaurant Nicolas Carro",
-      "slug": "restaurant-nicolas-carro-carantec",
-      "department": "Finistère",
-      "categories": ["restaurant"],
-      "lat": 48.67064187020398,
-      "lng": -3.9126003343711817,
-      "shortDescription": "Restaurant Nicolas Carro à Carantec (Finistère) : table gastronomique étoilée Michelin en baie de Morlaix, cuisine créative et moderne sublimant produits locaux, cadre raffiné et convivial.",
-      "description": "Surplombant la baie de Morlaix à Carantec, le restaurant Nicolas Carro, étoilé au Guide Michelin, incarne l'excellence culinaire en Finistère. Le jeune chef Nicolas Carro, originaire de Bretagne, propose une cuisine créative et moderne, mettant à l'honneur les meilleurs produits locaux — fruits de mer, petits pêchés côtiers, charcuteries et viandes régionales.\n\nInstallé dans l'hôtel du même nom, le restaurant offre un décor élégant, où élégance et convivialité se conjuguent. Son style cuisinier, récompensé également par plusieurs toques au Gault & Millau, séduit les fins connaisseurs en quête d'une expérience gastronomique bretonne raffinée.\n\nQue ce soit pour un déjeuner ou un dîner, le restaurant Nicolas Carro est une destination incontournable à Carantec, idéale pour les amoureux de la gastronomie, du cadre et des produits locaux de qualité.",
-      "image": "assets/img/restaurant-nicolas-carro-1.jpg",
-      "images": [
-        "assets/img/restaurant-nicolas-carro-1.jpg",
-        "assets/img/restaurant-nicolas-carro-2.jpg",
-        "assets/img/restaurant-nicolas-carro-3.jpg"
-      ],
-      "tested": true,
-      "coupDeCoeur": true,
-      "address": "20 Rue du Kelenn, 29660 Carantec",
-      "website": "https://www.nicolas-carro.com",
-      "phone": "02 98 67 00 47",
-      "tags": ["étoilé", "gastronomique", "baie de Morlaix", "créatif"]
+      "tags": [
+        "5 étoiles",
+        "mégalithes",
+        "parc aquatique",
+        "famille"
+      ]
     },
     {
       "id": "hotel-castelbrac-dinard-v3",
       "title": "Hôtel Castelbrac Dinard",
-      "slug": "hotel-castelbrac-dinard-v2", 
+      "slug": "hotel-castelbrac-dinard-v2",
       "department": "Ille-et-Vilaine",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 48.63453158518207,
       "lng": -2.049043187476866,
       "shortDescription": "Hôtel Castelbrac Dinard, hôtel-boutique 5 * Belle Époque au charme Art Déco, face à la mer : spa, piscine sur plage, restaurant étoilé \"Pourquoi Pas\", bar Aquarium & vue panoramique sur la baie.",
@@ -887,7 +1072,7 @@
       "image": "assets/img/hotel-castelbrac-dinard-1.jpg",
       "images": [
         "assets/img/hotel-castelbrac-dinard-1.jpg",
-        "assets/img/hotel-castelbrac-dinard-2.jpg", 
+        "assets/img/hotel-castelbrac-dinard-2.jpg",
         "assets/img/hotel-castelbrac-dinard-3.jpg"
       ],
       "tested": true,
@@ -895,14 +1080,22 @@
       "address": "17 Avenue George V, 35800 Dinard",
       "website": "https://www.castelbrac.com",
       "phone": "02 99 80 10 27",
-      "tags": ["5 étoiles", "étoilé Michelin", "spa", "boutique", "Belle Époque"]
+      "tags": [
+        "5 étoiles",
+        "étoilé Michelin",
+        "spa",
+        "boutique",
+        "Belle Époque"
+      ]
     },
     {
       "id": "balthazar-hotel-spa-rennes",
       "title": "Balthazar Hôtel & Spa Rennes",
-      "slug": "balthazar-hotel-spa-rennes", 
+      "slug": "balthazar-hotel-spa-rennes",
       "department": "Ille-et-Vilaine",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 48.10833311120004,
       "lng": -1.6777293728746048,
       "shortDescription": "Balthazar Hôtel & Spa à Rennes, boutique-hôtel 5 * MGallery au cœur de la ville : spa Nuxe élégant, restaurant moderne, bar cosy, suites design et ambiance chaleureuse.",
@@ -910,22 +1103,31 @@
       "image": "assets/img/balthazar-hotel-spa-rennes-1.jpg",
       "images": [
         "assets/img/balthazar-hotel-spa-rennes-1.jpg",
-        "assets/img/balthazar-hotel-spa-rennes-2.jpg", 
+        "assets/img/balthazar-hotel-spa-rennes-2.jpg",
         "assets/img/balthazar-hotel-spa-rennes-3.jpg"
       ],
       "tested": true,
       "coupDeCoeur": true,
+      "avisLaBelleBretagne": "Le Balthazar est l'adresse idéale pour profiter pleinement de la ville de Rennes. Sa situation en plein cœur de la cité permet de découvrir facilement ses richesses culturelles et son ambiance animée, tout en retrouvant, une fois de retour à l'hôtel, un véritable havre de paix. Cet établissement conjugue luxe, confort et sérénité, offrant un cadre raffiné où l'on se sent immédiatement privilégié. C'est l'endroit parfait pour un week-end à Rennes, entre découvertes urbaines et moments de détente absolue.",
       "address": "Rue du Maréchal Joffre, 35000 Rennes",
       "website": "https://www.booking.com/Share-4LF5vfm",
       "phone": "02 99 32 32 32",
-      "tags": ["5 étoiles", "MGallery", "spa Nuxe", "boutique", "centre-ville"]
+      "tags": [
+        "5 étoiles",
+        "MGallery",
+        "spa Nuxe",
+        "boutique",
+        "centre-ville"
+      ]
     },
     {
       "id": "grand-hotel-thermes-saint-malo",
       "title": "Grand Hôtel des Thermes Saint-Malo",
-      "slug": "grand-hotel-thermes-saint-malo", 
+      "slug": "grand-hotel-thermes-saint-malo",
       "department": "Ille-et-Vilaine",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 48.658233842330205,
       "lng": -1.9994177649307558,
       "shortDescription": "Grand Hôtel des Thermes Saint-Malo, palace 5 * Belle Époque en front de mer : thalasso, parcours Aquatonic, 3 restaurants vue mer, spa complet, suites élégantes face à la plage du Sillon.",
@@ -933,7 +1135,7 @@
       "image": "assets/img/grand-hotel-thermes-saint-malo-1.jpg",
       "images": [
         "assets/img/grand-hotel-thermes-saint-malo-1.jpg",
-        "assets/img/grand-hotel-thermes-saint-malo-2.jpg", 
+        "assets/img/grand-hotel-thermes-saint-malo-2.jpg",
         "assets/img/grand-hotel-thermes-saint-malo-3.jpg"
       ],
       "tested": true,
@@ -941,14 +1143,22 @@
       "address": "100 Boulevard Hébert, 35400 Saint-Malo",
       "website": "https://www.booking.com/Share-6DTWIu",
       "phone": "02 99 40 75 75",
-      "tags": ["5 étoiles", "thalasso", "Belle Époque", "front de mer", "palace"]
+      "tags": [
+        "5 étoiles",
+        "thalasso",
+        "Belle Époque",
+        "front de mer",
+        "palace"
+      ]
     },
     {
       "id": "chateau-apigne-le-rheu",
       "title": "Château d'Apigné",
-      "slug": "chateau-apigne-le-rheu", 
+      "slug": "chateau-apigne-le-rheu",
       "department": "Ille-et-Vilaine",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 48.09260692182979,
       "lng": -1.7637913107593166,
       "shortDescription": "Château d'Apigné, hôtel-restaurant 5 * à Le Rheu (près de Rennes) : demeure romantique du XIXᵉ, restaurant gastronomique Les Tourelles, parc de 25 ha, idéal pour séjours, mariages ou événements haut de gamme.",
@@ -956,7 +1166,7 @@
       "image": "assets/img/chateau-apigne-le-rheu-1.jpg",
       "images": [
         "assets/img/chateau-apigne-le-rheu-1.jpg",
-        "assets/img/chateau-apigne-le-rheu-2.jpg", 
+        "assets/img/chateau-apigne-le-rheu-2.jpg",
         "assets/img/chateau-apigne-le-rheu-3.jpg"
       ],
       "tested": true,
@@ -964,14 +1174,22 @@
       "address": "Le Rheu, 35650 Le Rheu",
       "website": "https://www.booking.com/Share-KQkQ2f",
       "phone": "02 99 14 81 16",
-      "tags": ["5 étoiles", "château", "gastronomique", "romantique", "mariage"]
+      "tags": [
+        "5 étoiles",
+        "château",
+        "gastronomique",
+        "romantique",
+        "mariage"
+      ]
     },
     {
       "id": "domaine-locguenole-spa-kervignac",
       "title": "Domaine de Locguénolé & Spa",
-      "slug": "domaine-locguenole-spa-kervignac", 
+      "slug": "domaine-locguenole-spa-kervignac",
       "department": "Morbihan",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 47.76971382535981,
       "lng": -3.2823744290569596,
       "shortDescription": "Domaine de Locguénolé & Spa, relais 5 * Relais & Châteaux en Bretagne sud : château et manoir sur parc boisé, spa Macha, piscines intérieure et extérieure, restaurants raffinés, cadre romantique au bord du Blavet.",
@@ -979,7 +1197,7 @@
       "image": "assets/img/domaine-locguenole-spa-kervignac-1.jpg",
       "images": [
         "assets/img/domaine-locguenole-spa-kervignac-1.jpg",
-        "assets/img/domaine-locguenole-spa-kervignac-2.jpg", 
+        "assets/img/domaine-locguenole-spa-kervignac-2.jpg",
         "assets/img/domaine-locguenole-spa-kervignac-3.jpg"
       ],
       "tested": true,
@@ -987,14 +1205,22 @@
       "address": "Route de Port-Louis, 56700 Kervignac",
       "website": "https://www.booking.com/Share-dJJJf5T",
       "phone": "02 97 76 76 76",
-      "tags": ["5 étoiles", "Relais & Châteaux", "étoilé Michelin", "spa", "domaine"]
+      "tags": [
+        "5 étoiles",
+        "Relais & Châteaux",
+        "étoilé Michelin",
+        "spa",
+        "domaine"
+      ]
     },
     {
       "id": "domaine-bretesche-golf-spa-missillac",
       "title": "Hôtel & Spa de La Bretesche",
-      "slug": "domaine-bretesche-golf-spa-missillac", 
+      "slug": "domaine-bretesche-golf-spa-missillac",
       "department": "Loire-Atlantique",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 47.4813072001117,
       "lng": -2.17198564301856,
       "shortDescription": "Hôtel & Spa de La Bretesche, relais-château 5 * à Missillac : charme historique, spa Cinq Mondes sous verrière, golf 18 trous, piscines intérieure et extérieure, gastronomie raffinée au cœur d'un parc majestueux.",
@@ -1002,7 +1228,7 @@
       "image": "assets/img/hotel-spa-bretesche-missillac-1.jpg",
       "images": [
         "assets/img/hotel-spa-bretesche-missillac-1.jpg",
-        "assets/img/hotel-spa-bretesche-missillac-2.jpg", 
+        "assets/img/hotel-spa-bretesche-missillac-2.jpg",
         "assets/img/hotel-spa-bretesche-missillac-3.jpg"
       ],
       "tested": true,
@@ -1010,14 +1236,22 @@
       "address": "Domaine de la Bretesche, 44780 Missillac",
       "website": "https://www.booking.com/Share-pSKrW6R",
       "phone": "02 51 76 86 96",
-      "tags": ["5 étoiles", "Relais & Châteaux", "golf", "spa", "château"]
+      "tags": [
+        "5 étoiles",
+        "Relais & Châteaux",
+        "golf",
+        "spa",
+        "château"
+      ]
     },
     {
       "id": "miramar-la-cigale-arzon",
       "title": "Miramar La Cigale",
-      "slug": "miramar-la-cigale-arzon", 
+      "slug": "miramar-la-cigale-arzon",
       "department": "Morbihan",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 47.54143945832893,
       "lng": -2.890189502416814,
       "shortDescription": "Miramar La Cigale, hôtel 5 * et centre de thalasso face à l'océan sur la presqu'île de Rhuys (Arzon) : spa marin, piscine d'eau de mer chauffée, restaurants, bar lounge et vue panoramique sur le Golfe du Morbihan.",
@@ -1025,7 +1259,7 @@
       "image": "assets/img/miramar-la-cigale-arzon-1.jpg",
       "images": [
         "assets/img/miramar-la-cigale-arzon-1.jpg",
-        "assets/img/miramar-la-cigale-arzon-2.jpg", 
+        "assets/img/miramar-la-cigale-arzon-2.jpg",
         "assets/img/miramar-la-cigale-arzon-3.jpg"
       ],
       "tested": true,
@@ -1033,14 +1267,22 @@
       "address": "5 Avenue de la Plage, 56640 Arzon",
       "website": "https://www.booking.com/Share-X8ib1n6",
       "phone": "02 97 53 49 00",
-      "tags": ["5 étoiles", "thalasso", "spa marin", "golfe du Morbihan", "luxe"]
+      "tags": [
+        "5 étoiles",
+        "thalasso",
+        "spa marin",
+        "golfe du Morbihan",
+        "luxe"
+      ]
     },
     {
       "id": "sofitel-quiberon-thalassa-sea-spa",
       "title": "Sofitel Quiberon Thalassa Sea & Spa",
-      "slug": "sofitel-quiberon-thalassa-sea-spa", 
+      "slug": "sofitel-quiberon-thalassa-sea-spa",
       "department": "Morbihan",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 47.47433572301734,
       "lng": -3.1040488024200146,
       "shortDescription": "Sofitel Quiberon Thalassa Sea & Spa, resort 5 * en baie de Quiberon (Bretagne sud) : thalasso de 6 000 m², vaste piscine d'eau de mer chauffée, spa marin, chambres contemporaines face océan.",
@@ -1048,7 +1290,7 @@
       "image": "assets/img/sofitel-quiberon-thalassa-sea-spa-1.jpg",
       "images": [
         "assets/img/sofitel-quiberon-thalassa-sea-spa-1.jpg",
-        "assets/img/sofitel-quiberon-thalassa-sea-spa-2.jpg", 
+        "assets/img/sofitel-quiberon-thalassa-sea-spa-2.jpg",
         "assets/img/sofitel-quiberon-thalassa-sea-spa-3.jpg"
       ],
       "tested": true,
@@ -1056,14 +1298,22 @@
       "address": "Pointe de Goulvars, 56170 Quiberon",
       "website": "https://www.booking.com/Share-0h3TEdx",
       "phone": "02 97 50 20 00",
-      "tags": ["5 étoiles", "Sofitel", "thalasso", "Green Key", "resort"]
+      "tags": [
+        "5 étoiles",
+        "Sofitel",
+        "thalasso",
+        "Green Key",
+        "resort"
+      ]
     },
     {
       "id": "hotel-barriere-hermitage-la-baule",
       "title": "Hôtel Barrière L'Hermitage",
-      "slug": "hotel-barriere-hermitage-la-baule", 
+      "slug": "hotel-barriere-hermitage-la-baule",
       "department": "Loire-Atlantique",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 47.280242728328375,
       "lng": -2.410144131265744,
       "shortDescription": "Hôtel Barrière L'Hermitage, palace 5 * Belle Époque face à la plage de La Baule : spa Augustinus Bader, piscines d'eau de mer intérieure et extérieure, restaurants Ciro's, Le Pavillon, Les Évens & cadre historique raffiné.",
@@ -1071,7 +1321,7 @@
       "image": "assets/img/hotel-barriere-hermitage-la-baule-1.jpg",
       "images": [
         "assets/img/hotel-barriere-hermitage-la-baule-1.jpg",
-        "assets/img/hotel-barriere-hermitage-la-baule-2.jpg", 
+        "assets/img/hotel-barriere-hermitage-la-baule-2.jpg",
         "assets/img/hotel-barriere-hermitage-la-baule-3.jpg"
       ],
       "tested": true,
@@ -1079,14 +1329,22 @@
       "address": "5 Esplanade François André, 44500 La Baule-Escoublac",
       "website": "https://www.booking.com/Share-4wcqLd3",
       "phone": "02 40 11 46 46",
-      "tags": ["5 étoiles", "palace", "Barrière", "Belle Époque", "front de mer"]
+      "tags": [
+        "5 étoiles",
+        "palace",
+        "Barrière",
+        "Belle Époque",
+        "front de mer"
+      ]
     },
     {
       "id": "hotel-barriere-royal-thalasso-la-baule",
       "title": "Hôtel Barrière Le Royal – Royal-Thalasso",
       "slug": "hotel-barriere-royal-thalasso-la-baule",
       "department": "Loire-Atlantique",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 47.28176067327236,
       "lng": -2.405041259521583,
       "shortDescription": "Hôtel Barrière Le Royal – Royal-Thalasso, palace 5 * Belle Époque à La Baule : thalasso & spa Diane Barrière, piscines d'eau de mer intérieure et extérieure, restaurants Fouquet's & Le Ponton, cadre art déco face à l'océan.",
@@ -1102,14 +1360,23 @@
       "address": "6 Avenue Pierre Loti, 44500 La Baule-Escoublac",
       "website": "https://www.booking.com/Share-n54q91N",
       "phone": "02 40 11 48 48",
-      "tags": ["5 étoiles", "palace", "Barrière", "thalasso", "Belle Époque", "Fouquet's"]
+      "tags": [
+        "5 étoiles",
+        "palace",
+        "Barrière",
+        "thalasso",
+        "Belle Époque",
+        "Fouquet's"
+      ]
     },
     {
       "id": "hotel-castel-marie-louise-la-baule",
       "title": "Hôtel Le Castel Marie-Louise",
       "slug": "hotel-castel-marie-louise-la-baule",
       "department": "Loire-Atlantique",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 47.28079792850155,
       "lng": -2.4079077816832286,
       "shortDescription": "Hôtel 5 * Le Castel Marie-Louise à La Baule, manoir Belle Époque Relais & Châteaux : 31 chambres signées Jacques Garcia, restaurant gastronomique, bar raffiné en cœur de parc face à l'océan.",
@@ -1125,14 +1392,23 @@
       "address": "1 Avenue Andrieu, 44500 La Baule-Escoublac",
       "website": "https://www.booking.com/Share-aoHaZHF",
       "phone": "02 40 11 48 38",
-      "tags": ["5 étoiles", "Relais & Châteaux", "Barrière", "Jacques Garcia", "manoir", "Belle Époque"]
+      "tags": [
+        "5 étoiles",
+        "Relais & Châteaux",
+        "Barrière",
+        "Jacques Garcia",
+        "manoir",
+        "Belle Époque"
+      ]
     },
     {
       "id": "chateau-maubreuil-carquefou",
       "title": "Château de Maubreuil",
       "slug": "chateau-maubreuil-carquefou",
       "department": "Loire-Atlantique",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 47.297309152957105,
       "lng": -1.4652549780520787,
       "shortDescription": "Château de Maubreuil, hôtel-boutique 5 * Relais & Châteaux à Carquefou : château d'exception aux suites thématiques, spa Cinq Mondes, deux piscines, restaurant raffiné, entre Nantes et nature.",
@@ -1148,14 +1424,23 @@
       "address": "1 Rue de Maubreuil, 44470 Carquefou",
       "website": "https://www.booking.com/Share-iymXgHh",
       "phone": "02 40 25 07 00",
-      "tags": ["5 étoiles", "Relais & Châteaux", "château", "spa Cinq Mondes", "suites thématiques", "Small Luxury Hotels"]
+      "tags": [
+        "5 étoiles",
+        "Relais & Châteaux",
+        "château",
+        "spa Cinq Mondes",
+        "suites thématiques",
+        "Small Luxury Hotels"
+      ]
     },
     {
       "id": "hotel-de-carantec",
       "title": "Hôtel de Carantec",
       "slug": "hotel-de-carantec",
       "department": "Finistère",
-      "categories": ["hotel"],
+      "categories": [
+        "hotel"
+      ],
       "lat": 48.67070238298057,
       "lng": -3.9127049347136573,
       "shortDescription": "Hôtel de Carantec, hôtel 4 * Logis & restaurant étoilé à Carantec : vue imprenable sur la baie de Morlaix, jardin, bibliothèque, bar cosy, parking pratique, ambiance chaleureuse et raffinée.",
@@ -1171,14 +1456,22 @@
       "address": "29660 Carantec",
       "website": "https://www.booking.com/Share-phTGJd",
       "phone": "02 98 67 00 47",
-      "tags": ["4 étoiles", "Logis", "restaurant étoilé", "baie de Morlaix", "jardin"]
+      "tags": [
+        "4 étoiles",
+        "Logis",
+        "restaurant étoilé",
+        "baie de Morlaix",
+        "jardin"
+      ]
     },
     {
       "id": "dihan-evasion-ploemel",
       "title": "Dihan Evasion",
       "slug": "dihan-evasion-ploemel",
       "department": "Morbihan",
-      "categories": ["logement_insolite"],
+      "categories": [
+        "logement_insolite"
+      ],
       "lat": 47.64637508700424,
       "lng": -3.077166217757525,
       "shortDescription": "Dihan Ploemel : 32 hébergements cabanes perchées spa luxe, bulles suspendues, cabanes eau spa finlandais, écolodges, piscine mélèze, Spa hammam sauna, écolabel européen Carnac Quiberon.",
@@ -1194,14 +1487,23 @@
       "address": "56400 Ploemel",
       "website": "https://www.booking.com/Share-yAd1vZM",
       "phone": "",
-      "tags": ["cabanes perchées", "spa", "écolabel européen", "bulles suspendues", "jacuzzi", "nature"]
+      "tags": [
+        "cabanes perchées",
+        "spa",
+        "écolabel européen",
+        "bulles suspendues",
+        "jacuzzi",
+        "nature"
+      ]
     },
     {
       "id": "domaine-des-ormes",
       "title": "Domaine des Ormes",
       "slug": "domaine-des-ormes",
       "department": "Ille-et-Vilaine",
-      "categories": ["logement_insolite"],
+      "categories": [
+        "logement_insolite"
+      ],
       "lat": 48.48812323196565,
       "lng": -1.7322107540305227,
       "shortDescription": "Domaine des Ormes - Parc de loisirs et hébergements insolites près de Dol-de-Bretagne (35). Cabanes dans les arbres, bulles transparentes, parc aquatique, golf 18 trous sur 200 hectares entre Saint-Malo et Mont-Saint-Michel.",
@@ -1217,14 +1519,23 @@
       "address": "Domaine des Ormes, 35120 Dol-de-Bretagne",
       "website": "https://www.booking.com/Share-RYqnsX",
       "phone": "",
-      "tags": ["cabanes dans les arbres", "bulles transparentes", "parc aquatique", "golf", "hébergements insolites", "200 hectares"]
+      "tags": [
+        "cabanes dans les arbres",
+        "bulles transparentes",
+        "parc aquatique",
+        "golf",
+        "hébergements insolites",
+        "200 hectares"
+      ]
     },
     {
       "id": "domaine-de-meros",
       "title": "Domaine de Meros",
       "slug": "domaine-de-meros",
       "department": "Finistère",
-      "categories": ["logement_insolite"],
+      "categories": [
+        "logement_insolite"
+      ],
       "lat": 48.20906951340927,
       "lng": -3.750157708674379,
       "shortDescription": "Domaine de Meros, hébergements insolites de luxe en Finistère : suites & cabanes-spa privatisées, piscine chauffée, sauna, décor cocooning, cadre romantique surplombant le Canal de Nantes à Brest.",
@@ -1240,14 +1551,23 @@
       "address": "29530 Plonévez-du-Faou",
       "website": "https://www.booking.com/Share-Nk5wSto",
       "phone": "",
-      "tags": ["suites spa", "piscine chauffée", "sauna", "canal de Nantes", "romantique", "luxe"]
+      "tags": [
+        "suites spa",
+        "piscine chauffée",
+        "sauna",
+        "canal de Nantes",
+        "romantique",
+        "luxe"
+      ]
     },
     {
       "id": "villa-lily-spa",
       "title": "Villa Lily Spa",
       "slug": "villa-lily-spa",
       "department": "Côtes-d'Armor",
-      "categories": ["logement_insolite"],
+      "categories": [
+        "logement_insolite"
+      ],
       "lat": 48.493513401443714,
       "lng": -1.9814469312073089,
       "shortDescription": "Villa Lily Spa, chambre d'hôtes de charme à La Vicomté-sur-Rance : spa privatif, jacuzzi, ambiance cocooning & accueil personnalisé pour une escapade romantique en Bretagne.",
@@ -1263,14 +1583,23 @@
       "address": "22690 La Vicomté-sur-Rance",
       "website": "https://www.booking.com/Share-BKNlDj5",
       "phone": "",
-      "tags": ["chambre d'hôtes", "spa privatif", "jacuzzi", "romantique", "charme", "King-Size"]
+      "tags": [
+        "chambre d'hôtes",
+        "spa privatif",
+        "jacuzzi",
+        "romantique",
+        "charme",
+        "King-Size"
+      ]
     },
     {
       "id": "5-etoiles-hebergement-insolite-luxe",
       "title": "5 Etoiles hébergement insolite de luxe",
       "slug": "5-etoiles-hebergement-insolite-luxe",
       "department": "Côtes-d'Armor",
-      "categories": ["logement_insolite"],
+      "categories": [
+        "logement_insolite"
+      ],
       "lat": 48.603232599788626,
       "lng": -2.5044843261623124,
       "shortDescription": "Hébergement insolite de luxe 5 *, pour une escapade unique : spa privatif, déco raffinée, confort haut de gamme et cadre exceptionnel pour un séjour intimiste.",
@@ -1286,14 +1615,23 @@
       "address": "22000 Côtes-d'Armor",
       "website": "https://www.booking.com/Share-Uzt74lJ",
       "phone": "",
-      "tags": ["5 étoiles", "hébergement insolite", "spa privatif", "luxe", "design", "romantique"]
+      "tags": [
+        "5 étoiles",
+        "hébergement insolite",
+        "spa privatif",
+        "luxe",
+        "design",
+        "romantique"
+      ]
     },
     {
       "id": "domaine-du-treuscoat",
       "title": "Domaine du Treuscoat",
       "slug": "domaine-du-treuscoat",
       "department": "Finistère",
-      "categories": ["logement_insolite"],
+      "categories": [
+        "logement_insolite"
+      ],
       "lat": 48.53835115162458,
       "lng": -3.8542899832318653,
       "shortDescription": "Domaine du Treuscoat, hébergements insolites en Finistère : cabanes perchées, yourtes, Nid'Île, spa & sauna, parc de loisirs en pleine nature près de Morlaix.",
@@ -1309,14 +1647,25 @@
       "address": "29410 Pleyber-Christ",
       "website": "https://www.domaine-treuscoat.fr/",
       "phone": "",
-      "tags": ["cabanes perchées", "yourtes", "Nid'Île", "spa", "sauna", "63 hectares", "tourisme durable", "Morlaix"]
+      "tags": [
+        "cabanes perchées",
+        "yourtes",
+        "Nid'Île",
+        "spa",
+        "sauna",
+        "63 hectares",
+        "tourisme durable",
+        "Morlaix"
+      ]
     },
     {
       "id": "les-cabanes-de-koaddour",
       "title": "Les Cabanes de Koad'dour",
       "slug": "les-cabanes-de-koaddour",
       "department": "Ille-et-Vilaine",
-      "categories": ["logement_insolite"],
+      "categories": [
+        "logement_insolite"
+      ],
       "lat": 48.47360666658317,
       "lng": -1.3438097134831417,
       "shortDescription": "Cabanes Koad'dour Coglais : cabane arbres spa jacuzzi îlot étang, chalet pilotis privatif, Mont-Saint-Michel 30min, séjour romantique adultes, pêche nature, hébergement insolite Ille-et-Vilaine luxe.",
@@ -1332,14 +1681,25 @@
       "address": "35460 Les Portes du Coglais",
       "website": "https://www.lescabanesdekoaddour.com/",
       "phone": "",
-      "tags": ["cabanes dans les arbres", "jacuzzi privatif", "étang privé", "adultes only", "Mont-Saint-Michel", "artisanal", "romantique", "pêche"]
+      "tags": [
+        "cabanes dans les arbres",
+        "jacuzzi privatif",
+        "étang privé",
+        "adultes only",
+        "Mont-Saint-Michel",
+        "artisanal",
+        "romantique",
+        "pêche"
+      ]
     },
     {
       "id": "nuances-dalcoves",
       "title": "Nuances d'Alcôves",
       "slug": "nuances-dalcoves",
       "department": "Côtes-d'Armor",
-      "categories": ["logement_insolite"],
+      "categories": [
+        "logement_insolite"
+      ],
       "lat": 48.40059674900494,
       "lng": -2.0738317816668324,
       "shortDescription": "Nuances d'Alcôves Trévron : love gîte 140m² spa jacuzzi privatif, décor baroque glamour, pole dance massage, Côte d'Émeraude 20km, Mont-Saint-Michel 45min, séjour romantique adultes exclusif Bretagne.",
@@ -1355,14 +1715,26 @@
       "address": "22100 Trévron",
       "website": "https://www.booking.com/Share-vN8h5Q",
       "phone": "",
-      "tags": ["love gîte", "jacuzzi privatif", "baroque chic", "adultes only", "pole dance", "massage", "140m²", "Côte d'Émeraude", "Dinan"]
+      "tags": [
+        "love gîte",
+        "jacuzzi privatif",
+        "baroque chic",
+        "adultes only",
+        "pole dance",
+        "massage",
+        "140m²",
+        "Côte d'Émeraude",
+        "Dinan"
+      ]
     },
     {
       "id": "plage-du-ris-douarnenez",
       "title": "Plage du Ris",
       "slug": "plage-du-ris-douarnenez",
       "department": "Finistère",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 48.0912,
       "lng": -4.3009,
       "shortDescription": "Plage du Ris, grande plage de sable à Douarnenez : spot familial avec vue sur la baie, surf, baignade et balades au bord de l'eau.",
@@ -1378,16 +1750,24 @@
       "address": "29100 Douarnenez",
       "website": "",
       "phone": "",
-      "tags": ["plage", "surf", "familial", "baignade", "sable fin"]
+      "tags": [
+        "plage",
+        "surf",
+        "familial",
+        "baignade",
+        "sable fin"
+      ]
     },
     {
       "id": "plage-pointe-torche",
       "title": "Plage de la Pointe de la Torche",
       "slug": "plage-pointe-torche",
       "department": "Finistère",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 47.8369,
-      "lng": -4.3550,
+      "lng": -4.355,
       "shortDescription": "Plage de la Torche : spot mythique du Finistère pour surf et sports de glisse, vaste plage sauvage entourée de dunes.",
       "description": "La Plage de la Torche est une référence mondiale pour le surf, le kitesurf et le windsurf. Cette immense plage sauvage bordée de dunes offre un décor naturel exceptionnel. Très fréquentée par les sportifs, elle attire aussi les promeneurs pour ses paysages grandioses et ses couchers de soleil.",
       "image": "assets/img/plage-pointe-torche-1.jpg",
@@ -1401,14 +1781,23 @@
       "address": "29120 Plomeur",
       "website": "",
       "phone": "",
-      "tags": ["plage", "surf", "kitesurf", "windsurf", "sauvage", "dunes"]
+      "tags": [
+        "plage",
+        "surf",
+        "kitesurf",
+        "windsurf",
+        "sauvage",
+        "dunes"
+      ]
     },
     {
       "id": "plage-saint-michel-montiers",
       "title": "Plage Saint-Michel et Les Montiers",
       "slug": "plage-saint-michel-montiers",
       "department": "Côtes-d'Armor",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 48.6316,
       "lng": -2.5446,
       "shortDescription": "Plage Saint-Michel et Les Montiers, à Erquy : sable fin, eaux claires et petit îlot accessible à marée basse.",
@@ -1424,14 +1813,22 @@
       "address": "22430 Erquy",
       "website": "",
       "phone": "",
-      "tags": ["plage", "îlot", "chapelle", "familial", "sable fin"]
+      "tags": [
+        "plage",
+        "îlot",
+        "chapelle",
+        "familial",
+        "sable fin"
+      ]
     },
     {
       "id": "plage-du-sillon-saint-malo",
       "title": "Plage du Sillon",
       "slug": "plage-du-sillon-saint-malo",
       "department": "Ille-et-Vilaine",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 48.656679870653,
       "lng": -2.005778505711468,
       "shortDescription": "Plage du Sillon (Saint-Malo), élue parmi les plus belles plages d'Europe : sable fin, digue, marées spectaculaires et panorama sur l'intra-muros.",
@@ -1447,16 +1844,24 @@
       "address": "35400 Saint-Malo",
       "website": "",
       "phone": "",
-      "tags": ["plage", "emblématique", "digue", "marées", "Saint-Malo"]
+      "tags": [
+        "plage",
+        "emblématique",
+        "digue",
+        "marées",
+        "Saint-Malo"
+      ]
     },
     {
       "id": "plage-mine-or-penestin",
       "title": "Plage de la Mine d'Or",
       "slug": "plage-mine-or-penestin",
       "department": "Morbihan",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 47.4749,
-      "lng": -2.4900,
+      "lng": -2.49,
       "shortDescription": "Plage de la Mine d'Or, Pénestin : falaise dorée spectaculaire, sable fin et panorama unique sur l'océan.",
       "description": "La Plage de la Mine d'Or est célèbre pour ses falaises ocre dorées, uniques en Bretagne. Classée site naturel, elle s'étend sur plusieurs kilomètres et offre un décor spectaculaire. C'est un lieu parfait pour la promenade, la détente et la photographie, notamment au coucher du soleil.",
       "image": "assets/img/plage-mine-or-penestin-1.jpg",
@@ -1470,16 +1875,23 @@
       "address": "56760 Pénestin",
       "website": "",
       "phone": "",
-      "tags": ["plage", "falaises dorées", "coucher soleil", "spectaculaire"]
+      "tags": [
+        "plage",
+        "falaises dorées",
+        "coucher soleil",
+        "spectaculaire"
+      ]
     },
     {
       "id": "plage-tahiti-nevez",
       "title": "Plage de Tahiti – Anse de Rospico",
       "slug": "plage-tahiti-nevez",
       "department": "Finistère",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 47.7909,
-      "lng": -3.7890,
+      "lng": -3.789,
       "shortDescription": "Plage de Tahiti – Anse de Rospico, Névez : crique paradisiaque, sable blanc, eau turquoise, accessible et familiale.",
       "description": "La Plage de Tahiti à Névez, aussi appelée Anse de Rospico, est une petite crique paradisiaque aux allures de lagon. Son sable blanc et son eau turquoise rappellent les tropiques. Facile d'accès et sécurisée, elle est parfaite pour les familles et les amoureux des paysages préservés.",
       "image": "assets/img/plage-tahiti-nevez-1.jpg",
@@ -1493,14 +1905,22 @@
       "address": "29920 Névez",
       "website": "",
       "phone": "",
-      "tags": ["plage", "paradisiaque", "turquoise", "familiale", "lagon"]
+      "tags": [
+        "plage",
+        "paradisiaque",
+        "turquoise",
+        "familiale",
+        "lagon"
+      ]
     },
     {
       "id": "plage-comtesse-saint-quay",
       "title": "Plage de la Comtesse",
       "slug": "plage-comtesse-saint-quay",
       "department": "Côtes-d'Armor",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 48.6449,
       "lng": -2.8293,
       "shortDescription": "Plage de la Comtesse, à Saint-Quay-Portrieux : plage familiale avec îlot accessible à marée basse et ambiance conviviale.",
@@ -1516,14 +1936,22 @@
       "address": "22410 Saint-Quay-Portrieux",
       "website": "",
       "phone": "",
-      "tags": ["plage", "familiale", "îlot", "surveillée", "centre-ville"]
+      "tags": [
+        "plage",
+        "familiale",
+        "îlot",
+        "surveillée",
+        "centre-ville"
+      ]
     },
     {
       "id": "plage-grands-sables-groix",
       "title": "Plage des Grands Sables",
       "slug": "plage-grands-sables-groix",
       "department": "Morbihan",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 47.6338,
       "lng": -3.4387,
       "shortDescription": "Plage des Grands Sables (Île de Groix) : rare plage convexe d'Europe, sable blanc et eau turquoise dans un cadre insulaire unique.",
@@ -1539,14 +1967,22 @@
       "address": "56590 Île de Groix",
       "website": "",
       "phone": "",
-      "tags": ["plage", "convexe", "insulaire", "turquoise", "unique"]
+      "tags": [
+        "plage",
+        "convexe",
+        "insulaire",
+        "turquoise",
+        "unique"
+      ]
     },
     {
       "id": "plage-treac-h-er-gored-houat",
       "title": "Plage de Tréac'h Er Gored",
       "slug": "plage-treac-h-er-gored-houat",
       "department": "Morbihan",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 47.3906,
       "lng": -2.9512,
       "shortDescription": "Plage de Tréac'h Er Gored, Île d'Houat : vaste plage familiale idéale pour baignade, pêche à pied et sports nautiques.",
@@ -1562,14 +1998,22 @@
       "address": "56170 Île d'Houat",
       "website": "",
       "phone": "",
-      "tags": ["plage", "insulaire", "familiale", "sports nautiques", "pêche"]
+      "tags": [
+        "plage",
+        "insulaire",
+        "familiale",
+        "sports nautiques",
+        "pêche"
+      ]
     },
     {
       "id": "plage-bon-secours-saint-malo",
       "title": "Plage de Bon Secours",
       "slug": "plage-bon-secours-saint-malo",
       "department": "Ille-et-Vilaine",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 48.6496,
       "lng": -2.0251,
       "shortDescription": "Plage de Bon Secours (Saint-Malo) : piscine d'eau de mer, vue sur les îlots et ambiance familiale aux portes de l'intra-muros.",
@@ -1585,14 +2029,22 @@
       "address": "35400 Saint-Malo",
       "website": "",
       "phone": "",
-      "tags": ["plage", "piscine eau mer", "remparts", "îlots", "Saint-Malo"]
+      "tags": [
+        "plage",
+        "piscine eau mer",
+        "remparts",
+        "îlots",
+        "Saint-Malo"
+      ]
     },
     {
       "id": "plage-trevignon-tregunc",
       "title": "Plage de Trévignon",
       "slug": "plage-trevignon-tregunc",
       "department": "Finistère",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 47.8078,
       "lng": -3.8624,
       "shortDescription": "Plage de Trévignon (Trégunc, Finistère) : sable blanc, eau turquoise et vue sur les îlots du littoral breton.",
@@ -1608,14 +2060,22 @@
       "address": "29910 Trégunc",
       "website": "",
       "phone": "",
-      "tags": ["plage", "turquoise", "dunes", "îlots", "panorama"]
+      "tags": [
+        "plage",
+        "turquoise",
+        "dunes",
+        "îlots",
+        "panorama"
+      ]
     },
     {
       "id": "plage-coz-pors-tregastel",
       "title": "Plage du Coz-Pors",
       "slug": "plage-coz-pors-tregastel",
       "department": "Côtes-d'Armor",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 48.8272,
       "lng": -3.5058,
       "shortDescription": "Plage du Coz-Pors (Trégastel) : plage vivante avec aquarium marin, club nautique et ambiance familiale sur la Côte de Granit Rose.",
@@ -1631,14 +2091,22 @@
       "address": "22730 Trégastel",
       "website": "",
       "phone": "",
-      "tags": ["plage", "aquarium", "nautique", "granit rose", "familiale"]
+      "tags": [
+        "plage",
+        "aquarium",
+        "nautique",
+        "granit rose",
+        "familiale"
+      ]
     },
     {
       "id": "plage-herlin-groix",
       "title": "Plage d'Herlin",
       "slug": "plage-herlin-groix",
       "department": "Morbihan",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 47.6146,
       "lng": -3.4719,
       "shortDescription": "Plage d'Herlin (Île de Groix) : crique sauvage, sable fin et falaises impressionnantes, parfaite pour les amoureux de nature.",
@@ -1654,14 +2122,22 @@
       "address": "56590 Île de Groix",
       "website": "",
       "phone": "",
-      "tags": ["plage", "crique", "sauvage", "falaises", "nature"]
+      "tags": [
+        "plage",
+        "crique",
+        "sauvage",
+        "falaises",
+        "nature"
+      ]
     },
     {
       "id": "plage-ile-saint-nicolas-glenan",
       "title": "Plage de l'Île Saint-Nicolas",
       "slug": "plage-ile-saint-nicolas-glenan",
       "department": "Finistère",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 47.7135,
       "lng": -3.9666,
       "shortDescription": "Plage de l'Île Saint-Nicolas (Glénan) : sable blanc et eaux turquoise, véritable lagon breton au large du Finistère.",
@@ -1677,16 +2153,24 @@
       "address": "29170 Fouesnant",
       "website": "",
       "phone": "",
-      "tags": ["plage", "archipel", "lagon", "tropicaux", "bateau"]
+      "tags": [
+        "plage",
+        "archipel",
+        "lagon",
+        "tropicaux",
+        "bateau"
+      ]
     },
     {
       "id": "grande-plage-ile-aux-moines",
       "title": "Grande Plage de l'Île aux Moines",
       "slug": "grande-plage-ile-aux-moines",
       "department": "Morbihan",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 47.5905,
-      "lng": -2.8550,
+      "lng": -2.855,
       "shortDescription": "Grande Plage de l'Île aux Moines : plage familiale orientée sud, sable fin et vue sur le Golfe du Morbihan.",
       "description": "La Grande Plage de l'Île aux Moines est la plus fréquentée de l'île. Orientée plein sud, elle offre un sable fin et une vue splendide sur le Golfe du Morbihan. Avec ses eaux calmes et son ambiance conviviale, elle séduit familles et vacanciers.",
       "image": "assets/img/grande-plage-ile-aux-moines-1.jpg",
@@ -1700,16 +2184,24 @@
       "address": "56780 Île-aux-Moines",
       "website": "",
       "phone": "",
-      "tags": ["plage", "golfe", "sud", "familiale", "calmes"]
+      "tags": [
+        "plage",
+        "golfe",
+        "sud",
+        "familiale",
+        "calmes"
+      ]
     },
     {
       "id": "plage-fond-baie-locquirec",
       "title": "Plage du Fond de la Baie",
       "slug": "plage-fond-baie-locquirec",
       "department": "Finistère",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 48.6855,
-      "lng": -3.6330,
+      "lng": -3.633,
       "shortDescription": "Plage du Fond de la Baie, Locquirec : plage familiale abritée, idéale pour baignade et pêche à pied.",
       "description": "La Plage du Fond de la Baie, à Locquirec, est une grande plage abritée des vents, parfaite pour les familles. On y pratique la baignade, la pêche à pied et les balades. Son cadre naturel et paisible en fait un site apprécié de tous.",
       "image": "assets/img/plage-fond-baie-locquirec-1.jpg",
@@ -1723,14 +2215,22 @@
       "address": "29241 Locquirec",
       "website": "",
       "phone": "",
-      "tags": ["plage", "abritée", "familiale", "pêche", "paisible"]
+      "tags": [
+        "plage",
+        "abritée",
+        "familiale",
+        "pêche",
+        "paisible"
+      ]
     },
     {
       "id": "crique-ile-houat",
       "title": "Les criques de l'Île d'Houat",
       "slug": "crique-ile-houat",
       "department": "Morbihan",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 47.3927,
       "lng": -2.9585,
       "shortDescription": "Île d'Houat (Morbihan) : petites criques sauvages, sable blanc et eau turquoise pour une évasion insulaire préservée.",
@@ -1746,15 +2246,23 @@
       "address": "56170 Île d'Houat",
       "website": "",
       "phone": "",
-      "tags": ["plage", "criques", "insulaire", "préservée", "évasion"]
+      "tags": [
+        "plage",
+        "criques",
+        "insulaire",
+        "préservée",
+        "évasion"
+      ]
     },
     {
       "id": "plage-trois-cures-plougonvelin",
       "title": "Plage des Trois-Curés",
       "slug": "plage-trois-cures-plougonvelin",
       "department": "Finistère",
-      "categories": ["plage"],
-      "lat": 48.3430,
+      "categories": [
+        "plage"
+      ],
+      "lat": 48.343,
       "lng": -4.7013,
       "shortDescription": "Plage des Trois-Curés (Plougonvelin) : plage familiale, sable fin, jeux pour enfants et ambiance conviviale.",
       "description": "La Plage des Trois-Curés, à Plougonvelin, est une petite plage de sable fin très appréciée des familles. Surveillée en été, elle dispose d'aires de jeux et d'un cadre calme et agréable. Idéale pour une journée en bord de mer.",
@@ -1769,16 +2277,24 @@
       "address": "29217 Plougonvelin",
       "website": "",
       "phone": "",
-      "tags": ["plage", "familiale", "jeux", "surveillée", "calme"]
+      "tags": [
+        "plage",
+        "familiale",
+        "jeux",
+        "surveillée",
+        "calme"
+      ]
     },
     {
       "id": "plage-pissot-pleneuf-val-andre",
       "title": "Plage du Pissot",
       "slug": "plage-pissot-pleneuf-val-andre",
       "department": "Côtes-d'Armor",
-      "categories": ["plage"],
+      "categories": [
+        "plage"
+      ],
       "lat": 48.5937,
-      "lng": -2.5320,
+      "lng": -2.532,
       "shortDescription": "Plage du Pissot (Pléneuf-Val-André) : plage tranquille de sable fin, cadre naturel préservé et idéal pour balades.",
       "description": "La Plage du Pissot, à Pléneuf-Val-André, est une plage plus sauvage et préservée que la grande plage voisine. Avec son sable fin et son cadre naturel, elle est parfaite pour les balades, la baignade et la détente en toute tranquillité.",
       "image": "assets/img/plage-pissot-pleneuf-val-andre-1.jpg",
@@ -1792,14 +2308,22 @@
       "address": "22370 Pléneuf-Val-André",
       "website": "",
       "phone": "",
-      "tags": ["plage", "tranquille", "sauvage", "préservée", "balades"]
+      "tags": [
+        "plage",
+        "tranquille",
+        "sauvage",
+        "préservée",
+        "balades"
+      ]
     },
     {
       "id": "locronan",
       "title": "Locronan",
       "slug": "locronan",
       "department": "Finistère",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 48.0975,
       "lng": -4.2086,
       "shortDescription": "Locronan, village médiéval du Finistère : granit, ruelles pavées, église gothique et patrimoine classé parmi les Plus Beaux Villages de France.",
@@ -1815,14 +2339,22 @@
       "address": "29180 Locronan",
       "website": "",
       "phone": "",
-      "tags": ["village", "médiéval", "granit", "patrimoine", "artisanat"]
+      "tags": [
+        "village",
+        "médiéval",
+        "granit",
+        "patrimoine",
+        "artisanat"
+      ]
     },
     {
       "id": "rochefort-en-terre",
       "title": "Rochefort-en-Terre",
       "slug": "rochefort-en-terre",
       "department": "Morbihan",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 47.6986,
       "lng": -2.3378,
       "shortDescription": "Rochefort-en-Terre, élu Plus Beau Village de France : cité médiévale fleurie, maisons à pans de bois et ruelles pittoresques pleines de charme.",
@@ -1838,14 +2370,22 @@
       "address": "56220 Rochefort-en-Terre",
       "website": "",
       "phone": "",
-      "tags": ["village", "médiéval", "fleuri", "château", "artisanat"]
+      "tags": [
+        "village",
+        "médiéval",
+        "fleuri",
+        "château",
+        "artisanat"
+      ]
     },
     {
       "id": "saint-suliac",
       "title": "Saint-Suliac",
       "slug": "saint-suliac",
       "department": "Ille-et-Vilaine",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 48.5735,
       "lng": -2.0172,
       "shortDescription": "Saint-Suliac, ancien village de pêcheurs sur la Rance : maisons en granit, filets accrochés aux façades et atmosphère maritime authentique.",
@@ -1861,15 +2401,23 @@
       "address": "35430 Saint-Suliac",
       "website": "",
       "phone": "",
-      "tags": ["village", "pêcheurs", "granit", "maritime", "rance"]
+      "tags": [
+        "village",
+        "pêcheurs",
+        "granit",
+        "maritime",
+        "rance"
+      ]
     },
     {
       "id": "moncontour",
       "title": "Moncontour",
       "slug": "moncontour",
       "department": "Côtes-d'Armor",
-      "categories": ["village"],
-      "lat": 48.3580,
+      "categories": [
+        "village"
+      ],
+      "lat": 48.358,
       "lng": -2.6338,
       "shortDescription": "Moncontour, cité médiévale fortifiée des Côtes-d'Armor : remparts imposants, maisons anciennes et charme classé Plus Beaux Villages de France.",
       "description": "Perchée sur une colline, la cité médiévale de Moncontour fait partie des Plus Beaux Villages de France. Elle impressionne par ses remparts massifs, ses tours de défense et ses maisons anciennes qui témoignent de son glorieux passé. Ancien centre du commerce de la toile, elle garde aujourd'hui l'allure d'une ville fortifiée.\nEn parcourant ses ruelles pavées, on découvre une ambiance médiévale préservée, ponctuée de cafés, boutiques et galeries. Avec son patrimoine riche et son atmosphère authentique, Moncontour incarne une Bretagne historique et vivante.",
@@ -1884,14 +2432,22 @@
       "address": "22510 Moncontour",
       "website": "",
       "phone": "",
-      "tags": ["village", "médiéval", "fortifié", "remparts", "patrimoine"]
+      "tags": [
+        "village",
+        "médiéval",
+        "fortifié",
+        "remparts",
+        "patrimoine"
+      ]
     },
     {
       "id": "le-faou",
       "title": "Le Faou",
       "slug": "le-faou",
       "department": "Finistère",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 48.2936,
       "lng": -4.1769,
       "shortDescription": "Le Faou, petit port pittoresque du Finistère : maisons à colombages, quais charmants et atmosphère paisible.",
@@ -1907,14 +2463,22 @@
       "address": "29590 Le Faou",
       "website": "",
       "phone": "",
-      "tags": ["village", "port", "colombages", "patrimoine", "crozon"]
+      "tags": [
+        "village",
+        "port",
+        "colombages",
+        "patrimoine",
+        "crozon"
+      ]
     },
     {
       "id": "la-roche-bernard",
       "title": "La Roche-Bernard",
       "slug": "la-roche-bernard",
       "department": "Morbihan",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 47.5186,
       "lng": -2.2996,
       "shortDescription": "La Roche-Bernard, cité de caractère du Morbihan : vieux port, quartier historique et riche patrimoine maritime.",
@@ -1930,14 +2494,22 @@
       "address": "56130 La Roche-Bernard",
       "website": "",
       "phone": "",
-      "tags": ["village", "port", "maritime", "patrimoine", "vilaine"]
+      "tags": [
+        "village",
+        "port",
+        "maritime",
+        "patrimoine",
+        "vilaine"
+      ]
     },
     {
       "id": "ploumanach",
       "title": "Ploumanac'h",
       "slug": "ploumanach",
       "department": "Côtes-d'Armor",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 48.8263,
       "lng": -3.4681,
       "shortDescription": "Ploumanac'h, hameau typique de Perros-Guirec : chaos de granit rose, port pittoresque et cadre naturel exceptionnel.",
@@ -1953,14 +2525,22 @@
       "address": "22700 Perros-Guirec",
       "website": "",
       "phone": "",
-      "tags": ["village", "granit rose", "port", "randonnée", "gr34"]
+      "tags": [
+        "village",
+        "granit rose",
+        "port",
+        "randonnée",
+        "gr34"
+      ]
     },
     {
       "id": "pont-aven",
       "title": "Pont-Aven",
       "slug": "pont-aven",
       "department": "Finistère",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 47.8558,
       "lng": -3.7443,
       "shortDescription": "Pont-Aven, cité des peintres : moulins pittoresques, rivière bucolique et héritage artistique de Gauguin.",
@@ -1976,14 +2556,22 @@
       "address": "29930 Pont-Aven",
       "website": "",
       "phone": "",
-      "tags": ["village", "peintres", "gauguin", "moulins", "art"]
+      "tags": [
+        "village",
+        "peintres",
+        "gauguin",
+        "moulins",
+        "art"
+      ]
     },
     {
       "id": "roscoff",
       "title": "Roscoff",
       "slug": "roscoff",
       "department": "Finistère",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 48.7265,
       "lng": -3.9875,
       "shortDescription": "Roscoff, cité corsaire du Finistère : port pittoresque, maisons d'armateurs et ambiance maritime typique.",
@@ -1999,14 +2587,22 @@
       "address": "29680 Roscoff",
       "website": "",
       "phone": "",
-      "tags": ["village", "corsaire", "port", "maritime", "thalasso"]
+      "tags": [
+        "village",
+        "corsaire",
+        "port",
+        "maritime",
+        "thalasso"
+      ]
     },
     {
       "id": "dol-de-bretagne",
       "title": "Dol-de-Bretagne",
       "slug": "dol-de-bretagne",
       "department": "Ille-et-Vilaine",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 48.5477,
       "lng": -1.7555,
       "shortDescription": "Dol-de-Bretagne, cité médiévale d'Ille-et-Vilaine : cathédrale gothique, maisons anciennes et ruelles pittoresques.",
@@ -2022,14 +2618,22 @@
       "address": "35120 Dol-de-Bretagne",
       "website": "",
       "phone": "",
-      "tags": ["village", "médiéval", "cathédrale", "gothique", "patrimoine"]
+      "tags": [
+        "village",
+        "médiéval",
+        "cathédrale",
+        "gothique",
+        "patrimoine"
+      ]
     },
     {
       "id": "saint-goustan",
       "title": "Saint-Goustan",
       "slug": "saint-goustan",
       "department": "Morbihan",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 47.6692,
       "lng": -2.9889,
       "shortDescription": "Saint-Goustan (Auray) : port historique pavé, maisons à pans de bois et ambiance médiévale.",
@@ -2045,14 +2649,22 @@
       "address": "56400 Auray",
       "website": "",
       "phone": "",
-      "tags": ["village", "port", "médiéval", "pans de bois", "auray"]
+      "tags": [
+        "village",
+        "port",
+        "médiéval",
+        "pans de bois",
+        "auray"
+      ]
     },
     {
       "id": "ile-de-sein",
       "title": "Île-de-Sein",
       "slug": "ile-de-sein",
       "department": "Finistère",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 48.0392,
       "lng": -4.8442,
       "shortDescription": "Île-de-Sein : village de pêcheurs au bout du monde, atmosphère unique et paysages maritimes authentiques.",
@@ -2068,14 +2680,22 @@
       "address": "29990 Île-de-Sein",
       "website": "",
       "phone": "",
-      "tags": ["village", "île", "pêcheurs", "maritime", "authentique"]
+      "tags": [
+        "village",
+        "île",
+        "pêcheurs",
+        "maritime",
+        "authentique"
+      ]
     },
     {
       "id": "treguier",
       "title": "Tréguier",
       "slug": "treguier",
       "department": "Côtes-d'Armor",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 48.7867,
       "lng": -3.2303,
       "shortDescription": "Tréguier, Petite Cité de Caractère : cathédrale gothique, cloître et ruelles fleuries.",
@@ -2091,14 +2711,22 @@
       "address": "22220 Tréguier",
       "website": "",
       "phone": "",
-      "tags": ["village", "cathédrale", "cloître", "patrimoine", "tregor"]
+      "tags": [
+        "village",
+        "cathédrale",
+        "cloître",
+        "patrimoine",
+        "tregor"
+      ]
     },
     {
       "id": "paimpol",
       "title": "Paimpol",
       "slug": "paimpol",
       "department": "Côtes-d'Armor",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 48.7771,
       "lng": -3.0446,
       "shortDescription": "Paimpol, port de pêche pittoresque : vieux quartiers maritimes, maisons anciennes et ambiance authentique.",
@@ -2114,14 +2742,22 @@
       "address": "22500 Paimpol",
       "website": "",
       "phone": "",
-      "tags": ["village", "port", "pêche", "maritime", "brehat"]
+      "tags": [
+        "village",
+        "port",
+        "pêche",
+        "maritime",
+        "brehat"
+      ]
     },
     {
       "id": "quimperle",
       "title": "Quimperlé",
       "slug": "quimperle",
       "department": "Finistère",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 47.8709,
       "lng": -3.5483,
       "shortDescription": "Quimperlé : cité ancienne du Finistère, trois quartiers pittoresques et riche patrimoine religieux.",
@@ -2137,14 +2773,22 @@
       "address": "29300 Quimperlé",
       "website": "",
       "phone": "",
-      "tags": ["village", "cité", "patrimoine", "religieux", "abbatiale"]
+      "tags": [
+        "village",
+        "cité",
+        "patrimoine",
+        "religieux",
+        "abbatiale"
+      ]
     },
     {
       "id": "cancale",
       "title": "Cancale",
       "slug": "cancale",
       "department": "Ille-et-Vilaine",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 48.6757,
       "lng": -1.8521,
       "shortDescription": "Cancale, village ostréicole : port pittoresque, huîtres célèbres et vue sur la baie du Mont-Saint-Michel.",
@@ -2160,14 +2804,22 @@
       "address": "35260 Cancale",
       "website": "",
       "phone": "",
-      "tags": ["village", "ostréicole", "huîtres", "port", "mont-saint-michel"]
+      "tags": [
+        "village",
+        "ostréicole",
+        "huîtres",
+        "port",
+        "mont-saint-michel"
+      ]
     },
     {
       "id": "guerande",
       "title": "Guérande",
       "slug": "guerande",
       "department": "Loire-Atlantique",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 47.3277,
       "lng": -2.4294,
       "shortDescription": "Guérande, cité médiévale fortifiée : remparts préservés, ruelles pavées et marais salants emblématiques.",
@@ -2183,14 +2835,22 @@
       "address": "44350 Guérande",
       "website": "",
       "phone": "",
-      "tags": ["village", "médiéval", "remparts", "marais salants", "fortifié"]
+      "tags": [
+        "village",
+        "médiéval",
+        "remparts",
+        "marais salants",
+        "fortifié"
+      ]
     },
     {
       "id": "le-croisic",
       "title": "Le Croisic",
       "slug": "le-croisic",
       "department": "Loire-Atlantique",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 47.2928,
       "lng": -2.5142,
       "shortDescription": "Le Croisic, ancien port de pêche : maisons anciennes, quais pittoresques et charme maritime.",
@@ -2206,14 +2866,22 @@
       "address": "44490 Le Croisic",
       "website": "",
       "phone": "",
-      "tags": ["village", "port", "pêche", "maritime", "balnéaire"]
+      "tags": [
+        "village",
+        "port",
+        "pêche",
+        "maritime",
+        "balnéaire"
+      ]
     },
     {
       "id": "batz-sur-mer",
       "title": "Batz-sur-Mer",
       "slug": "batz-sur-mer",
       "department": "Loire-Atlantique",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 47.2759,
       "lng": -2.4695,
       "shortDescription": "Batz-sur-Mer : village typique entre marais salants et mer, maisons en granit et patrimoine préservé.",
@@ -2229,14 +2897,22 @@
       "address": "44740 Batz-sur-Mer",
       "website": "",
       "phone": "",
-      "tags": ["village", "marais salants", "granit", "patrimoine", "guérande"]
+      "tags": [
+        "village",
+        "marais salants",
+        "granit",
+        "patrimoine",
+        "guérande"
+      ]
     },
     {
       "id": "pornic",
       "title": "Pornic",
       "slug": "pornic",
       "department": "Loire-Atlantique",
-      "categories": ["village"],
+      "categories": [
+        "village"
+      ],
       "lat": 47.1158,
       "lng": -2.1019,
       "shortDescription": "Pornic, station balnéaire : vieux port pittoresque, château dominant la ria et ruelles animées.",
@@ -2252,14 +2928,22 @@
       "address": "44210 Pornic",
       "website": "",
       "phone": "",
-      "tags": ["village", "station balnéaire", "port", "château", "atlantique"]
+      "tags": [
+        "village",
+        "station balnéaire",
+        "port",
+        "château",
+        "atlantique"
+      ]
     },
     {
       "id": "chateau-fougeres",
       "title": "Château de Fougères",
       "slug": "chateau-fougeres",
       "department": "Ille-et-Vilaine",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.3503,
       "lng": -1.2006,
       "shortDescription": "Château de Fougères : l'une des plus grandes forteresses médiévales d'Europe, 13 tours massives et immersion dans l'histoire bretonne.",
@@ -2275,14 +2959,22 @@
       "address": "35300 Fougères",
       "website": "",
       "phone": "",
-      "tags": ["château", "médiéval", "forteresse", "tours", "patrimoine"]
+      "tags": [
+        "château",
+        "médiéval",
+        "forteresse",
+        "tours",
+        "patrimoine"
+      ]
     },
     {
       "id": "chateau-vitre",
       "title": "Château de Vitré",
       "slug": "chateau-vitre",
       "department": "Ille-et-Vilaine",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.1246,
       "lng": -1.2128,
       "shortDescription": "Château de Vitré : impressionnant château médiéval dominant la ville, symbole de la puissance bretonne au Moyen Âge.",
@@ -2298,14 +2990,22 @@
       "address": "35500 Vitré",
       "website": "",
       "phone": "",
-      "tags": ["château", "médiéval", "forteresse", "musée", "patrimoine"]
+      "tags": [
+        "château",
+        "médiéval",
+        "forteresse",
+        "musée",
+        "patrimoine"
+      ]
     },
     {
       "id": "chateau-josselin",
       "title": "Château de Josselin",
       "slug": "chateau-josselin",
       "department": "Morbihan",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 47.9552,
       "lng": -2.5494,
       "shortDescription": "Château de Josselin : chef-d'œuvre féodal et Renaissance, surplombant l'Oust, toujours habité par la famille Rohan.",
@@ -2321,14 +3021,22 @@
       "address": "56120 Josselin",
       "website": "",
       "phone": "",
-      "tags": ["château", "renaissance", "rohan", "jardins", "patrimoine"]
+      "tags": [
+        "château",
+        "renaissance",
+        "rohan",
+        "jardins",
+        "patrimoine"
+      ]
     },
     {
       "id": "chateau-suscinio",
       "title": "Château de Suscinio",
       "slug": "chateau-suscinio",
       "department": "Morbihan",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 47.5164,
       "lng": -2.7086,
       "shortDescription": "Château de Suscinio : résidence médiévale des ducs de Bretagne, forteresse en bord de mer entourée de marais et de forêts.",
@@ -2344,14 +3052,22 @@
       "address": "56370 Sarzeau",
       "website": "",
       "phone": "",
-      "tags": ["château", "ducs de bretagne", "océan", "médiéval", "patrimoine"]
+      "tags": [
+        "château",
+        "ducs de bretagne",
+        "océan",
+        "médiéval",
+        "patrimoine"
+      ]
     },
     {
       "id": "chateau-trecesson",
       "title": "Château de Trécesson",
       "slug": "chateau-trecesson",
       "department": "Morbihan",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 47.9206,
       "lng": -2.2622,
       "shortDescription": "Château de Trécesson : manoir médiéval entouré de légendes, niché au cœur de la forêt de Brocéliande.",
@@ -2367,14 +3083,22 @@
       "address": "56800 Campénéac",
       "website": "",
       "phone": "",
-      "tags": ["château", "légendes", "brocéliande", "médiéval", "mystérieux"]
+      "tags": [
+        "château",
+        "légendes",
+        "brocéliande",
+        "médiéval",
+        "mystérieux"
+      ]
     },
     {
       "id": "chateau-combourg",
       "title": "Château de Combourg",
       "slug": "chateau-combourg",
       "department": "Ille-et-Vilaine",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.4136,
       "lng": -1.7461,
       "shortDescription": "Château de Combourg : imposante forteresse romantique, associée à l'écrivain Chateaubriand.",
@@ -2390,14 +3114,22 @@
       "address": "35270 Combourg",
       "website": "",
       "phone": "",
-      "tags": ["château", "romantique", "chateaubriand", "littérature", "patrimoine"]
+      "tags": [
+        "château",
+        "romantique",
+        "chateaubriand",
+        "littérature",
+        "patrimoine"
+      ]
     },
     {
       "id": "chateau-dinan",
       "title": "Château de Dinan",
       "slug": "chateau-dinan",
       "department": "Côtes-d'Armor",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.4547,
       "lng": -2.0417,
       "shortDescription": "Château de Dinan : tour massive intégrée aux remparts médiévaux, musée retraçant l'histoire de la ville.",
@@ -2413,14 +3145,22 @@
       "address": "22100 Dinan",
       "website": "",
       "phone": "",
-      "tags": ["château", "remparts", "médiéval", "musée", "rance"]
+      "tags": [
+        "château",
+        "remparts",
+        "médiéval",
+        "musée",
+        "rance"
+      ]
     },
     {
       "id": "chateau-tonquedec",
       "title": "Château de Tonquédec",
       "slug": "chateau-tonquedec",
       "department": "Côtes-d'Armor",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.7036,
       "lng": -3.3947,
       "shortDescription": "Château de Tonquédec : majestueuses ruines médiévales dans un cadre boisé, vestige des vicomtes de Coëtmen.",
@@ -2436,14 +3176,22 @@
       "address": "22140 Tonquédec",
       "website": "",
       "phone": "",
-      "tags": ["château", "ruines", "médiéval", "boisé", "romantique"]
+      "tags": [
+        "château",
+        "ruines",
+        "médiéval",
+        "boisé",
+        "romantique"
+      ]
     },
     {
       "id": "chateau-kerjean",
       "title": "Château de Kerjean",
       "slug": "chateau-kerjean",
       "department": "Finistère",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.6467,
       "lng": -4.3328,
       "shortDescription": "Château de Kerjean : élégante demeure Renaissance entourée de jardins, témoignage de la richesse des seigneurs du Léon.",
@@ -2459,14 +3207,22 @@
       "address": "29440 Saint-Vougay",
       "website": "",
       "phone": "",
-      "tags": ["château", "renaissance", "jardins", "culture", "léon"]
+      "tags": [
+        "château",
+        "renaissance",
+        "jardins",
+        "culture",
+        "léon"
+      ]
     },
     {
       "id": "chateau-du-taureau",
       "title": "Château du Taureau",
       "slug": "chateau-du-taureau",
       "department": "Finistère",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.7233,
       "lng": -3.8867,
       "shortDescription": "Château du Taureau : forteresse en mer, accessible en bateau, gardienne de la baie de Morlaix.",
@@ -2482,14 +3238,22 @@
       "address": "29600 Carantec",
       "website": "",
       "phone": "",
-      "tags": ["château", "maritime", "forteresse", "bateau", "morlaix"]
+      "tags": [
+        "château",
+        "maritime",
+        "forteresse",
+        "bateau",
+        "morlaix"
+      ]
     },
     {
       "id": "chateau-brest",
       "title": "Château de Brest",
       "slug": "chateau-brest",
       "department": "Finistère",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.3833,
       "lng": -4.4958,
       "shortDescription": "Château de Brest : forteresse millénaire abritant aujourd'hui le musée national de la Marine.",
@@ -2505,14 +3269,22 @@
       "address": "29200 Brest",
       "website": "",
       "phone": "",
-      "tags": ["château", "forteresse", "marine", "musée", "maritime"]
+      "tags": [
+        "château",
+        "forteresse",
+        "marine",
+        "musée",
+        "maritime"
+      ]
     },
     {
       "id": "chateau-la-hunaudaye",
       "title": "Château de la Hunaudaye",
       "slug": "chateau-la-hunaudaye",
       "department": "Côtes-d'Armor",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.4917,
       "lng": -2.2375,
       "shortDescription": "Château de la Hunaudaye : ruines médiévales impressionnantes au cœur d'un écrin de verdure.",
@@ -2528,14 +3300,22 @@
       "address": "22270 Plédéliac",
       "website": "",
       "phone": "",
-      "tags": ["château", "ruines", "médiéval", "verdure", "animations"]
+      "tags": [
+        "château",
+        "ruines",
+        "médiéval",
+        "verdure",
+        "animations"
+      ]
     },
     {
       "id": "chateau-kerguehennec",
       "title": "Château de Kerguéhennec",
       "slug": "chateau-kerguehennec",
       "department": "Morbihan",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 47.8583,
       "lng": -3.0306,
       "shortDescription": "Château de Kerguéhennec : surnommé le « Versailles breton », élégante demeure au cœur d'un parc de sculptures contemporaines.",
@@ -2551,14 +3331,22 @@
       "address": "56500 Bignan",
       "website": "",
       "phone": "",
-      "tags": ["château", "versailles breton", "art contemporain", "sculptures", "culture"]
+      "tags": [
+        "château",
+        "versailles breton",
+        "art contemporain",
+        "sculptures",
+        "culture"
+      ]
     },
     {
       "id": "chateau-quintin",
       "title": "Château de Quintin",
       "slug": "chateau-quintin",
       "department": "Côtes-d'Armor",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.4083,
       "lng": -2.9061,
       "shortDescription": "Château de Quintin : élégante demeure entre Moyen Âge et XVIIIe siècle, au cœur d'une cité historique.",
@@ -2574,14 +3362,22 @@
       "address": "22800 Quintin",
       "website": "",
       "phone": "",
-      "tags": ["château", "médiéval", "classique", "musée", "patrimoine"]
+      "tags": [
+        "château",
+        "médiéval",
+        "classique",
+        "musée",
+        "patrimoine"
+      ]
     },
     {
       "id": "chateau-pontivy",
       "title": "Château de Pontivy",
       "slug": "chateau-pontivy",
       "department": "Morbihan",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.0667,
       "lng": -2.9667,
       "shortDescription": "Château de Pontivy : imposante forteresse quadrangulaire construite par les Rohan, au cœur de la ville.",
@@ -2597,14 +3393,22 @@
       "address": "56300 Pontivy",
       "website": "",
       "phone": "",
-      "tags": ["château", "rohan", "forteresse", "quadrangulaire", "féodale"]
+      "tags": [
+        "château",
+        "rohan",
+        "forteresse",
+        "quadrangulaire",
+        "féodale"
+      ]
     },
     {
       "id": "chateau-tronjoly",
       "title": "Château de Tronjoly",
       "slug": "chateau-tronjoly",
       "department": "Finistère",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 48.1342,
       "lng": -3.6131,
       "shortDescription": "Château de Tronjoly : manoir typiquement breton entouré d'un vaste domaine verdoyant.",
@@ -2620,14 +3424,22 @@
       "address": "56110 Gourin",
       "website": "",
       "phone": "",
-      "tags": ["château", "manoir", "breton", "culture", "nature"]
+      "tags": [
+        "château",
+        "manoir",
+        "breton",
+        "culture",
+        "nature"
+      ]
     },
     {
       "id": "chateau-ducs-bretagne",
       "title": "Château des Ducs de Bretagne",
       "slug": "chateau-ducs-bretagne",
       "department": "Loire-Atlantique",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 47.2161,
       "lng": -1.5486,
       "shortDescription": "Château des Ducs de Bretagne : emblème de Nantes, forteresse médiévale et palais Renaissance, aujourd'hui musée d'histoire.",
@@ -2643,14 +3455,22 @@
       "address": "44000 Nantes",
       "website": "",
       "phone": "",
-      "tags": ["château", "ducs de bretagne", "nantes", "musée", "renaissance"]
+      "tags": [
+        "château",
+        "ducs de bretagne",
+        "nantes",
+        "musée",
+        "renaissance"
+      ]
     },
     {
       "id": "chateau-chateaubriant",
       "title": "Château de Châteaubriant",
       "slug": "chateau-chateaubriant",
       "department": "Loire-Atlantique",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 47.7167,
       "lng": -1.3833,
       "shortDescription": "Château de Châteaubriant : mélange d'architecture médiévale et Renaissance, témoin de l'histoire bretonne.",
@@ -2666,14 +3486,22 @@
       "address": "44110 Châteaubriant",
       "website": "",
       "phone": "",
-      "tags": ["château", "médiéval", "renaissance", "donjon", "patrimoine"]
+      "tags": [
+        "château",
+        "médiéval",
+        "renaissance",
+        "donjon",
+        "patrimoine"
+      ]
     },
     {
       "id": "chateau-clisson",
       "title": "Château de Clisson",
       "slug": "chateau-clisson",
       "department": "Loire-Atlantique",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 47.0869,
       "lng": -1.2811,
       "shortDescription": "Château de Clisson : vestige médiéval dans un décor italien unique en Loire-Atlantique.",
@@ -2689,14 +3517,22 @@
       "address": "44190 Clisson",
       "website": "",
       "phone": "",
-      "tags": ["château", "médiéval", "italien", "unique", "sèvre"]
+      "tags": [
+        "château",
+        "médiéval",
+        "italien",
+        "unique",
+        "sèvre"
+      ]
     },
     {
       "id": "chateau-blain",
       "title": "Château de Blain",
       "slug": "chateau-blain",
       "department": "Loire-Atlantique",
-      "categories": ["chateau"],
+      "categories": [
+        "chateau"
+      ],
       "lat": 47.4758,
       "lng": -1.7644,
       "shortDescription": "Château de Blain : imposante forteresse des Rohan au bord du canal de Nantes à Brest.",
@@ -2712,14 +3548,22 @@
       "address": "44130 Blain",
       "website": "",
       "phone": "",
-      "tags": ["château", "rohan", "forteresse", "canal", "majestueux"]
+      "tags": [
+        "château",
+        "rohan",
+        "forteresse",
+        "canal",
+        "majestueux"
+      ]
     },
     {
       "id": "oceanopolis-brest",
       "title": "Océanopolis",
       "slug": "oceanopolis-brest",
       "department": "Finistère",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 48.4185,
       "lng": -4.4567,
       "shortDescription": "Océanopolis Brest : grand centre de culture scientifique dédié à l'océan, 10 000 animaux marins, aquariums tropicaux, polaires et tempérés.",
@@ -2735,14 +3579,22 @@
       "address": "Port de Plaisance du Moulin Blanc, 29200 Brest",
       "website": "https://www.oceanopolis.com",
       "phone": "02 98 34 40 40",
-      "tags": ["aquarium", "océan", "science", "animaux", "famille"]
+      "tags": [
+        "aquarium",
+        "océan",
+        "science",
+        "animaux",
+        "famille"
+      ]
     },
     {
       "id": "aquashow-audierne",
       "title": "Aquashow",
       "slug": "aquashow-audierne",
       "department": "Finistère",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 48.0242,
       "lng": -4.5394,
       "shortDescription": "Aquashow Audierne : aquarium breton et spectacles d'oiseaux marins, immersion nature au cœur du Finistère.",
@@ -2757,14 +3609,22 @@
       "address": "13 Rue du Goyen, 29770 Audierne",
       "website": "https://www.aquashow.fr",
       "phone": "02 98 70 03 03",
-      "tags": ["aquarium", "oiseaux", "spectacle", "nature", "famille"]
+      "tags": [
+        "aquarium",
+        "oiseaux",
+        "spectacle",
+        "nature",
+        "famille"
+      ]
     },
     {
       "id": "aquarium-saint-malo",
       "title": "Aquarium de Saint-Malo",
       "slug": "aquarium-saint-malo",
       "department": "Ille-et-Vilaine",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 48.6459,
       "lng": -2.0086,
       "shortDescription": "Aquarium de Saint-Malo : nombreux bassins, tunnel à requins, Nautibus et immersion dans les océans du monde.",
@@ -2780,14 +3640,22 @@
       "address": "Avenue du Général Patton, 35400 Saint-Malo",
       "website": "https://www.aquarium-st-malo.com",
       "phone": "02 99 21 19 00",
-      "tags": ["aquarium", "nautibus", "requin", "poisson", "famille"]
+      "tags": [
+        "aquarium",
+        "nautibus",
+        "requin",
+        "poisson",
+        "famille"
+      ]
     },
     {
       "id": "zoo-pont-scorff",
       "title": "Zoo de Pont-Scorff",
       "slug": "zoo-pont-scorff",
       "department": "Morbihan",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 47.8274,
       "lng": -3.3987,
       "shortDescription": "Zoo de Pont-Scorff : parc zoologique historique du Morbihan, animaux sauvages, spectacles et animations pédagogiques.",
@@ -2802,14 +3670,22 @@
       "address": "Route de Lorient, 56620 Pont-Scorff",
       "website": "https://www.zoo-pont-scorff.fr",
       "phone": "02 97 32 60 86",
-      "tags": ["zoo", "animaux", "lion", "girafe", "famille"]
+      "tags": [
+        "zoo",
+        "animaux",
+        "lion",
+        "girafe",
+        "famille"
+      ]
     },
     {
       "id": "zoo-bourbansais",
       "title": "Zoo & Château de la Bourbansais",
       "slug": "zoo-bourbansais",
       "department": "Ille-et-Vilaine",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 48.4833,
       "lng": -1.9167,
       "shortDescription": "La Bourbansais : zoo, château classé et spectacles (fauconnerie, meute de chiens), alliance patrimoine et nature.",
@@ -2825,14 +3701,22 @@
       "address": "35720 Pleugueneuc",
       "website": "https://www.labourbansais.com",
       "phone": "02 99 69 40 07",
-      "tags": ["zoo", "château", "fauconnerie", "spectacle", "patrimoine"]
+      "tags": [
+        "zoo",
+        "château",
+        "fauconnerie",
+        "spectacle",
+        "patrimoine"
+      ]
     },
     {
       "id": "branfere",
       "title": "Parc animalier & botanique de Branféré",
       "slug": "branfere",
       "department": "Morbihan",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 47.5833,
       "lng": -2.3833,
       "shortDescription": "Branféré : parc animalier en semi-liberté, parc botanique et spectacle d'oiseaux, concept unique en Bretagne.",
@@ -2848,14 +3732,22 @@
       "address": "56190 Le Guerno",
       "website": "https://www.branfere.com",
       "phone": "02 97 42 94 66",
-      "tags": ["parc animalier", "botanique", "oiseaux", "semi-liberté", "nature"]
+      "tags": [
+        "parc animalier",
+        "botanique",
+        "oiseaux",
+        "semi-liberté",
+        "nature"
+      ]
     },
     {
       "id": "treuscoat-domain",
       "title": "Domaine de Treuscoat – Parc Aventure et Parc Animalier",
       "slug": "treuscoat-domain",
       "department": "Finistère",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 48.5333,
       "lng": -3.9833,
       "shortDescription": "Domaine du Treuscoat : 63 hectares de nature, accrobranche, animaux, Parcabout®, escape game et hébergements insolites.",
@@ -2871,16 +3763,24 @@
       "address": "29410 Pleyber-Christ",
       "website": "https://www.treuscoat.com",
       "phone": "02 98 78 90 06",
-      "tags": ["accrobranche", "animaux", "escape game", "nature", "hébergement"]
+      "tags": [
+        "accrobranche",
+        "animaux",
+        "escape game",
+        "nature",
+        "hébergement"
+      ]
     },
     {
       "id": "aquarium-tregastel",
       "title": "Aquarium marin de Trégastel",
       "slug": "aquarium-tregastel",
       "department": "Côtes-d'Armor",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 48.8167,
-      "lng": -3.5000,
+      "lng": -3.5,
       "shortDescription": "Aquarium marin de Trégastel : aquarium installé dans un chaos granitique naturel, faune locale et cadre insolite.",
       "description": "L'Aquarium marin de Trégastel est unique en son genre : il est installé dans un chaos granitique naturel au cœur de la Côte de Granit Rose.\n\nSes bassins présentent la faune et la flore marines locales : anémones, crustacés, poissons bretons et espèces de l'Atlantique.\n\nÀ la fois éducatif et pittoresque, l'aquarium séduit par son intégration dans le paysage et sa mise en valeur du patrimoine naturel breton.",
       "image": "assets/img/aquarium-tregastel-1.jpg",
@@ -2893,14 +3793,22 @@
       "address": "Boulevard du Coz-Pors, 22730 Trégastel",
       "website": "https://www.aquarium-tregastel.com",
       "phone": "02 96 23 48 58",
-      "tags": ["aquarium", "granit rose", "chaos", "faune locale", "insolite"]
+      "tags": [
+        "aquarium",
+        "granit rose",
+        "chaos",
+        "faune locale",
+        "insolite"
+      ]
     },
     {
       "id": "cobac-parc",
       "title": "Cobac Parc & Aqua'Fun Park",
       "slug": "cobac-parc",
       "department": "Ille-et-Vilaine",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 48.6167,
       "lng": -1.7333,
       "shortDescription": "Cobac Parc : parc d'attractions familial avec manèges, roller coaster et parc aquatique Aqua'Fun Park.",
@@ -2916,16 +3824,24 @@
       "address": "35720 Lanhélin",
       "website": "https://www.cobac-parc.com",
       "phone": "02 99 73 80 18",
-      "tags": ["parc attraction", "manèges", "toboggan", "roller coaster", "famille"]
+      "tags": [
+        "parc attraction",
+        "manèges",
+        "toboggan",
+        "roller coaster",
+        "famille"
+      ]
     },
     {
       "id": "recre-3-cures",
       "title": "La Récré des 3 Curés",
       "slug": "recre-3-cures",
       "department": "Finistère",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 48.4667,
-      "lng": -4.5500,
+      "lng": -4.55,
       "shortDescription": "La Récré des 3 Curés : grand parc d'attractions près de Brest, roller coasters, manèges et spectacles.",
       "description": "À Milizac, près de Brest, la Récré des 3 Curés est le plus grand parc d'attractions de Bretagne. Avec ses roller coasters, manèges aquatiques, grande roue et spectacles, il séduit toutes les générations.\n\nLe parc est en constante évolution, proposant chaque saison de nouvelles attractions.\n\nIdéal pour une sortie familiale ou entre amis, il conjugue sensations fortes, jeux et ambiance conviviale.",
       "image": "assets/img/recre-3-cures-1.jpg",
@@ -2939,14 +3855,22 @@
       "address": "29800 Milizac-Guipronvel",
       "website": "https://www.larecredes3cures.com",
       "phone": "02 98 07 95 59",
-      "tags": ["parc attraction", "roller coaster", "grande roue", "spectacle", "famille"]
+      "tags": [
+        "parc attraction",
+        "roller coaster",
+        "grande roue",
+        "spectacle",
+        "famille"
+      ]
     },
     {
       "id": "kingoland",
       "title": "Kingoland",
       "slug": "kingoland",
       "department": "Morbihan",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 47.8667,
       "lng": -2.9167,
       "shortDescription": "Kingoland : parc d'attractions moderne entre Vannes et Pontivy, montagnes russes, manèges d'eau et spectacles.",
@@ -2962,14 +3886,22 @@
       "address": "56400 Plumelin",
       "website": "https://www.kingoland.com",
       "phone": "02 97 42 99 32",
-      "tags": ["parc attraction", "montagnes russes", "manèges aquatiques", "spectacle", "famille"]
+      "tags": [
+        "parc attraction",
+        "montagnes russes",
+        "manèges aquatiques",
+        "spectacle",
+        "famille"
+      ]
     },
     {
       "id": "enigmaparc",
       "title": "Enigmaparc",
       "slug": "enigmaparc",
       "department": "Ille-et-Vilaine",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 47.9667,
       "lng": -1.4833,
       "shortDescription": "Enigmaparc : grand parc indoor autour de labyrinthes, énigmes, jeux d'aventure et thématiques variées.",
@@ -2984,14 +3916,22 @@
       "address": "35150 Janzé",
       "website": "https://www.enigmaparc.fr",
       "phone": "02 99 47 57 24",
-      "tags": ["labyrinthes", "énigmes", "jeux", "aventure", "indoor"]
+      "tags": [
+        "labyrinthes",
+        "énigmes",
+        "jeux",
+        "aventure",
+        "indoor"
+      ]
     },
     {
       "id": "celt-aventures",
       "title": "Celt'Aventures",
       "slug": "celt-aventures",
       "department": "Morbihan",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 47.5333,
       "lng": -2.7667,
       "shortDescription": "Celt'Aventures : parc aventure en presqu'île de Rhuys, accrobranche, tyroliennes géantes, laser game et jeux nature.",
@@ -3006,15 +3946,23 @@
       "address": "56370 Sarzeau",
       "website": "https://www.celt-aventures.com",
       "phone": "02 97 41 91 10",
-      "tags": ["accrobranche", "tyroliennes", "laser game", "aventure", "nature"]
+      "tags": [
+        "accrobranche",
+        "tyroliennes",
+        "laser game",
+        "aventure",
+        "nature"
+      ]
     },
     {
       "id": "foret-adrenaline-rennes",
       "title": "Forêt Adrénaline Rennes",
       "slug": "foret-adrenaline-rennes",
       "department": "Ille-et-Vilaine",
-      "categories": ["loisirs"],
-      "lat": 48.1000,
+      "categories": [
+        "loisirs"
+      ],
+      "lat": 48.1,
       "lng": -1.6833,
       "shortDescription": "Forêt Adrénaline Rennes : parc accrobranche et filets suspendus en pleine forêt.",
       "description": "À proximité de Rennes, Forêt Adrénaline propose des parcours d'accrobranche adaptés à tous les âges, avec tyroliennes, ponts suspendus et ateliers ludiques.\n\nLe parc offre aussi un espace de filets suspendus géants, idéal pour les enfants.\n\nUne sortie nature qui mêle sport, aventure et divertissement.",
@@ -3027,14 +3975,22 @@
       "address": "35000 Rennes",
       "website": "https://www.foret-adrenaline.fr",
       "phone": "02 99 55 07 39",
-      "tags": ["accrobranche", "filets suspendus", "tyroliennes", "aventure", "famille"]
+      "tags": [
+        "accrobranche",
+        "filets suspendus",
+        "tyroliennes",
+        "aventure",
+        "famille"
+      ]
     },
     {
       "id": "foret-adrenaline-carnac",
       "title": "Forêt Adrénaline Carnac",
       "slug": "foret-adrenaline-carnac",
       "department": "Morbihan",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 47.5833,
       "lng": -3.0833,
       "shortDescription": "Forêt Adrénaline Carnac : accrobranche en bord de mer, tyroliennes et trampolines dans les arbres.",
@@ -3048,16 +4004,24 @@
       "address": "56340 Carnac",
       "website": "https://www.foret-adrenaline.fr",
       "phone": "02 97 52 74 04",
-      "tags": ["accrobranche", "trampolines", "tyroliennes", "bord de mer", "aventure"]
+      "tags": [
+        "accrobranche",
+        "trampolines",
+        "tyroliennes",
+        "bord de mer",
+        "aventure"
+      ]
     },
     {
       "id": "armoripark",
       "title": "Armoripark",
       "slug": "armoripark",
       "department": "Côtes-d'Armor",
-      "categories": ["loisirs"],
+      "categories": [
+        "loisirs"
+      ],
       "lat": 48.6333,
-      "lng": -3.3000,
+      "lng": -3.3,
       "shortDescription": "Armoripark : parc multi-activités avec piscine ludique, toboggans, mini-ferme et structures gonflables.",
       "description": "À Bégard, Armoripark est un parc familial mêlant loisirs aquatiques et jeux nature. Il propose piscine chauffée, toboggans, structures gonflables, mini-ferme et accrobranche.\n\nIdéal pour une sortie avec enfants, Armoripark combine sport, détente et activités pédagogiques.",
       "image": "assets/img/armoripark-1.jpg",
@@ -3070,15 +4034,23 @@
       "address": "22140 Bégard",
       "website": "https://www.armoripark.com",
       "phone": "02 96 45 36 36",
-      "tags": ["piscine", "toboggans", "mini-ferme", "gonflables", "famille"]
+      "tags": [
+        "piscine",
+        "toboggans",
+        "mini-ferme",
+        "gonflables",
+        "famille"
+      ]
     },
     {
       "id": "adrenature-parc",
       "title": "Adrenature Parc Aventure",
       "slug": "adrenature-parc",
       "department": "Finistère",
-      "categories": ["loisirs"],
-      "lat": 47.9000,
+      "categories": [
+        "loisirs"
+      ],
+      "lat": 47.9,
       "lng": -3.8333,
       "shortDescription": "Adrenature : accrobranche et tyroliennes spectaculaires jusqu'à 300 mètres, au cœur d'une forêt préservée.",
       "description": "Situé à Melgven, près de Concarneau, Adrenature est un parc aventure réputé pour ses parcours d'accrobranche et ses tyroliennes de plus de 300 mètres.\n\nInstallé dans une forêt naturelle, il propose des circuits adaptés à tous les âges et niveaux.\n\nAdrénaline et nature s'y conjuguent pour une expérience intense et dépaysante.",
@@ -3092,16 +4064,24 @@
       "address": "29140 Melgven",
       "website": "https://www.adrenature.fr",
       "phone": "02 98 97 84 90",
-      "tags": ["accrobranche", "tyroliennes", "300 mètres", "forêt", "adrénaline"]
+      "tags": [
+        "accrobranche",
+        "tyroliennes",
+        "300 mètres",
+        "forêt",
+        "adrénaline"
+      ]
     },
     {
       "id": "ludana-parc",
       "title": "Ludana Parc de Loisirs",
       "slug": "ludana-parc",
       "department": "Finistère",
-      "categories": ["loisirs"],
-      "lat": 47.8500,
-      "lng": -3.7500,
+      "categories": [
+        "loisirs"
+      ],
+      "lat": 47.85,
+      "lng": -3.75,
       "shortDescription": "Ludana : nouveau parc nature et sensations à Pont-Aven, manèges et activités en plein air.",
       "description": "Ouvert récemment à Pont-Aven, Ludana Parc de Loisirs associe nature et attractions modernes. Les visiteurs y trouvent des manèges, parcours nature, activités sportives et animations pour enfants.\n\nAvec son esprit familial et son cadre verdoyant, Ludana devient une nouvelle destination de loisirs en Bretagne sud.",
       "image": "assets/img/ludana-1.jpg",
@@ -3113,15 +4093,23 @@
       "address": "29930 Pont-Aven",
       "website": "https://www.ludana-parc.fr",
       "phone": "02 98 06 14 43",
-      "tags": ["manèges", "parcours nature", "famille", "nouveau", "plein air"]
+      "tags": [
+        "manèges",
+        "parcours nature",
+        "famille",
+        "nouveau",
+        "plein air"
+      ]
     },
     {
       "id": "ptite-ferme-guerledan",
       "title": "La P'tite Ferme de Guerlédan",
       "slug": "ptite-ferme-guerledan",
       "department": "Côtes-d'Armor",
-      "categories": ["loisirs"],
-      "lat": 48.2000,
+      "categories": [
+        "loisirs"
+      ],
+      "lat": 48.2,
       "lng": -3.0833,
       "shortDescription": "La P'tite Ferme de Guerlédan : mini-ferme pédagogique et parc de jeux pour enfants.",
       "description": "À Mûr-de-Bretagne, La P'tite Ferme de Guerlédan accueille familles et enfants pour une découverte ludique des animaux de la ferme. Chèvres, moutons, poneys et volailles évoluent dans un cadre champêtre.\n\nLe site comprend aussi un parc de jeux, rendant la visite à la fois éducative et divertissante.\n\nUn lieu idéal pour sensibiliser les plus jeunes à la nature et aux animaux domestiques.",
@@ -3134,535 +4122,13 @@
       "address": "22530 Mûr-de-Bretagne",
       "website": "https://www.ptite-ferme-guerledan.fr",
       "phone": "02 96 28 51 41",
-      "tags": ["mini-ferme", "pédagogique", "animaux", "enfants", "jeux"]
-    },
-    {
-      "id": "chez-erwan",
-      "title": "Chez Erwan",
-      "slug": "chez-erwan",
-      "department": "Côtes-d'Armor",
-      "categories": ["restaurant"],
-      "lat": 48.2333,
-      "lng": -3.3167,
-      "shortDescription": "Chez Erwan, Rostrenen : cuisine de terroir généreuse, viande cuite au four à bois, cave à vin soignée et ambiance détendue au cœur du Kreiz Breizh.",
-      "description": "Situé à Rostrenen dans les Côtes-d'Armor, Chez Erwan est une adresse authentique dédiée à la cuisine de terroir. Le chef met en valeur les produits locaux, viandes de caractère et légumes frais, dans un esprit rustique et gourmet. Les pièces de viande sont souvent saisies au four à bois, apportant cette touche fumée unique, tandis que la cave à vin offre une belle sélection régionale et internationale pour accompagner chaque plat.\n\nL'ambiance y est chaleureuse, détendue, presque familiale, idéale pour un repas entre amis ou en famille. Chez Erwan combine générosité, simplicité et plaisir du goût dans un cadre accueillant où la gastronomie populaire se transforme en moment mémorable.",
-      "image": "assets/img/chez-erwan-1.jpg",
-      "images": [
-        "assets/img/chez-erwan-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "22110 Rostrenen",
-      "website": "https://www.chez-erwan.fr",
-      "phone": "02 96 29 02 72",
-      "tags": ["terroir", "four à bois", "viande", "cave à vin", "familial"]
-    },
-    {
-      "id": "anne-bretagne",
-      "title": "Anne de Bretagne",
-      "slug": "anne-bretagne",
-      "department": "Loire-Atlantique",
-      "categories": ["restaurant"],
-      "lat": 47.1333,
-      "lng": -2.1667,
-      "shortDescription": "Anne de Bretagne, La Plaine-sur-Mer : restaurant 2 étoiles Michelin, cuisine iodée et terroir, vue port, élégance contemporaine face à l'océan.",
-      "description": "Anne de Bretagne est un restaurant gastronomique deux étoiles Michelin situé sur le port de Gravette à La Plaine-sur-Mer. Dirigé par le chef Mathieu Guibert, fidèle à ses racines dans le Pays de Retz, l'établissement propose une cuisine d'exception qui célèbre la mer et les produits du terroir.\n\nOn y trouve des plats sophistiqués comme des risottos au haddock, carpaccios de langoustine, lotte farcie, ou encore des créations plus audacieuses harmonisant légumes, herbes et produits marins. Le cadre contemporain, niché face à l'océan, ajoute à l'expérience : lumière naturelle, décoration sobre mais raffinée, service attentif.\n\nC'est une table où chaque détail compte, où le goût iodé se mêle à la finesse, pour une expérience culinaire qui marque les esprits.",
-      "image": "assets/img/anne-bretagne-1.jpg",
-      "images": [
-        "assets/img/anne-bretagne-1.jpg",
-        "assets/img/anne-bretagne-2.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "Port de Gravette, 44770 La Plaine-sur-Mer",
-      "website": "https://www.annedebretagnerestaurant.com",
-      "phone": "02 40 21 54 72",
-      "tags": ["2 étoiles Michelin", "iodé", "terroir", "vue mer", "gastronomique"]
-    },
-    {
-      "id": "mare-aux-oiseaux",
-      "title": "La Mare aux Oiseaux",
-      "slug": "mare-aux-oiseaux",
-      "department": "Loire-Atlantique",
-      "categories": ["restaurant"],
-      "lat": 47.3833,
-      "lng": -2.2000,
-      "shortDescription": "La Mare aux Oiseaux : table étoilée d'Éric Guérin, au cœur de la nature de la Brière, cuisine créative inspirée du terroir et biodiversité environnante.",
-      "description": "Installé dans le parc naturel de la Brière, La Mare aux Oiseaux est une destination gastronomique de référence. Le chef Éric Guérin y propose une cuisine d'auteur où la nature tient une place centrale : crustacés, poissons, plantes sauvages, légumes frais y sont magnifiés.\n\nLe terroir est revisité, se mêlant aux influences marines, pour créer des plats à la fois raffinés et respectueux du milieu naturel. Le cadre contribue pleinement au charme : cadre paisible, bord de rivière et observation de la faune, offrant une parenthèse ressourçante.\n\nOn ne vient pas seulement pour manger, mais pour vivre une expérience qui lie gastronomie, cadre naturel et émotion.",
-      "image": "assets/img/mare-aux-oiseaux-1.jpg",
-      "images": [
-        "assets/img/mare-aux-oiseaux-1.jpg",
-        "assets/img/mare-aux-oiseaux-2.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "162 Île de Fédrun, 44720 Saint-Joachim",
-      "website": "https://www.mareauxoiseaux.fr",
-      "phone": "02 40 88 53 01",
-      "tags": ["étoilée", "Brière", "nature", "Éric Guérin", "créative"]
-    },
-    {
-      "id": "maison-tiegezh",
-      "title": "Maison Tiegezh",
-      "slug": "maison-tiegezh",
-      "department": "Morbihan",
-      "categories": ["restaurant"],
-      "lat": 47.9000,
-      "lng": -2.1167,
-      "shortDescription": "Maison Tiegezh, Guer : étoilée Michelin, cuisine raffinée, identité bretonne forte et produits locaux mis en lumière.",
-      "description": "Dans le Morbihan, la Maison Tiegezh brille par sa cuisine étoilée Michelin, reflet d'un dialogue intime entre tradition bretonne et modernité gastronomique. Le chef compose des plats qui puisent leurs forces dans les produits de la terre et de la mer, chaque saveur étant travaillée avec minutie.\n\nPoissons, fruits de mer, herbes locales ou légumes de saison : tout est mis en valeur dans des assiettes harmonieuses et souvent surprenantes. Le décor de la maison est élégant, sobre, soigné, où domine l'authenticité sans ostentation.\n\nMaison Tiegezh séduit ceux qui cherchent la finesse, l'ancrage local et une expérience culinaire de haute volée.",
-      "image": "assets/img/maison-tiegezh-1.jpg",
-      "images": [
-        "assets/img/maison-tiegezh-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "1 Rue des Forges, 56380 Guer",
-      "website": "https://www.tiegezh.fr",
-      "phone": "02 97 22 00 26",
-      "tags": ["étoilée Michelin", "bretonne", "raffinée", "produits locaux", "authentique"]
-    },
-    {
-      "id": "ar-men-du",
-      "title": "Ar Men Du",
-      "slug": "ar-men-du",
-      "department": "Finistère",
-      "categories": ["restaurant"],
-      "lat": 47.8167,
-      "lng": -3.8000,
-      "shortDescription": "Ar Men Du, Névez : table étoilée, produits locaux, vue mer splendide, cuisine créative et respect du terroir.",
-      "description": "À Névez, le restaurant Ar Men Du offre une escapade gastronomique au bord de l'Atlantique. Étoilé, il met en avant les produits locaux de la mer comme du jardin, préparés avec créativité pour rappeler à la fois le respect du terroir et l'innovation culinaire.\n\nVue sur l'océan, atmosphère apaisante, service soigné : chaque repas devient une immersion dans le paysage marin. Les assiettes sont composées de saveurs marines, d'algues, de poissons frais, mais aussi de touches végétales et aromatiques sophistiquées.\n\nAr Men Du séduit par son équilibre entre mer, nature et gastronomie contemporaine.",
-      "image": "assets/img/ar-men-du-1.jpg",
-      "images": [
-        "assets/img/ar-men-du-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "29920 Névez",
-      "website": "https://www.armendu.fr",
-      "phone": "02 98 06 84 22",
-      "tags": ["étoilée", "vue mer", "produits locaux", "créative", "terroir"]
-    },
-    {
-      "id": "le-coquillage",
-      "title": "Le Coquillage",
-      "slug": "le-coquillage",
-      "department": "Ille-et-Vilaine",
-      "categories": ["restaurant"],
-      "lat": 48.6833,
-      "lng": -1.8500,
-      "shortDescription": "Le Coquillage, Cancale : restaurant étoilé autour de la mer, cuisine du large, finesse des produits iodés et cadre prestigieux.",
-      "description": "Situé à Cancale, Le Coquillage est une table étoilée réputée pour sa cuisine autour de la mer sous toutes ses formes. Coquillages, crustacés, poissons sont mis à l'honneur dans des créations qui épousent la fraîcheur du jour, les marées et l'excellence gastronomique.\n\nLe cadre est élégant, souvent avec vue sur la baie, renforçant le lien avec le milieu marin. Le service, raffiné, ajoute à l'expérience une dimension de prestige et de plaisir.\n\nPour qui aime la mer, ses goûts et ses textures, Le Coquillage est une destination culinaire de choix.",
-      "image": "assets/img/le-coquillage-1.jpg",
-      "images": [
-        "assets/img/le-coquillage-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "Château Richeux, 35260 Cancale",
-      "website": "https://www.maisons-de-bricourt.com",
-      "phone": "02 99 89 64 76",
-      "tags": ["étoilée", "mer", "coquillages", "Cancale", "prestigieux"]
-    },
-    {
-      "id": "empreinte-vannes",
-      "title": "Empreinte",
-      "slug": "empreinte-vannes",
-      "department": "Morbihan",
-      "categories": ["restaurant"],
-      "lat": 47.6583,
-      "lng": -2.7600,
-      "shortDescription": "Empreinte, Vannes : étoile verte Michelin, cuisine moderne locale durable, ambiance contemporaine respectueuse de la nature.",
-      "description": "Empreinte, à Vannes, est une adresse engagée qui allie gastronomie moderne et durabilité. Récompensée d'une étoile verte Michelin, elle privilégie les circuits courts, les produits bio, la pêche responsable.\n\nLe chef propose une cuisine inventive, actuelle, où chaque ingrédient raconte une histoire. Lieux clairs, décor moderne et atmosphère épurée complètent une expérience culinaire réfléchie, où le goût rime avec éthique.\n\nEmpreinte est une table pour les gourmets qui veulent savourer sans compromis sur la planète.",
-      "image": "assets/img/empreinte-1.jpg",
-      "images": [
-        "assets/img/empreinte-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "2 Place de la Gare, 56000 Vannes",
-      "website": "https://www.empreinte-restaurant.fr",
-      "phone": "02 97 68 20 76",
-      "tags": ["étoile verte", "durable", "moderne", "circuits courts", "bio"]
-    },
-    {
-      "id": "jardins-sauvages",
-      "title": "Les Jardins Sauvages – La Grée des Landes",
-      "slug": "jardins-sauvages",
-      "department": "Morbihan",
-      "categories": ["restaurant"],
-      "lat": 47.7667,
-      "lng": -2.1333,
-      "shortDescription": "Les Jardins Sauvages : table bio / locavore, grande qualité, harmonie entre nature, goût et respect des saisons.",
-      "description": "Aux portes de La Gacilly, Les Jardins Sauvages vaut le détour par son engagement biologique et locavore. Dans un cadre naturel apaisant, le restaurant propose des plats qui célèbrent les produits du terroir, cultivés ou cueillis à proximité.\n\nHerbes sauvages, légumes bio, poissons locaux : rien n'est laissé au hasard. L'ambiance est à la fois raffinée et simple, permettant de sentir le lien fort entre le chef, les producteurs et la nature environnante.\n\nLes Jardins Sauvages est une table où le goût sincère et la conscience écologique se rencontrent, pour un repas riche de sens.",
-      "image": "assets/img/jardins-sauvages-1.jpg",
-      "images": [
-        "assets/img/jardins-sauvages-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "56200 La Gacilly",
-      "website": "https://www.jardins-sauvages.fr",
-      "phone": "02 99 08 50 88",
-      "tags": ["bio", "locavore", "nature", "terroir", "écologique"]
-    },
-    {
-      "id": "nuance-plomeur",
-      "title": "Nuance",
-      "slug": "nuance-plomeur",
-      "department": "Finistère",
-      "categories": ["restaurant"],
-      "lat": 47.8333,
-      "lng": -4.2667,
-      "shortDescription": "Nuance, Plomeur : cuisine moderne, cadre agréable, inspirations maritimes, plats élégants mariant créativité et produits frais.",
-      "description": "À Plomeur, Nuance est une table contemporaine qui mise sur l'élégance discrète et les saveurs marines. Située non loin de la côte, elle travaille poissons, coquillages et ingrédients locaux dans une approche moderne : textures fines, dressage soigné, recherche aromatique.\n\nLe cadre est calme et accueillant, parfait pour un repas à deux ou un moment gourmet après une balade côtière.\n\nNuance séduit par sa capacité à marier simplicité et sophistication, service attentionné, et plaisir des sens.",
-      "image": "assets/img/nuance-1.jpg",
-      "images": [
-        "assets/img/nuance-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "29120 Plomeur",
-      "website": "https://www.nuance-restaurant.fr",
-      "phone": "02 98 82 12 14",
-      "tags": ["moderne", "maritime", "élégant", "créativité", "côte"]
-    },
-    {
-      "id": "manoir-lan-kerellec",
-      "title": "Manoir de Lan-Kerellec",
-      "slug": "manoir-lan-kerellec",
-      "department": "Côtes-d'Armor",
-      "categories": ["restaurant"],
-      "lat": 48.7667,
-      "lng": -3.5667,
-      "shortDescription": "Manoir de Lan-Kerellec : table prestige & étoilée, vue sur mer, élégance bretonne, service haut de gamme.",
-      "description": "Le Manoir de Lan-Kerellec, sur la côte de Trébeurden, offre une table gastronomique de prestige, étoilée, dans un cadre aristocratique au bord de la mer. Les salles élégantes s'ouvrent sur le panorama marin, les terrasses permettent de profiter du bruit des vagues.\n\nLa cuisine mêle produits marins et végétaux locaux, travail de finesse, équilibre entre tradition et innovation. Le service est soigné, l'atmosphère raffinée, faisant de chaque repas un moment d'exception.\n\nUn lieu parfait pour une occasion spéciale ou une halte gourmande sur la côte.",
-      "image": "assets/img/manoir-lan-kerellec-1.jpg",
-      "images": [
-        "assets/img/manoir-lan-kerellec-1.jpg",
-        "assets/img/manoir-lan-kerellec-2.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "Allée de Mezo-Guen, 22560 Trébeurden",
-      "website": "https://www.lan-kerellec.com",
-      "phone": "02 96 15 00 00",
-      "tags": ["étoilée", "prestige", "vue mer", "élégant", "aristocratique"]
-    },
-    {
-      "id": "table-des-peres",
-      "title": "La Table des Pères — Domaine du Château des Pères",
-      "slug": "table-des-peres",
-      "department": "Ille-et-Vilaine",
-      "categories": ["restaurant"],
-      "lat": 48.3000,
-      "lng": -1.4000,
-      "shortDescription": "La Table des Pères, Château des Pères : cuisine moderne, créative, cadre de caractère, harmonie entre patrimoine et gastronomie.",
-      "description": "Au sein du domaine du Château des Pères, La Table des Pères est une table gastronomique moderne qui joue avec les saveurs, les textures et l'esthétique. Le cadre du château, avec ses jardins et sa sobriété élégante, offre une ambiance soignée.\n\nLes plats, souvent surprenants, font dialoguer produits du potager, viandes sélectionnées, poissons frais, sauces justes. On y ressent la passion du chef pour l'innovation tout en respectant l'ancrage local.\n\nIdéal pour une soirée où le lieu, le paysage et la cuisine se répondent avec intensité.",
-      "image": "assets/img/table-des-peres-1.jpg",
-      "images": [
-        "assets/img/table-des-peres-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "35750 Piré-Chancé",
-      "website": "https://www.chateauperes.com",
-      "phone": "02 99 69 46 01",
-      "tags": ["moderne", "créative", "château", "patrimoine", "gastronomique"]
-    },
-    {
-      "id": "trois-rochers",
-      "title": "Les Trois Rochers",
-      "slug": "trois-rochers",
-      "department": "Finistère",
-      "categories": ["restaurant"],
-      "lat": 47.8833,
-      "lng": -4.1667,
-      "shortDescription": "Les Trois Rochers : belle table gastronomique moderne à Combrit, cuisine raffinée, proximité mer, ambiance chaleureuse.",
-      "description": "Dans le Finistère sud, Les Trois Rochers est une table qui allie modernité et terroir. Les recettes exploitent les produits marins, le poisson frais, les crustacés, mais aussi les herbes et légumes locaux.\n\nL'ambiance est chaleureuse, le service professionnel, le décor souvent avec vue ou proximité océan. Chaque plat est pensé pour surprendre tout en respectant la fraîcheur et les saveurs naturelles.\n\nLes Trois Rochers est une adresse pour les amateurs de bonne cuisine dans un cadre apaisant et marin.",
-      "image": "assets/img/trois-rochers-1.jpg",
-      "images": [
-        "assets/img/trois-rochers-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "29120 Combrit",
-      "website": "https://www.trois-rochers.fr",
-      "phone": "02 98 51 94 17",
-      "tags": ["gastronomique", "moderne", "marin", "raffinée", "chaleureuse"]
-    },
-    {
-      "id": "le-gavrinis",
-      "title": "Le Gavrinis",
-      "slug": "le-gavrinis",
-      "department": "Morbihan",
-      "categories": ["restaurant"],
-      "lat": 47.5833,
-      "lng": -2.9167,
-      "shortDescription": "Le Gavrinis à Baden : table prestige, cuisine raffinée, cadre élégant au bord du Golfe du Morbihan.",
-      "description": "À Baden, au cœur du Golfe du Morbihan, Le Gavrinis propose une expérience gastronomique raffinée. Le cadre élégant, souvent lumineux et ouvert sur la nature ou la mer, donne le ton.\n\nEn cuisine, les produits locaux de la mer et du terroir sont mis en valeur avec créativité : crustacés, poissons, légumes de saison. L'alliance du goût, du visuel et du service haut de gamme placent Le Gavrinis parmi les tables de caractère de Bretagne.\n\nPour ceux qui souhaitent une gastronomie à la fois exigeante et accueillante.",
-      "image": "assets/img/le-gavrinis-1.jpg",
-      "images": [
-        "assets/img/le-gavrinis-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "56870 Baden",
-      "website": "https://www.gavrinis.com",
-      "phone": "02 97 57 00 82",
-      "tags": ["prestige", "raffinée", "élégant", "Golfe Morbihan", "caractère"]
-    },
-    {
-      "id": "recolte-bruz",
-      "title": "Récolte",
-      "slug": "recolte-bruz",
-      "department": "Ille-et-Vilaine",
-      "categories": ["restaurant"],
-      "lat": 48.0333,
-      "lng": -1.6833,
-      "shortDescription": "Récolte, Bruz : table moderne accessible, Bib Gourmand, cuisine inventive à bon rapport qualité/prix.",
-      "description": "Récolte, à Bruz, est une table reconnue pour son rapport qualité/prix. Récompensée d'un Bib Gourmand, elle propose une cuisine moderne et soignée, utilisant des produits frais, souvent locaux.\n\nL'ambiance y est chaleureuse, décontractée, parfaite pour un déjeuner ou un dîner où le bon goût prime sur l'étiquette. Parmi les plats, on retrouve des propositions simples mais bien exécutées : poissons ou viandes de saison, accompagnements créatifs.\n\nRécolte séduit ceux qui veulent une bonne cuisine sans se ruiner, dans un cadre agréable près de Rennes.",
-      "image": "assets/img/recolte-1.jpg",
-      "images": [
-        "assets/img/recolte-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "35170 Bruz",
-      "website": "https://www.recolte-restaurant.fr",
-      "phone": "02 99 05 12 97",
-      "tags": ["Bib Gourmand", "moderne", "accessible", "rapport qualité prix", "décontractée"]
-    },
-    {
-      "id": "boma-vannes",
-      "title": "Boma",
-      "slug": "boma-vannes",
-      "department": "Morbihan",
-      "categories": ["restaurant"],
-      "lat": 47.6583,
-      "lng": -2.7600,
-      "shortDescription": "Boma, Vannes : Bib Gourmand, cuisine inventive, service soigné, ambiance conviviale au cœur de Vannes.",
-      "description": "Au centre de Vannes, Boma est une table accessible reconnue pour sa cuisine inventive et son bon rapport qualité/prix. Le restaurant propose des plats modernes, belles assiettes, bon équilibre des saveurs, dans un cadre agréable, parfois contemporain, parfois plus chaleureux.\n\nOn y sent le soin du chef pour le détail, la fraîcheur des produits, un menu varié. Boma est idéal pour un repas plaisant en ville sans excès, pour les amateurs de saveurs bien dosées dans une atmosphère accueillante.",
-      "image": "assets/img/boma-1.jpg",
-      "images": [
-        "assets/img/boma-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "56000 Vannes",
-      "website": "https://www.boma-vannes.fr",
-      "phone": "02 97 47 24 29",
-      "tags": ["Bib Gourmand", "inventive", "conviviale", "accessible", "centre ville"]
-    },
-    {
-      "id": "estime-rennes",
-      "title": "Estime",
-      "slug": "estime-rennes",
-      "department": "Ille-et-Vilaine",
-      "categories": ["restaurant"],
-      "lat": 48.1167,
-      "lng": -1.6833,
-      "shortDescription": "Estime, Rennes : Bib Gourmand, table fine accessible, cuisine de caractère, produits locaux.",
-      "description": "Située à Rennes, Estime est une table de caractère récompensée par un Bib Gourmand, offrant une cuisine fine mais accessible. Les propositions suivent les saisons, mêlant légumes locaux, poissons ou viandes bien travaillés, sauces maîtrisées et présentation soignée.\n\nLe décor y est simple mais élégant, le service attentif. Estime est parfait pour découvrir la gastronomie moderne bretonne dans un cadre de confiance, sans ostentation.",
-      "image": "assets/img/estime-1.jpg",
-      "images": [
-        "assets/img/estime-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "35000 Rennes",
-      "website": "https://www.estime-rennes.fr",
-      "phone": "02 99 30 42 52",
-      "tags": ["Bib Gourmand", "fine", "accessible", "caractère", "saisons"]
-    },
-    {
-      "id": "breizh-cafe-rennes",
-      "title": "Breizh Café Rennes",
-      "slug": "breizh-cafe-rennes",
-      "department": "Ille-et-Vilaine",
-      "categories": ["restaurant"],
-      "lat": 48.1167,
-      "lng": -1.6833,
-      "shortDescription": "Breizh Café Rennes : ambiance décontractée, galettes, cuisine bretonne revisitée et caractère.",
-      "description": "Le Breizh Café de Rennes est une adresse vivante et conviviale pour qui aime la cuisine bretonne traditionnelle modernisée. Galettes, crêpes, charcuterie locale, combos terre/mer, ingrédients de qualité : tout est mis en valeur.\n\nLe cadre est chaleureux, souvent animé, parfait pour un repas simple mais de caractère. Breizh Café rend hommage à la Bretagne autour de saveurs familières rehaussées d'un twist moderne.",
-      "image": "assets/img/breizh-cafe-rennes-1.jpg",
-      "images": [
-        "assets/img/breizh-cafe-rennes-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "35000 Rennes",
-      "website": "https://www.breizhcafe.com",
-      "phone": "02 99 79 19 02",
-      "tags": ["décontractée", "galettes", "bretonne", "caractère", "moderne"]
-    },
-    {
-      "id": "bombance-rennes",
-      "title": "Bombance",
-      "slug": "bombance-rennes",
-      "department": "Ille-et-Vilaine",
-      "categories": ["restaurant"],
-      "lat": 48.1167,
-      "lng": -1.6833,
-      "shortDescription": "Bombance, Rennes : Bib Gourmand, excellent rapport qualité, cuisine créative accessible et atmosphère chaleureuse.",
-      "description": "À Rennes, Bombance se signale par sa cuisine inventive mais abordable, un bon rapport qualité/prix, et un service qui met à l'aise. Les plats y sont bien présentés, les produits choisis, souvent originaux.\n\nLe décor peut être moderne ou cosy, selon le jour ou le moment. Bombance est une adresse idéale pour un dîner agréable sans extravagance, mais avec goût, pour découvrir le talent local dans une ambiance détendue.",
-      "image": "assets/img/bombance-1.jpg",
-      "images": [
-        "assets/img/bombance-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "35000 Rennes",
-      "website": "https://www.bombance-rennes.fr",
-      "phone": "02 99 79 03 54",
-      "tags": ["Bib Gourmand", "créative", "accessible", "chaleureuse", "rapport qualité prix"]
-    },
-    {
-      "id": "le-biniou",
-      "title": "Le Biniou",
-      "slug": "le-biniou",
-      "department": "Côtes-d'Armor",
-      "categories": ["restaurant"],
-      "lat": 48.6000,
-      "lng": -2.5167,
-      "shortDescription": "Le Biniou, Pléneuf-Val-André : cuisine traditionnelle de qualité, ambiance bord de mer, accueil simple mais remarquable.",
-      "description": "Situé à Pléneuf-Val-André, Le Biniou est une table qui privilégie la tradition. On y déguste des plats classiques bien exécutés : poissons frais, fruits de mer, plats de terre, sauces généreuses.\n\nLe cadre est celui d'un restaurant de bord de mer : lumière naturelle, décor simple mais soigné, et accueil authentique. Le Biniou offre une belle halte gastronomique, sans prétention mais avec saveur.",
-      "image": "assets/img/le-biniou-1.jpg",
-      "images": [
-        "assets/img/le-biniou-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "22370 Pléneuf-Val-André",
-      "website": "https://www.le-biniou.fr",
-      "phone": "02 96 72 24 35",
-      "tags": ["traditionnelle", "bord de mer", "authentique", "poissons", "fruits de mer"]
-    },
-    {
-      "id": "breizh-cafe-cancale",
-      "title": "Breizh Café Cancale",
-      "slug": "breizh-cafe-cancale",
-      "department": "Ille-et-Vilaine",
-      "categories": ["restaurant"],
-      "lat": 48.6833,
-      "lng": -1.8500,
-      "shortDescription": "Breizh Café Cancale : crêpes, galettes, produits de la mer, ambiance maritime et caractère local à Cancale.",
-      "description": "À Cancale, Breizh Café Cancale est une adresse qui mêle saveurs traditionnelles et ambiance côtière. Les recettes traditionnelles bretonnes sont revisitées : galettes généreuses, crêpes sucrées, associations terre-mer, ingrédients locaux frais.\n\nLe décor s'inspire du port, souvent lumineux, voile marine, bois, ambiance maritime. Une adresse chaleureuse, simple mais de caractère, pour ceux qui veulent goûter la Bretagne vraie dans un cadre convivial.",
-      "image": "assets/img/breizh-cafe-cancale-1.jpg",
-      "images": [
-        "assets/img/breizh-cafe-cancale-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": false,
-      "address": "35260 Cancale",
-      "website": "https://www.breizhcafe.com",
-      "phone": "02 99 89 61 76",
-      "tags": ["crêpes", "galettes", "mer", "maritime", "traditionnel"]
-    },
-    {
-      "id": "auberge-pont-acigne",
-      "title": "L'Auberge du Pont d'Acigné",
-      "slug": "auberge-pont-acigne",
-      "department": "Ille-et-Vilaine",
-      "categories": ["restaurant"],
-      "lat": 48.1333,
-      "lng": -1.5333,
-      "shortDescription": "Auberge du Pont d'Acigné : table de prestige proche Rennes, étoilée, cadre raffiné au bord d'un cours d'eau, gastronomie soignée.",
-      "description": "À Noyal-sur-Vilaine, l'Auberge du Pont d'Acigné est l'un des joyaux gastronomiques de la métropole rennaise. Reconnue au Guide Michelin avec une étoile, elle propose une cuisine raffinée, élégante, où technique et goût se rencontrent.\n\nL'ambiance est feutrée, le décor soigné, souvent avec vue ou proximité d'un cours d'eau ou d'un cadre naturel. Le chef travaille les produits de saison, avec créativité, pour proposer une carte équilibrée entre terre et mer.\n\nL'Auberge du Pont d'Acigné est une adresse idéale pour un repas d'exception près de Rennes.",
-      "image": "assets/img/auberge-pont-acigne-1.jpg",
-      "images": [
-        "assets/img/auberge-pont-acigne-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "35530 Noyal-sur-Vilaine",
-      "website": "https://www.auberge-pont-acigne.com",
-      "phone": "02 99 62 52 55",
-      "tags": ["étoilée", "prestige", "raffinée", "cours d'eau", "Rennes"]
-    },
-    {
-      "id": "rosmadec-moulin",
-      "title": "Rosmadec, Le Moulin",
-      "slug": "rosmadec-moulin",
-      "department": "Finistère",
-      "categories": ["restaurant"],
-      "lat": 47.8500,
-      "lng": -3.7500,
-      "shortDescription": "Rosmadec, Le Moulin : table étoilée de Pont-Aven, cuisine raffinée, cadre charmant entre nature et rivière.",
-      "description": "Dans le village artistique de Pont-Aven, Rosmadec, Le Moulin propose une cuisine gastronomique étoilée dans un cadre pittoresque, souvent au bord d'un cours d'eau ou d'une ancienne roue de moulin.\n\nLes plats associent produits locaux, poésie dans le dressage, goût affirmé. Le décor, intimiste et élégant, ajoute à la magie du lieu.\n\nPour une occasion spéciale, Rosmadec offre une escapade culinaire où nature, art et gastronomie se mêlent.",
-      "image": "assets/img/rosmadec-1.jpg",
-      "images": [
-        "assets/img/rosmadec-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "29930 Pont-Aven",
-      "website": "https://www.rosmadec.com",
-      "phone": "02 98 06 00 22",
-      "tags": ["étoilée", "Pont-Aven", "moulin", "pittoresque", "artistique"]
-    },
-    {
-      "id": "vieille-tour",
-      "title": "La Vieille Tour",
-      "slug": "vieille-tour",
-      "department": "Côtes-d'Armor",
-      "categories": ["restaurant"],
-      "lat": 48.5333,
-      "lng": -2.7667,
-      "shortDescription": "La Vieille Tour, Plérin : table étoilée avec très beau cadre, cuisine soignée, vue mer ou proche bord de côte.",
-      "description": "À Plérin, La Vieille Tour est une adresse gastronomique estimée, étoilée, ancrée dans le paysage côtier. Le restaurant propose une cuisine de grande qualité, raffinée, mettant en valeur produits de la mer, poissons, crustacés, textures délicates.\n\nLe cadre est souvent lumineux, avec vue ou inspiration marine, décor sobre et élégant. Le service est attentif.\n\nLa Vieille Tour est particulièrement recommandée pour un dîner romantique ou une occasion spéciale en bord de mer.",
-      "image": "assets/img/vieille-tour-1.jpg",
-      "images": [
-        "assets/img/vieille-tour-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "22190 Plérin",
-      "website": "https://www.vieille-tour.fr",
-      "phone": "02 96 33 10 30",
-      "tags": ["étoilée", "vue mer", "côtier", "raffinée", "romantique"]
-    },
-    {
-      "id": "table-butte",
-      "title": "La Table de La Butte",
-      "slug": "table-butte",
-      "department": "Finistère",
-      "categories": ["restaurant"],
-      "lat": 48.6167,
-      "lng": -4.2000,
-      "shortDescription": "La Table de La Butte, Plouider : belle étoilée, cuisine soignée, cadre relaxant entre mer et campagne.",
-      "description": "Située à Plouider, La Table de La Butte est une table étoilée dont la renommée s'étend bien au-delà du Finistère. Cuisine soignée, créativité mesurée et respect des produits locaux caractérisent ses propositions.\n\nPoissons frais, crustacés, herbes sauvages, légumes de saison. Le cadre combine la douceur d'une campagne bretonne et la proximité de la mer, offrant apaisement et saveur.\n\nUne belle adresse pour les amateurs de gastronomie authentique.",
-      "image": "assets/img/table-butte-1.jpg",
-      "images": [
-        "assets/img/table-butte-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "29260 Plouider",
-      "website": "https://www.table-butte.fr",
-      "phone": "02 98 25 40 54",
-      "tags": ["étoilée", "soignée", "mer et campagne", "authentique", "créativité"]
-    },
-    {
-      "id": "avel-vor",
-      "title": "L'Avel-Vor",
-      "slug": "avel-vor",
-      "department": "Morbihan",
-      "categories": ["restaurant"],
-      "lat": 47.7000,
-      "lng": -3.3500,
-      "shortDescription": "L'Avel-Vor, Port-Louis : étoilée, cuisine marine raffinée, cadre charmant sur le littoral.",
-      "description": "À Port-Louis dans le Morbihan, L'Avel-Vor est une table élégante, étoilée, qui puise son inspiration dans la mer. Chaque plat évoque la côte, les saveurs iodées, poissons, coquillages, produits frais.\n\nLe service est attentif, le cadre lumineux, souvent ouvert sur les éléments naturels. L'Avel-Vor offre une escapade gastronomique où raffinement, mer et authenticité se donnent rendez-vous.",
-      "image": "assets/img/avel-vor-1.jpg",
-      "images": [
-        "assets/img/avel-vor-1.jpg"
-      ],
-      "tested": false,
-      "coupDeCoeur": true,
-      "address": "56290 Port-Louis",
-      "website": "https://www.avel-vor.fr",
-      "phone": "02 97 82 47 59",
-      "tags": ["étoilée", "marine", "raffinée", "littoral", "iodée"]
+      "tags": [
+        "mini-ferme",
+        "pédagogique",
+        "animaux",
+        "enfants",
+        "jeux"
+      ]
     }
   ]
 }

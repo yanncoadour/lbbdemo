@@ -509,11 +509,8 @@ body {
 /* Category colors for nearby POI cards */
 .category-monument { background: rgba(217, 119, 6, 0.1); color: #d97706; }
 .category-musee { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
-.category-point_de_vue { background: rgba(5, 150, 105, 0.1); color: #059669; }
 .category-plage { background: rgba(6, 182, 212, 0.1); color: #06b6d4; }
 .category-village { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
-.category-parc { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
-.category-randonnee { background: rgba(16, 185, 129, 0.1); color: #10b981; }
 .category-chateau { background: rgba(146, 64, 14, 0.1); color: #92400e; }
 .category-festival { background: rgba(249, 115, 22, 0.1); color: #f97316; }
 .category-loisirs { background: rgba(99, 102, 241, 0.1); color: #6366f1; }
@@ -521,7 +518,6 @@ body {
 .category-villa { background: rgba(148, 163, 184, 0.1); color: #94a3b8; }
 .category-logement_insolite { background: rgba(236, 72, 153, 0.1); color: #ec4899; }
 .category-camping { background: rgba(52, 211, 153, 0.1); color: #34d399; }
-.category-restaurant { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
 
 @media (max-width: 768px) {
     .poi-content-wrapper {
@@ -1000,7 +996,6 @@ body {
     margin-top: 20px;
 }
 
-
 /* Filter Modal */
 .filter-modal {
     position: fixed;
@@ -1415,8 +1410,6 @@ body {
     overflow: hidden;
     border-top: 1px solid var(--border-light);
 }
-
-
 
 .bottom-sheet.filter-mode {
     transform: translateY(-76px);
@@ -2519,6 +2512,163 @@ body {
     }
 }
 
+/* Quick Info Section for accommodations */
+.quick-info-section {
+    padding: 16px 0;
+    background: var(--surface);
+}
+
+.quick-info-card {
+    background: var(--surface-card);
+    border-radius: 20px;
+    padding: 24px;
+    margin: 0 24px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+}
+
+.quick-info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.quick-info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.quick-info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-primary);
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.quick-info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.quick-info-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.quick-info-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Services Section for accommodations */
+.services-section {
+    padding: 16px 0;
+    background: var(--surface);
+}
+
+.services-card {
+    background: var(--surface-card);
+    border-radius: 20px;
+    padding: 28px;
+    margin: 0 24px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+}
+
+.services-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.services-section-title i {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+}
+
+.service-item i {
+    color: var(--primary);
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+}
+
+.service-item span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .quick-info-card, .services-card {
+        margin: 0 16px;
+        padding: 20px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .quick-info-items {
+        gap: 12px;
+    }
+
+    .quick-info-item {
+        padding: 12px;
+    }
+
+    .quick-info-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+}
+
 /* Actions modernes */
 .poi-actions-modern {
     padding: 32px 24px;
@@ -2616,13 +2766,29 @@ body {
 }
 
 .btn-success-modern {
-    background: #22c55e;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
     color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-success-modern::before {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.btn-success-modern:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.4);
 }
 
 .btn-success-modern:hover::before {
-    background: rgba(255, 255, 255, 0.1);
     opacity: 1;
+}
+
+.btn-success-modern i {
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
 }
 
 /* Bouton réserver en haut de la page POI */
@@ -2897,16 +3063,16 @@ body {
 
 .fixed-popup {
     position: fixed;
-    bottom: 144px;
+    bottom: 164px !important;
     left: 0;
     right: 0;
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    border-top: 1px solid var(--border);
     border-radius: 20px 20px 0 0;
     box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.12);
     z-index: 150;
-    transform: translateY(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     height: auto;
     max-height: 60vh;
     overflow: hidden;
@@ -2914,6 +3080,7 @@ body {
 
 .fixed-popup.show {
     transform: translateY(0);
+    opacity: 1;
 }
 
 .fixed-popup-content {
@@ -2958,7 +3125,288 @@ body {
     color: white;
 }
 
-/* === POPUP SIMPLE === */
+/* === POPUP MODERNE === */
+
+.popup-modern {
+    background: white;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    width: 100%;
+    max-width: 450px;
+    min-width: 320px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.popup-image-hero {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 20px 20px 0 0;
+}
+
+.popup-image-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 20px 20px 0 0;
+}
+
+.popup-category-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 10;
+}
+
+.popup-category-badge i {
+    font-size: 12px;
+}
+
+/* Couleurs spécifiques pour les icônes dans le badge catégorie */
+.popup-category-badge i[class*="fa-tree-city"] {
+    color: #ec4899; /* Rose pour logements insolites */
+}
+.popup-category-badge i[class*="fa-landmark"] {
+    color: #d97706; /* Orange pour monuments */
+}
+.popup-category-badge i[class*="fa-university"] {
+    color: #8b5cf6; /* Violet pour musées */
+}
+.popup-category-badge i[class*="fa-umbrella-beach"] {
+    color: #06b6d4; /* Cyan pour plages */
+}
+.popup-category-badge i[class*="fa-home"] {
+    color: #ef4444; /* Rouge pour villages */
+}
+.popup-category-badge i[class*="fa-chess-rook"] {
+    color: #92400e; /* Marron pour châteaux */
+}
+.popup-category-badge i[class*="fa-music"] {
+    color: #f97316; /* Orange vif pour festivals */
+}
+.popup-category-badge i[class*="fa-star"] {
+    color: #6366f1; /* Indigo pour loisirs */
+}
+.popup-category-badge i[class*="fa-bed"] {
+    color: #64748b; /* Gris ardoise pour hôtels */
+}
+.popup-category-badge i[class*="fa-house-user"] {
+    color: #94a3b8; /* Gris clair pour villas */
+}
+.popup-category-badge i[class*="fa-campground"] {
+    color: #34d399; /* Vert émeraude pour camping */
+}
+.popup-category-badge i[class*="fa-eye"] {
+    color: #059669; /* Vert émeraude pour panorama */
+}
+.popup-category-badge i[class*="fa-hiking"] {
+    color: #10b981; /* Vert teal pour randonnées */
+}
+
+.popup-content {
+    padding: 20px;
+}
+
+.popup-header-modern {
+    margin-bottom: 12px;
+}
+
+.popup-title-modern {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.popup-description-modern {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Badge "Testé" dans les popups */
+.popup-tested-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.popup-tested-badge i {
+    font-size: 11px;
+}
+
+.popup-action-modern {
+    margin-top: auto;
+}
+
+.discover-btn-modern {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.discover-btn-modern:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+}
+
+.discover-btn-modern.secondary {
+    background: var(--surface-elevated);
+    color: var(--text-primary);
+    border: 2px solid var(--border);
+}
+
+.discover-btn-modern.secondary:hover {
+    background: var(--border-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Style spécifique pour les boutons de logements */
+.discover-btn-modern.secondary.accommodation {
+    background: var(--primary);
+    color: white;
+    border: 2px solid var(--primary);
+}
+
+.discover-btn-modern.secondary.accommodation:hover {
+    background: var(--primary-dark);
+    color: white;
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+}
+
+.popup-actions-grid-modern {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.reserve-btn-modern {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #22c55e;
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.reserve-btn-modern:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+/* Galerie d'images héro */
+.popup-image-hero .popup-image-gallery {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 20px 20px 0 0;
+}
+
+.popup-image-hero .gallery-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 20px 20px 0 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.popup-image-hero .gallery-image.active {
+    opacity: 1;
+}
+
+.popup-image-hero .gallery-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 15;
+}
+
+.popup-image-hero .gallery-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.popup-image-hero .gallery-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.popup-image-hero .gallery-dot:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* === POPUP SIMPLE (legacy support) === */
 
 .popup-simple {
     padding: 16px;
@@ -3078,7 +3526,7 @@ body {
 
 .popup-image-simple {
     margin-bottom: 16px;
-    border-radius: 12px;
+    border-radius: 20px 20px 0 0;
     overflow: hidden;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
     position: relative;
@@ -3091,6 +3539,7 @@ body {
     object-fit: cover;
     object-position: center top;
     display: block;
+    border-radius: 20px 20px 0 0;
 }
 
 /* Galerie d'images dans la popup */
@@ -3101,6 +3550,7 @@ body {
     overflow: hidden;
     cursor: pointer;
     user-select: none;
+    border-radius: 20px 20px 0 0;
 }
 
 .gallery-image {
@@ -3115,6 +3565,9 @@ body {
     transition: opacity 0.3s ease;
     cursor: pointer;
     user-select: none;
+    border-radius: 20px 20px 0 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .gallery-image[data-position="center-top-soft"] {
@@ -3448,6 +3901,72 @@ body {
     display: none;
 }
 
+/* Popup custom styling */
+.custom-popup .leaflet-popup-content-wrapper {
+    display: block !important;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    margin: 0;
+    width: 100% !important;
+    max-width: 450px !important;
+    min-width: 320px !important;
+}
+
+.custom-popup .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    width: 100% !important;
+}
+
+.custom-popup .leaflet-popup-tip {
+    background: white;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive pour les popups */
+@media (max-width: 480px) {
+    .custom-popup .leaflet-popup-content-wrapper {
+        max-width: 100vw !important;
+        min-width: 100vw !important;
+        width: 100vw !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    .popup-modern {
+        max-width: 100vw;
+        min-width: 100vw;
+        width: 100vw;
+    }
+
+    /* Assurer que la popup ne chevauche pas avec la barre de recherche sur mobile */
+    .leaflet-popup {
+        margin-bottom: 250px !important; /* Espace pour la barre de recherche et les filtres */
+    }
+
+    /* Ajustement de la zone d'affichage des popups */
+    .leaflet-map-pane .leaflet-popup-pane {
+        bottom: 250px !important;
+    }
+}
+
+/* Améliorations pour le positionnement de la popup sur tous écrans */
+@media (max-width: 768px) {
+    .leaflet-popup {
+        margin-bottom: 220px !important; /* Espace pour éviter le chevauchement avec la barre de recherche */
+    }
+
+    /* Forcer la popup à respecter l'espace en bas */
+    .leaflet-popup-pane {
+        padding-bottom: 220px !important;
+    }
+}
+
 /* Popup moderne */
 .popup-modern {
     width: 100%;
@@ -3714,30 +4233,69 @@ body {
     border: none !important;
 }
 
-.poi-marker-content {
-    width: 36px;
-    height: 36px;
-    background: var(--primary);
-    border: 3px solid white;
+/* Style moderne pour les marqueurs créés par JavaScript */
+.custom-marker .marker-pin {
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.1);
+    border: 1.5px solid white;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+}
+
+.custom-marker .marker-pin:hover {
+    transform: scale(1.15) translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2), 0 3px 8px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+}
+
+.custom-marker .marker-pin:active {
+    transform: scale(1.05) translateY(-1px);
+    transition: all 0.1s ease;
+}
+
+.custom-marker .marker-pin i {
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.poi-marker-content {
+    width: 22px;
+    height: 22px;
+    background: var(--primary);
+    border: 1.5px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
     cursor: pointer;
+    backdrop-filter: blur(8px);
 }
 
 .poi-marker-content:hover {
-    transform: scale(1.15);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.15) translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2), 0 3px 8px rgba(0, 0, 0, 0.12);
     z-index: 1000;
+}
+
+.poi-marker-content:active {
+    transform: scale(1.05) translateY(-1px);
+    transition: all 0.1s ease;
 }
 
 .poi-marker-content i {
     color: white;
-    font-size: 16px;
+    font-size: 10px;
     font-weight: 700;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     z-index: 3;
@@ -3752,20 +4310,11 @@ body {
 .poi-marker-content[data-category="musee"] { background: #8b5cf6 !important; }
 .poi-marker-content[data-category="musee"]:hover { background: #7c3aed !important; }
 
-.poi-marker-content[data-category="point_de_vue"] { background: #059669 !important; }
-.poi-marker-content[data-category="point_de_vue"]:hover { background: #047857 !important; }
-
 .poi-marker-content[data-category="plage"] { background: #06b6d4 !important; }
 .poi-marker-content[data-category="plage"]:hover { background: #0891b2 !important; }
 
 .poi-marker-content[data-category="village"] { background: #ef4444 !important; }
 .poi-marker-content[data-category="village"]:hover { background: #dc2626 !important; }
-
-.poi-marker-content[data-category="parc"] { background: #22c55e !important; }
-.poi-marker-content[data-category="parc"]:hover { background: #16a34a !important; }
-
-.poi-marker-content[data-category="randonnee"] { background: #10b981 !important; }
-.poi-marker-content[data-category="randonnee"]:hover { background: #059669 !important; }
 
 .poi-marker-content[data-category="chateau"] { background: #92400e !important; }
 .poi-marker-content[data-category="chateau"]:hover { background: #78350f !important; }
@@ -3773,23 +4322,20 @@ body {
 .poi-marker-content[data-category="festival"] { background: #f97316 !important; }
 .poi-marker-content[data-category="festival"]:hover { background: #ea580c !important; }
 
-.poi-marker-content[data-category="loisirs"] { background: #6366f1 !important; }
-.poi-marker-content[data-category="loisirs"]:hover { background: #4f46e5 !important; }
+.poi-marker-content[data-category="loisirs"] { background: #a855f7 !important; }
+.poi-marker-content[data-category="loisirs"]:hover { background: #9333ea !important; }
 
-.poi-marker-content[data-category="hotel"] { background: #64748b !important; }
-.poi-marker-content[data-category="hotel"]:hover { background: #475569 !important; }
+.poi-marker-content[data-category="hotel"] { background: #059669 !important; }
+.poi-marker-content[data-category="hotel"]:hover { background: #047857 !important; }
 
-.poi-marker-content[data-category="villa"] { background: #94a3b8 !important; }
-.poi-marker-content[data-category="villa"]:hover { background: #64748b !important; }
+.poi-marker-content[data-category="villa"] { background: #3b82f6 !important; }
+.poi-marker-content[data-category="villa"]:hover { background: #2563eb !important; }
 
 .poi-marker-content[data-category="logement_insolite"] { background: #ec4899 !important; }
 .poi-marker-content[data-category="logement_insolite"]:hover { background: #db2777 !important; }
 
 .poi-marker-content[data-category="camping"] { background: #34d399 !important; }
 .poi-marker-content[data-category="camping"]:hover { background: #10b981 !important; }
-
-.poi-marker-content[data-category="restaurant"] { background: #f59e0b !important; }
-.poi-marker-content[data-category="restaurant"]:hover { background: #d97706 !important; }
 
 /* Animation d'apparition des marqueurs */
 @keyframes markerAppear {
@@ -3832,28 +4378,21 @@ body {
 /* Couleurs spécifiques par catégorie pour les filtres */
 .poi-marker-icon[data-category="monument"] { background: #d97706 !important; }
 .poi-marker-icon[data-category="musee"] { background: #8b5cf6 !important; }
-.poi-marker-icon[data-category="point_de_vue"] { background: #059669 !important; }
 .poi-marker-icon[data-category="plage"] { background: #06b6d4 !important; }
 .poi-marker-icon[data-category="village"] { background: #ef4444 !important; }
-.poi-marker-icon[data-category="parc"] { background: #22c55e !important; }
-.poi-marker-icon[data-category="randonnee"] { background: #10b981 !important; }
 .poi-marker-icon[data-category="chateau"] { background: #92400e !important; }
 .poi-marker-icon[data-category="festival"] { background: #f97316 !important; }
-.poi-marker-icon[data-category="loisirs"] { background: #6366f1 !important; }
-.poi-marker-icon[data-category="hotel"] { background: #64748b !important; }
-.poi-marker-icon[data-category="villa"] { background: #94a3b8 !important; }
+.poi-marker-icon[data-category="loisirs"] { background: #a855f7 !important; }
+.poi-marker-icon[data-category="hotel"] { background: #059669 !important; }
+.poi-marker-icon[data-category="villa"] { background: #3b82f6 !important; }
 .poi-marker-icon[data-category="logement_insolite"] { background: #ec4899 !important; }
 .poi-marker-icon[data-category="camping"] { background: #34d399 !important; }
-.poi-marker-icon[data-category="restaurant"] { background: #f59e0b !important; }
 
 /* Couleurs des icônes dans les filtres (sans cercle) */
 #simpleFiltersPopup .filter-chip i[data-category="monument"] { color: #d97706 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="musee"] { color: #8b5cf6 !important; }
-#simpleFiltersPopup .filter-chip i[data-category="point_de_vue"] { color: #059669 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="plage"] { color: #06b6d4 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="village"] { color: #ef4444 !important; }
-#simpleFiltersPopup .filter-chip i[data-category="parc"] { color: #22c55e !important; }
-#simpleFiltersPopup .filter-chip i[data-category="randonnee"] { color: #10b981 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="chateau"] { color: #92400e !important; }
 #simpleFiltersPopup .filter-chip i[data-category="festival"] { color: #f97316 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="loisirs"] { color: #6366f1 !important; }
@@ -3861,16 +4400,12 @@ body {
 #simpleFiltersPopup .filter-chip i[data-category="villa"] { color: #94a3b8 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="logement_insolite"] { color: #ec4899 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="camping"] { color: #34d399 !important; }
-#simpleFiltersPopup .filter-chip i[data-category="restaurant"] { color: #f59e0b !important; }
 
 /* Alternative avec classes */
 .filter-chip .icon-monument { color: #d97706 !important; }
 .filter-chip .icon-musee { color: #8b5cf6 !important; }
-.filter-chip .icon-point_de_vue { color: #059669 !important; }
 .filter-chip .icon-plage { color: #06b6d4 !important; }
 .filter-chip .icon-village { color: #ef4444 !important; }
-.filter-chip .icon-parc { color: #22c55e !important; }
-.filter-chip .icon-randonnee { color: #10b981 !important; }
 .filter-chip .icon-chateau { color: #92400e !important; }
 .filter-chip .icon-festival { color: #f97316 !important; }
 .filter-chip .icon-loisirs { color: #6366f1 !important; }
@@ -3878,9 +4413,6 @@ body {
 .filter-chip .icon-villa { color: #94a3b8 !important; }
 .filter-chip .icon-logement_insolite { color: #ec4899 !important; }
 .filter-chip .icon-camping { color: #34d399 !important; }
-.filter-chip .icon-restaurant { color: #f59e0b !important; }
-
-
 
 /* Bouton de type de carte */
 .map-type-control {
@@ -7292,8 +7824,7 @@ body {
     background: #6366f1; /* Indigo pour musées */
 }
 
-.nearby-poi-category.category-point_de_vue {
-    background: #059669; /* Vert émeraude pour points de vue */
+.nearby-poi-category    background: #059669; /* Vert émeraude pour points de vue */
 }
 
 .nearby-poi-category.category-plage {
@@ -7304,12 +7835,9 @@ body {
     background: #dc2626; /* Rouge pour villages */
 }
 
-.nearby-poi-category.category-parc {
-    background: #16a34a; /* Vert pour parcs */
 }
 
-.nearby-poi-category.category-randonnee {
-    background: #65a30d; /* Vert olive pour randonnées */
+.nearby-poi-category    background: #65a30d; /* Vert olive pour randonnées */
 }
 
 .nearby-poi-category.category-chateau {
@@ -7340,8 +7868,6 @@ body {
     background: #84cc16; /* Vert lime pour campings */
 }
 
-.nearby-poi-category.category-restaurant {
-    background: #ef4444; /* Rouge pour restaurants */
 }
 
 /* ===== POPUP GÉOLOCALISATION ===== */
