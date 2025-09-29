@@ -293,3 +293,7 @@ if (document.readyState !== 'loading') {
     console.log('📋 DOM déjà prêt - Init immédiate');
     setTimeout(initSimpleFilters, 100);
 }
+
+// Export global functions
+window.showSimpleFiltersPopup = showSimpleFiltersPopup;
+window.initSimpleFilters = initSimpleFilters;

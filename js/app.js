@@ -66,6 +66,11 @@ document.addEventListener('DOMContentLoaded', function() {
         initBottomSheetControls();
         initFixedPopup();
         initSearchAutoComplete();
+
+        // Delay main search and filters initialization to ensure deferred scripts are loaded
+        setTimeout(() => {
+            initMainSearchAndFilters();
+        }, 200);
         // Retarder le chargement des POI pour améliorer le FCP
         setTimeout(() => {
             loadPois();
@@ -770,7 +775,7 @@ function initMap() {
 
                 return div;
             };
-            mapTypeControl.addTo(map);
+            // mapTypeControl.addTo(map); // SUPPRIMÉ - remplacé par map-toggle-btn
 
             // Gérer le clic sur le bouton
             setTimeout(() => {
@@ -3796,3 +3801,88 @@ window.showNearbyCarousel = showNearbyCarousel;
 window.showShowNearbyButton = showShowNearbyButton;
 window.hideShowNearbyButton = hideShowNearbyButton;
 window.initBottomSheetSwipe = initBottomSheetSwipe;
+
+/**
+ * Initialize the new main search input and filter button
+ */
+function initMainSearchAndFilters() {
+    console.log('🔗 Initializing main search and filters connection...');
+
+    // Connect the main search input
+    const searchInputMain = document.getElementById('searchInputMain');
+    const searchInput = document.getElementById('searchInput');
+
+    if (searchInputMain && searchInput) {
+        console.log('✅ Main search input found, connecting to existing functionality');
+
+        // Sync the main search input with the bottom sheet search input
+        searchInputMain.addEventListener('input', (e) => {
+            const query = e.target.value;
+            searchInput.value = query;
+
+            // Trigger the existing search functionality
+            const event = new Event('input', { bubbles: true });
+            searchInput.dispatchEvent(event);
+        });
+
+        // Handle Enter key on main search
+        searchInputMain.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                // Copy to bottom sheet input and trigger search
+                searchInput.value = searchInputMain.value;
+                applyFilters();
+            }
+        });
+
+        // Sync back from bottom sheet to main search when it changes
+        searchInput.addEventListener('input', (e) => {
+            if (searchInputMain.value !== e.target.value) {
+                searchInputMain.value = e.target.value;
+            }
+        });
+
+        console.log('✅ Search inputs synchronized');
+    } else {
+        console.warn('⚠️ Main search input or bottom sheet search input not found');
+    }
+
+    // Connect the main filter button
+    const filterBtnMain = document.getElementById('filterBtnMain');
+
+    if (filterBtnMain) {
+        console.log('✅ Main filter button found, connecting to existing functionality');
+
+        // Connect to the simple filters popup
+        filterBtnMain.addEventListener('click', function() {
+            console.log('🎯 Main filter button clicked!');
+
+            // Try multiple approaches to show filters
+            if (typeof showSimpleFiltersPopup === 'function') {
+                console.log('✅ Using showSimpleFiltersPopup');
+                showSimpleFiltersPopup();
+            } else if (window.showSimpleFiltersPopup) {
+                console.log('✅ Using window.showSimpleFiltersPopup');
+                window.showSimpleFiltersPopup();
+            } else {
+                console.log('⚠️ showSimpleFiltersPopup not found, trying bottom sheet filter');
+
+                // Fallback: trigger the bottom sheet filter button
+                const filterBtn = document.getElementById('filterBtn');
+                if (filterBtn) {
+                    console.log('✅ Triggering bottom sheet filter button');
+                    filterBtn.click();
+                } else {
+                    console.error('❌ No filter method available');
+                }
+            }
+        });
+
+        console.log('✅ Filter button connected');
+    } else {
+        console.warn('⚠️ Main filter button not found');
+    }
+}
+
+// Add the initialization to the global functions
+window.initMainSearchAndFilters = initMainSearchAndFilters;

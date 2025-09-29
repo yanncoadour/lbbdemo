@@ -9,17 +9,157 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Header styles from index.html -->
+    <style>
+        header {
+            background: white;
+            color: #1e3a8a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-text {
+            color: #000000;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.8rem;
+            font-weight: 400;
+            opacity: 0.8;
+            line-height: 1;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #1e3a8a;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                right: -300px;
+                width: 280px;
+                height: calc(100vh - 72px);
+                background: white;
+                flex-direction: column;
+                padding: 2rem 1rem;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 199;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                padding: 1rem;
+                border-radius: 8px;
+                text-align: center;
+                text-decoration: none;
+                color: #1e3a8a;
+                font-weight: 600;
+                border-bottom: 1px solid #f1f5f9;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header moderne minimal -->
-    <header class="modern-header">
-        <div class="header-brand">
-            <img src="assets/images/logo.jpg" alt="La Belle Bretagne" class="brand-logo">
-            <div class="brand-text">
-                <div class="brand-name">La Belle Bretagne</div>
-                <div class="brand-tagline">Blog & Articles</div>
-            </div>
-        </div>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.jpg" alt="Logo La Belle Bretagne">
+                <div class="logo-text">
+                    <div class="logo-title">La Belle Bretagne</div>
+                    <div class="logo-subtitle">Blog</div>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="carte.html">Carte</a></li>
+                <li><a href="logements.html">Hébergements</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="instagram.html">Instagram</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
     </header>
 
     <!-- Main Content -->
@@ -175,7 +315,7 @@
                         
                         <p class="article-cta">
                             <strong>Alors, prêt·e à explorer la Bretagne comme jamais ?</strong><br>
-                            <a href="index.html" class="cta-link">Découvrez notre carte interactive</a> et 
+                            <a href="carte.html" class="cta-link">Découvrez notre carte interactive</a> et 
                             <a href="logements.html" class="cta-link">trouvez votre hébergement de rêve</a> !
                         </p>
                         
@@ -205,32 +345,127 @@
         </section>
     </main>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="festivals.html" class="nav-item">
-            <i class="fas fa-music"></i>
-            <span>Festival</span>
-        </a>
-        <a href="logements.html" class="nav-item">
-            <i class="fas fa-bed"></i>
-            <span>Logement</span>
-        </a>
-        <a href="index.html" class="nav-item nav-item-center">
-            <i class="fas fa-map"></i>
-            <span>Carte</span>
-        </a>
-        <a href="blog.html" class="nav-item active">
-            <i class="fas fa-newspaper"></i>
-            <span>Blog</span>
-        </a>
-        <a href="instagram.html" class="nav-item">
-            <i class="fab fa-instagram"></i>
-            <span>Instagram</span>
-        </a>
-    </nav>
+
+    <!-- Footer -->
+    <footer class="site-footer" style="background: #1e3a8a; color: white; padding: 1rem 0; font-size: 0.75rem; margin-top: 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <!-- Ligne principale avec 4 colonnes -->
+            <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2rem; align-items: start; margin-bottom: 1rem;">
+
+                <!-- Plan du site -->
+                <div>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Plan du site</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                        <a href="index.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Accueil</a>
+                        <a href="carte.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Carte interactive</a>
+                        <a href="logements.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Hébergements</a>
+                        <a href="festivals.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Festivals</a>
+                        <a href="blog.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Blog</a>
+                        <a href="instagram.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Instagram</a>
+                    </div>
+                </div>
+
+                <!-- Liens légaux -->
+                <div>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Informations</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                        <a href="mentions-legales.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Mentions légales</a>
+                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Nous contacter</a>
+                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Qui sommes-nous</a>
+                    </div>
+                </div>
+
+                <!-- Réseaux sociaux -->
+                <div style="text-align: center;">
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Suivez-nous</h4>
+                    <div style="display: flex; justify-content: center; gap: 1.5rem;">
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Newsletter</h4>
+                    <p style="margin: 0 0 0.6rem 0; color: #ddd; font-size: 0.7rem; line-height: 1.4;">Recevez nos dernières découvertes bretonnes</p>
+                    <form style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Votre email"
+                               style="flex: 1; padding: 0.5rem; border: none; border-radius: 6px; font-size: 0.75rem; min-width: 0;">
+                        <button type="submit"
+                                style="background: #3b82f6; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; white-space: nowrap;">
+                            S'abonner
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div style="text-align: center; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="margin: 0 0 0.5rem 0; color: #ddd; font-size: 0.7rem;">&copy; 2025 La Belle Bretagne - Guide touristique de Bretagne</p>
+                <p style="margin: 0; color: #ddd; font-size: 0.7rem;">Made with ❤️ en Bretagne</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
     <script src="js/theme-global.js"></script>
     <script src="js/blog.js"></script>
+
+    <!-- Mobile menu script -->
+    <script>
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const icon = mobileMenuBtn.querySelector('i');
+
+            navLinks.classList.toggle('active');
+
+            // Change icon between bars and times (X)
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Close menu when clicking on a nav link (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                const icon = mobileMenuBtn.querySelector('i');
+
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Close menu when clicking outside (mobile)
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const nav = document.querySelector('nav');
+
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                const icon = mobileMenuBtn.querySelector('i');
+                navLinks.classList.remove('active');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 </body>
 </html>

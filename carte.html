@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Belle Bretagne - Guide Touristique de Bretagne</title>
+    <meta name="description" content="Découvrez les plus beaux lieux de Bretagne : plages, monuments, villages, châteaux et points de vue. Guide interactif avec carte, POIs et conseils pour votre séjour.">
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /></noscript>
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Font display optimization -->
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Header styles from index.html -->
+    <style>
+        header {
+            background: white;
+            color: #1e3a8a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-text {
+            color: #000000;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.8rem;
+            font-weight: 400;
+            opacity: 0.8;
+            line-height: 1;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #1e3a8a;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                right: -300px;
+                width: 280px;
+                height: calc(100vh - 72px);
+                background: white;
+                flex-direction: column;
+                padding: 2rem 1rem;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 199;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                padding: 1rem;
+                border-radius: 8px;
+                text-align: center;
+                text-decoration: none;
+                color: #1e3a8a;
+                font-weight: 600;
+                border-bottom: 1px solid #f1f5f9;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.jpg" alt="Logo La Belle Bretagne">
+                <div class="logo-text">
+                    <div class="logo-title">La Belle Bretagne</div>
+                    <div class="logo-subtitle">Carte</div>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="carte.html">Carte</a></li>
+                <li><a href="logements.html">Hébergements</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="instagram.html">Instagram</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="carte-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <i class="fas fa-map-marked-alt"></i>
+                Carte Interactive de Bretagne
+            </h1>
+            <p class="hero-subtitle">Explorez tous les lieux incontournables, hébergements et activités de Bretagne sur notre carte interactive</p>
+        </div>
+    </section>
+
+    <!-- Search and Filters Section -->
+    <section class="carte-search-section">
+        <div class="container">
+            <div class="search-bar-main">
+                <div class="search-field-main">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Découvrir la Bretagne..." class="search-input-main" id="searchInputMain">
+                </div>
+                <button class="filters-btn-main" id="filterBtnMain">
+                    <i class="fas fa-tune"></i>
+                    <span>Filtres</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" style="position: relative;">
+        <!-- Map Container -->
+        <div id="map" class="map"></div>
+
+        <!-- Map Style Toggle Button -->
+        <button class="map-toggle-btn" id="mapToggleBtn" aria-label="Basculer entre vue satellite et carte" title="Basculer satellite/carte">
+            <i class="fas fa-layer-group" aria-hidden="true"></i>
+        </button>
+    </section>
+
+    <!-- Bouton indicateur carrousel (affiché quand la bottom-sheet est minimisée) -->
+    <button class="carousel-indicator-btn" id="carouselIndicatorBtn" style="display: none;" aria-label="Voir les lieux proches" title="Voir les lieux proches">
+        <i class="fas fa-location-arrow" aria-hidden="true"></i>
+        <span class="indicator-count" id="indicatorCount" aria-label="Nombre de lieux">0</span>
+    </button>
+
+    <!-- Menu des réglages -->
+    <div class="settings-menu" id="settingsMenu">
+        <div class="settings-menu-content">
+            <button class="settings-item" id="themeToggle">
+                <i class="fas fa-moon" id="themeIcon"></i>
+                <span>Mode sombre</span>
+                <div class="toggle-switch" id="themeSwitch">
+                    <div class="toggle-slider"></div>
+                </div>
+            </button>
+            <button class="settings-item" id="aboutBtn">
+                <i class="fas fa-info-circle"></i>
+                <span>Qui sommes-nous ?</span>
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="settings-item" id="contactBtn">
+                <i class="fas fa-envelope"></i>
+                <span>Contactez-nous</span>
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <a href="mentions-legales.html" class="settings-item">
+                <i class="fas fa-gavel"></i>
+                <span>Mentions légales</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Sheet moderne -->
+    <div class="bottom-sheet" id="bottomSheet">
+        <div class="sheet-header">
+            <div class="sheet-handle"></div>
+            <div class="sheet-controls">
+                <button class="sheet-toggle-btn" id="sheetToggleBtn" title="Minimiser/Maximiser">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Éléments de recherche cachés pour compatibilité JavaScript -->
+        <div style="display: none;">
+            <input type="text" id="searchInput" aria-hidden="true">
+            <input type="text" id="searchAutocomplete" aria-hidden="true">
+            <button id="filterBtn" aria-hidden="true"></button>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <button class="quick-btn primary">
+                <i class="fas fa-route"></i>
+                <span>Itinéraire</span>
+            </button>
+            <button class="quick-btn secondary">
+                <i class="fas fa-heart"></i>
+                <span>Favoris</span>
+            </button>
+        </div>
+
+        <!-- Section des lieux proches (géolocalisation) -->
+        <div id="nearbyLocationSection" class="nearby-location-section" style="display: none;">
+            <div class="nearby-card">
+                <h2 class="nearby-section-title">
+                    <i class="fas fa-location-arrow"></i>
+                    Lieux à découvrir près de vous
+                </h2>
+                <p class="nearby-subtitle">Points d'intérêt dans un rayon de 50 km</p>
+                <div class="nearby-carousel">
+                    <div class="nearby-carousel-container" id="nearbyLocationCarousel">
+                        <!-- Points d'intérêt générés dynamiquement -->
+                    </div>
+                    <button class="carousel-btn carousel-prev" id="locationCarouselPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn carousel-next" id="locationCarouselNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <div class="places-grid" id="cardsGrid">
+                <!-- Generated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Filters Panel -->
+        <div class="filters-panel" id="filterContent">
+            <div class="filters-header">
+                <h3>Filtres</h3>
+                <button class="close-filters" id="backFilterBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="filters-body">
+                <!-- Sort -->
+                <div class="filter-group">
+                    <label class="group-label">Trier par</label>
+                    <div class="options-row">
+                        <label class="option-pill">
+                            <input type="radio" name="sort" value="distance" checked>
+                            <span>Distance</span>
+                        </label>
+                        <label class="option-pill">
+                            <input type="radio" name="sort" value="recent">
+                            <span>Récents</span>
+                        </label>
+                        <label class="option-pill">
+                            <input type="radio" name="sort" value="rating">
+                            <span>Populaires</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Départements -->
+                <div class="filter-group">
+                    <label class="group-label">Départements</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="checkbox" value="Finistère" name="department">
+                            <div class="card-content">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Finistère</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="Ille-et-Vilaine" name="department">
+                            <div class="card-content">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Ille-et-Vilaine</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="Loire-Atlantique" name="department">
+                            <div class="card-content">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Loire-Atlantique</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="Morbihan" name="department">
+                            <div class="card-content">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Morbihan</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="Côtes-d'Armor" name="department">
+                            <div class="card-content">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Côtes-d'Armor</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="filter-group">
+                    <label class="group-label">Catégories</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="checkbox" value="plage">
+                            <div class="card-content">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span>Plages</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="village">
+                            <div class="card-content">
+                                <i class="fas fa-home"></i>
+                                <span>Villages</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="monument">
+                            <div class="card-content">
+                                <i class="fas fa-landmark"></i>
+                                <span>Monuments</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="point_de_vue">
+                            <div class="card-content">
+                                <i class="fas fa-mountain"></i>
+                                <span>Panoramas</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="randonnee">
+                            <div class="card-content">
+                                <i class="fas fa-hiking"></i>
+                                <span>Randonnées</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="musee">
+                            <div class="card-content">
+                                <i class="fas fa-university"></i>
+                                <span>Culture</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="hotel">
+                            <div class="card-content">
+                                <i class="fas fa-bed"></i>
+                                <span>Hébergement</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="logement_insolite">
+                            <div class="card-content">
+                                <i class="fas fa-campground"></i>
+                                <span>Insolite</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" value="festival">
+                            <div class="card-content">
+                                <i class="fas fa-music"></i>
+                                <span>Festivals</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filters-footer">
+                <button class="btn-apply" id="applyFiltersInline">
+                    Appliquer les filtres
+                </button>
+                <button class="btn-reset" id="resetFiltersInline">
+                    Réinitialiser
+                </button>
+            </div>
+        </div>
+
+        <!-- Contenu des filtres (généré dynamiquement) -->
+        <div class="filter-content">
+            <!-- Contenu généré par filters.js -->
+        </div>
+    </div>
+
+    <!-- Popup fixe pour les POI -->
+    <div class="fixed-popup" id="fixedPopup" style="display: none;">
+        <div class="fixed-popup-content" id="fixedPopupContent">
+            <!-- Contenu généré dynamiquement -->
+        </div>
+        <button class="fixed-popup-close" id="closeFixedPopup">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Popup de géolocalisation -->
+    <div class="geolocation-popup" id="geolocationPopup" style="display: none;">
+        <div class="geolocation-popup-content">
+            <div class="geolocation-icon">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Découvrez les lieux près de vous</h3>
+            <p>Autorisez l'accès à votre position pour voir les points d'intérêt à proximité</p>
+
+            <div class="geolocation-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <span>Cliquez sur "Autoriser" quand votre navigateur le demande</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                <span>Ou allez dans Réglages → Safari → Localisation</span>
+                </div>
+            </div>
+
+            <div class="geolocation-buttons">
+                <button class="btn-geolocation-allow" id="btnAllowGeolocation">
+                    <i class="fas fa-crosshairs"></i>
+                    Autoriser la géolocalisation
+                </button>
+                <button class="btn-geolocation-cancel" id="btnCancelGeolocation">
+                    Plus tard
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bouton pour réafficher le carrousel de géolocalisation -->
+    <button class="show-nearby-btn" id="showNearbyBtn" style="display: none;" title="Voir les lieux proches">
+        <i class="fas fa-location-arrow"></i>
+        <span>Lieux proches (<span id="nearbyCountBtn">0</span>)</span>
+    </button>
+
+
+    <!-- Footer -->
+    <footer class="site-footer" style="background: #1e3a8a; color: white; padding: 1rem 0; font-size: 0.75rem; margin-top: 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <!-- Ligne principale avec 4 colonnes -->
+            <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2rem; align-items: start; margin-bottom: 1rem;">
+
+                <!-- Plan du site -->
+                <div>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Plan du site</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                        <a href="index.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Accueil</a>
+                        <a href="carte.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Carte interactive</a>
+                        <a href="logements.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Hébergements</a>
+                        <a href="festivals.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Festivals</a>
+                        <a href="blog.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Blog</a>
+                        <a href="instagram.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Instagram</a>
+                    </div>
+                </div>
+
+                <!-- Liens légaux -->
+                <div>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Informations</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                        <a href="mentions-legales.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Mentions légales</a>
+                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Nous contacter</a>
+                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Qui sommes-nous</a>
+                    </div>
+                </div>
+
+                <!-- Réseaux sociaux -->
+                <div style="text-align: center;">
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Suivez-nous</h4>
+                    <div style="display: flex; justify-content: center; gap: 1.5rem;">
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Newsletter</h4>
+                    <p style="margin: 0 0 0.6rem 0; color: #ddd; font-size: 0.7rem; line-height: 1.4;">Recevez nos dernières découvertes bretonnes</p>
+                    <form style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Votre email"
+                               style="flex: 1; padding: 0.5rem; border: none; border-radius: 6px; font-size: 0.75rem; min-width: 0;">
+                        <button type="submit"
+                                style="background: #3b82f6; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; white-space: nowrap;">
+                            S'abonner
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div style="text-align: center; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="margin: 0 0 0.5rem 0; color: #ddd; font-size: 0.7rem;">&copy; 2025 La Belle Bretagne - Guide touristique de Bretagne</p>
+                <p style="margin: 0; color: #ddd; font-size: 0.7rem;">Made with ❤️ en Bretagne</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+
+    <!-- Configuration critique inline pour éviter le blocage -->
+    <script>
+        window.CONFIG = {
+            map: { center: [48.2020, -2.9326], zoom: 8, minZoom: 7, maxZoom: 16 },
+            colors: {
+                monument: '#d97706', musee: '#8b5cf6', point_de_vue: '#059669',
+                plage: '#06b6d4', village: '#ef4444', parc: '#22c55e',
+                randonnee: '#10b981', chateau: '#92400e', festival: '#f97316',
+                loisirs: '#6366f1', hotel: '#64748b', villa: '#94a3b8',
+                logement_insolite: '#ec4899', camping: '#34d399', restaurant: '#f59e0b'
+            }
+        };
+    </script>
+
+    <!-- Scripts essentiels en ordre synchrone -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/logger.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/map.js?v=5"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Scripts non-critiques en defer -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js" defer></script>
+    <script src="js/theme-global.js" defer></script>
+    <script src="js/simple-filters.js" defer></script>
+    <script src="js/map-toggle.js" defer></script>
+    <script src="js/settings.js" defer></script>
+
+    <!-- Mobile menu script -->
+    <script>
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const icon = mobileMenuBtn.querySelector('i');
+
+            navLinks.classList.toggle('active');
+
+            // Change icon between bars and times (X)
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Close menu when clicking on a nav link (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                const icon = mobileMenuBtn.querySelector('i');
+
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Close menu when clicking outside (mobile)
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const nav = document.querySelector('nav');
+
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                const icon = mobileMenuBtn.querySelector('i');
+                navLinks.classList.remove('active');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+
+</body>
+</html>

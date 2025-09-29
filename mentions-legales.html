@@ -16,20 +16,126 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Header styles from index.html -->
+    <style>
+        header {
+            background: white;
+            color: #1e3a8a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-text {
+            color: #000000;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.8rem;
+            font-weight: 400;
+            opacity: 0.8;
+            line-height: 1;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header moderne -->
-    <header class="modern-header">
-        <div class="header-brand">
-            <a href="index.html" class="back-link">
-                <i class="fas fa-arrow-left"></i>
-            </a>
-            <img src="assets/images/logo.jpg" alt="La Belle Bretagne" class="brand-logo">
-            <div class="brand-name">
-                <span>La Belle Bretagne</span>
-                <div class="brand-indicator"></div>
+    <header>
+        <nav>
+            <div class="nav-left" style="display: flex; align-items: center; gap: 1rem;">
+                <a href="carte.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.jpg" alt="Logo La Belle Bretagne">
+                    <div class="logo-text">
+                        <div class="logo-title">La Belle Bretagne</div>
+                        <div class="logo-subtitle">Mentions légales</div>
+                    </div>
+                </a>
             </div>
-        </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="carte.html">Carte</a></li>
+                <li><a href="logements.html">Hébergements</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="instagram.html">Instagram</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Main Content -->
@@ -96,29 +202,6 @@
         </div>
     </main>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="festivals.html" class="nav-item">
-            <i class="fas fa-music"></i>
-            <span>Festival</span>
-        </a>
-        <a href="logements.html" class="nav-item">
-            <i class="fas fa-bed"></i>
-            <span>Logement</span>
-        </a>
-        <a href="index.html" class="nav-item nav-item-center">
-            <i class="fas fa-map"></i>
-            <span>Carte</span>
-        </a>
-        <a href="blog.html" class="nav-item">
-            <i class="fas fa-newspaper"></i>
-            <span>Blog</span>
-        </a>
-        <a href="instagram.html" class="nav-item">
-            <i class="fab fa-instagram"></i>
-            <span>Instagram</span>
-        </a>
-    </nav>
     
     <!-- Footer simple -->
     <footer class="simple-footer">

@@ -9,20 +9,126 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Header styles from index.html -->
+    <style>
+        header {
+            background: white;
+            color: #1e3a8a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-text {
+            color: #000000;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.8rem;
+            font-weight: 400;
+            opacity: 0.8;
+            line-height: 1;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header moderne minimal -->
-    <header class="modern-header">
-        <div class="header-brand">
-            <a href="festivals.html" class="back-btn">
-                <i class="fas fa-arrow-left"></i>
-            </a>
-            <img src="assets/images/logo.jpg" alt="La Belle Bretagne" class="brand-logo">
-            <div class="brand-text">
-                <div class="brand-name">La Belle Bretagne</div>
-                <div class="brand-tagline">Festivals</div>
+    <header>
+        <nav>
+            <div class="nav-left" style="display: flex; align-items: center; gap: 1rem;">
+                <a href="festivals.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.jpg" alt="Logo La Belle Bretagne">
+                    <div class="logo-text">
+                        <div class="logo-title">La Belle Bretagne</div>
+                        <div class="logo-subtitle">Festival</div>
+                    </div>
+                </a>
             </div>
-        </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="carte.html">Carte</a></li>
+                <li><a href="logements.html">Hébergements</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="instagram.html">Instagram</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Main Content -->
@@ -33,36 +139,13 @@
             </div>
             <h1>Page en cours de construction</h1>
             <p>Cette section sera bientôt disponible. Revenez nous voir prochainement !</p>
-            <a href="index.html" class="btn-primary">
+            <a href="carte.html" class="btn-primary">
                 <i class="fas fa-arrow-left"></i>
                 Retour à la carte
             </a>
         </div>
     </main>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="festivals.html" class="nav-item active">
-            <i class="fas fa-music"></i>
-            <span>Festival</span>
-        </a>
-        <a href="logements.html" class="nav-item">
-            <i class="fas fa-bed"></i>
-            <span>Logement</span>
-        </a>
-        <a href="index.html" class="nav-item nav-item-center">
-            <i class="fas fa-map"></i>
-            <span>Carte</span>
-        </a>
-        <a href="blog.html" class="nav-item">
-            <i class="fas fa-newspaper"></i>
-            <span>Blog</span>
-        </a>
-        <a href="instagram.html" class="nav-item">
-            <i class="fab fa-instagram"></i>
-            <span>Instagram</span>
-        </a>
-    </nav>
 
     <!-- Loading overlay -->
     <div class="loading-overlay" id="loadingOverlay">
@@ -72,7 +155,61 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+    <!-- Footer -->
+    <footer class="site-footer" style="background: #1e3a8a; color: white; padding: 1rem 0; font-size: 0.75rem; margin-top: 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <!-- Ligne principale avec 3 colonnes -->
+            <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; align-items: start; margin-bottom: 1rem;">
+
+                <!-- Liens légaux -->
+                <div>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Informations</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                        <a href="mentions-legales.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Mentions légales</a>
+                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Nous contacter</a>
+                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Qui sommes-nous</a>
+                    </div>
+                </div>
+
+                <!-- Réseaux sociaux -->
+                <div style="text-align: center;">
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Suivez-nous</h4>
+                    <div style="display: flex; justify-content: center; gap: 1.5rem;">
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Newsletter</h4>
+                    <p style="margin: 0 0 0.6rem 0; color: #ddd; font-size: 0.7rem; line-height: 1.4;">Recevez nos dernières découvertes bretonnes</p>
+                    <form style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Votre email"
+                               style="flex: 1; padding: 0.5rem; border: none; border-radius: 6px; font-size: 0.75rem; min-width: 0;">
+                        <button type="submit"
+                                style="background: #3b82f6; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; white-space: nowrap;">
+                            S'abonner
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div style="text-align: center; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="margin: 0; color: #ddd; font-size: 0.7rem;">&copy; 2025 La Belle Bretagne - Guide touristique de Bretagne</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script></script>
     <script src="js/security.js"></script>
     <script src="js/theme-global.js"></script>
     <script src="js/festival-detail.js"></script>

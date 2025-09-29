@@ -226,7 +226,6 @@ body {
 /* ===== FOOTER STYLES ===== */
 .simple-footer {
     background: var(--surface-card);
-    border-top: 1px solid var(--border-light);
     padding: 2rem 0;
     margin-top: 3rem;
 }
@@ -553,14 +552,36 @@ body {
 
 /* Map - Full Screen */
 .map {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
+    margin: 20px 30px;
+    height: 70vh;
+    min-height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     z-index: 1;
-    width: 100%;
-    height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .map {
+        margin: 20px 16px;
+        height: 60vh;
+        min-height: 400px;
+    }
+
+
+    .map-toggle-btn {
+        top: 20px;
+        right: 20px;
+    }
+
+    .discovery-panel {
+        top: 270px;
+    }
+
+    .settings-menu {
+        top: 290px;
+    }
+
 }
 
 /* Header moderne élégant */
@@ -679,54 +700,14 @@ body {
     color: var(--primary);
 }
 
-/* Bouton de géolocalisation moderne */
-.location-btn {
-    position: fixed;
-    top: 88px;
-    right: 16px;
-    width: 44px;
-    height: 44px;
-    background: var(--surface-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(10px);
-}
-
-.location-btn:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-lg);
-}
-
-.location-btn:hover i {
-    color: white;
-}
-
-.location-btn:active {
-    transform: translateY(0);
-}
-
-.location-btn i {
-    color: var(--text-secondary);
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
 
 /* Panel de découverte latéral */
 .discovery-panel {
     position: fixed;
-    top: 70px;
+    top: 360px;
     right: -380px;
     width: 380px;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 30px);
     background: var(--breton-white);
     box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -830,8 +811,8 @@ body {
 }
 
 .filter-toggle {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     background: var(--ocean-blue);
     border: none;
     border-radius: 12px;
@@ -959,7 +940,7 @@ body {
     align-items: center;
     gap: 16px;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+    ;
     margin-bottom: 20px;
 }
 
@@ -992,7 +973,7 @@ body {
 /* Filter Actions */
 .filter-actions {
     padding: 20px 0;
-    border-top: 1px solid rgba(26, 26, 26, 0.1);
+    ;
     margin-top: 20px;
 }
 
@@ -1022,7 +1003,7 @@ body {
 
 .modal-header {
     padding: 20px;
-    border-bottom: 1px solid #e5e7eb;
+    ;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1248,7 +1229,7 @@ body {
 /* Modal Footer */
 .modal-footer {
     padding: 20px;
-    border-top: 1px solid #e5e7eb;
+    ;
     background: white;
 }
 
@@ -1289,7 +1270,7 @@ body {
     right: 0;
     background: rgba(253, 252, 248, 0.95);
     backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(26, 26, 26, 0.1);
+    ;
     padding: 20px 0;
     display: flex;
     justify-content: center;
@@ -1408,7 +1389,6 @@ body {
     box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.12);
     height: auto;
     overflow: hidden;
-    border-top: 1px solid var(--border-light);
 }
 
 .bottom-sheet.filter-mode {
@@ -1426,7 +1406,6 @@ body {
 .compact-filters {
     background: var(--surface);
     padding: var(--space-3) var(--space-4);
-    border-top: 1px solid var(--border-light);
     margin-top: var(--space-2);
 }
 
@@ -1559,7 +1538,6 @@ body {
     gap: var(--space-2);
     margin-top: var(--space-3);
     padding-top: var(--space-2);
-    border-top: 1px solid var(--border-light);
 }
 
 .compact-apply,
@@ -1601,7 +1579,6 @@ body {
 .bottom-sheet .search-interface {
     padding: 16px;
     background: var(--surface-card);
-    border-bottom: 1px solid var(--border-light);
 }
 
 .search-bar {
@@ -1619,7 +1596,7 @@ body {
     border-radius: 12px;
     padding: 0 14px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 44px;
+    height: 40px;
     position: relative;
     overflow: visible;
 }
@@ -1719,7 +1696,6 @@ body {
 .suggestion-item {
     padding: 12px 14px;
     cursor: pointer;
-    border-bottom: 1px solid var(--border-light);
     transition: background-color 0.2s ease;
     display: flex;
     align-items: center;
@@ -1758,8 +1734,8 @@ body {
 }
 
 .bottom-sheet .search-interface .filters-btn {
-    min-width: 80px;
-    height: 44px;
+    min-width: 60px;
+    height: 40px;
     background: var(--surface-elevated);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -2175,7 +2151,7 @@ body {
 
 /* Hero Section Moderne */
 .poi-hero-modern {
-    margin-top: 72px;
+    margin-top: 0;
     position: relative;
 }
 
@@ -2412,7 +2388,6 @@ body {
 .poi-gallery-section {
     margin-top: 32px;
     padding-top: 24px;
-    border-top: 1px solid var(--border-light);
 }
 
 .gallery-title {
@@ -2835,7 +2810,6 @@ body {
 .poi-stats {
     margin-top: 24px;
     padding-top: 24px;
-    border-top: 1px solid var(--border-light);
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
@@ -3698,7 +3672,6 @@ body {
     text-align: center;
     margin-top: 16px;
     padding-top: 16px;
-    border-top: 1px solid var(--border-light);
     margin-bottom: 8px;
 }
 
@@ -4101,7 +4074,6 @@ body {
     gap: 12px;
     margin-top: 20px;
     padding-top: 16px;
-    border-top: 1px solid var(--border-light);
 }
 
 .popup-btn-modern {
@@ -4414,74 +4386,6 @@ body {
 .filter-chip .icon-logement_insolite { color: #ec4899 !important; }
 .filter-chip .icon-camping { color: #34d399 !important; }
 
-/* Bouton de type de carte */
-.map-type-control {
-    position: fixed !important;
-    top: 88px !important;
-    left: 16px !important;
-    z-index: 1000 !important;
-    margin: 0 !important;
-}
-
-.map-type-btn {
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px !important;
-    min-height: 44px !important;
-    max-width: 44px !important;
-    max-height: 44px !important;
-    background: var(--surface-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(10px);
-    padding: 0 !important;
-}
-
-.map-type-btn i {
-    color: var(--text-secondary);
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.map-type-btn:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-lg);
-}
-
-.map-type-btn:hover i {
-    color: white;
-}
-
-.map-type-btn:active {
-    transform: translateY(0);
-}
-
-.map-type-btn i {
-    transition: color 0.2s ease;
-}
-
-/* Style mobile */
-@media (max-width: 768px) {
-    .map-type-control {
-        margin-top: 10px;
-        margin-right: 10px;
-    }
-    
-    .map-type-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 13px;
-    }
-}
 
 /* Marqueur de position utilisateur */
 .user-location-marker {
@@ -4724,7 +4628,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 1px solid #eee;
+    ;
     background: #f8f9fa;
     border-radius: 20px 20px 0 0;
 }
@@ -4794,7 +4698,7 @@ body {
     display: flex;
     gap: 12px;
     padding: 20px;
-    border-top: 1px solid #eee;
+    ;
     background: #f8f9fa;
 }
 
@@ -5399,7 +5303,7 @@ body {
 /* === STYLES POUR LA PAGE LOGEMENTS === */
 
 .logements-main {
-    margin-top: 72px;
+    margin-top: 0;
     padding-bottom: 100px;
     position: relative;
     z-index: 1;
@@ -5410,9 +5314,9 @@ body {
 
 /* Hero Section */
 .logements-hero {
-    background: var(--gradient-ocean);
+    background: var(--gradient-primary);
     color: white;
-    padding: 60px 20px 50px;
+    padding: 60px 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -5852,10 +5756,191 @@ body {
     }
 }
 
+/* === STYLES POUR LA PAGE CARTE === */
+.carte-hero {
+    background: var(--gradient-primary);
+    color: white !important;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    padding: 20px;
+}
+.carte-hero * {
+    color: white !important;
+}
+.carte-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/></svg>') repeat;
+    background-size: 40px 40px;
+}
+.carte-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.carte-hero .hero-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: white !important;
+}
+.carte-hero .hero-title i {
+    font-size: 2rem;
+    color: white !important;
+}
+.carte-hero .hero-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.5;
+    color: white !important;
+}
+
+/* Search Section */
+.carte-search-section {
+    padding: 15px 0;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carte-search-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.search-bar-main {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-field-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    padding: 0 20px;
+    height: 40px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.search-field-main:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
+}
+
+.search-field-main i {
+    color: var(--text-secondary);
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.search-input-main {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.search-input-main::placeholder {
+    color: var(--text-muted);
+}
+
+.filters-btn-main {
+    height: 40px;
+    padding: 0 16px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filters-btn-main:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+@media (max-width: 768px) {
+    .carte-hero {
+        height: auto;
+        min-height: 220px;
+        padding: 24px 16px;
+    }
+
+    .carte-hero .hero-title {
+        font-size: 1.6rem;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    .carte-hero .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.4;
+        padding: 0 8px;
+    }
+
+    .carte-search-section {
+        padding: 15px 0;
+    }
+
+    .carte-search-section .container {
+        padding: 0 16px;
+    }
+
+    .search-bar-main {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .search-field-main {
+        height: 32px;
+        padding: 0 16px;
+    }
+
+    .filters-btn-main {
+        height: 32px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 /* === STYLES POUR LA PAGE BLOG === */
 
 .blog-main {
-    margin-top: 72px;
+    margin-top: 0;
     padding-bottom: 100px;
     position: relative;
     z-index: 1;
@@ -5865,7 +5950,7 @@ body {
 .blog-hero {
     background: var(--gradient-primary);
     color: white;
-    padding: 50px 20px;
+    padding: 60px 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -6337,7 +6422,7 @@ body {
 /* Filters */
 .festivals-filters {
     background: white;
-    border-bottom: 1px solid #e5e7eb;
+    ;
     padding: 18px 0;
 }
 
@@ -6500,7 +6585,7 @@ body {
 }
 
 .festivals-main {
-    margin-top: 72px;
+    margin-top: 0;
     padding-bottom: 100px;
     position: relative;
     z-index: 1;
@@ -6509,7 +6594,7 @@ body {
 /* === STYLES POUR LA PAGE INSTAGRAM === */
 
 .instagram-main {
-    margin-top: 72px;
+    margin-top: 0;
     padding-bottom: 100px;
     position: relative;
     z-index: 1;
@@ -6520,9 +6605,9 @@ body {
 
 /* Hero Section */
 .instagram-hero {
-    background: linear-gradient(135deg, #e1306c 0%, #fd1d1d 50%, #f77737 100%);
+    background: var(--gradient-primary);
     color: white;
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -6717,7 +6802,7 @@ body {
     gap: 12px;
     margin-bottom: 16px;
     padding-bottom: 12px;
-    border-bottom: 1px solid #e5e7eb;
+    ;
 }
 
 .instagram-header i {
@@ -6986,9 +7071,9 @@ body {
 
 /* Festivals Hero Section */
 .festivals-hero {
-    background: var(--gradient-sunset);
+    background: var(--gradient-primary);
     color: white;
-    padding: 30px 20px;
+    padding: 60px 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -7347,9 +7432,9 @@ body {
 
 /* Map Toggle Button - même style que location-btn */
 .map-toggle-btn {
-    position: fixed;
-    top: 88px;
-    left: 16px;
+    position: absolute;
+    top: 30px;
+    right: 60px;
     width: 44px;
     height: 44px;
     background: var(--surface-card);
@@ -7357,9 +7442,9 @@ body {
     border-radius: 12px;
     cursor: pointer;
     display: flex;
+    z-index: 1000;
     align-items: center;
     justify-content: center;
-    z-index: 100;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-md);
 }
@@ -7428,7 +7513,7 @@ body {
 /* Settings Menu */
 .settings-menu {
     position: fixed;
-    top: 76px;
+    top: 380px;
     right: 20px;
     background: var(--surface-card);
     border: 1px solid var(--border);
@@ -7537,7 +7622,6 @@ body {
 
 /* Special styling for theme toggle */
 #themeToggle {
-    border-bottom: 1px solid var(--border-light);
     margin-bottom: 4px;
     padding-bottom: 16px;
 }
@@ -7565,7 +7649,6 @@ body {
 .festival-actions {
     margin-top: auto;
     padding-top: 20px;
-    border-top: 1px solid var(--border-light);
 }
 
 .festival-btn {
@@ -8623,5 +8706,58 @@ body {
     .load-more-btn {
         padding: 16px;
         font-size: 13px;
+    }
+}
+
+/* Footer Responsive */
+@media (max-width: 768px) {
+    .site-footer {
+        overflow-x: hidden !important;
+    }
+
+    .site-footer .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        text-align: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .site-footer div[style*="max-width"] {
+        padding: 0 0.5rem !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .site-footer form {
+        max-width: 280px !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .site-footer input[type="email"] {
+        min-width: 0 !important;
+        width: 100% !important;
+        flex-shrink: 1 !important;
+    }
+
+    .site-footer button {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+    }
+
+    .site-footer h4 {
+        text-align: center !important;
+        font-size: 0.8rem !important;
+    }
+
+    .site-footer div[style*="flex-direction: column"] {
+        align-items: center !important;
+    }
+
+    .site-footer div[style*="justify-content: center"] {
+        flex-wrap: wrap !important;
+        gap: 1rem !important;
     }
 }
