@@ -831,16 +831,29 @@ function initMap() {
 /**
  * Centre la carte sur un POI spécifique en prenant en compte la hauteur de la vignette
  */
-function centerMapOnPOI(poi) {
+function centerMapOnPOI(poi, withPopup = false) {
     if (map && poi.lat && poi.lng) {
         // Détection mobile pour ajuster les dimensions
         const isMobile = window.innerWidth <= 480;
-        const zoomLevel = isMobile ? 11 : 12;
+        const isTablet = window.innerWidth > 480 && window.innerWidth <= 768;
+        const isDesktop = window.innerWidth > 768;
 
-        // Centrer la carte 5km plus bas que le POI
-        // 1 degré de latitude ≈ 111 km, donc 5km ≈ 0.045 degrés
-        const latOffset = 5 / 111; // 5km convertis en degrés de latitude
-        const adjustedLat = poi.lat - latOffset; // Position 5km au sud du POI
+        let zoomLevel, latOffset;
+
+        if (isMobile) {
+            zoomLevel = 11;
+            latOffset = 5 / 111; // 5km convertis en degrés de latitude
+        } else if (isTablet) {
+            zoomLevel = 12;
+            latOffset = 3 / 111; // 3km pour tablette
+        } else {
+            // Desktop avec popup - zoom ajusté pour voir POI + popup
+            zoomLevel = withPopup ? 12 : 12;
+            // Décalage de 5km vers le HAUT pour que la popup au-dessus du POI soit visible
+            latOffset = withPopup ? -5 / 111 : 3 / 111; // -5km = zoom 5km au-dessus du POI
+        }
+
+        const adjustedLat = poi.lat - latOffset;
 
         // Zoomer sur cette position ajustée
         map.flyTo([adjustedLat, poi.lng], zoomLevel, {
@@ -848,6 +861,8 @@ function centerMapOnPOI(poi) {
             duration: 1.2,
             easeLinearity: 0.1
         });
+
+        console.log(`🎯 Carte centrée sur ${poi.title} (zoom: ${zoomLevel}, offset: ${latOffset * 111}km, popup: ${withPopup})`);
     }
 }
 
@@ -1161,10 +1176,39 @@ function checkAndShowExactMatch(searchValue) {
         setTimeout(() => {
             // Centrer la carte sur le POI
             centerMapOnPOI(exactMatch);
-            // Afficher la popup du POI
-            showFixedPopup(exactMatch);
+
+            // Afficher la popup selon le type d'écran
+            if (window.innerWidth >= 768) {
+                // Sur PC : trouver le marker correspondant et afficher popup Leaflet
+                const marker = findMarkerByPoi(exactMatch);
+                if (marker) {
+                    showLeafletPopup(exactMatch, marker);
+                }
+            } else {
+                // Sur mobile : utiliser popup fixe
+                showFixedPopup(exactMatch);
+            }
         }, 300);
     }
+}
+
+/**
+ * Trouve le marker correspondant à un POI
+ */
+function findMarkerByPoi(poi) {
+    // Parcourir tous les markers sur la carte
+    let foundMarker = null;
+    map.eachLayer(function(layer) {
+        if (layer instanceof L.Marker) {
+            const markerLatLng = layer.getLatLng();
+            // Comparer les coordonnées (avec une petite tolérance pour les float)
+            if (Math.abs(markerLatLng.lat - poi.lat) < 0.0001 &&
+                Math.abs(markerLatLng.lng - poi.lng) < 0.0001) {
+                foundMarker = layer;
+            }
+        }
+    });
+    return foundMarker;
 }
 
 /**
@@ -1348,13 +1392,66 @@ function createMarker(poi) {
         icon: customIcon
     });
 
+    // Créer le contenu de la popup
+    const popupContent = createPopupContent(poi);
+
+    // Binder la popup au marker avec options personnalisées
+    marker.bindPopup(popupContent, {
+        maxWidth: 280,
+        minWidth: 260,
+        className: 'custom-popup',
+        closeButton: true,
+        autoPan: true,
+        autoPanPadding: [50, 50],
+        offset: [0, -10]
+    });
+
     // Clic pour ouvrir la popup fixe ET centrer la carte
     marker.on('click', function() {
-        showFixedPopup(poi);
-        centerMapOnPOI(poi);
+        // Vérifier si on est sur PC (écran large)
+        if (window.innerWidth >= 768) {
+            // Sur PC : ouvrir la popup Leaflet
+            marker.openPopup();
+            centerMapOnPOI(poi, true);
+
+            // Initialiser le carrousel après l'ouverture de la popup
+            setTimeout(() => {
+                initializePopupCarousel(poi);
+            }, 100);
+        } else {
+            // Sur mobile : utiliser popup fixe
+            showFixedPopup(poi);
+            centerMapOnPOI(poi, false);
+        }
     });
 
     return marker;
+}
+
+/**
+ * Obtient le nom de catégorie traduit
+ */
+function getTranslatedCategoryName(categoryId, lang = 'fr') {
+    const categoryMapping = {
+        'monument': 'categories.monument',
+        'musee': 'categories.museum',
+        'plage': 'categories.beach',
+        'village': 'categories.village',
+        'chateau': 'categories.castle',
+        'festival': 'categories.festival',
+        'loisirs': 'categories.leisure',
+        'hotel': 'categories.hotel',
+        'logement-insolite': 'categories.unusualAccommodation',
+        'camping': 'categories.camping',
+        'panorama': 'categories.panorama',
+        'randonnee': 'categories.hiking'
+    };
+
+    const key = categoryMapping[categoryId];
+    if (key && typeof getTranslation === 'function') {
+        return getTranslation(key, lang);
+    }
+    return getCategoryName(categoryId); // Fallback sur la version française
 }
 
 /**
@@ -1363,7 +1460,8 @@ function createMarker(poi) {
 function createPopupContent(poi) {
     const favorites = getFavorites();
     const isFavorite = favorites.includes(poi.id);
-    const categoryName = getCategoryName(poi.categories[0]);
+    const currentLang = localStorage.getItem('selectedLanguage') || 'fr';
+    const categoryName = getTranslatedCategoryName(poi.categories[0], currentLang);
 
     // Déterminer l'article correct (le/la)
     const article = getArticleForCategory(poi.categories[0]);
@@ -1373,18 +1471,28 @@ function createPopupContent(poi) {
             <!-- Image en pleine largeur en haut -->
             <div class="popup-image-hero">
                 ${poi.images && poi.images.length > 1 ? `
-                    <div class="popup-image-gallery">
-                        ${poi.images.map((img, index) => `
-                            <img src="${img}" alt="${poi.title} - Photo ${index + 1}"
-                                 class="gallery-image ${index === 0 ? 'active' : ''}"
-                                 data-position="${index === 0 ? 'center-top-soft' : 'center'}"
-                                 onerror="this.src='assets/img/placeholder.jpg'">
+                    ${poi.images.map((img, index) => `
+                        <img src="${img}" alt="${poi.title} - Photo ${index + 1}"
+                             class="gallery-image ${index === 0 ? 'active' : ''}"
+                             data-position="${index === 0 ? 'center-top-soft' : 'center'}"
+                             onerror="this.src='assets/img/placeholder.jpg'">
+                    `).join('')}
+
+                    <!-- Contrôles du carrousel -->
+                    <div class="gallery-controls">
+                        <button class="gallery-prev" aria-label="Image précédente">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="gallery-next" aria-label="Image suivante">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Indicateurs (dots) -->
+                    <div class="gallery-dots">
+                        ${poi.images.map((_, index) => `
+                            <span class="gallery-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></span>
                         `).join('')}
-                        <div class="gallery-dots">
-                            ${poi.images.map((_, index) => `
-                                <span class="gallery-dot ${index === 0 ? 'active' : ''}" onclick="showGalleryImage(${index})"></span>
-                            `).join('')}
-                        </div>
                     </div>
                 ` : `
                     <img src="${poi.image}" alt="${poi.title}"
@@ -1401,31 +1509,30 @@ function createPopupContent(poi) {
             <div class="popup-content">
                 <div class="popup-header-modern">
                     <h3 class="popup-title-modern">${poi.title}</h3>
+                    ${poi.city ? `
+                        <div class="popup-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${poi.city}</span>
+                        </div>
+                    ` : ''}
                 </div>
 
                 <p class="popup-description-modern">${poi.shortDescription}</p>
-
-                ${poi.tested ? `
-                    <div class="popup-tested-badge">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Testé par La Belle Bretagne</span>
-                    </div>
-                ` : ''}
 
                 <div class="popup-action-modern">
                     ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v3' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa' || poi.id === 'hotel-barriere-hermitage-la-baule' || poi.id === 'hotel-barriere-royal-thalasso-la-baule' || poi.id === 'hotel-castel-marie-louise-la-baule' || poi.id === 'chateau-maubreuil-carquefou' || poi.id === 'hotel-de-carantec' || poi.id === 'dihan-evasion-ploemel' || poi.id === 'domaine-des-ormes' || poi.id === 'domaine-de-meros' || poi.id === 'villa-lily-spa' || poi.id === '5-etoiles-hebergement-insolite-luxe' || poi.id === 'domaine-du-treuscoat' || poi.id === 'les-cabanes-de-koaddour' || poi.id === 'nuances-dalcoves') ? `
                         <div class="popup-actions-grid-modern">
                             <a href="poi.html?slug=${poi.slug || poi.id}" class="discover-btn-modern secondary accommodation">
-                                Découvrir
+                                ${typeof getTranslation === 'function' ? getTranslation('buttons.discover', currentLang) : 'Découvrir'}
                             </a>
                             <button class="reserve-btn-modern" data-website="${poi.website}" data-title="${poi.title}">
                                 <i class="fas fa-calendar-check"></i>
-                                Réserver
+                                ${typeof getTranslation === 'function' ? getTranslation('buttons.book', currentLang) : 'Réserver'}
                             </button>
                         </div>
                     ` : `
                         <a href="poi.html?slug=${poi.slug || poi.id}" class="discover-btn-modern">
-                            Découvrir ${article} ${categoryName}
+                            ${typeof getTranslation === 'function' ? getTranslation('buttons.discoverMore', currentLang) : 'En savoir plus'}
                         </a>
                     `}
                 </div>
@@ -2745,6 +2852,360 @@ function initFixedPopup() {
 }
 
 /**
+ * Affiche une popup Leaflet native pour PC
+ */
+function showLeafletPopup(poi, marker) {
+    console.log('🎯 Affichage popup Leaflet pour:', poi.title);
+
+    const popupContent = createLeafletPopupContent(poi);
+    console.log('📋 Contenu popup HTML:', popupContent.substring(0, 100) + '...');
+
+    const popupOptions = {
+        maxWidth: 400,
+        minWidth: 300,
+        // Désactiver le bouton de fermeture par défaut
+        closeButton: false,
+        autoPan: true,
+        autoPanPadding: [50, 50],
+        offset: [0, -10]
+    };
+
+    console.log('⚙️ Options popup:', popupOptions);
+
+    const popup = marker.bindPopup(popupContent, popupOptions);
+    console.log('🔗 Popup bindée au marker');
+
+    popup.openPopup();
+    console.log('📖 Popup ouverte');
+
+    // Attacher les events après ouverture de la popup
+    setTimeout(() => {
+        console.log('🔧 Attachement des événements...');
+        attachLeafletPopupEvents(poi);
+
+        // Initialiser le carrousel si il y a plusieurs images
+        if (poi.images && poi.images.length > 1) {
+            console.log('🎪 Initialisation du carrousel avec', poi.images.length, 'images');
+            currentGalleryIndex = 0;
+            galleryTotalImages = poi.images.length;
+
+            // Vérifier que les éléments existent
+            const galleryImages = document.querySelectorAll('.leaflet-popup .gallery-image');
+            const galleryDots = document.querySelectorAll('.leaflet-popup .gallery-dot');
+
+            console.log('🖼️ Images trouvées:', galleryImages.length);
+            console.log('🔘 Dots trouvés:', galleryDots.length);
+
+            if (galleryImages.length > 0) {
+                // S'assurer que la première image est active
+                galleryImages.forEach((img, index) => {
+                    img.classList.remove('active');
+                    if (index === 0) {
+                        img.classList.add('active');
+                        console.log('✅ Image 0 définie comme active:', img.src);
+                    }
+                });
+                galleryDots.forEach((dot, index) => {
+                    dot.classList.remove('active');
+                    if (index === 0) {
+                        dot.classList.add('active');
+                    }
+                });
+                console.log('✅ Carrousel initialisé avec', galleryImages.length, 'images');
+
+                // Test : forcer l'affichage de l'image active
+                const activeImg = document.querySelector('.leaflet-popup .gallery-image.active');
+                if (activeImg) {
+                    console.log('🖼️ Image active trouvée:', activeImg.src);
+                } else {
+                    console.error('❌ Aucune image active trouvée');
+                }
+            }
+        }
+
+        // Vérifier si le contenu est bien affiché
+        const popupElement = document.querySelector('.leaflet-popup');
+        if (popupElement) {
+            console.log('✅ Popup trouvée dans le DOM:', popupElement);
+        } else {
+            console.error('❌ Popup .leaflet-popup introuvable dans le DOM');
+        }
+    }, 100);
+}
+
+/**
+ * Crée le contenu HTML simplifié pour les popups Leaflet
+ */
+function createLeafletPopupContent(poi) {
+    console.log('🧩 Création du contenu popup pour:', poi.title);
+
+    const favorites = getFavorites();
+    const isFavorite = favorites.includes(poi.id);
+    const categoryName = getCategoryName(poi.categories[0]);
+
+    // Utiliser la même structure que la popup mobile
+    const popupHtml = `
+        <div class="popup-modern">
+            <!-- Image en pleine largeur en haut -->
+            <div class="popup-image-hero">
+                ${poi.images && poi.images.length > 1 ? `
+                    <div class="popup-image-gallery">
+                        ${poi.images.map((img, index) => `
+                            <img src="${img}" alt="${poi.title} - Photo ${index + 1}"
+                                 class="gallery-image ${index === 0 ? 'active' : ''}"
+                                 onerror="this.src='assets/img/placeholder.jpg'">
+                        `).join('')}
+                        <div class="gallery-controls">
+                            <button class="gallery-prev" onclick="prevGalleryImage()">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="gallery-next" onclick="nextGalleryImage()">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-dots">
+                            ${poi.images.map((_, index) => `
+                                <span class="gallery-dot ${index === 0 ? 'active' : ''}" onclick="showGalleryImage(${index})"></span>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : `
+                    <img src="${poi.image}" alt="${poi.title}" onerror="this.src='assets/img/placeholder.jpg'">
+                `}
+                <!-- Badge catégorie superposé -->
+                <div class="popup-category-badge">
+                    <i class="fas ${getCategoryIcon(poi.categories[0])}"></i>
+                    <span>${categoryName}</span>
+                </div>
+                <!-- Croix de fermeture en haut à droite de l'image -->
+                <button class="popup-close-btn" onclick="closePopupOrPanel()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <!-- Contenu dans une zone avec padding -->
+            <div class="popup-content">
+                <div class="popup-header-modern">
+                    <h3 class="popup-title-modern">${poi.title}</h3>
+                </div>
+                <p class="popup-description-modern">${poi.shortDescription || 'Découvrez ce lieu incontournable de Bretagne.'}</p>
+                ${poi.tested ? `
+                    <div class="popup-tested-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Testé par La Belle Bretagne</span>
+                    </div>
+                ` : ''}
+                <div class="popup-actions-modern">
+                    <button class="btn-action btn-primary" onclick="window.open('poi.html?id=${poi.id}', '_blank')">
+                        <i class="fas fa-eye"></i>
+                        <span>Découvrir</span>
+                    </button>
+                    ${poi.categories[0] === 'logements' ? `
+                        <button class="btn-action btn-secondary" onclick="window.open('${poi.bookingUrl || '#'}', '_blank')">
+                            <i class="fas fa-bed"></i>
+                            <span>Réserver</span>
+                        </button>
+                    ` : `
+                        <button class="btn-favorite ${isFavorite ? 'favorited' : ''}" onclick="toggleFavoriteInLeafletPopup('${poi.id}', this)">
+                            <i class="fas fa-heart${isFavorite ? '' : '-o'}"></i>
+                        </button>
+                    `}
+                </div>
+            </div>
+        </div>
+    `;
+
+    console.log('✅ Contenu popup créé, longueur:', popupHtml.length);
+    return popupHtml;
+}
+
+/**
+ * Affiche le panneau latéral avec les informations du POI
+ */
+function showSidePanel(poi) {
+    console.log('📌 Affichage du panneau latéral pour:', poi.title);
+
+    const sidePanel = document.getElementById('sidePanel');
+    const sidePanelContent = document.getElementById('sidePanelContent');
+    const mapSection = document.querySelector('.map-section');
+
+    if (!sidePanel || !sidePanelContent) {
+        console.error('❌ Panneau latéral non trouvé dans le DOM');
+        return;
+    }
+
+    // Créer le contenu du panneau avec carrousel et catégorie
+    const categoryName = getCategoryName(poi.categories[0]);
+
+    const panelContent = `
+        <div class="popup-modern">
+            <div class="popup-image-hero">
+                ${poi.images && poi.images.length > 1 ? `
+                    <div class="popup-image-gallery">
+                        ${poi.images.map((img, index) => `
+                            <img src="${img}" alt="${poi.title} - Photo ${index + 1}"
+                                 class="gallery-image ${index === 0 ? 'active' : ''}"
+                                 onerror="this.src='assets/img/placeholder.jpg'"
+                                 style="width: 100%; height: 100%; object-fit: cover;">
+                        `).join('')}
+                        <div class="gallery-controls">
+                            <button class="gallery-prev" onclick="prevGalleryImage()">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="gallery-next" onclick="nextGalleryImage()">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-dots">
+                            ${poi.images.map((_, index) => `
+                                <span class="gallery-dot ${index === 0 ? 'active' : ''}" onclick="showGalleryImage(${index})"></span>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : `
+                    <img src="${poi.image || poi.images?.[0] || 'assets/img/placeholder.jpg'}"
+                         alt="${poi.title}"
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                `}
+                <!-- Badge catégorie -->
+                <div class="popup-category-badge">
+                    <i class="fas ${getCategoryIcon(poi.categories[0])}"></i>
+                    <span>${categoryName}</span>
+                </div>
+            </div>
+            <div class="popup-content">
+                <h3 class="popup-title-modern">${poi.title}</h3>
+                <p class="popup-description-modern">${poi.shortDescription || poi.description || 'Découvrez ce magnifique lieu de Bretagne.'}</p>
+                ${poi.address ? `
+                    <div class="popup-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>${poi.address}</span>
+                    </div>
+                ` : ''}
+                ${poi.department ? `
+                    <div class="popup-info-item">
+                        <i class="fas fa-map"></i>
+                        <span>${poi.department}</span>
+                    </div>
+                ` : ''}
+                <a href="poi.html?id=${poi.id}" class="discover-btn-modern">
+                    Découvrir
+                </a>
+            </div>
+        </div>
+    `;
+
+    console.log('💡 Contenu généré pour:', poi.title);
+
+    // Injecter le contenu directement
+    sidePanelContent.innerHTML = panelContent;
+
+    // Afficher le panneau avec animation
+    sidePanel.classList.add('show');
+    mapSection.classList.add('with-panel');
+
+    // Initialiser le carrousel si multiple images
+    if (poi.images && poi.images.length > 1) {
+        window.currentImageIndex = 0;
+        window.currentImages = poi.images;
+        console.log('🎠 Carrousel initialisé avec', poi.images.length, 'images');
+    }
+
+    console.log('✅ Panneau latéral affiché');
+}
+
+/**
+ * Ferme popup ou panneau selon le contexte
+ */
+function closePopupOrPanel() {
+    const sidePanel = document.getElementById('sidePanel');
+
+    // Vérifier si le panneau latéral est actif
+    if (sidePanel && sidePanel.classList.contains('show')) {
+        hideSidePanel();
+    } else {
+        // Sinon, fermer la popup leaflet
+        if (map && map.closePopup) {
+            map.closePopup();
+        }
+    }
+}
+
+/**
+ * Masque le panneau latéral
+ */
+function hideSidePanel() {
+    console.log('📌 Masquage du panneau latéral');
+
+    const sidePanel = document.getElementById('sidePanel');
+    const mapSection = document.querySelector('.map-section');
+
+    if (sidePanel) {
+        sidePanel.classList.remove('show');
+    }
+
+    if (mapSection) {
+        mapSection.classList.remove('with-panel');
+    }
+
+    console.log('✅ Panneau latéral masqué');
+}
+
+/**
+ * Attache les événements spécifiques aux popups Leaflet
+ */
+function attachLeafletPopupEvents(poi) {
+    window.currentLeafletGalleryPoi = poi;
+    window.currentLeafletGalleryIndex = 0;
+}
+
+/**
+ * Navigation galerie dans popup Leaflet - image précédente
+ */
+function prevLeafletImage() {
+    const poi = window.currentLeafletGalleryPoi;
+    if (!poi || !poi.images || poi.images.length <= 1) return;
+
+    window.currentLeafletGalleryIndex = window.currentLeafletGalleryIndex || 0;
+    window.currentLeafletGalleryIndex = (window.currentLeafletGalleryIndex - 1 + poi.images.length) % poi.images.length;
+    updateLeafletGalleryDisplay();
+}
+
+/**
+ * Navigation galerie dans popup Leaflet - image suivante
+ */
+function nextLeafletImage() {
+    const poi = window.currentLeafletGalleryPoi;
+    if (!poi || !poi.images || poi.images.length <= 1) return;
+
+    window.currentLeafletGalleryIndex = window.currentLeafletGalleryIndex || 0;
+    window.currentLeafletGalleryIndex = (window.currentLeafletGalleryIndex + 1) % poi.images.length;
+    updateLeafletGalleryDisplay();
+}
+
+/**
+ * Met à jour l'affichage de la galerie dans popup Leaflet
+ */
+function updateLeafletGalleryDisplay() {
+    const images = document.querySelectorAll('.leaflet-gallery-image');
+    images.forEach((img, index) => {
+        img.style.display = index === window.currentLeafletGalleryIndex ? 'block' : 'none';
+    });
+}
+
+/**
+ * Toggle favori dans popup Leaflet
+ */
+function toggleFavoriteInLeafletPopup(poiId, button) {
+    toggleFavorite(poiId);
+    const isFavorite = getFavorites().includes(poiId);
+    const icon = button.querySelector('i');
+    const text = button.querySelector('span');
+
+    icon.className = `fas fa-heart${isFavorite ? '' : '-o'}`;
+    text.textContent = isFavorite ? 'Favori' : 'Ajouter';
+}
+
+/**
  * Affiche la popup fixe avec les données d'un POI
  */
 function showFixedPopup(poi) {
@@ -2906,8 +3367,9 @@ let galleryTotalImages = 0;
  * Affiche une image spécifique dans la galerie de la popup
  */
 function showGalleryImage(index) {
-    const galleryImages = document.querySelectorAll('.gallery-image');
-    const galleryDots = document.querySelectorAll('.gallery-dot');
+    // Chercher dans la popup Leaflet OU dans la popup mobile
+    const galleryImages = document.querySelectorAll('.leaflet-popup .gallery-image, .gallery-image');
+    const galleryDots = document.querySelectorAll('.leaflet-popup .gallery-dot, .gallery-dot');
 
     if (galleryImages.length === 0) {
         return;
@@ -2931,6 +3393,8 @@ function showGalleryImage(index) {
 
     // Redémarrer le défilement automatique
     restartGalleryAutoplay();
+
+    console.log('🖼️ Image changée vers index:', index);
 }
 
 /**
@@ -2976,6 +3440,68 @@ function stopGalleryAutoplay() {
 function restartGalleryAutoplay() {
     stopGalleryAutoplay();
     startGalleryAutoplay();
+}
+
+/**
+ * Initialise le carrousel dans la popup Leaflet
+ */
+function initializePopupCarousel(poi) {
+    if (!poi.images || poi.images.length <= 1) {
+        console.log('🎠 Pas de carrousel à initialiser (1 seule image ou moins)');
+        return;
+    }
+
+    const galleryImages = document.querySelectorAll('.leaflet-popup .gallery-image');
+    const galleryDots = document.querySelectorAll('.leaflet-popup .gallery-dot');
+    const galleryPrev = document.querySelector('.leaflet-popup .gallery-prev');
+    const galleryNext = document.querySelector('.leaflet-popup .gallery-next');
+
+    console.log('🎠 Initialisation carrousel popup:', {
+        images: galleryImages.length,
+        dots: galleryDots.length,
+        prev: !!galleryPrev,
+        next: !!galleryNext
+    });
+
+    if (galleryImages.length === 0) {
+        console.warn('⚠️ Aucune image de carrousel trouvée dans la popup');
+        return;
+    }
+
+    // Initialiser les variables globales
+    currentGalleryIndex = 0;
+    galleryTotalImages = poi.images.length;
+
+    // Afficher la première image
+    showGalleryImage(0);
+
+    // Attacher les événements aux boutons (si présents)
+    if (galleryPrev) {
+        galleryPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevGalleryImage();
+        });
+    }
+
+    if (galleryNext) {
+        galleryNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextGalleryImage();
+        });
+    }
+
+    // Attacher les événements aux dots
+    galleryDots.forEach((dot, index) => {
+        dot.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showGalleryImage(index);
+        });
+    });
+
+    // Démarrer le défilement automatique
+    startGalleryAutoplay();
+
+    console.log('✅ Carrousel popup initialisé avec', galleryTotalImages, 'images');
 }
 
 /**
@@ -3793,6 +4319,11 @@ window.prevGalleryImage = prevGalleryImage;
 window.openImageModal = openImageModal;
 window.initBottomSheetControls = initBottomSheetControls;
 window.updateIndicatorCount = updateIndicatorCount;
+window.showLeafletPopup = showLeafletPopup;
+window.prevLeafletImage = prevLeafletImage;
+window.nextLeafletImage = nextLeafletImage;
+window.toggleFavoriteInLeafletPopup = toggleFavoriteInLeafletPopup;
+window.findMarkerByPoi = findMarkerByPoi;
 window.showGeolocationControls = showGeolocationControls;
 window.hideGeolocationControls = hideGeolocationControls;
 window.clearNearbySection = clearNearbySection;

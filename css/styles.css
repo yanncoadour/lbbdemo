@@ -561,6 +561,469 @@ body {
     z-index: 1;
 }
 
+/* Forcer les popups Leaflet au premier plan - AU-DESSUS DE TOUT */
+.map-section {
+    z-index: 10000 !important;
+}
+
+.leaflet-popup-pane {
+    z-index: 999999 !important;
+}
+
+.leaflet-popup {
+    z-index: 1000000 !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    z-index: 1000001 !important;
+}
+
+/* Forcer la visibilité du contenu popup - Sans fond transparent qui dépasse */
+.leaflet-popup-content-wrapper {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+}
+
+/* Styles spécifiques pour la popup moderne dans Leaflet */
+.leaflet-popup-content .popup-modern {
+    background: white !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    min-width: 260px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2) !important;
+}
+
+.leaflet-popup-content .popup-image-hero {
+    height: 140px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    border-radius: 16px 16px 0 0 !important;
+    cursor: pointer !important;
+    user-select: none !important;
+}
+
+.leaflet-popup-content .popup-image-hero img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.leaflet-popup-content .popup-category-badge {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(8px) !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: var(--primary) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    z-index: 10 !important;
+}
+
+.leaflet-popup-content .popup-content {
+    padding: 16px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.leaflet-popup-content .popup-title-modern {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.2 !important;
+    display: block !important;
+}
+
+.leaflet-popup-content .popup-description-modern {
+    font-size: 14px !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.4 !important;
+    margin: 0 0 16px 0 !important;
+    display: block !important;
+}
+
+.leaflet-popup-content .popup-actions-modern {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+}
+
+.leaflet-popup-content .btn-action {
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+    outline: none !important;
+    padding: 12px 16px !important;
+    flex: 1 !important;
+}
+
+.leaflet-popup-content .btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: white !important;
+}
+
+.leaflet-popup-content .btn-secondary {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+}
+
+.leaflet-popup-content .btn-favorite {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: var(--text-secondary) !important;
+    padding: 12px !important;
+    width: 48px !important;
+    height: 48px !important;
+    justify-content: center !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.leaflet-popup-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Supprimer toutes les marges de la popup Leaflet */
+.leaflet-popup {
+    margin: 0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+    margin: 0 !important;
+}
+
+.leaflet-popup-tip-container {
+    margin: 0 !important;
+}
+
+/* Bouton de fermeture custom sur l'image */
+.leaflet-popup-content .popup-close-btn {
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    border: none !important;
+    border-radius: 50% !important;
+    color: white !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    z-index: 20 !important;
+    transition: all 0.2s ease !important;
+}
+
+.leaflet-popup-content .popup-close-btn:hover {
+    background: rgba(0, 0, 0, 0.8) !important;
+    transform: scale(1.1) !important;
+}
+
+/* Carrousel d'images dans la popup */
+.leaflet-popup-content .popup-image-gallery {
+    position: relative !important;
+    width: 100% !important;
+    height: 140px !important;
+    overflow: hidden !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.leaflet-popup-content .gallery-image {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    opacity: 0 !important;
+    transition: opacity 0.5s ease !important;
+    border-radius: 20px 20px 0 0 !important;
+    z-index: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+.leaflet-popup-content .gallery-image.active {
+    opacity: 1 !important;
+    z-index: 2 !important;
+}
+
+.leaflet-popup-content .gallery-controls {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 8px !important;
+    right: 8px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    pointer-events: none !important;
+    z-index: 15 !important;
+}
+
+.leaflet-popup-content .gallery-prev,
+.leaflet-popup-content .gallery-next {
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    border: none !important;
+    border-radius: 50% !important;
+    color: white !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 12px !important;
+    pointer-events: auto !important;
+    transition: all 0.2s ease !important;
+}
+
+.leaflet-popup-content .gallery-prev:hover,
+.leaflet-popup-content .gallery-next:hover {
+    background: rgba(0, 0, 0, 0.8) !important;
+    transform: scale(1.1) !important;
+}
+
+.leaflet-popup-content .gallery-dots {
+    position: absolute !important;
+    bottom: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    gap: 8px !important;
+    z-index: 15 !important;
+}
+
+.leaflet-popup-content .gallery-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.6) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.leaflet-popup-content .gallery-dot.active {
+    background: white !important;
+    transform: scale(1.2) !important;
+}
+
+.leaflet-popup-content .gallery-dot:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* ========================================
+   PANNEAU LATÉRAL PC - Design moderne
+   ======================================== */
+
+/* Conteneur principal du panneau latéral */
+/* Panneau latéral désactivé */
+.side-panel {
+    display: none !important;
+}
+
+/* Styles pour le contenu complet des popups - Style mobile adapté */
+.poi-popup-complete {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+}
+
+.poi-popup-image {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 20px 20px 0 0;
+}
+
+.poi-popup-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 20px 20px 0 0;
+}
+
+.poi-popup-category {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.poi-popup-category i {
+    font-size: 10px;
+}
+
+.poi-popup-content {
+    padding: 20px;
+}
+
+.poi-popup-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+}
+
+.poi-popup-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.poi-popup-location i {
+    color: var(--danger);
+    font-size: 12px;
+}
+
+.poi-popup-content p {
+    margin: 0 0 16px 0;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.poi-popup-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.poi-btn {
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.poi-btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+    padding: 12px 20px;
+    flex: 1;
+}
+
+.poi-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.poi-btn-secondary {
+    background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+    color: white;
+    padding: 12px 20px;
+    flex: 1;
+}
+
+.poi-btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.poi-btn-favorite {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--text-secondary);
+    padding: 12px;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+}
+
+.poi-btn-favorite:hover {
+    background: var(--danger-light);
+    color: var(--danger);
+    border-color: var(--danger);
+    transform: scale(1.1);
+}
+
+.poi-btn-favorite.favorited {
+    background: var(--danger-light);
+    color: var(--danger);
+    border-color: var(--danger);
+}
+
 @media (max-width: 768px) {
     .map {
         margin: 20px 16px;
@@ -3103,22 +3566,24 @@ body {
 
 .popup-modern {
     background: white;
-    border-radius: 20px 20px 0 0;
+    border-radius: 16px;
     overflow: hidden;
     width: 100%;
-    max-width: 450px;
-    min-width: 320px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    max-width: 280px;
+    min-width: 260px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
     position: relative;
 }
 
 .popup-image-hero {
     position: relative;
     width: 100%;
-    height: 160px;
+    height: 140px;
     overflow: hidden;
     margin: 0;
     border-radius: 20px 20px 0 0;
+    cursor: pointer;
+    user-select: none;
 }
 
 .popup-image-hero img {
@@ -3132,23 +3597,120 @@ body {
 
 .popup-category-badge {
     position: absolute;
-    top: 12px;
-    left: 12px;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
-    color: white;
-    padding: 6px 12px;
+    top: 16px;
+    left: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    color: #1e3a8a;
+    padding: 8px 14px;
     border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .popup-category-badge i {
-    font-size: 12px;
+    font-size: 14px;
+}
+
+/* Contrôles du carrousel dans la popup */
+.popup-image-hero .gallery-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    pointer-events: none;
+    z-index: 12;
+}
+
+.popup-image-hero .gallery-prev,
+.popup-image-hero .gallery-next {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e3a8a;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.popup-image-hero .gallery-prev:hover,
+.popup-image-hero .gallery-next:hover {
+    background: #1e3a8a;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.3);
+}
+
+.popup-image-hero .gallery-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 12;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px 14px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+}
+
+.popup-image-hero .gallery-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.popup-image-hero .gallery-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+}
+
+.popup-image-hero .gallery-dot.active {
+    background: white;
+    transform: scale(1.3);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+.popup-image-hero .gallery-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.popup-image-hero .gallery-image.active {
+    opacity: 1;
+    z-index: 1;
 }
 
 /* Couleurs spécifiques pour les icônes dans le badge catégorie */
@@ -3193,28 +3755,42 @@ body {
 }
 
 .popup-content {
-    padding: 20px;
+    padding: 14px;
 }
 
 .popup-header-modern {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .popup-title-modern {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.3;
+    color: #1e3a8a;
+    margin: 0 0 5px 0;
+    line-height: 1.2;
+}
+
+.popup-location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #64748b;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.popup-location i {
+    color: #1e3a8a;
+    font-size: 11px;
 }
 
 .popup-description-modern {
-    color: var(--text-secondary);
-    font-size: 14px;
-    line-height: 1.5;
-    margin: 0 0 16px 0;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0 0 12px 0;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -3243,27 +3819,32 @@ body {
 }
 
 .discover-btn-modern {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 8px;
-    background: var(--primary);
+    justify-content: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     color: white;
     text-decoration: none;
-    padding: 14px 20px;
-    border-radius: 12px;
+    padding: 10px 16px;
+    border-radius: 10px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     width: 100%;
-    justify-content: center;
     border: none;
     cursor: pointer;
 }
 
 .discover-btn-modern:hover {
-    background: var(--primary-dark);
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
+.discover-btn-modern i {
+    font-size: 16px;
 }
 
 .discover-btn-modern.secondary {
@@ -6493,8 +7074,10 @@ body {
 .festivals-grid {
     display: grid;
     gap: 24px;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
 }
+
 
 /* No results message */
 .no-results-message {
@@ -6581,6 +7164,13 @@ body {
     
     .festivals-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Version tablette avec 2 colonnes */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .festivals-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -7154,6 +7744,13 @@ body {
     height: 100%;
 }
 
+/* Important: maintenir la structure même après modification JavaScript */
+.festivals-grid .festival-card[style*="display: block"] {
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+}
+
 .festival-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
@@ -7212,6 +7809,7 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-height: 0;
 }
 
 .festival-meta {
@@ -7291,6 +7889,9 @@ body {
 .festival-actions {
     display: flex;
     gap: 10px;
+    margin-top: auto;
+    padding-top: 20px;
+    flex-shrink: 0;
 }
 
 .festival-btn {
@@ -7307,27 +7908,37 @@ body {
     align-items: center;
     justify-content: center;
     gap: 6px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+}
+
+.festival-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    text-decoration: none;
+    color: white;
 }
 
 .festival-btn-primary {
-    background: var(--primary);
+    background: #3b82f6;
     color: white;
     border: none;
 }
 
 .festival-btn-primary:hover {
-    background: var(--primary-dark);
+    background: #2563eb;
     transform: translateY(-1px);
 }
 
 .festival-btn-secondary {
-    background: var(--accent-warm);
+    background: #3b82f6;
     color: white;
     border: none;
 }
 
 .festival-btn-secondary:hover {
-    background: #d97706;
+    background: #2563eb;
     transform: translateY(-1px);
 }
 
@@ -7430,6 +8041,417 @@ body {
     }
 }
 
+/* Styles pour les popups Leaflet simplifiées */
+.custom-leaflet-popup .leaflet-popup-content-wrapper {
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 0;
+    overflow: hidden;
+    background: white;
+    /* Ne pas forcer la largeur, laisser Leaflet gérer */
+}
+
+.custom-leaflet-popup .leaflet-popup-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.5;
+    /* Ne pas forcer width: 100%, laisser Leaflet calculer */
+    max-height: none !important;
+}
+
+.custom-leaflet-popup .leaflet-popup-close-button {
+    top: 12px;
+    right: 12px;
+    color: #64748b;
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    z-index: 1001;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.custom-leaflet-popup .leaflet-popup-close-button:hover {
+    background: #f1f5f9;
+    color: #334155;
+    transform: scale(1.05);
+}
+
+/* Styles pour le contenu des popups POI */
+.poi-popup {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.poi-popup-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.poi-popup-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.poi-popup-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(59, 130, 246, 0.95);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(8px);
+}
+
+.poi-popup-category i {
+    font-size: 12px;
+}
+
+.poi-popup-content {
+    padding: 20px;
+}
+
+.poi-popup-content h3 {
+    margin: 0 0 12px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.3;
+}
+
+.poi-popup-content p {
+    margin: 0 0 20px 0;
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.poi-popup-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.poi-btn {
+    border: none;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    outline: none;
+}
+
+.poi-btn-primary {
+    background: #3b82f6;
+    color: white;
+    padding: 12px 20px;
+    flex: 1;
+}
+
+.poi-btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
+.poi-btn-secondary {
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 12px;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+}
+
+.poi-btn-secondary:hover {
+    background: #e2e8f0;
+    color: #ef4444;
+    transform: scale(1.05);
+}
+
+.poi-btn-secondary.favorited {
+    background: #fef2f2;
+    color: #ef4444;
+}
+
+.poi-btn-secondary.favorited:hover {
+    background: #fee2e2;
+}
+
+.leaflet-popup-modern {
+    width: 100% !important;
+    max-width: 400px !important;
+    min-width: 350px !important;
+    display: block !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.leaflet-popup-image {
+    position: relative;
+    height: 200px !important;
+    overflow: hidden;
+    display: block !important;
+    width: 100% !important;
+}
+
+.leaflet-popup-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block !important;
+}
+
+.leaflet-popup-gallery {
+    position: relative;
+    height: 100%;
+}
+
+.leaflet-gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leaflet-gallery-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.leaflet-gallery-btn {
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    pointer-events: all;
+}
+
+.leaflet-gallery-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.leaflet-popup-category-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #1e40af;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-popup-content {
+    padding: 0 !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.leaflet-popup-title {
+    margin: 0 0 12px 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.3;
+}
+
+.leaflet-popup-description {
+    margin: 0 0 16px 0;
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.leaflet-popup-tested-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+    padding: 8px 12px;
+    background: #059669;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.leaflet-popup-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.leaflet-popup-btn {
+    flex: 1;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.leaflet-popup-btn-primary {
+    background: #1e40af;
+    color: white;
+}
+
+.leaflet-popup-btn-primary:hover {
+    background: #1e3a8a;
+    transform: translateY(-1px);
+}
+
+.leaflet-popup-btn-secondary {
+    background: #fafafa;
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+}
+
+.leaflet-popup-btn-secondary:hover {
+    background: #f1f5f9;
+    transform: translateY(-1px);
+}
+
+.leaflet-popup-btn i {
+    font-size: 0.9em;
+}
+
+/* Festival Dropdown Filters */
+.filters-dropdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .filters-dropdown-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+.filter-select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #1e293b;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.filter-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.filter-select:hover {
+    border-color: #94a3b8;
+}
+
+.filter-select-icon {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 14px;
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+.filter-select:focus + .filter-select-icon {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.filter-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .filter-select {
+        padding: 10px 35px 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    .filter-select-icon {
+        right: 12px;
+        font-size: 12px;
+    }
+}
+
 /* Map Toggle Button - même style que location-btn */
 .map-toggle-btn {
     position: absolute;
@@ -7442,7 +8464,7 @@ body {
     border-radius: 12px;
     cursor: pointer;
     display: flex;
-    z-index: 1000;
+    z-index: 50;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
@@ -7643,41 +8665,8 @@ body {
 }
 
 /* ===================================================================
-   BOUTONS FESTIVALS
+   BOUTONS FESTIVALS - Section nettoyée
    ================================================================= */
-
-.festival-actions {
-    margin-top: auto;
-    padding-top: 20px;
-}
-
-.festival-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 14px;
-    transition: all 0.2s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.festival-btn:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color: white;
-    text-decoration: none;
-}
-
-.festival-btn i {
-    font-size: 16px;
-}
 
 /* Responsive */
 @media (max-width: 768px) {

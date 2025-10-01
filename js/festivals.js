@@ -11,6 +11,7 @@
  * Initialise la page festivals
  */
 function initFestivals() {
+    console.log('🎪 Initialisation des festivals...');
 
     // Initialiser les filtres
     initFilters();
@@ -21,29 +22,31 @@ function initFestivals() {
  * Initialise les filtres
  */
 function initFilters() {
-    // Filtres département - seulement les boutons de filtre, pas les cartes
-    const departmentChips = document.querySelectorAll('.filter-chip[data-department]');
-    departmentChips.forEach(chip => {
-        chip.addEventListener('click', () => {
-            // Désactiver tous les chips département
-            departmentChips.forEach(c => c.classList.remove('active'));
-            // Activer le chip cliqué
-            chip.classList.add('active');
-            applyFilters();
-        });
-    });
+    console.log('🔧 Initialisation des filtres...');
 
-    // Filtres mois - seulement les boutons de filtre, pas les cartes
-    const monthChips = document.querySelectorAll('.filter-chip[data-month]');
-    monthChips.forEach(chip => {
-        chip.addEventListener('click', () => {
-            // Désactiver tous les chips mois
-            monthChips.forEach(c => c.classList.remove('active'));
-            // Activer le chip cliqué
-            chip.classList.add('active');
+    // Filtre département (select dropdown)
+    const departmentSelect = document.getElementById('department-select');
+    if (departmentSelect) {
+        console.log('✅ Département select trouvé');
+        departmentSelect.addEventListener('change', () => {
+            console.log('🏛️ Changement département:', departmentSelect.value);
             applyFilters();
         });
-    });
+    } else {
+        console.error('❌ Département select non trouvé');
+    }
+
+    // Filtre mois (select dropdown)
+    const monthSelect = document.getElementById('month-select');
+    if (monthSelect) {
+        console.log('✅ Mois select trouvé');
+        monthSelect.addEventListener('change', () => {
+            console.log('📅 Changement mois:', monthSelect.value);
+            applyFilters();
+        });
+    } else {
+        console.error('❌ Mois select non trouvé');
+    }
 }
 
 
@@ -55,45 +58,60 @@ function initFilters() {
  * Applique les filtres sélectionnés
  */
 function applyFilters() {
+    console.log('🔄 Application des filtres...');
     const festivalsGrid = document.getElementById('festivals-grid');
 
     if (!festivalsGrid) {
+        console.error('❌ Festivals grid non trouvé');
         return;
     }
 
-    // Récupérer les filtres actifs
-    const activeDepartmentChip = document.querySelector('.filter-chip[data-department].active');
-    const activeMonthChip = document.querySelector('.filter-chip[data-month].active');
+    // Récupérer les filtres actifs depuis les selects
+    const departmentSelect = document.getElementById('department-select');
+    const monthSelect = document.getElementById('month-select');
 
-    const selectedDepartment = activeDepartmentChip ? activeDepartmentChip.dataset.department : '';
-    const selectedMonth = activeMonthChip ? activeMonthChip.dataset.month : '';
+    const selectedDepartment = departmentSelect ? departmentSelect.value : '';
+    const selectedMonth = monthSelect ? monthSelect.value : '';
+
+    console.log('🎯 Filtres sélectionnés:', { département: selectedDepartment, mois: selectedMonth });
 
     // Récupérer toutes les cartes de festival
     const festivalCards = festivalsGrid.querySelectorAll('.festival-card');
+    console.log('📊 Cartes trouvées:', festivalCards.length);
 
     let visibleCount = 0;
 
-    festivalCards.forEach(card => {
+    festivalCards.forEach((card, index) => {
         let shouldShow = true;
+        const cardDept = card.dataset.department;
+        const cardMonth = card.dataset.month;
+
+        console.log(`🎪 Festival ${index}:`, { département: cardDept, mois: cardMonth });
 
         // Filtre département
-        if (selectedDepartment && card.dataset.department !== selectedDepartment) {
+        if (selectedDepartment && cardDept !== selectedDepartment) {
             shouldShow = false;
+            console.log(`❌ Éliminé par département: ${cardDept} !== ${selectedDepartment}`);
         }
 
         // Filtre mois
-        if (selectedMonth && card.dataset.month !== selectedMonth) {
+        if (selectedMonth && cardMonth !== selectedMonth) {
             shouldShow = false;
+            console.log(`❌ Éliminé par mois: ${cardMonth} !== ${selectedMonth}`);
         }
 
         // Afficher/masquer la carte
         if (shouldShow) {
             card.style.display = 'block';
             visibleCount++;
+            console.log(`✅ Festival ${index} affiché`);
         } else {
             card.style.display = 'none';
+            console.log(`🚫 Festival ${index} masqué`);
         }
     });
+
+    console.log('📈 Résultats visibles:', visibleCount);
 
     // Afficher un message si aucun résultat
     showNoResultsMessage(visibleCount, festivalsGrid);
@@ -104,17 +122,19 @@ function applyFilters() {
  * Remet à zéro tous les filtres
  */
 function resetFilters() {
-    // Réinitialiser les filtres département
-    const departmentChips = document.querySelectorAll('.filter-chip[data-department]');
-    departmentChips.forEach(chip => {
-        chip.classList.toggle('active', chip.dataset.department === '');
-    });
+    // Réinitialiser les filtres select
+    const departmentSelect = document.getElementById('department-select');
+    if (departmentSelect) {
+        departmentSelect.value = '';
+    }
 
-    // Réinitialiser les filtres mois
-    const monthChips = document.querySelectorAll('.filter-chip[data-month]');
-    monthChips.forEach(chip => {
-        chip.classList.toggle('active', chip.dataset.month === '');
-    });
+    const monthSelect = document.getElementById('month-select');
+    if (monthSelect) {
+        monthSelect.value = '';
+    }
+
+    // Appliquer les filtres (tout afficher)
+    applyFilters();
 
     // Afficher toutes les cartes
     const festivalsGrid = document.getElementById('festivals-grid');

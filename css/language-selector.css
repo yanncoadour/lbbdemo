@@ -1,0 +1,110 @@
+/**
+ * STYLES DU SÉLECTEUR DE LANGUE
+ * Styles globaux à inclure sur toutes les pages
+ */
+
+/* --- SÉLECTEUR DE LANGUE --- */
+.language-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.language-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e3a8a;
+}
+
+.language-btn:hover {
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+}
+
+.language-btn .flag {
+    font-size: 18px;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 8px;
+    min-width: 200px;
+    display: none;
+    z-index: 1000;
+}
+
+.language-dropdown.active {
+    display: block;
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    color: #334155;
+}
+
+.language-option:hover {
+    background: #f1f5f9;
+}
+
+.language-option.active {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 600;
+}
+
+.language-option .flag {
+    font-size: 20px;
+}
+
+.language-option .lang-name {
+    flex: 1;
+}
+
+.language-option .checkmark {
+    color: #0369a1;
+    font-size: 14px;
+    opacity: 0;
+}
+
+.language-option.active .checkmark {
+    opacity: 1;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .language-selector {
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+    .language-btn {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    .language-dropdown {
+        min-width: 180px;
+    }
+}

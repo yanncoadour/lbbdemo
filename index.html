@@ -6,13 +6,17 @@
     <title>La Belle Bretagne - Découvrez les merveilles de la Bretagne</title>
     <meta name="description" content="Explorez la Bretagne authentique : lieux incontournables, hébergements, festivals et points d'intérêt touristiques.">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Typography System -->
+    <link rel="stylesheet" href="css/typography.css">
+
+    <!-- Buttons System -->
+    <link rel="stylesheet" href="css/buttons.css">
+
+    <!-- Language Selector Styles -->
+    <link rel="stylesheet" href="css/language-selector.css">
 
     <style>
         * {
@@ -22,7 +26,6 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
@@ -143,38 +146,25 @@
             flex-wrap: wrap;
         }
 
-        .btn {
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
+        /* Hero buttons - styled with white/light colors for contrast */
+        .hero .btn-primary {
             background: #fff;
             color: #1e3a8a;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.3);
         }
 
-        .btn-primary:hover {
+        .hero .btn-primary:hover {
             background: #f8f9fa;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 20px rgba(255,255,255,0.4);
         }
 
-        .btn-secondary {
+        .hero .btn-secondary {
             background: transparent;
             color: white;
             border: 2px solid white;
         }
 
-        .btn-secondary:hover {
+        .hero .btn-secondary:hover {
             background: white;
             color: #1e3a8a;
         }
@@ -284,37 +274,10 @@
             margin-top: auto;
         }
 
-        .destination-btn {
+        .destination-buttons .btn {
             flex: 1;
-            padding: 0.7rem 1rem;
-            border-radius: 12px;
             font-size: 0.8rem;
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .destination-btn-primary {
-            background: #1e3a8a;
-            color: white;
-        }
-
-        .destination-btn-primary:hover {
-            background: #1e40af;
-            transform: translateY(-1px);
-        }
-
-        .destination-btn-secondary {
-            background: transparent;
-            color: #1e3a8a;
-            border: 1.5px solid #1e3a8a;
-        }
-
-        .destination-btn-secondary:hover {
-            background: #1e3a8a;
-            color: white;
-            transform: translateY(-1px);
+            padding: 0.7rem 1rem;
         }
 
         .destination-badge {
@@ -391,26 +354,8 @@
             flex-grow: 1;
         }
 
-        .service-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            color: white;
-            background: #3b82f6;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
+        .service-card .btn-accent {
             margin-top: auto;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        .service-link:hover {
-            background: #1e3a8a;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         }
 
         /* Blog section */
@@ -432,20 +377,6 @@
             margin: 0;
         }
 
-        .blog-link {
-            color: #3b82f6;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.8rem 1.5rem;
-            border: 2px solid #3b82f6;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .blog-link:hover {
-            background: #3b82f6;
-            color: white;
-        }
 
         .blog-grid {
             display: grid;
@@ -617,17 +548,74 @@
                 <img src="assets/images/logo.jpg" alt="Logo La Belle Bretagne">
                 <div class="logo-text">
                     <div class="logo-title">La Belle Bretagne</div>
-                    <div class="logo-subtitle">Accueil</div>
+                    <div class="logo-subtitle" data-translate="nav.home">Accueil</div>
                 </div>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="carte.html">Carte</a></li>
-                <li><a href="logements.html">Hébergements</a></li>
-                <li><a href="festivals.html">Festivals</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="instagram.html">Instagram</a></li>
+                <li><a href="index.html" data-translate="nav.home">Accueil</a></li>
+                <li><a href="carte.html" data-translate="nav.map">Carte</a></li>
+                <li><a href="logements.html" data-translate="nav.accommodations">Hébergements</a></li>
+                <li><a href="festivals.html" data-translate="nav.festivals">Festivals</a></li>
+                <li><a href="blog.html" data-translate="nav.blog">Blog</a></li>
+                <li><a href="instagram.html" data-translate="nav.instagram">Instagram</a></li>
             </ul>
+
+            <!-- Sélecteur de langue -->
+            <div class="language-selector">
+                <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
+                    <span class="flag" id="currentFlag">🇫🇷</span>
+                    <span id="currentLang">FR</span>
+                    <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
+                        <span class="flag">🇫🇷</span>
+                        <span class="lang-name">Français</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
+                        <span class="flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
+                        <span class="flag">🇩🇪</span>
+                        <span class="lang-name">Deutsch</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="es" onclick="changeLanguage('es')">
+                        <span class="flag">🇪🇸</span>
+                        <span class="lang-name">Español</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="it" onclick="changeLanguage('it')">
+                        <span class="flag">🇮🇹</span>
+                        <span class="lang-name">Italiano</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="nl" onclick="changeLanguage('nl')">
+                        <span class="flag">🇳🇱</span>
+                        <span class="lang-name">Nederlands</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="pt" onclick="changeLanguage('pt')">
+                        <span class="flag">🇵🇹</span>
+                        <span class="lang-name">Português</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="zh" onclick="changeLanguage('zh')">
+                        <span class="flag">🇨🇳</span>
+                        <span class="lang-name">中文</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="ja" onclick="changeLanguage('ja')">
+                        <span class="flag">🇯🇵</span>
+                        <span class="lang-name">日本語</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                </div>
+            </div>
+
             <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
                 <i class="fas fa-bars"></i>
             </button>
@@ -636,14 +624,14 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Découvrez la Belle Bretagne</h1>
-            <p>Explorez les trésors cachés et les incontournables de la Bretagne. Lieux authentiques, hébergements de charme et expériences inoubliables vous attendent.</p>
+            <h1 data-translate="hero.title">Découvrez la Belle Bretagne</h1>
+            <p data-translate="hero.subtitle">Explorez les trésors cachés et les incontournables de la Bretagne. Lieux authentiques, hébergements de charme et expériences inoubliables vous attendent.</p>
             <div class="cta-buttons">
                 <a href="carte.html" class="btn btn-primary">
-                    Explorer la carte
+                    <span data-translate="hero.exploreBtn">Explorer la carte</span>
                 </a>
                 <a href="logements.html" class="btn btn-secondary">
-                    <i class="fas fa-bed"></i> Hébergements
+                    <i class="fas fa-bed"></i> <span data-translate="nav.accommodations">Hébergements</span>
                 </a>
             </div>
         </div>
@@ -652,33 +640,33 @@
     <!-- Section services -->
     <section class="services">
         <div class="container">
-            <h2>Votre guide complet de la Bretagne</h2>
+            <h2 data-translate="sections.completeGuide">Votre guide complet de la Bretagne</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
-                    <h3>Carte interactive</h3>
-                    <p>Explorez la Bretagne avec notre carte interactive. Découvrez les lieux d'intérêt, hébergements et événements géolocalisés.</p>
-                    <a href="carte.html" class="service-link">Découvrir</a>
+                    <h3 data-translate="sections.interactiveMap">Carte interactive</h3>
+                    <p data-translate="sections.interactiveMapDesc">Explorez la Bretagne avec notre carte interactive. Découvrez les lieux d'intérêt, hébergements et événements géolocalisés.</p>
+                    <a href="carte.html" class="btn btn-accent" data-translate="buttons.discover">Découvrir</a>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-bed"></i>
                     </div>
-                    <h3>Hébergements</h3>
-                    <p>Trouvez l'hébergement parfait : hôtels de charme, gîtes authentiques, campings au bord de mer.</p>
-                    <a href="logements.html" class="service-link">Réserver</a>
+                    <h3 data-translate="nav.accommodations">Hébergements</h3>
+                    <p data-translate="sections.accommodationsServiceDesc">Trouvez l'hébergement parfait : hôtels de charme, gîtes authentiques, campings au bord de mer.</p>
+                    <a href="logements.html" class="btn btn-accent" data-translate="buttons.book">Réserver</a>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-music"></i>
                     </div>
-                    <h3>Festivals & Événements</h3>
-                    <p>Ne manquez aucun événement breton : festivals traditionnels, fêtes locales et animations culturelles.</p>
-                    <a href="festivals.html" class="service-link">Voir les événements</a>
+                    <h3 data-translate="sections.festivalsEvents">Festivals & Événements</h3>
+                    <p data-translate="sections.festivalsEventsDesc">Ne manquez aucun événement breton : festivals traditionnels, fêtes locales et animations culturelles.</p>
+                    <a href="festivals.html" class="btn btn-accent" data-translate="sections.seeEvents">Voir les événements</a>
                 </div>
             </div>
         </div>
@@ -687,8 +675,8 @@
     <!-- Section hébergements à la une -->
     <section class="destinations">
         <div class="container">
-            <h2>Hébergements à la une</h2>
-            <p class="section-subtitle">Découvrez notre sélection d'hébergements d'exception</p>
+            <h2 data-translate="sections.featuredAccommodations">Hébergements à la une</h2>
+            <p class="section-subtitle" data-translate="sections.featuredAccommodationsDesc">Découvrez notre sélection d'hébergements d'exception</p>
 
             <div class="destinations-grid">
                 <div class="destination-card">
@@ -696,16 +684,16 @@
                         <img src="assets/img/agapa-hotel-perros-guirec-1.jpg" alt="L'Agapa Hotel" loading="lazy">
                         <div class="destination-badge">
                             <i class="fas fa-bed"></i>
-                            <span>Hôtel</span>
+                            <span data-translate="categories.hotel">Hôtel</span>
                         </div>
                     </div>
                     <div class="destination-content">
-                        <h3>L'Agapa Hotel</h3>
-                        <p>Hôtel de luxe face à la mer avec spa et vue panoramique sur l'archipel des Sept-Îles.</p>
-                        <div class="destination-location">Perros-Guirec, Côtes-d'Armor</div>
+                        <h3 data-translate="accommodations.agapaHotel.title">L'Agapa Hotel</h3>
+                        <p data-translate="accommodations.agapaHotel.description">Hôtel de luxe face à la mer avec spa et vue panoramique sur l'archipel des Sept-Îles.</p>
+                        <div class="destination-location" data-translate="accommodations.agapaHotel.location">Perros-Guirec, Côtes-d'Armor</div>
                         <div class="destination-buttons">
-                            <a href="agapa-hotel-perros-guirec.html" class="destination-btn destination-btn-primary">En savoir plus</a>
-                            <a href="#" class="destination-btn destination-btn-secondary">Réservation</a>
+                            <a href="agapa-hotel-perros-guirec.html" class="btn btn-primary" data-translate="buttons.discoverMore">En savoir plus</a>
+                            <a href="#" class="btn btn-secondary" data-translate="buttons.booking">Réservation</a>
                         </div>
                     </div>
                 </div>
@@ -715,16 +703,16 @@
                         <img src="assets/img/vallee-pratmeur-1.jpg" alt="Vallée de Pratmeur" loading="lazy">
                         <div class="destination-badge">
                             <i class="fas fa-tree-city"></i>
-                            <span>Insolite</span>
+                            <span data-translate="categories.unusualAccommodation">Insolite</span>
                         </div>
                     </div>
                     <div class="destination-content">
-                        <h3>Vallée de Pratmeur</h3>
-                        <p>Logement insolite au cœur de la nature bretonne pour une expérience unique et authentique.</p>
-                        <div class="destination-location">Finistère</div>
+                        <h3 data-translate="accommodations.valleePratmeur.title">Vallée de Pratmeur</h3>
+                        <p data-translate="accommodations.valleePratmeur.description">Logement insolite au cœur de la nature bretonne pour une expérience unique et authentique.</p>
+                        <div class="destination-location" data-translate="accommodations.valleePratmeur.location">Finistère</div>
                         <div class="destination-buttons">
-                            <a href="vallee-pratmeur.html" class="destination-btn destination-btn-primary">En savoir plus</a>
-                            <a href="#" class="destination-btn destination-btn-secondary">Réservation</a>
+                            <a href="vallee-pratmeur.html" class="btn btn-primary" data-translate="buttons.discoverMore">En savoir plus</a>
+                            <a href="#" class="btn btn-secondary" data-translate="buttons.booking">Réservation</a>
                         </div>
                     </div>
                 </div>
@@ -734,23 +722,23 @@
                         <img src="assets/img/villa-lily-spa-1.jpg" alt="Villa Lily Spa" loading="lazy">
                         <div class="destination-badge">
                             <i class="fas fa-tree-city"></i>
-                            <span>Insolite</span>
+                            <span data-translate="categories.unusualAccommodation">Insolite</span>
                         </div>
                     </div>
                     <div class="destination-content">
-                        <h3>Villa Lily Spa</h3>
-                        <p>Logement insolite d'exception avec spa privatif pour un séjour détente et bien-être en Bretagne.</p>
-                        <div class="destination-location">Morbihan</div>
+                        <h3 data-translate="accommodations.villaLilySpa.title">Villa Lily Spa</h3>
+                        <p data-translate="accommodations.villaLilySpa.description">Logement insolite d'exception avec spa privatif pour un séjour détente et bien-être en Bretagne.</p>
+                        <div class="destination-location" data-translate="accommodations.villaLilySpa.location">Morbihan</div>
                         <div class="destination-buttons">
-                            <a href="villa-lily-spa.html" class="destination-btn destination-btn-primary">En savoir plus</a>
-                            <a href="#" class="destination-btn destination-btn-secondary">Réservation</a>
+                            <a href="villa-lily-spa.html" class="btn btn-primary" data-translate="buttons.discoverMore">En savoir plus</a>
+                            <a href="#" class="btn btn-secondary" data-translate="buttons.booking">Réservation</a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="logements.html" class="blog-link">
+                <a href="logements.html" class="btn btn-secondary btn-lg" data-translate="sections.discoverBestAccommodations">
                     Découvrir les meilleurs hébergements en Bretagne
                 </a>
             </div>
@@ -761,8 +749,8 @@
     <section class="blog-preview">
         <div class="container">
             <div class="blog-header">
-                <h2>Derniers articles du blog</h2>
-                <a href="blog.html" class="blog-link">Voir tous les articles</a>
+                <h2 data-translate="blog.latestArticles">Derniers articles du blog</h2>
+                <a href="blog.html" class="btn btn-secondary" data-translate="blog.seeAllArticles">Voir tous les articles</a>
             </div>
 
             <div class="blog-grid">
@@ -771,11 +759,11 @@
                         <img src="assets/webp/article-1.webp" alt="Les plus beaux phares de Bretagne" loading="lazy">
                     </div>
                     <div class="blog-content">
-                        <h3>Les plus beaux phares de Bretagne</h3>
-                        <p>Découvrez ces sentinelles de la mer qui veillent sur nos côtes depuis des siècles...</p>
+                        <h3 data-translate="blog.article1.title">Les plus beaux phares de Bretagne</h3>
+                        <p data-translate="blog.article1.excerpt">Découvrez ces sentinelles de la mer qui veillent sur nos côtes depuis des siècles...</p>
                         <div class="blog-meta">
-                            <span class="blog-date">15 Mars 2024</span>
-                            <span class="blog-read-time">5 min de lecture</span>
+                            <span class="blog-date" data-translate="blog.article1.date">15 Mars 2024</span>
+                            <span class="blog-read-time" data-translate="blog.article1.readTime">5 min de lecture</span>
                         </div>
                     </div>
                 </article>
@@ -785,11 +773,11 @@
                         <img src="assets/webp/article-2.webp" alt="Gastronomie bretonne" loading="lazy">
                     </div>
                     <div class="blog-content">
-                        <h3>Guide de la gastronomie bretonne</h3>
-                        <p>Crêpes, galettes, cidre et fruits de mer : un voyage culinaire au cœur de la Bretagne...</p>
+                        <h3 data-translate="blog.article2.title">Guide de la gastronomie bretonne</h3>
+                        <p data-translate="blog.article2.excerpt">Crêpes, galettes, cidre et fruits de mer : un voyage culinaire au cœur de la Bretagne...</p>
                         <div class="blog-meta">
-                            <span class="blog-date">10 Mars 2024</span>
-                            <span class="blog-read-time">7 min de lecture</span>
+                            <span class="blog-date" data-translate="blog.article2.date">10 Mars 2024</span>
+                            <span class="blog-read-time" data-translate="blog.article2.readTime">7 min de lecture</span>
                         </div>
                     </div>
                 </article>
@@ -799,11 +787,11 @@
                         <img src="assets/webp/article-3.webp" alt="Randonnées en Bretagne" loading="lazy">
                     </div>
                     <div class="blog-content">
-                        <h3>Top 10 des randonnées bretonnes</h3>
-                        <p>Sentiers côtiers, forêts mystérieuses et chemins de campagne : nos coups de cœur...</p>
+                        <h3 data-translate="blog.article3.title">Top 10 des randonnées bretonnes</h3>
+                        <p data-translate="blog.article3.excerpt">Sentiers côtiers, forêts mystérieuses et chemins de campagne : nos coups de cœur...</p>
                         <div class="blog-meta">
-                            <span class="blog-date">5 Mars 2024</span>
-                            <span class="blog-read-time">6 min de lecture</span>
+                            <span class="blog-date" data-translate="blog.article3.date">5 Mars 2024</span>
+                            <span class="blog-read-time" data-translate="blog.article3.readTime">6 min de lecture</span>
                         </div>
                     </div>
                 </article>
@@ -819,30 +807,30 @@
 
                 <!-- Plan du site -->
                 <div>
-                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Plan du site</h4>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;" data-translate="footer.sitemap">Plan du site</h4>
                     <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-                        <a href="index.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Accueil</a>
-                        <a href="carte.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Carte interactive</a>
-                        <a href="logements.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Hébergements</a>
-                        <a href="festivals.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Festivals</a>
-                        <a href="blog.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Blog</a>
-                        <a href="instagram.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Instagram</a>
+                        <a href="index.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;" data-translate="nav.home">Accueil</a>
+                        <a href="carte.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;" data-translate="footer.interactiveMap">Carte interactive</a>
+                        <a href="logements.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;" data-translate="nav.accommodations">Hébergements</a>
+                        <a href="festivals.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;" data-translate="nav.festivals">Festivals</a>
+                        <a href="blog.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;" data-translate="nav.blog">Blog</a>
+                        <a href="instagram.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;" data-translate="nav.instagram">Instagram</a>
                     </div>
                 </div>
 
                 <!-- Liens légaux -->
                 <div>
-                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Informations</h4>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;" data-translate="footer.information">Informations</h4>
                     <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-                        <a href="mentions-legales.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Mentions légales</a>
-                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Nous contacter</a>
-                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Qui sommes-nous</a>
+                        <a href="mentions-legales.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;" data-translate="footer.legalNotice">Mentions légales</a>
+                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;" data-translate="footer.contact">Nous contacter</a>
+                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;" data-translate="footer.about">Qui sommes-nous</a>
                     </div>
                 </div>
 
                 <!-- Réseaux sociaux -->
                 <div style="text-align: center;">
-                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Suivez-nous</h4>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;" data-translate="footer.followUs">Suivez-nous</h4>
                     <div style="display: flex; justify-content: center; gap: 1.5rem;">
                         <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Instagram">
                             <i class="fab fa-instagram"></i>
@@ -858,12 +846,12 @@
 
                 <!-- Newsletter -->
                 <div>
-                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Newsletter</h4>
-                    <p style="margin: 0 0 0.6rem 0; color: #ddd; font-size: 0.7rem; line-height: 1.4;">Recevez nos dernières découvertes bretonnes</p>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;" data-translate="footer.newsletter">Newsletter</h4>
+                    <p style="margin: 0 0 0.6rem 0; color: #ddd; font-size: 0.7rem; line-height: 1.4;" data-translate="footer.newsletterDesc">Recevez nos dernières découvertes bretonnes</p>
                     <form style="display: flex; gap: 0.5rem;">
-                        <input type="email" placeholder="Votre email"
+                        <input type="email" placeholder="Votre email" data-translate="footer.emailPlaceholder"
                                style="flex: 1; padding: 0.5rem; border: none; border-radius: 6px; font-size: 0.75rem; min-width: 0;">
-                        <button type="submit"
+                        <button type="submit" data-translate="footer.subscribe"
                                 style="background: #3b82f6; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; white-space: nowrap;">
                             S'abonner
                         </button>
@@ -873,8 +861,8 @@
 
             <!-- Copyright -->
             <div style="text-align: center; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
-                <p style="margin: 0 0 0.5rem 0; color: #ddd; font-size: 0.7rem;">&copy; 2025 La Belle Bretagne - Guide touristique de Bretagne</p>
-                <p style="margin: 0; color: #ddd; font-size: 0.7rem;">Made with ❤️ en Bretagne</p>
+                <p style="margin: 0 0 0.5rem 0; color: #ddd; font-size: 0.7rem;" data-translate="footer.copyright">&copy; 2025 La Belle Bretagne - Guide touristique de Bretagne</p>
+                <p style="margin: 0; color: #ddd; font-size: 0.7rem;" data-translate="footer.madeWith">Made with ❤️ en Bretagne</p>
             </div>
         </div>
     </footer>
@@ -940,5 +928,9 @@
             });
         });
     </script>
+
+    <!-- Translation System -->
+    <script src="js/translations.js"></script>
+    <script src="js/language-selector.js"></script>
 </body>
 </html>

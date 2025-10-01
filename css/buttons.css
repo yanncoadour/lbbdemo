@@ -1,0 +1,385 @@
+/**
+ * SYSTÈME DE BOUTONS UNIFIÉ - La Belle Bretagne
+ * Boutons cohérents et réutilisables sur tout le site
+ */
+
+/* ========================================
+   VARIABLES DE COULEURS
+   ======================================== */
+:root {
+    /* Couleurs principales */
+    --btn-primary-bg: #1e3a8a;
+    --btn-primary-hover: #1e40af;
+    --btn-primary-text: #ffffff;
+
+    --btn-secondary-bg: transparent;
+    --btn-secondary-border: #1e3a8a;
+    --btn-secondary-text: #1e3a8a;
+    --btn-secondary-hover-bg: #1e3a8a;
+    --btn-secondary-hover-text: #ffffff;
+
+    --btn-accent-bg: #3b82f6;
+    --btn-accent-hover: #2563eb;
+    --btn-accent-text: #ffffff;
+
+    --btn-disabled-bg: #e5e7eb;
+    --btn-disabled-text: #9ca3af;
+
+    /* Espacements et tailles */
+    --btn-radius: 12px;
+    --btn-radius-sm: 8px;
+    --btn-radius-lg: 16px;
+    --btn-radius-full: 50px;
+
+    --btn-transition: all 0.3s ease;
+}
+
+/* ========================================
+   BOUTON DE BASE
+   ======================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--btn-radius);
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--btn-transition);
+    white-space: nowrap;
+    user-select: none;
+}
+
+.btn:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* ========================================
+   BOUTON PRIMARY - Actions principales
+   Usage: Réserver, Explorer, S'abonner, Valider
+   ======================================== */
+.btn-primary {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--btn-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2);
+}
+
+/* ========================================
+   BOUTON SECONDARY - Actions secondaires
+   Usage: En savoir plus, Voir plus, Détails
+   ======================================== */
+.btn-secondary {
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+    border: 2px solid var(--btn-secondary-border);
+}
+
+.btn-secondary:hover {
+    background: var(--btn-secondary-hover-bg);
+    color: var(--btn-secondary-hover-text);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   BOUTON ACCENT - Actions tertiaires
+   Usage: Découvrir, Fermer, Actions moins importantes
+   ======================================== */
+.btn-accent {
+    background: var(--btn-accent-bg);
+    color: var(--btn-accent-text);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.btn-accent:hover {
+    background: var(--btn-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-accent:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   BOUTON GHOST - Transparent avec icône
+   Usage: Liens discrets, Navigation
+   ======================================== */
+.btn-ghost {
+    background: transparent;
+    color: var(--btn-secondary-text);
+    border: none;
+    box-shadow: none;
+}
+
+.btn-ghost:hover {
+    background: rgba(30, 58, 138, 0.1);
+    transform: none;
+}
+
+/* ========================================
+   BOUTON DANGER - Actions destructives
+   Usage: Supprimer, Annuler (actions critiques)
+   ======================================== */
+.btn-danger {
+    background: #dc2626;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+}
+
+/* ========================================
+   ÉTATS DISABLED
+   ======================================== */
+.btn:disabled,
+.btn.disabled {
+    background: var(--btn-disabled-bg) !important;
+    color: var(--btn-disabled-text) !important;
+    border-color: var(--btn-disabled-bg) !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* ========================================
+   TAILLES DE BOUTONS
+   ======================================== */
+
+/* Petit bouton */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: var(--btn-radius-sm);
+}
+
+/* Bouton moyen (par défaut) */
+.btn-md {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: var(--btn-radius);
+}
+
+/* Grand bouton */
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    border-radius: var(--btn-radius-lg);
+}
+
+/* Bouton extra-large */
+.btn-xl {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.25rem;
+    border-radius: var(--btn-radius-lg);
+}
+
+/* ========================================
+   VARIANTES DE FORME
+   ======================================== */
+
+/* Bouton carré (icons) */
+.btn-square {
+    padding: 0.75rem;
+    border-radius: var(--btn-radius);
+}
+
+.btn-square.btn-sm {
+    padding: 0.5rem;
+}
+
+.btn-square.btn-lg {
+    padding: 1rem;
+}
+
+/* Bouton arrondi complet (pill) */
+.btn-pill {
+    border-radius: var(--btn-radius-full);
+}
+
+/* Bouton pleine largeur */
+.btn-block {
+    width: 100%;
+    display: flex;
+}
+
+/* ========================================
+   GROUPES DE BOUTONS
+   ======================================== */
+.btn-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.btn-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Boutons côte à côte sans espace */
+.btn-group-attached {
+    display: flex;
+    gap: 0;
+}
+
+.btn-group-attached .btn:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-group-attached .btn:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* ========================================
+   BOUTONS AVEC ICÔNES
+   ======================================== */
+.btn i {
+    font-size: 1.1em;
+}
+
+.btn-icon-left i {
+    margin-right: 0.5rem;
+}
+
+.btn-icon-right i {
+    margin-left: 0.5rem;
+}
+
+/* Bouton icon seulement */
+.btn-icon-only {
+    padding: 0.75rem;
+}
+
+.btn-icon-only.btn-sm {
+    padding: 0.5rem;
+}
+
+.btn-icon-only.btn-lg {
+    padding: 1rem;
+}
+
+/* ========================================
+   ANIMATIONS ET LOADING
+   ======================================== */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: btn-spin 0.6s linear infinite;
+}
+
+@keyframes btn-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-lg {
+        padding: 0.85rem 1.75rem;
+        font-size: 1rem;
+    }
+
+    /* Boutons pleine largeur sur mobile */
+    .btn-mobile-block {
+        width: 100%;
+        display: flex;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .btn-group .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* ========================================
+   CLASSES UTILITAIRES
+   ======================================== */
+
+/* Ombre custom */
+.btn-shadow-none {
+    box-shadow: none !important;
+}
+
+.btn-shadow-lg {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Sans coins arrondis */
+.btn-square-corners {
+    border-radius: 0;
+}
+
+/* Transition rapide */
+.btn-fast {
+    transition: all 0.15s ease;
+}
+
+/* Pas d'effet hover */
+.btn-no-hover:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}

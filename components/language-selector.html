@@ -1,0 +1,65 @@
+<!--
+    COMPOSANT SÉLECTEUR DE LANGUE
+    À copier-coller dans le <nav> de chaque page, juste avant le bouton hamburger
+
+    Dépendances requises :
+    - css/language-selector.css
+    - js/translations.js
+    - js/language-selector.js
+-->
+
+<!-- Sélecteur de langue -->
+<div class="language-selector">
+    <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
+        <span class="flag" id="currentFlag">🇫🇷</span>
+        <span id="currentLang">FR</span>
+        <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+    </button>
+    <div class="language-dropdown" id="languageDropdown">
+        <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
+            <span class="flag">🇫🇷</span>
+            <span class="lang-name">Français</span>
+            <i class="fas fa-check checkmark"></i>
+        </div>
+        <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
+            <span class="flag">🇬🇧</span>
+            <span class="lang-name">English</span>
+            <i class="fas fa-check checkmark"></i>
+        </div>
+        <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
+            <span class="flag">🇩🇪</span>
+            <span class="lang-name">Deutsch</span>
+            <i class="fas fa-check checkmark"></i>
+        </div>
+        <div class="language-option" data-lang="es" onclick="changeLanguage('es')">
+            <span class="flag">🇪🇸</span>
+            <span class="lang-name">Español</span>
+            <i class="fas fa-check checkmark"></i>
+        </div>
+        <div class="language-option" data-lang="it" onclick="changeLanguage('it')">
+            <span class="flag">🇮🇹</span>
+            <span class="lang-name">Italiano</span>
+            <i class="fas fa-check checkmark"></i>
+        </div>
+        <div class="language-option" data-lang="nl" onclick="changeLanguage('nl')">
+            <span class="flag">🇳🇱</span>
+            <span class="lang-name">Nederlands</span>
+            <i class="fas fa-check checkmark"></i>
+        </div>
+        <div class="language-option" data-lang="pt" onclick="changeLanguage('pt')">
+            <span class="flag">🇵🇹</span>
+            <span class="lang-name">Português</span>
+            <i class="fas fa-check checkmark"></i>
+        </div>
+        <div class="language-option" data-lang="zh" onclick="changeLanguage('zh')">
+            <span class="flag">🇨🇳</span>
+            <span class="lang-name">中文</span>
+            <i class="fas fa-check checkmark"></i>
+        </div>
+        <div class="language-option" data-lang="ja" onclick="changeLanguage('ja')">
+            <span class="flag">🇯🇵</span>
+            <span class="lang-name">日本語</span>
+            <i class="fas fa-check checkmark"></i>
+        </div>
+    </div>
+</div>

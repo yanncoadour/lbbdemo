@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logements en Bretagne - La Belle Bretagne</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/language-selector.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- Header styles from index.html -->
@@ -149,13 +149,70 @@
                 </div>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="carte.html">Carte</a></li>
-                <li><a href="logements.html">Hébergements</a></li>
-                <li><a href="festivals.html">Festivals</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="instagram.html">Instagram</a></li>
+                <li><a href="index.html" data-translate="nav.home">Accueil</a></li>
+                <li><a href="carte.html" data-translate="nav.map">Carte</a></li>
+                <li><a href="logements.html" data-translate="nav.accommodations">Hébergements</a></li>
+                <li><a href="festivals.html" data-translate="nav.festivals">Festivals</a></li>
+                <li><a href="blog.html" data-translate="nav.blog">Blog</a></li>
+                <li><a href="instagram.html" data-translate="nav.instagram">Instagram</a></li>
             </ul>
+
+            <!-- Sélecteur de langue -->
+            <div class="language-selector">
+                <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
+                    <span class="flag" id="currentFlag">🇫🇷</span>
+                    <span id="currentLang">FR</span>
+                    <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
+                        <span class="flag">🇫🇷</span>
+                        <span class="lang-name">Français</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
+                        <span class="flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
+                        <span class="flag">🇩🇪</span>
+                        <span class="lang-name">Deutsch</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="es" onclick="changeLanguage('es')">
+                        <span class="flag">🇪🇸</span>
+                        <span class="lang-name">Español</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="it" onclick="changeLanguage('it')">
+                        <span class="flag">🇮🇹</span>
+                        <span class="lang-name">Italiano</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="nl" onclick="changeLanguage('nl')">
+                        <span class="flag">🇳🇱</span>
+                        <span class="lang-name">Nederlands</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="pt" onclick="changeLanguage('pt')">
+                        <span class="flag">🇵🇹</span>
+                        <span class="lang-name">Português</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="zh" onclick="changeLanguage('zh')">
+                        <span class="flag">🇨🇳</span>
+                        <span class="lang-name">中文</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                    <div class="language-option" data-lang="ja" onclick="changeLanguage('ja')">
+                        <span class="flag">🇯🇵</span>
+                        <span class="lang-name">日本語</span>
+                        <i class="fas fa-check checkmark"></i>
+                    </div>
+                </div>
+            </div>
+
             <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
                 <i class="fas fa-bars"></i>
             </button>
@@ -236,7 +293,7 @@
                     <div class="suggestion-content">
                         <h3>Vous ne trouvez pas votre bonheur ?</h3>
                         <p>Explorez notre carte interactive pour découvrir tous les points d'intérêt de Bretagne</p>
-                        <a href="index.html?filter=logements" class="suggestion-btn">
+                        <a href="index.html?filter=logements" class="btn btn-accent btn-lg">
                             Voir la carte
                         </a>
                     </div>
@@ -370,5 +427,9 @@
             }
         });
     </script>
+
+    <!-- Translation System -->
+    <script src="js/translations.js"></script>
+    <script src="js/language-selector.js"></script>
 </body>
 </html>
