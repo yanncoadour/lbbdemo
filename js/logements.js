@@ -14,6 +14,20 @@ let logementsData = [];
 // ===================================================================
 
 /**
+ * Mélange un tableau de manière aléatoire (Fisher-Yates shuffle)
+ * @param {Array} array - Tableau à mélanger
+ * @returns {Array} - Tableau mélangé
+ */
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+/**
  * Charge les logements depuis le fichier pois.json
  */
 async function loadLogementsFromPois() {
@@ -28,7 +42,7 @@ async function loadLogementsFromPois() {
         );
 
         // Adapter les données au format attendu par la page logements
-        logementsData = logements.map(poi => ({
+        const mappedLogements = logements.map(poi => ({
             id: poi.id,
             name: poi.title,
             category: poi.categories[0], // Prendre la première catégorie
@@ -44,6 +58,9 @@ async function loadLogementsFromPois() {
             coupDeCoeur: poi.coupDeCoeur || false,
             tested: poi.tested || false
         }));
+
+        // Mélanger aléatoirement les logements
+        logementsData = shuffleArray(mappedLogements);
 
         return logementsData;
     } catch (error) {
