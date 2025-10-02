@@ -13,6 +13,7 @@ let map;
 let markersGroup;
 let allPois = [];
 let filteredPois = [];
+let filteredPoisBeforeSearch = []; // Sauvegarde des POI filtrés avant une recherche
 let isFiltersOpen = false;
 let loadingPois = false;
 
@@ -75,6 +76,24 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             loadPois();
         }, 100);
+
+        // Écouter les événements de filtrage personnalisés depuis simple-filters.js
+        window.addEventListener('applyCustomFilters', function(event) {
+            console.log('📥 Événement applyCustomFilters reçu:', event.detail);
+            filteredPois = event.detail.filteredPois;
+            window.filteredPois = filteredPois; // Synchroniser les deux
+
+            // Vider la sauvegarde de recherche car on applique de nouveaux filtres
+            filteredPoisBeforeSearch = [];
+
+            displayPois();
+            updateCounter();
+
+            // Auto-focus sur les POIs filtrés
+            if (filteredPois.length > 0 && typeof autoFocusOnFilteredPois === 'function') {
+                autoFocusOnFilteredPois();
+            }
+        });
 
         // Initialiser le module de filtres externe
         if (typeof window.FiltersModule !== 'undefined' && window.FiltersModule.initFilters) {
@@ -855,11 +874,11 @@ function centerMapOnPOI(poi, withPopup = false) {
 
         const adjustedLat = poi.lat - latOffset;
 
-        // Zoomer sur cette position ajustée
+        // Zoomer sur cette position ajustée avec animation optimisée
         map.flyTo([adjustedLat, poi.lng], zoomLevel, {
             animate: true,
-            duration: 1.2,
-            easeLinearity: 0.1
+            duration: 0.6,
+            easeLinearity: 0.25
         });
 
         console.log(`🎯 Carte centrée sur ${poi.title} (zoom: ${zoomLevel}, offset: ${latOffset * 111}km, popup: ${withPopup})`);
@@ -1096,7 +1115,8 @@ function handleSearchKeyboard(e) {
         } else {
             // Vérifier si la recherche correspond à un lieu exact
             checkAndShowExactMatch(searchInput.value);
-            applyFilters();
+            // NE PAS appeler applyFilters() qui réinitialise tout
+            // La recherche via performSearch() est déjà active via l'événement 'input'
         }
         break;
     case 'Escape':
@@ -1397,9 +1417,9 @@ function createMarker(poi) {
 
     // Binder la popup au marker avec options personnalisées
     marker.bindPopup(popupContent, {
-        maxWidth: 280,
-        minWidth: 260,
-        className: 'custom-popup',
+        maxWidth: 330,
+        minWidth: 330,
+        className: 'custom-leaflet-popup',
         closeButton: true,
         autoPan: true,
         autoPanPadding: [50, 50],
@@ -1477,16 +1497,6 @@ function createPopupContent(poi) {
                              data-position="${index === 0 ? 'center-top-soft' : 'center'}"
                              onerror="this.src='assets/img/placeholder.jpg'">
                     `).join('')}
-
-                    <!-- Contrôles du carrousel -->
-                    <div class="gallery-controls">
-                        <button class="gallery-prev" aria-label="Image précédente">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="gallery-next" aria-label="Image suivante">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
 
                     <!-- Indicateurs (dots) -->
                     <div class="gallery-dots">
@@ -1716,29 +1726,57 @@ window.handleReservation = handleReservation;
  * @param {string} query - Terme de recherche
  */
 function performSearch(query) {
-    if (!query || query.length < 2) {
-        filteredPois = [...allPois];
+    const searchTerm = query?.toLowerCase().trim() || '';
+
+    if (!searchTerm || searchTerm.length < 2) {
+        // Si pas de recherche, restaurer les POI filtrés sauvegardés
+        if (filteredPoisBeforeSearch.length > 0) {
+            console.log('🔄 Restauration des POI filtrés sauvegardés:', filteredPoisBeforeSearch.length);
+            filteredPois = [...filteredPoisBeforeSearch];
+        } else {
+            // Si pas de sauvegarde, ne rien faire (garder filteredPois tel quel)
+            console.log('🔄 Pas de sauvegarde, on garde filteredPois:', filteredPois.length);
+        }
         displayPois();
         return;
     }
 
-    const searchTerm = query.toLowerCase().trim();
-    console.log('🔍 Performing search for:', searchTerm);
+    console.log('🔍 Recherche pour:', searchTerm);
+    console.log('  📊 État actuel - filteredPois:', filteredPois.length, '- sauvegarde:', filteredPoisBeforeSearch.length);
+
+    // Sauvegarder les POI filtrés actuels SEULEMENT la première fois
+    if (filteredPoisBeforeSearch.length === 0) {
+        // Toujours sauvegarder filteredPois tel quel
+        if (filteredPois.length > 0) {
+            filteredPoisBeforeSearch = [...filteredPois];
+            console.log('💾 Sauvegarde de', filteredPoisBeforeSearch.length, 'POI(s) avant recherche');
+        } else {
+            // Si filteredPois est vide, sauvegarder tous les POI
+            filteredPoisBeforeSearch = [...allPois];
+            console.log('💾 Sauvegarde de tous les POI (', filteredPoisBeforeSearch.length, ')');
+        }
+    }
+
+    // Toujours utiliser la sauvegarde comme base de recherche
+    const baseForSearch = filteredPoisBeforeSearch.length > 0 ? filteredPoisBeforeSearch : allPois;
 
     // Filtrer les POIs selon le terme de recherche
-    filteredPois = allPois.filter(poi => {
+    const searchResults = baseForSearch.filter(poi => {
         const title = (poi.title || poi.name || '').toLowerCase();
         const description = (poi.description || '').toLowerCase();
         const location = (poi.location || '').toLowerCase();
         const categories = (poi.categories || []).join(' ').toLowerCase();
+        const department = (poi.department || '').toLowerCase();
 
         return title.includes(searchTerm) ||
                description.includes(searchTerm) ||
                location.includes(searchTerm) ||
-               categories.includes(searchTerm);
+               categories.includes(searchTerm) ||
+               department.includes(searchTerm);
     });
 
-    console.log('🎯 Search results:', filteredPois.length, 'POIs found');
+    filteredPois = searchResults;
+    console.log('🎯 Résultats:', filteredPois.length, 'POIs trouvés (recherche dans', baseForSearch.length, 'POIs)');
     displayPois();
 }
 
@@ -2319,15 +2357,22 @@ function initPoiPage() {
  */
 async function loadPoiData(slug) {
     try {
+        console.log('🔍 Recherche du POI avec slug:', slug);
         const response = await fetch(`data/pois.json?v=${Date.now()}&mobile=${Math.random()}`);
         const data = await response.json();
-        const poi = data.pois.find(p => p.slug === slug);
+        console.log('📦 Données chargées, nombre de POIs:', data.pois?.length);
+
+        // Chercher par slug OU par id
+        const poi = data.pois.find(p => p.slug === slug || p.id === slug);
 
         if (!poi) {
+            console.error('❌ POI non trouvé avec slug/id:', slug);
+            console.log('📋 Slugs disponibles:', data.pois.map(p => p.slug || p.id).slice(0, 10));
             showPoiError();
             return;
         }
 
+        console.log('✅ POI trouvé:', poi.title);
         displayPoiData(poi);
     } catch (error) {
         console.error('Erreur lors du chargement du POI:', error);
@@ -2341,9 +2386,13 @@ async function loadPoiData(slug) {
 function displayPoiData(poi) {
     const loading = document.getElementById('loading');
     const content = document.getElementById('poiContent');
+    const error = document.getElementById('error');
 
     if (loading) {
         loading.style.display = 'none';
+    }
+    if (error) {
+        error.style.display = 'none';
     }
     if (content) {
         content.style.display = 'block';
@@ -2351,6 +2400,12 @@ function displayPoiData(poi) {
 
     // Mise à jour du titre de la page
     document.title = `${poi.title} - La Belle Bretagne`;
+
+    // Mettre à jour le sous-titre du logo avec le nom du POI
+    const logoSubtitle = document.querySelector('.logo-subtitle');
+    if (logoSubtitle) {
+        logoSubtitle.textContent = poi.title;
+    }
 
     // Remplissage des données
     updateElement('poiTitleOverlay', poi.title); // Titre sur l'image
@@ -2438,7 +2493,8 @@ function displayPoiData(poi) {
     }
 
     // Site web
-    if (poi.website) {
+    // Ne pas afficher le site officiel pour les logements (c'est booking, pas le vrai site)
+    if (poi.website && !isAccommodation(poi.categories)) {
         const websiteItem = document.getElementById('poiWebsite');
         const websiteText = document.getElementById('websiteText');
         const websiteBtn = document.getElementById('websiteBtn');
@@ -2761,9 +2817,13 @@ function initShareButton(poi) {
 function showPoiError() {
     const loading = document.getElementById('loading');
     const error = document.getElementById('error');
+    const content = document.getElementById('poiContent');
 
     if (loading) {
         loading.style.display = 'none';
+    }
+    if (content) {
+        content.style.display = 'none';
     }
     if (error) {
         error.style.display = 'flex';
@@ -2863,8 +2923,7 @@ function showLeafletPopup(poi, marker) {
     const popupOptions = {
         maxWidth: 400,
         minWidth: 300,
-        // Désactiver le bouton de fermeture par défaut
-        closeButton: false,
+        closeButton: true,
         autoPan: true,
         autoPanPadding: [50, 50],
         offset: [0, -10]
@@ -3232,7 +3291,6 @@ function showFixedPopup(poi) {
                 galleryTotalImages = poi.images.length;
                 setTimeout(() => {
                     initGalleryEvents();
-                    startGalleryAutoplay();
                 }, 100);
             }
         }, 10);
@@ -3391,9 +3449,6 @@ function showGalleryImage(index) {
         galleryDots[index].classList.add('active');
     }
 
-    // Redémarrer le défilement automatique
-    restartGalleryAutoplay();
-
     console.log('🖼️ Image changée vers index:', index);
 }
 
@@ -3475,21 +3530,6 @@ function initializePopupCarousel(poi) {
     // Afficher la première image
     showGalleryImage(0);
 
-    // Attacher les événements aux boutons (si présents)
-    if (galleryPrev) {
-        galleryPrev.addEventListener('click', (e) => {
-            e.stopPropagation();
-            prevGalleryImage();
-        });
-    }
-
-    if (galleryNext) {
-        galleryNext.addEventListener('click', (e) => {
-            e.stopPropagation();
-            nextGalleryImage();
-        });
-    }
-
     // Attacher les événements aux dots
     galleryDots.forEach((dot, index) => {
         dot.addEventListener('click', (e) => {
@@ -3498,10 +3538,33 @@ function initializePopupCarousel(poi) {
         });
     });
 
-    // Démarrer le défilement automatique
-    startGalleryAutoplay();
+    // Ajouter la navigation au clic sur les images
+    const galleryContainer = document.querySelector('.leaflet-popup .popup-image-hero');
+    if (galleryContainer) {
+        galleryContainer.style.cursor = 'pointer';
 
-    console.log('✅ Carrousel popup initialisé avec', galleryTotalImages, 'images');
+        galleryContainer.addEventListener('click', (e) => {
+            // Ne pas déclencher si on clique sur un dot
+            if (e.target.classList.contains('gallery-dot')) {
+                return;
+            }
+
+            const rect = galleryContainer.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const containerWidth = rect.width;
+
+            // Clic à gauche (1/3 gauche) = image précédente
+            // Clic à droite (1/3 droite) = image suivante
+            // Clic au centre = ne rien faire
+            if (clickX < containerWidth / 3) {
+                prevGalleryImage();
+            } else if (clickX > (containerWidth * 2) / 3) {
+                nextGalleryImage();
+            }
+        });
+    }
+
+    console.log('✅ Carrousel popup initialisé avec', galleryTotalImages, 'images (navigation au clic)');
 }
 
 /**
@@ -3552,7 +3615,6 @@ function initGalleryEvents() {
         }
 
         isDragging = false;
-        setTimeout(() => startGalleryAutoplay(), 1000);
     }, { passive: true });
 
     // Événements de clic pour desktop
@@ -3569,11 +3631,7 @@ function initGalleryEvents() {
         }
     });
 
-    // Arrêter l'autoplay au survol, redémarrer quand on sort
-    gallery.addEventListener('mouseenter', stopGalleryAutoplay);
-    gallery.addEventListener('mouseleave', () => {
-        setTimeout(() => startGalleryAutoplay(), 500);
-    });
+    // Pas d'autoplay - contrôle manuel uniquement
 }
 
 // Fonction calculateDistance dupliquée supprimée - utiliser Utils.GeoUtils.calculateDistance
@@ -4360,9 +4418,10 @@ function initMainSearchAndFilters() {
         searchInputMain.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                // Copy to bottom sheet input and trigger search
+                // Copy to bottom sheet input
                 searchInput.value = searchInputMain.value;
-                applyFilters();
+                // NE PAS appeler applyFilters() qui réinitialise les filtres
+                // La recherche est déjà gérée par l'événement 'input'
             }
         });
 

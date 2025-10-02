@@ -5,136 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions légales - La Belle Bretagne</title>
     <meta name="description" content="Mentions légales du site La Belle Bretagne - Guide touristique des plus beaux lieux de Bretagne.">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts - Inter -->
+
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/modern-layout.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/language-selector.css">
+    <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/styles.css">
-
-    <!-- Header styles from index.html -->
-    <style>
-        header {
-            background: white;
-            color: #1e3a8a;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            text-decoration: none;
-            color: #1e3a8a;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-text {
-            color: #000000;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .logo-subtitle {
-            font-size: 0.8rem;
-            font-weight: 400;
-            opacity: 0.8;
-            line-height: 1;
-        }
-
-        .logo img {
-            height: 60px;
-            width: auto;
-            border-radius: 8px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #1e3a8a;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #3b82f6;
-        }
-
-        .back-btn {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            padding: 0.5rem;
-            border-radius: 50%;
-            transition: background-color 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav-left" style="display: flex; align-items: center; gap: 1rem;">
-                <a href="carte.html" class="back-btn">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
-                <a href="index.html" class="logo">
-                    <img src="assets/images/logo.jpg" alt="Logo La Belle Bretagne">
-                    <div class="logo-text">
-                        <div class="logo-title">La Belle Bretagne</div>
-                        <div class="logo-subtitle">Mentions légales</div>
+    <header class="site-header" id="siteHeader">
+        <nav class="nav-container">
+            <a href="index.html" class="site-logo" aria-label="La Belle Bretagne - Retour à l'accueil">
+                <img src="assets/images/logo.webp"
+                     alt="Logo La Belle Bretagne"
+                     class="logo-image"
+                     width="96"
+                     height="96"
+                     fetchpriority="high"
+                     loading="eager">
+                <div class="logo-text">
+                    <div class="logo-title">La Belle Bretagne</div>
+                    <div class="logo-subtitle">Mentions légales</div>
+                </div>
+            </a>
+
+            <div class="main-nav">
+                <ul class="nav-list" id="navLinks" role="menubar">
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem" data-translate="nav.home">Accueil</a></li>
+                    <li role="none"><a href="carte.html" class="nav-link" role="menuitem" data-translate="nav.map">Carte</a></li>
+                    <li role="none"><a href="logements.html" class="nav-link" role="menuitem" data-translate="nav.accommodations">Hébergements</a></li>
+                    <li role="none"><a href="festivals.html" class="nav-link" role="menuitem" data-translate="nav.festivals">Festivals</a></li>
+                    <li role="none"><a href="blog.html" class="nav-link" role="menuitem" data-translate="nav.blog">Blog</a></li>
+                    <li role="none"><a href="instagram.html" class="nav-link" role="menuitem" data-translate="nav.instagram">Instagram</a></li>
+                </ul>
+
+                <!-- Sélecteur de langue -->
+                <div class="language-selector">
+                    <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
+                        <span class="flag" id="currentFlag">🇫🇷</span>
+                        <span id="currentLang">FR</span>
+                        <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
+                            <span class="flag">🇫🇷</span>
+                            <span class="lang-name">Français</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
+                            <span class="flag">🇬🇧</span>
+                            <span class="lang-name">English</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
+                            <span class="flag">🇩🇪</span>
+                            <span class="lang-name">Deutsch</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="es" onclick="changeLanguage('es')">
+                            <span class="flag">🇪🇸</span>
+                            <span class="lang-name">Español</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="it" onclick="changeLanguage('it')">
+                            <span class="flag">🇮🇹</span>
+                            <span class="lang-name">Italiano</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="nl" onclick="changeLanguage('nl')">
+                            <span class="flag">🇳🇱</span>
+                            <span class="lang-name">Nederlands</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="pt" onclick="changeLanguage('pt')">
+                            <span class="flag">🇵🇹</span>
+                            <span class="lang-name">Português</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="zh" onclick="changeLanguage('zh')">
+                            <span class="flag">🇨🇳</span>
+                            <span class="lang-name">中文</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="ja" onclick="changeLanguage('ja')">
+                            <span class="flag">🇯🇵</span>
+                            <span class="lang-name">日本語</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
                     </div>
-                </a>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="carte.html">Carte</a></li>
-                <li><a href="logements.html">Hébergements</a></li>
-                <li><a href="festivals.html">Festivals</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="instagram.html">Instagram</a></li>
-            </ul>
+
+            <button class="mobile-menu-toggle" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
         </nav>
     </header>
 

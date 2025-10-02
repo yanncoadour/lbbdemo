@@ -18,377 +18,141 @@
     <meta name="description" content="Découvrez les plus beaux lieux de Bretagne : plages, monuments, villages, châteaux et points de vue. Guide interactif avec carte, POIs et conseils pour votre séjour.">
 
 
-    <!-- ========================================
-         OPTIMISATION DES RESSOURCES CSS
-         Préchargement asynchrone pour améliorer les performances
-         ======================================== -->
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-    <!-- Préchargement de la feuille de style Leaflet (bibliothèque de carte interactive) -->
-    <!-- onload transforme le preload en stylesheet une fois chargé -->
-    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <!-- Fallback pour navigateurs sans JavaScript -->
-    <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /></noscript>
-
-    <!-- Préchargement des CSS critiques du projet -->
-    <link rel="preload" href="css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-    <!-- Préchargement de Font Awesome (icônes) -->
+    <!-- Font Awesome -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
-
-    <!-- ========================================
-         SYSTÈME DE TYPOGRAPHIE
-         Police unifiée pour tout le site
-         ======================================== -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/design-system.css">
     <link rel="stylesheet" href="css/typography.css">
-
-    <!-- Système de boutons unifié -->
+    <link rel="stylesheet" href="css/modern-layout.css">
     <link rel="stylesheet" href="css/buttons.css">
-
-    <!-- Feuille de style principale du site -->
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/language-selector.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/page-hero.css">
 
-    <!-- ========================================
-         STYLES DU HEADER ET NAVIGATION
-         Repris de index.html pour cohérence visuelle
-         ======================================== -->
-    <style>
-        /* --- HEADER PRINCIPAL --- */
-        header {
-            background: white;                 /* Fond blanc pour contraste */
-            color: #1e3a8a;                    /* Bleu marine (couleur identitaire) */
-            padding: 1rem 0;                   /* Espacement vertical */
-            position: sticky;                  /* Reste visible lors du scroll */
-            top: 0;                            /* Collé en haut de la page */
-            z-index: 100;                      /* Au-dessus des autres éléments */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Ombre légère pour profondeur */
-        }
+    <!-- Leaflet CSS -->
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /></noscript>
 
-        /* --- CONTENEUR DE NAVIGATION --- */
-        nav {
-            max-width: 1200px;                 /* Largeur maximale du contenu */
-            margin: 0 auto;                    /* Centrage horizontal */
-            display: flex;                     /* Layout flexible */
-            justify-content: space-between;    /* Espace entre logo et liens */
-            align-items: center;               /* Alignement vertical centré */
-            padding: 0 2rem;                   /* Marges intérieures latérales */
-        }
-
-        /* --- LOGO --- */
-        .logo {
-            text-decoration: none;             /* Pas de soulignement */
-            color: #1e3a8a;                    /* Bleu marine */
-            display: flex;                     /* Layout flexible */
-            align-items: center;               /* Centrage vertical */
-            gap: 0.5rem;                       /* Espace entre image et texte */
-        }
-
-        .logo-text {
-            color: #000000;                    /* Texte noir */
-        }
-
-        .logo-text {
-            display: flex;                     /* Layout flexible */
-            flex-direction: column;            /* Disposition verticale */
-        }
-
-        /* Titre principal du logo */
-        .logo-title {
-            font-size: 1.4rem;                 /* Grande taille */
-            font-weight: 700;                  /* Gras */
-            line-height: 1.2;                  /* Interligne compact */
-        }
-
-        /* Sous-titre du logo */
-        .logo-subtitle {
-            font-size: 0.8rem;                 /* Petite taille */
-            font-weight: 400;                  /* Normal */
-            opacity: 0.8;                      /* Légèrement transparent */
-            line-height: 1;                    /* Interligne minimal */
-        }
-
-        /* Image du logo */
-        .logo img {
-            height: 60px;                      /* Hauteur fixe */
-            width: auto;                       /* Largeur proportionnelle */
-            border-radius: 8px;                /* Coins arrondis */
-        }
-
-        /* --- LIENS DE NAVIGATION (DESKTOP) --- */
-        .nav-links {
-            display: flex;                     /* Layout horizontal */
-            list-style: none;                  /* Pas de puces */
-            gap: 2rem;                         /* Espacement entre les liens */
-        }
-
-        .nav-links a {
-            color: #1e3a8a;                    /* Bleu marine */
-            text-decoration: none;             /* Pas de soulignement */
-            font-weight: 600;                  /* Semi-gras */
-            transition: color 0.3s ease;       /* Animation douce au survol */
-        }
-
-        /* Effet de survol sur les liens */
-        .nav-links a:hover {
-            color: #3b82f6;                    /* Bleu plus clair au survol */
-        }
-
-        /* --- SÉLECTEUR DE LANGUE --- */
-        .language-selector {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .language-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 8px 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: 500;
-            color: #1e3a8a;
-        }
-
-        .language-btn:hover {
-            background: #e2e8f0;
-            border-color: #cbd5e1;
-        }
-
-        .language-btn .flag {
-            font-size: 18px;
-        }
-
-        .language-dropdown {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 8px;
-            min-width: 200px;
-            display: none;
-            z-index: 1000;
-        }
-
-        .language-dropdown.active {
-            display: block;
-        }
-
-        .language-option {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 14px;
-            color: #334155;
-        }
-
-        .language-option:hover {
-            background: #f1f5f9;
-        }
-
-        .language-option.active {
-            background: #e0f2fe;
-            color: #0369a1;
-            font-weight: 600;
-        }
-
-        .language-option .flag {
-            font-size: 20px;
-        }
-
-        .language-option .lang-name {
-            flex: 1;
-        }
-
-        .language-option .checkmark {
-            color: #0369a1;
-            font-size: 14px;
-            opacity: 0;
-        }
-
-        .language-option.active .checkmark {
-            opacity: 1;
-        }
-
-        /* --- BOUTON MENU MOBILE --- */
-        .mobile-menu-btn {
-            display: none;                     /* Caché par défaut (desktop) */
-            background: none;                  /* Pas de fond */
-            border: none;                      /* Pas de bordure */
-            color: #1e3a8a;                    /* Bleu marine */
-            font-size: 1.5rem;                 /* Grande icône */
-            cursor: pointer;                   /* Curseur pointeur */
-            padding: 0.5rem;                   /* Espacement cliquable */
-        }
-
-        /* --- RESPONSIVE MOBILE (écrans < 768px) --- */
-        @media (max-width: 768px) {
-            /* Affiche le bouton hamburger sur mobile */
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            /* Menu en panneau coulissant depuis la droite */
-            .nav-links {
-                position: fixed;               /* Position fixe (overlay) */
-                top: 72px;                     /* Sous le header */
-                right: -300px;                 /* Caché à droite par défaut */
-                width: 280px;                  /* Largeur du panneau */
-                height: calc(100vh - 72px);    /* Hauteur plein écran moins header */
-                background: white;             /* Fond blanc */
-                flex-direction: column;        /* Disposition verticale */
-                padding: 2rem 1rem;            /* Marges intérieures */
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1); /* Ombre à gauche */
-                transition: right 0.3s ease;   /* Animation de glissement */
-                z-index: 199;                  /* Au-dessus du contenu */
-                gap: 1rem;                     /* Espacement entre liens */
-            }
-
-            /* Menu visible quand classe "active" est ajoutée */
-            .nav-links.active {
-                right: 0;                      /* Glisse vers la gauche (visible) */
-            }
-
-            /* Style des liens en mobile */
-            .nav-links a {
-                padding: 1rem;                 /* Grande zone cliquable */
-                border-radius: 8px;            /* Coins arrondis */
-                text-align: center;            /* Texte centré */
-                text-decoration: none;         /* Pas de soulignement */
-                color: #1e3a8a;                /* Bleu marine */
-                font-weight: 600;              /* Semi-gras */
-                border-bottom: 1px solid #f1f5f9; /* Séparateur entre liens */
-            }
-
-            /* Adaptation du footer en mobile */
-            .footer-grid {
-                grid-template-columns: 1fr !important; /* Une seule colonne */
-                gap: 2rem !important;          /* Espacement vertical */
-                text-align: center;            /* Texte centré */
-            }
-        }
-    </style>
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/carte-improved.css">
+    <link rel="stylesheet" href="css/filters-modern.css">
+    <link rel="stylesheet" href="css/carte-fix-centering.css">
 </head>
 <body>
     <!-- ========================================
          HEADER - Navigation principale du site
          ======================================== -->
-    <header>
-        <nav>
-            <!-- Logo cliquable retournant à l'accueil -->
-            <a href="index.html" class="logo">
-                <!-- Image du logo (hauteur 60px, coins arrondis) -->
-                <img src="assets/images/logo.jpg" alt="Logo La Belle Bretagne">
-
-                <!-- Texte du logo en 2 lignes -->
+    <header class="site-header" id="siteHeader">
+        <nav class="nav-container">
+            <a href="index.html" class="site-logo" aria-label="La Belle Bretagne - Retour à l'accueil">
+                <img src="assets/images/logo.webp"
+                     alt="Logo La Belle Bretagne"
+                     class="logo-image"
+                     width="96"
+                     height="96"
+                     fetchpriority="high"
+                     loading="eager">
                 <div class="logo-text">
                     <div class="logo-title">La Belle Bretagne</div>
                     <div class="logo-subtitle">Carte</div>
                 </div>
             </a>
 
-            <!-- Menu de navigation principal (desktop + mobile slidé) -->
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" data-translate="nav.home">Accueil</a></li>
-                <li><a href="carte.html" data-translate="nav.map">Carte</a></li>
-                <li><a href="logements.html" data-translate="nav.accommodations">Hébergements</a></li>
-                <li><a href="festivals.html" data-translate="nav.festivals">Festivals</a></li>
-                <li><a href="blog.html" data-translate="nav.blog">Blog</a></li>
-                <li><a href="instagram.html" data-translate="nav.instagram">Instagram</a></li>
-            </ul>
+            <div class="main-nav">
+                <ul class="nav-list" id="navLinks" role="menubar">
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem" data-translate="nav.home">Accueil</a></li>
+                    <li role="none"><a href="carte.html" class="nav-link active" role="menuitem" data-translate="nav.map">Carte</a></li>
+                    <li role="none"><a href="logements.html" class="nav-link" role="menuitem" data-translate="nav.accommodations">Hébergements</a></li>
+                    <li role="none"><a href="festivals.html" class="nav-link" role="menuitem" data-translate="nav.festivals">Festivals</a></li>
+                    <li role="none"><a href="blog.html" class="nav-link" role="menuitem" data-translate="nav.blog">Blog</a></li>
+                    <li role="none"><a href="instagram.html" class="nav-link" role="menuitem" data-translate="nav.instagram">Instagram</a></li>
+                </ul>
 
-            <!-- Sélecteur de langue -->
-            <div class="language-selector">
-                <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
-                    <span class="flag" id="currentFlag">🇫🇷</span>
-                    <span id="currentLang">FR</span>
-                    <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
-                </button>
-                <div class="language-dropdown" id="languageDropdown">
-                    <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
-                        <span class="flag">🇫🇷</span>
-                        <span class="lang-name">Français</span>
-                        <i class="fas fa-check checkmark"></i>
-                    </div>
-                    <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
-                        <span class="flag">🇬🇧</span>
-                        <span class="lang-name">English</span>
-                        <i class="fas fa-check checkmark"></i>
-                    </div>
-                    <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
-                        <span class="flag">🇩🇪</span>
-                        <span class="lang-name">Deutsch</span>
-                        <i class="fas fa-check checkmark"></i>
-                    </div>
-                    <div class="language-option" data-lang="es" onclick="changeLanguage('es')">
-                        <span class="flag">🇪🇸</span>
-                        <span class="lang-name">Español</span>
-                        <i class="fas fa-check checkmark"></i>
-                    </div>
-                    <div class="language-option" data-lang="it" onclick="changeLanguage('it')">
-                        <span class="flag">🇮🇹</span>
-                        <span class="lang-name">Italiano</span>
-                        <i class="fas fa-check checkmark"></i>
-                    </div>
-                    <div class="language-option" data-lang="nl" onclick="changeLanguage('nl')">
-                        <span class="flag">🇳🇱</span>
-                        <span class="lang-name">Nederlands</span>
-                        <i class="fas fa-check checkmark"></i>
-                    </div>
-                    <div class="language-option" data-lang="pt" onclick="changeLanguage('pt')">
-                        <span class="flag">🇵🇹</span>
-                        <span class="lang-name">Português</span>
-                        <i class="fas fa-check checkmark"></i>
-                    </div>
-                    <div class="language-option" data-lang="zh" onclick="changeLanguage('zh')">
-                        <span class="flag">🇨🇳</span>
-                        <span class="lang-name">中文</span>
-                        <i class="fas fa-check checkmark"></i>
-                    </div>
-                    <div class="language-option" data-lang="ja" onclick="changeLanguage('ja')">
-                        <span class="flag">🇯🇵</span>
-                        <span class="lang-name">日本語</span>
-                        <i class="fas fa-check checkmark"></i>
+                <!-- Sélecteur de langue -->
+                <div class="language-selector">
+                    <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
+                        <span class="flag" id="currentFlag">🇫🇷</span>
+                        <span id="currentLang">FR</span>
+                        <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
+                            <span class="flag">🇫🇷</span>
+                            <span class="lang-name">Français</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
+                            <span class="flag">🇬🇧</span>
+                            <span class="lang-name">English</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
+                            <span class="flag">🇩🇪</span>
+                            <span class="lang-name">Deutsch</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="es" onclick="changeLanguage('es')">
+                            <span class="flag">🇪🇸</span>
+                            <span class="lang-name">Español</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="it" onclick="changeLanguage('it')">
+                            <span class="flag">🇮🇹</span>
+                            <span class="lang-name">Italiano</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="nl" onclick="changeLanguage('nl')">
+                            <span class="flag">🇳🇱</span>
+                            <span class="lang-name">Nederlands</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="pt" onclick="changeLanguage('pt')">
+                            <span class="flag">🇵🇹</span>
+                            <span class="lang-name">Português</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="zh" onclick="changeLanguage('zh')">
+                            <span class="flag">🇨🇳</span>
+                            <span class="lang-name">中文</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="ja" onclick="changeLanguage('ja')">
+                            <span class="flag">🇯🇵</span>
+                            <span class="lang-name">日本語</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Bouton hamburger (visible uniquement sur mobile) -->
-            <!-- Appelle toggleMobileMenu() pour afficher/masquer le menu -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i> <!-- Icône 3 barres (devient X quand ouvert) -->
+            <button class="mobile-menu-toggle" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
         </nav>
     </header>
 
 
-    <!-- ========================================
-         HERO SECTION - Bannière d'en-tête
-         ======================================== -->
-    <section class="carte-hero">
-        <div class="hero-content">
-            <!-- Titre principal de la page avec icône -->
-            <h1 class="hero-title">
-                <i class="fas fa-map-marked-alt"></i> <!-- Icône de carte -->
-                Carte Interactive de Bretagne
-            </h1>
-            <!-- Sous-titre descriptif -->
-            <p class="hero-subtitle">Explorez tous les lieux incontournables, hébergements et activités de Bretagne sur notre carte interactive</p>
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <div class="page-hero-icon">
+                <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h1 class="page-hero-title">Carte Interactive de Bretagne</h1>
+            <p class="page-hero-description">
+                Explorez tous les lieux incontournables de Bretagne sur notre carte interactive.
+                Filtrez par catégorie, département et découvrez des endroits authentiques à visiter.
+            </p>
         </div>
     </section>
 
@@ -398,21 +162,15 @@
          Barre de recherche principale visible en haut de page
          ======================================== -->
     <section class="carte-search-section">
-        <div class="container">
-            <div class="search-bar-main">
-                <!-- Champ de recherche avec icône -->
-                <div class="search-field-main">
-                    <i class="fas fa-search"></i> <!-- Icône loupe -->
-                    <!-- Input principal pour rechercher des lieux -->
-                    <input type="text" placeholder="Découvrir la Bretagne..." class="search-input-main" id="searchInputMain">
-                </div>
+        <div class="search-bar-main">
+            <!-- Champ de recherche -->
+            <input type="text" placeholder="🔍 Rechercher un lieu, une plage, un monument..." class="search-input-main" id="searchInputMain">
 
-                <!-- Bouton d'ouverture du panneau de filtres -->
-                <button class="filters-btn-main" id="filterBtnMain">
-                    <i class="fas fa-tune"></i> <!-- Icône sliders de réglage -->
-                    <span>Filtres</span>
-                </button>
-            </div>
+            <!-- Bouton d'ouverture du panneau de filtres -->
+            <button class="filters-btn-main" id="filterBtnMain">
+                <i class="fas fa-sliders-h"></i>
+                <span>Filtres</span>
+            </button>
         </div>
     </section>
 
@@ -420,15 +178,15 @@
          SECTION CARTE INTERACTIVE
          Contient la carte Leaflet et ses contrôles
          ======================================== -->
-    <section class="map-section" style="position: relative;">
+    <section class="map-section">
         <!-- Conteneur de la carte Leaflet (rempli par map.js) -->
-        <div id="map" class="map"></div>
-
-        <!-- Bouton de basculement de style de carte (plan / satellite) -->
-        <!-- Position fixe en haut à droite de la carte -->
-        <button class="map-toggle-btn" id="mapToggleBtn" aria-label="Basculer entre vue satellite et carte" title="Basculer satellite/carte">
-            <i class="fas fa-layer-group" aria-hidden="true"></i> <!-- Icône couches -->
-        </button>
+        <div id="map" class="map">
+            <!-- Bouton de basculement de style de carte (plan / satellite) -->
+            <!-- Position fixe en haut à droite de la carte -->
+            <button class="map-toggle-btn" id="mapToggleBtn" aria-label="Basculer entre vue satellite et carte" title="Basculer satellite/carte">
+                <i class="fas fa-layer-group" aria-hidden="true"></i> <!-- Icône couches -->
+            </button>
+        </div>
 
         <!-- Panneau latéral pour affichage des détails sur PC/tablette -->
         <!-- Apparaît à droite quand on clique sur un marqueur -->
@@ -594,219 +352,6 @@
             </div>
         </div>
 
-        <!-- ========================================
-             PANNEAU DE FILTRES
-             S'affiche en overlay quand on clique sur "Filtres"
-             ======================================== -->
-        <div class="filters-panel" id="filterContent">
-
-            <!-- En-tête du panneau de filtres -->
-            <div class="filters-header">
-                <h3>Filtres</h3>
-
-                <!-- Bouton de fermeture -->
-                <button class="close-filters" id="backFilterBtn">
-                    <i class="fas fa-times"></i> <!-- Icône X -->
-                </button>
-            </div>
-
-            <!-- Corps du panneau contenant tous les filtres -->
-            <div class="filters-body">
-
-                <!-- ========================================
-                     GROUPE 1: TRI
-                     Options de tri des résultats
-                     ======================================== -->
-                <div class="filter-group">
-                    <label class="group-label">Trier par</label>
-
-                    <!-- Options en ligne (pills horizontales) -->
-                    <div class="options-row">
-                        <!-- Tri par distance (sélectionné par défaut) -->
-                        <label class="option-pill">
-                            <input type="radio" name="sort" value="distance" checked>
-                            <span>Distance</span>
-                        </label>
-
-                        <!-- Tri par date d'ajout -->
-                        <label class="option-pill">
-                            <input type="radio" name="sort" value="recent">
-                            <span>Récents</span>
-                        </label>
-
-                        <!-- Tri par popularité/note -->
-                        <label class="option-pill">
-                            <input type="radio" name="sort" value="rating">
-                            <span>Populaires</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- ========================================
-                     GROUPE 2: DÉPARTEMENTS
-                     Filtre par département breton
-                     ======================================== -->
-                <div class="filter-group">
-                    <label class="group-label">Départements</label>
-
-                    <!-- Grille de cartes cliquables (checkboxes stylisées) -->
-                    <div class="options-grid">
-                        <!-- Finistère (29) -->
-                        <label class="option-card">
-                            <input type="checkbox" value="Finistère" name="department">
-                            <div class="card-content">
-                                <i class="fas fa-map-marker-alt"></i> <!-- Icône marker -->
-                                <span>Finistère</span>
-                            </div>
-                        </label>
-
-                        <!-- Ille-et-Vilaine (35) -->
-                        <label class="option-card">
-                            <input type="checkbox" value="Ille-et-Vilaine" name="department">
-                            <div class="card-content">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Ille-et-Vilaine</span>
-                            </div>
-                        </label>
-
-                        <!-- Loire-Atlantique (44) -->
-                        <label class="option-card">
-                            <input type="checkbox" value="Loire-Atlantique" name="department">
-                            <div class="card-content">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Loire-Atlantique</span>
-                            </div>
-                        </label>
-
-                        <!-- Morbihan (56) -->
-                        <label class="option-card">
-                            <input type="checkbox" value="Morbihan" name="department">
-                            <div class="card-content">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Morbihan</span>
-                            </div>
-                        </label>
-
-                        <!-- Côtes-d'Armor (22) -->
-                        <label class="option-card">
-                            <input type="checkbox" value="Côtes-d'Armor" name="department">
-                            <div class="card-content">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Côtes-d'Armor</span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- ========================================
-                     GROUPE 3: CATÉGORIES
-                     Filtre par type de lieu (POI, hébergement, etc.)
-                     ======================================== -->
-                <div class="filter-group">
-                    <label class="group-label">Catégories</label>
-
-                    <!-- Grille de catégories avec icônes -->
-                    <div class="options-grid">
-                        <!-- Plages -->
-                        <label class="option-card">
-                            <input type="checkbox" value="plage">
-                            <div class="card-content">
-                                <i class="fas fa-umbrella-beach"></i> <!-- Parasol de plage -->
-                                <span>Plages</span>
-                            </div>
-                        </label>
-
-                        <!-- Villages -->
-                        <label class="option-card">
-                            <input type="checkbox" value="village">
-                            <div class="card-content">
-                                <i class="fas fa-home"></i> <!-- Maison -->
-                                <span>Villages</span>
-                            </div>
-                        </label>
-
-                        <!-- Monuments historiques -->
-                        <label class="option-card">
-                            <input type="checkbox" value="monument">
-                            <div class="card-content">
-                                <i class="fas fa-landmark"></i> <!-- Monument -->
-                                <span>Monuments</span>
-                            </div>
-                        </label>
-
-                        <!-- Points de vue / Panoramas -->
-                        <label class="option-card">
-                            <input type="checkbox" value="point_de_vue">
-                            <div class="card-content">
-                                <i class="fas fa-mountain"></i> <!-- Montagne -->
-                                <span>Panoramas</span>
-                            </div>
-                        </label>
-
-                        <!-- Randonnées -->
-                        <label class="option-card">
-                            <input type="checkbox" value="randonnee">
-                            <div class="card-content">
-                                <i class="fas fa-hiking"></i> <!-- Randonneur -->
-                                <span>Randonnées</span>
-                            </div>
-                        </label>
-
-                        <!-- Musées / Culture -->
-                        <label class="option-card">
-                            <input type="checkbox" value="musee">
-                            <div class="card-content">
-                                <i class="fas fa-university"></i> <!-- Bâtiment culturel -->
-                                <span>Culture</span>
-                            </div>
-                        </label>
-
-                        <!-- Hôtels classiques -->
-                        <label class="option-card">
-                            <input type="checkbox" value="hotel">
-                            <div class="card-content">
-                                <i class="fas fa-bed"></i> <!-- Lit -->
-                                <span>Hébergement</span>
-                            </div>
-                        </label>
-
-                        <!-- Logements insolites (cabanes, yourtes, etc.) -->
-                        <label class="option-card">
-                            <input type="checkbox" value="logement_insolite">
-                            <div class="card-content">
-                                <i class="fas fa-campground"></i> <!-- Camping/cabane -->
-                                <span>Insolite</span>
-                            </div>
-                        </label>
-
-                        <!-- Festivals et événements -->
-                        <label class="option-card">
-                            <input type="checkbox" value="festival">
-                            <div class="card-content">
-                                <i class="fas fa-music"></i> <!-- Note de musique -->
-                                <span>Festivals</span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========================================
-                 FOOTER DU PANNEAU DE FILTRES
-                 Boutons d'action pour appliquer ou réinitialiser
-                 ======================================== -->
-            <div class="filters-footer">
-                <!-- Bouton principal: applique les filtres sélectionnés -->
-                <button class="btn btn-primary" id="applyFiltersInline" style="flex: 2;">
-                    Appliquer les filtres
-                </button>
-
-                <!-- Bouton secondaire: réinitialise tous les filtres -->
-                <button class="btn btn-secondary" id="resetFiltersInline" style="flex: 1;">
-                    Réinitialiser
-                </button>
-            </div>
-        </div>
 
         <!-- Contenu additionnel des filtres (si besoin) -->
         <!-- Peut être utilisé par filters.js pour du contenu généré dynamiquement -->
@@ -972,10 +517,208 @@
 
 
     <!-- ========================================
+         PANNEAU DE FILTRES MODERNE (MODAL)
+         S'affiche en overlay centré quand on clique sur "Filtres"
+         ======================================== -->
+    <div class="filters-panel-modern" id="filterContent">
+        <!-- En-tête du panneau de filtres -->
+        <div class="filters-header-modern">
+            <h3>
+                <i class="fas fa-sliders-h"></i>
+                Filtres
+            </h3>
+
+            <!-- Bouton de fermeture -->
+            <button class="close-filters-modern" id="backFilterBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Corps du panneau contenant tous les filtres -->
+        <div class="filters-body-modern">
+            <!-- GROUPE 1: TRI -->
+            <div class="filter-group-modern">
+                <div class="group-label-modern">
+                    <i class="fas fa-sort"></i>
+                    Trier par
+                </div>
+
+                <div class="options-pills">
+                    <div class="pill-modern">
+                        <input type="radio" name="sort" value="distance" id="sort-distance" checked>
+                        <label for="sort-distance">Distance</label>
+                    </div>
+
+                    <div class="pill-modern">
+                        <input type="radio" name="sort" value="recent" id="sort-recent">
+                        <label for="sort-recent">Récents</label>
+                    </div>
+
+                    <div class="pill-modern">
+                        <input type="radio" name="sort" value="rating" id="sort-rating">
+                        <label for="sort-rating">Populaires</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GROUPE 2: DÉPARTEMENTS -->
+            <div class="filter-group-modern">
+                <div class="group-label-modern">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Départements
+                </div>
+
+                <div class="departments-list-modern">
+                    <div class="department-item-modern">
+                        <input type="checkbox" value="Finistère" name="department" id="dep-finistere">
+                        <label for="dep-finistere">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Finistère (29)</span>
+                        </label>
+                    </div>
+
+                    <div class="department-item-modern">
+                        <input type="checkbox" value="Ille-et-Vilaine" name="department" id="dep-ille">
+                        <label for="dep-ille">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ille-et-Vilaine (35)</span>
+                        </label>
+                    </div>
+
+                    <div class="department-item-modern">
+                        <input type="checkbox" value="Loire-Atlantique" name="department" id="dep-loire">
+                        <label for="dep-loire">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Loire-Atlantique (44)</span>
+                        </label>
+                    </div>
+
+                    <div class="department-item-modern">
+                        <input type="checkbox" value="Morbihan" name="department" id="dep-morbihan">
+                        <label for="dep-morbihan">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Morbihan (56)</span>
+                        </label>
+                    </div>
+
+                    <div class="department-item-modern">
+                        <input type="checkbox" value="Côtes-d'Armor" name="department" id="dep-cotes">
+                        <label for="dep-cotes">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Côtes-d'Armor (22)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GROUPE 3: CATÉGORIES -->
+            <div class="filter-group-modern">
+                <div class="group-label-modern">
+                    <i class="fas fa-layer-group"></i>
+                    Catégories
+                </div>
+
+                <div class="categories-grid-modern">
+                    <div class="category-card-modern">
+                        <input type="checkbox" value="festival" id="cat-festival">
+                        <label for="cat-festival">
+                            <i class="fas fa-music"></i>
+                            <span>Festivals (23)</span>
+                        </label>
+                    </div>
+
+                    <div class="category-card-modern">
+                        <input type="checkbox" value="village" id="cat-village">
+                        <label for="cat-village">
+                            <i class="fas fa-home"></i>
+                            <span>Villages (21)</span>
+                        </label>
+                    </div>
+
+                    <div class="category-card-modern">
+                        <input type="checkbox" value="chateau" id="cat-chateau">
+                        <label for="cat-chateau">
+                            <i class="fas fa-chess-rook"></i>
+                            <span>Châteaux (21)</span>
+                        </label>
+                    </div>
+
+                    <div class="category-card-modern">
+                        <input type="checkbox" value="plage" id="cat-plage">
+                        <label for="cat-plage">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Plages (20)</span>
+                        </label>
+                    </div>
+
+                    <div class="category-card-modern">
+                        <input type="checkbox" value="loisirs" id="cat-loisirs">
+                        <label for="cat-loisirs">
+                            <i class="fas fa-star"></i>
+                            <span>Loisirs (20)</span>
+                        </label>
+                    </div>
+
+                    <div class="category-card-modern">
+                        <input type="checkbox" value="hotel" id="cat-hotel">
+                        <label for="cat-hotel">
+                            <i class="fas fa-bed"></i>
+                            <span>Hôtels (15)</span>
+                        </label>
+                    </div>
+
+                    <div class="category-card-modern">
+                        <input type="checkbox" value="logement_insolite" id="cat-insolite">
+                        <label for="cat-insolite">
+                            <i class="fas fa-campground"></i>
+                            <span>Insolite (9)</span>
+                        </label>
+                    </div>
+
+                    <div class="category-card-modern">
+                        <input type="checkbox" value="musee" id="cat-musee">
+                        <label for="cat-musee">
+                            <i class="fas fa-university"></i>
+                            <span>Musées (1)</span>
+                        </label>
+                    </div>
+
+                    <div class="category-card-modern">
+                        <input type="checkbox" value="monument" id="cat-monument">
+                        <label for="cat-monument">
+                            <i class="fas fa-landmark"></i>
+                            <span>Monuments (1)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer du panneau -->
+        <div class="filters-footer-modern">
+            <div class="filter-count">
+                <strong id="filterResultCount">0</strong> résultats trouvés
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary" id="applyFiltersInline">
+                    <i class="fas fa-check"></i>
+                    Appliquer
+                </button>
+
+                <button class="btn btn-secondary" id="resetFiltersInline">
+                    <i class="fas fa-redo"></i>
+                    Réinitialiser
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
          OVERLAY
          Fond semi-transparent affiché derrière les modales/panneaux
          ======================================== -->
-    <div class="overlay" id="overlay"></div>
+    <div class="overlay overlay-modern" id="overlay"></div>
 
 
     <!-- ========================================

@@ -598,11 +598,11 @@ body {
 /* Styles spécifiques pour la popup moderne dans Leaflet */
 .leaflet-popup-content .popup-modern {
     background: white !important;
-    border-radius: 16px !important;
+    border-radius: 0 !important;
     overflow: hidden !important;
     width: 100% !important;
-    max-width: 280px !important;
-    min-width: 260px !important;
+    max-width: none !important;
+    min-width: auto !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -618,7 +618,7 @@ body {
     width: 100% !important;
     overflow: hidden !important;
     margin: 0 !important;
-    border-radius: 16px 16px 0 0 !important;
+    border-radius: 0 !important;
     cursor: pointer !important;
     user-select: none !important;
 }
@@ -630,7 +630,7 @@ body {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    border-radius: 20px 20px 0 0 !important;
+    border-radius: 0 !important;
 }
 
 .leaflet-popup-content .popup-category-badge {
@@ -652,7 +652,7 @@ body {
 }
 
 .leaflet-popup-content .popup-content {
-    padding: 16px !important;
+    padding: 0 !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -662,7 +662,7 @@ body {
     font-size: 18px !important;
     font-weight: 700 !important;
     color: var(--text-primary) !important;
-    margin: 0 0 8px 0 !important;
+    margin: 16px 16px 8px 16px !important;
     line-height: 1.2 !important;
     display: block !important;
 }
@@ -671,7 +671,7 @@ body {
     font-size: 14px !important;
     color: var(--text-secondary) !important;
     line-height: 1.4 !important;
-    margin: 0 0 16px 0 !important;
+    margin: 0 16px 16px 16px !important;
     display: block !important;
 }
 
@@ -679,6 +679,7 @@ body {
     display: flex !important;
     gap: 10px !important;
     align-items: center !important;
+    padding: 0 16px 16px 16px !important;
 }
 
 .leaflet-popup-content .btn-action {
@@ -695,6 +696,7 @@ body {
     outline: none !important;
     padding: 12px 16px !important;
     flex: 1 !important;
+    color: white !important;
 }
 
 .leaflet-popup-content .btn-primary {
@@ -3567,12 +3569,16 @@ body {
 .popup-modern {
     background: white;
     border-radius: 16px;
-    overflow: hidden;
-    width: 100%;
-    max-width: 280px;
-    min-width: 260px;
+    overflow: visible;
+    width: 330px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
     position: relative;
+}
+
+.leaflet-popup-content .popup-modern {
+    width: 330px !important;
+    min-width: 330px !important;
+    max-width: 330px !important;
 }
 
 .popup-image-hero {
@@ -3581,9 +3587,10 @@ body {
     height: 140px;
     overflow: hidden;
     margin: 0;
-    border-radius: 20px 20px 0 0;
+    border-radius: 16px 16px 0 0;
     cursor: pointer;
     user-select: none;
+    z-index: 1;
 }
 
 .popup-image-hero img {
@@ -3621,15 +3628,7 @@ body {
 
 /* Contrôles du carrousel dans la popup */
 .popup-image-hero .gallery-controls {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 16px;
-    pointer-events: none;
-    z-index: 12;
+    display: none !important;
 }
 
 .popup-image-hero .gallery-prev,
@@ -3816,6 +3815,7 @@ body {
 
 .popup-action-modern {
     margin-top: auto;
+    padding: 0 16px 16px 16px;
 }
 
 .discover-btn-modern {
@@ -3824,9 +3824,9 @@ body {
     justify-content: center;
     gap: 6px;
     background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: white;
+    color: white !important;
     text-decoration: none;
-    padding: 10px 16px;
+    padding: 12px 20px;
     border-radius: 10px;
     font-weight: 600;
     font-size: 13px;
@@ -3878,6 +3878,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
+    padding: 0 16px 16px 16px;
 }
 
 .reserve-btn-modern {
@@ -4524,7 +4525,7 @@ body {
 /* Popup moderne */
 .popup-modern {
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .popup-image-container {
@@ -8043,12 +8044,13 @@ body {
 
 /* Styles pour les popups Leaflet simplifiées */
 .custom-leaflet-popup .leaflet-popup-content-wrapper {
-    border-radius: 16px;
+    border-radius: 16px !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     border: none;
     padding: 0;
-    overflow: hidden;
+    overflow: hidden !important;
     background: white;
+    position: relative;
     /* Ne pas forcer la largeur, laisser Leaflet gérer */
 }
 
@@ -8061,35 +8063,45 @@ body {
 }
 
 .custom-leaflet-popup .leaflet-popup-close-button {
-    top: 12px;
-    right: 12px;
-    color: #64748b;
-    font-size: 20px;
-    width: 32px;
-    height: 32px;
-    background: rgba(255, 255, 255, 0.9);
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    color: #64748b !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    width: 36px;
+    height: 36px;
+    background: white;
     border-radius: 50%;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     text-align: center;
     line-height: 1;
-    z-index: 1001;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10000 !important;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
     transition: all 0.2s ease;
+    padding: 0 !important;
+}
+
+.custom-leaflet-popup .leaflet-popup-close-button span {
+    display: inline-block !important;
+    line-height: 1;
 }
 
 .custom-leaflet-popup .leaflet-popup-close-button:hover {
-    background: #f1f5f9;
-    color: #334155;
-    transform: scale(1.05);
+    background: #dc2626;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+    border-color: #dc2626;
 }
 
 /* Styles pour le contenu des popups POI */
 .poi-popup {
     background: white;
-    border-radius: 16px;
+    border-radius: 0;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
 }
@@ -8098,6 +8110,7 @@ body {
     position: relative;
     height: 200px;
     overflow: hidden;
+    margin: 0;
 }
 
 .poi-popup-image img {
@@ -8128,11 +8141,11 @@ body {
 }
 
 .poi-popup-content {
-    padding: 20px;
+    padding: 0;
 }
 
 .poi-popup-content h3 {
-    margin: 0 0 12px 0;
+    margin: 16px 16px 12px 16px;
     font-size: 20px;
     font-weight: 600;
     color: #1e293b;
@@ -8140,7 +8153,7 @@ body {
 }
 
 .poi-popup-content p {
-    margin: 0 0 20px 0;
+    margin: 0 16px 20px 16px;
     font-size: 15px;
     color: #64748b;
     line-height: 1.5;
@@ -8150,6 +8163,8 @@ body {
     display: flex;
     gap: 12px;
     align-items: center;
+    padding: 0 20px 20px 20px;
+    margin-top: 8px;
 }
 
 .poi-btn {
@@ -8294,7 +8309,7 @@ body {
 }
 
 .leaflet-popup-title {
-    margin: 0 0 12px 0;
+    margin: 16px 16px 12px 16px;
     font-size: 1.25rem;
     font-weight: 700;
     color: #1e293b;
@@ -8302,7 +8317,7 @@ body {
 }
 
 .leaflet-popup-description {
-    margin: 0 0 16px 0;
+    margin: 0 16px 16px 16px;
     color: #475569;
     font-size: 0.9rem;
     line-height: 1.5;
@@ -8312,7 +8327,7 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 16px;
+    margin: 0 16px 16px 16px;
     padding: 8px 12px;
     background: #059669;
     color: white;
@@ -8324,7 +8339,7 @@ body {
 .leaflet-popup-actions {
     display: flex;
     gap: 8px;
-    margin-top: 16px;
+    margin: 0 16px 16px 16px;
 }
 
 .leaflet-popup-btn {
@@ -8341,11 +8356,12 @@ body {
     gap: 6px;
     transition: all 0.2s ease;
     text-decoration: none;
+    color: white;
 }
 
 .leaflet-popup-btn-primary {
     background: #1e40af;
-    color: white;
+    color: white !important;
 }
 
 .leaflet-popup-btn-primary:hover {
@@ -8354,13 +8370,13 @@ body {
 }
 
 .leaflet-popup-btn-secondary {
-    background: #fafafa;
-    color: #1e293b;
-    border: 1px solid #e2e8f0;
+    background: #10b981;
+    color: white !important;
+    border: none;
 }
 
 .leaflet-popup-btn-secondary:hover {
-    background: #f1f5f9;
+    background: #059669;
     transform: translateY(-1px);
 }
 
@@ -9613,9 +9629,9 @@ body {
 
 .btn-view-on-map {
     background: var(--primary);
-    color: white;
+    color: white !important;
     border: none;
-    padding: 8px 16px;
+    padding: 12px 20px;
     border-radius: 12px;
     font-size: 14px;
     font-weight: 500;
@@ -9624,6 +9640,7 @@ body {
     align-items: center;
     gap: 6px;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 .btn-view-on-map:hover {

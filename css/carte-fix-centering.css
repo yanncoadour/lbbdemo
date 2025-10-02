@@ -1,0 +1,83 @@
+/**
+ * FIX CENTRAGE CARTE
+ * Force le centrage parfait de la carte avec marges égales
+ */
+
+/* Reset complet pour éliminer tout décalage */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Force le centrage de la section carte */
+.map-section {
+    position: relative !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    box-sizing: border-box !important;
+}
+
+/* Assure que la carte elle-même ne déborde pas */
+.map {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+/* Force le bouton de toggle à rester dans la carte */
+.map-toggle-btn {
+    position: absolute !important;
+    top: var(--spacing-4) !important;
+    right: var(--spacing-4) !important;
+    z-index: 1000 !important;
+}
+
+/* Même fix pour la barre de recherche */
+.carte-search-section .search-bar-main {
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: var(--spacing-4) !important;
+    padding-right: var(--spacing-4) !important;
+    box-sizing: border-box !important;
+}
+
+/* Responsive - Marges encore plus grandes sur grands écrans */
+@media (min-width: 1440px) {
+    .map-section {
+        padding-left: 8% !important;
+        padding-right: 8% !important;
+    }
+}
+
+@media (min-width: 1920px) {
+    .map-section {
+        padding-left: 12% !important;
+        padding-right: 12% !important;
+    }
+}
+
+/* Mobile - marges plus petites */
+@media (max-width: 768px) {
+    .map-section {
+        padding-left: var(--spacing-4) !important;
+        padding-right: var(--spacing-4) !important;
+    }
+
+    .carte-search-section .search-bar-main {
+        padding-left: var(--spacing-4) !important;
+        padding-right: var(--spacing-4) !important;
+    }
+}

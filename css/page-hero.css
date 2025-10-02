@@ -1,0 +1,47 @@
+/**
+ * PAGE HERO - Simple et explicatif
+ * Hero sans image de fond, juste texte sur fond coloré
+ */
+
+.page-hero {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: var(--spacing-16) var(--container-padding);
+    text-align: center;
+}
+
+.page-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-hero-icon {
+    font-size: 3rem;
+    color: var(--color-primary-600);
+    margin-bottom: var(--spacing-4);
+}
+
+.page-hero-title {
+    font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-900);
+    margin-bottom: var(--spacing-4);
+    line-height: var(--line-height-tight);
+}
+
+.page-hero-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-700);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-hero {
+        padding: var(--spacing-12) var(--container-padding);
+    }
+
+    .page-hero-icon {
+        font-size: 2.5rem;
+    }
+}

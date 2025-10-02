@@ -1,38 +1,8 @@
 /**
  * SYSTÈME DE BOUTONS UNIFIÉ - La Belle Bretagne
  * Boutons cohérents et réutilisables sur tout le site
+ * Utilise le design system pour une cohérence totale
  */
-
-/* ========================================
-   VARIABLES DE COULEURS
-   ======================================== */
-:root {
-    /* Couleurs principales */
-    --btn-primary-bg: #1e3a8a;
-    --btn-primary-hover: #1e40af;
-    --btn-primary-text: #ffffff;
-
-    --btn-secondary-bg: transparent;
-    --btn-secondary-border: #1e3a8a;
-    --btn-secondary-text: #1e3a8a;
-    --btn-secondary-hover-bg: #1e3a8a;
-    --btn-secondary-hover-text: #ffffff;
-
-    --btn-accent-bg: #3b82f6;
-    --btn-accent-hover: #2563eb;
-    --btn-accent-text: #ffffff;
-
-    --btn-disabled-bg: #e5e7eb;
-    --btn-disabled-text: #9ca3af;
-
-    /* Espacements et tailles */
-    --btn-radius: 12px;
-    --btn-radius-sm: 8px;
-    --btn-radius-lg: 16px;
-    --btn-radius-full: 50px;
-
-    --btn-transition: all 0.3s ease;
-}
 
 /* ========================================
    BOUTON DE BASE
@@ -41,25 +11,29 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-6);
     border: none;
-    border-radius: var(--btn-radius);
+    border-radius: var(--radius-lg);
     font-family: var(--font-family-base);
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.5;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
     text-decoration: none;
     text-align: center;
     cursor: pointer;
-    transition: var(--btn-transition);
+    transition: var(--transition-base);
     white-space: nowrap;
     user-select: none;
 }
 
 .btn:focus {
-    outline: 2px solid #3b82f6;
+    outline: 2px solid var(--color-primary-500);
     outline-offset: 2px;
+}
+
+.btn:focus:not(:focus-visible) {
+    outline: none;
 }
 
 /* ========================================
@@ -67,20 +41,20 @@
    Usage: Réserver, Explorer, S'abonner, Valider
    ======================================== */
 .btn-primary {
-    background: var(--btn-primary-bg);
-    color: var(--btn-primary-text);
-    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+    background: var(--color-primary-900);
+    color: white;
+    box-shadow: var(--shadow-primary);
 }
 
 .btn-primary:hover {
-    background: var(--btn-primary-hover);
+    background: var(--color-primary-800);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.3);
+    box-shadow: var(--shadow-lg);
 }
 
 .btn-primary:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2);
+    box-shadow: var(--shadow-sm);
 }
 
 /* ========================================
@@ -88,16 +62,16 @@
    Usage: En savoir plus, Voir plus, Détails
    ======================================== */
 .btn-secondary {
-    background: var(--btn-secondary-bg);
-    color: var(--btn-secondary-text);
-    border: 2px solid var(--btn-secondary-border);
+    background: transparent;
+    color: var(--color-primary-900);
+    border: var(--border-width-base) solid var(--color-primary-900);
 }
 
 .btn-secondary:hover {
-    background: var(--btn-secondary-hover-bg);
-    color: var(--btn-secondary-hover-text);
+    background: var(--color-primary-900);
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+    box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:active {
@@ -109,15 +83,15 @@
    Usage: Découvrir, Fermer, Actions moins importantes
    ======================================== */
 .btn-accent {
-    background: var(--btn-accent-bg);
-    color: var(--btn-accent-text);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    background: var(--color-primary-600);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .btn-accent:hover {
-    background: var(--btn-accent-hover);
+    background: var(--color-primary-700);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
 }
 
 .btn-accent:active {
