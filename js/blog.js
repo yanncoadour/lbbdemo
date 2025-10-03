@@ -14,6 +14,7 @@ function initBlog() {
 
     // Gérer l'affichage de l'article complet
     const readMoreBtn = document.querySelector('.read-more-btn');
+    const readArticleLink = document.querySelector('a[href="#article-lancement"]');
     const featuredArticle = document.querySelector('.featured-article');
     const fullArticle = document.querySelector('.full-article');
     const backToBlogBtn = document.querySelector('.back-to-blog');
@@ -21,6 +22,14 @@ function initBlog() {
 
     if (readMoreBtn && featuredArticle && fullArticle) {
         readMoreBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showFullArticle();
+        });
+    }
+
+    // Écouter le clic sur le lien "Lire l'article complet"
+    if (readArticleLink && featuredArticle && fullArticle) {
+        readArticleLink.addEventListener('click', (e) => {
             e.preventDefault();
             showFullArticle();
         });
@@ -41,24 +50,31 @@ function initBlog() {
 }
 
 /**
- * Affiche l'article complet
+ * Affiche un article complet spécifique
+ * @param {string} articleId - ID de l'article à afficher
  */
-function showFullArticle() {
-    const featuredArticle = document.querySelector('.featured-article');
-    const fullArticle = document.querySelector('.full-article');
+function showArticle(articleId) {
+    const articlesGrid = document.querySelector('.articles-grid');
     const newsletterSection = document.querySelector('.newsletter-section');
+    const allFullArticles = document.querySelectorAll('.full-article');
+    const targetArticle = document.getElementById(`article-${articleId}`);
 
-    // Masquer l'article featured et la newsletter
-    if (featuredArticle) {
-        featuredArticle.style.display = 'none';
+    // Masquer la grille d'articles et la newsletter
+    if (articlesGrid) {
+        articlesGrid.style.display = 'none';
     }
     if (newsletterSection) {
         newsletterSection.style.display = 'none';
     }
 
-    // Afficher l'article complet
-    if (fullArticle) {
-        fullArticle.style.display = 'block';
+    // Masquer tous les articles complets
+    allFullArticles.forEach(article => {
+        article.style.display = 'none';
+    });
+
+    // Afficher l'article ciblé
+    if (targetArticle) {
+        targetArticle.style.display = 'block';
 
         // Scroll vers le haut avec animation
         window.scrollTo({
@@ -66,38 +82,41 @@ function showFullArticle() {
             behavior: 'smooth'
         });
     }
+}
 
+/**
+ * Affiche l'article complet (pour compatibilité avec l'ancien code)
+ */
+function showFullArticle() {
+    showArticle('lancement');
 }
 
 /**
  * Masque l'article complet et revient à la vue liste
  */
 function hideFullArticle() {
-    const featuredArticle = document.querySelector('.featured-article');
-    const fullArticle = document.querySelector('.full-article');
+    const articlesGrid = document.querySelector('.articles-grid');
+    const allFullArticles = document.querySelectorAll('.full-article');
     const newsletterSection = document.querySelector('.newsletter-section');
 
-    // Masquer l'article complet
-    if (fullArticle) {
-        fullArticle.style.display = 'none';
-    }
+    // Masquer tous les articles complets
+    allFullArticles.forEach(article => {
+        article.style.display = 'none';
+    });
 
-    // Réafficher l'article featured et la newsletter
-    if (featuredArticle) {
-        featuredArticle.style.display = 'block';
+    // Réafficher la grille d'articles et la newsletter
+    if (articlesGrid) {
+        articlesGrid.style.display = 'grid';
     }
     if (newsletterSection) {
         newsletterSection.style.display = 'block';
     }
 
-    // Scroll vers l'article avec animation
-    if (featuredArticle) {
-        featuredArticle.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-
+    // Scroll vers le haut avec animation
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 // ===================================================================
@@ -262,11 +281,10 @@ if (document.readyState === 'loading') {
     initBlog();
 }
 
-// Exporter pour utilisation globale
-window.BlogApp = {
-    showFullArticle,
-    hideFullArticle,
-    shareOnFacebook,
-    shareOnTwitter,
-    shareByEmail
-};
+// Exporter les fonctions globalement pour utilisation dans le HTML
+window.showArticle = showArticle;
+window.showFullArticle = showFullArticle;
+window.hideFullArticle = hideFullArticle;
+window.shareOnFacebook = shareOnFacebook;
+window.shareOnTwitter = shareOnTwitter;
+window.shareByEmail = shareByEmail;
