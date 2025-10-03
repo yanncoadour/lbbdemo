@@ -128,9 +128,96 @@
 }
 
 @media (max-width: 768px) {
+    .festivals-filters {
+        padding: var(--spacing-6) 0;
+    }
+
+    .filters-dropdown-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+        padding: 0 var(--spacing-4);
+    }
+
+    .filter-select {
+        height: 48px;
+        font-size: var(--font-size-base);
+    }
+
+    .festivals-grid-section {
+        padding: var(--spacing-8) 0;
+    }
+
+    .container {
+        padding: 0 var(--spacing-4);
+    }
+
+    .section-header {
+        margin-bottom: var(--spacing-8);
+    }
+
+    .section-header h2 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .section-subtitle {
+        font-size: var(--font-size-base);
+    }
+
     .festivals-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-6);
+    }
+
+    .festival-card {
+        margin: 0;
+    }
+
+    .festival-image {
+        height: 200px;
+    }
+
+    .festival-content {
+        padding: var(--spacing-4);
+    }
+
+    .festival-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .festival-stats {
+        gap: var(--spacing-3);
+        padding: var(--spacing-3) 0;
+    }
+
+    .stat strong {
+        font-size: var(--font-size-lg);
+    }
+
+    .stat span {
+        font-size: 0.7rem;
+    }
+
+    .festival-actions {
+        flex-direction: column;
+        gap: var(--spacing-2);
+    }
+
+    .festival-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .coming-soon-section {
+        margin-top: var(--spacing-8);
+        padding: var(--spacing-8);
+    }
+
+    .coming-soon-content h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    .coming-soon-content p {
+        font-size: var(--font-size-base);
     }
 }
 

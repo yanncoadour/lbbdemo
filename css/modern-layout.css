@@ -434,18 +434,44 @@ body {
    ======================================== */
 
 @media (max-width: 768px) {
+    /* Empêcher le scroll horizontal */
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    .site-header {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        z-index: 10000 !important;
+    }
+
+    .nav-container {
+        width: 100%;
+        max-width: 100%;
+        padding: var(--spacing-4) var(--spacing-4);
+        box-sizing: border-box;
+    }
+
+    .main-nav {
+        position: relative;
+    }
+
     .main-nav .nav-list {
         position: fixed;
         top: 73px;
         right: -100%;
         width: 280px;
+        max-width: 80vw;
         height: calc(100vh - 73px);
         background: white;
         flex-direction: column;
         padding: var(--spacing-6) var(--spacing-4);
-        box-shadow: var(--shadow-xl);
-        transition: right var(--transition-base);
-        z-index: var(--z-fixed);
+        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+        transition: right 0.3s ease-in-out;
+        z-index: 10002 !important;
+        overflow-y: auto;
     }
 
     .main-nav .nav-list.active {
@@ -454,10 +480,48 @@ body {
 
     .mobile-menu-toggle {
         display: block;
+        z-index: 10003 !important;
+        position: relative;
+    }
+
+    /* Forcer le main content à avoir un z-index inférieur */
+    main {
+        position: relative;
+        z-index: 1 !important;
+    }
+
+    .hero,
+    .section {
+        position: relative;
+        z-index: 1 !important;
+    }
+
+    /* Forcer tous les conteneurs à rester dans la viewport */
+    .section,
+    .section-container,
+    .hero,
+    .hero-content,
+    .footer-container {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Boutons et cartes */
+    .card-actions,
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .hero {
         min-height: 60vh;
+        padding: 0 var(--spacing-4);
     }
 
     .section {

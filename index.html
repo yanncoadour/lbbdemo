@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="css/language-selector.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/home.css">
+    <!-- IMPORTANT: Mobile fixes doit être chargé EN DERNIER -->
+    <link rel="stylesheet" href="css/mobile-fixes.css">
 </head>
 <body>
     <header class="site-header" id="siteHeader">
@@ -472,23 +474,25 @@
             if (!navLinks || !btn || !icon) return;
 
             const isOpen = navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open', isOpen);
             btn.setAttribute('aria-expanded', String(isOpen));
             btn.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
             icon.classList.toggle('fa-bars', !isOpen);
             icon.classList.toggle('fa-times', isOpen);
         }
 
-        // Close mobile menu on link click or outside click
+        // Close mobile menu on link click
         document.addEventListener('click', (e) => {
             const navLinks = document.getElementById('navLinks');
             const btn = document.getElementById('mobileMenuBtn');
-            const nav = document.querySelector('nav');
             const icon = btn?.querySelector('i');
 
             if (!navLinks?.classList.contains('active')) return;
 
-            if (e.target.closest('.nav-links a') || (nav && !nav.contains(e.target))) {
+            // Fermer si clic sur un lien du menu
+            if (e.target.closest('.nav-list a')) {
                 navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
                 if (btn && icon) {
                     btn.setAttribute('aria-expanded', 'false');
                     icon.classList.replace('fa-times', 'fa-bars');

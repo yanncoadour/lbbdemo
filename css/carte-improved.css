@@ -400,26 +400,53 @@ body {
 
 @media (max-width: 768px) {
     .carte-search-section {
-        padding: var(--spacing-4) var(--spacing-4);
+        padding: var(--spacing-6) 0;
+        background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
     }
 
     .search-bar-main {
-        flex-direction: column;
-        gap: var(--spacing-2);
+        flex-direction: row;
+        gap: var(--spacing-3);
+        padding: 0 var(--spacing-4);
+        max-width: 100%;
+    }
+
+    .search-input-main {
+        flex: 1;
+        height: 52px;
+        font-size: var(--font-size-base);
+        padding: 0 var(--spacing-5);
+        border-radius: var(--radius-full);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
 
     .filters-btn-main {
-        width: 100%;
+        width: auto;
+        height: 52px;
+        padding: 0 var(--spacing-6);
         justify-content: center;
+        font-size: var(--font-size-base);
+        border-radius: var(--radius-full);
+        box-shadow: 0 2px 12px rgba(59, 130, 246, 0.3);
+        flex-shrink: 0;
     }
 
     .map-section {
-        height: calc(100vh - 350px);
-        padding: 0 var(--spacing-2);
+        height: calc(100vh - 200px);
+        min-height: 400px;
+        padding: 0 var(--spacing-4) !important;
+        margin: var(--spacing-4) 0 !important;
     }
 
     .map {
         border-radius: var(--radius-lg);
+    }
+
+    .map-toggle-btn {
+        top: var(--spacing-3);
+        right: var(--spacing-3);
+        width: 44px;
+        height: 44px;
     }
 
     .side-panel {
@@ -428,6 +455,41 @@ body {
 
     .filters-panel {
         max-width: 100%;
+        width: 100%;
+    }
+
+    .filters-header {
+        padding: var(--spacing-5);
+    }
+
+    .filters-body {
+        padding: var(--spacing-5);
+    }
+
+    .filter-group-modern {
+        margin-bottom: var(--spacing-6);
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters-footer {
+        padding: var(--spacing-5);
+        flex-direction: column;
+    }
+
+    .filters-footer .btn {
+        width: 100%;
+    }
+
+    /* Cacher complètement les popups Leaflet sur mobile */
+    .leaflet-popup {
+        display: none !important;
+    }
+
+    .leaflet-popup-pane {
+        display: none !important;
     }
 }
 

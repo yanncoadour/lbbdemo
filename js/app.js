@@ -1415,16 +1415,18 @@ function createMarker(poi) {
     // Créer le contenu de la popup
     const popupContent = createPopupContent(poi);
 
-    // Binder la popup au marker avec options personnalisées
-    marker.bindPopup(popupContent, {
-        maxWidth: 330,
-        minWidth: 330,
-        className: 'custom-leaflet-popup',
-        closeButton: true,
-        autoPan: true,
-        autoPanPadding: [50, 50],
-        offset: [0, -10]
-    });
+    // Binder la popup au marker avec options personnalisées (seulement sur desktop)
+    if (window.innerWidth >= 768) {
+        marker.bindPopup(popupContent, {
+            maxWidth: 330,
+            minWidth: 330,
+            className: 'custom-leaflet-popup',
+            closeButton: true,
+            autoPan: true,
+            autoPanPadding: [50, 50],
+            offset: [0, -10]
+        });
+    }
 
     // Clic pour ouvrir la popup fixe ET centrer la carte
     marker.on('click', function() {

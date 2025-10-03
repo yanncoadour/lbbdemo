@@ -1,0 +1,166 @@
+/**
+ * MOBILE FIXES - Corrections spécifiques mobile
+ * Ce fichier doit être chargé EN DERNIER pour surcharger tous les autres styles
+ */
+
+@media (max-width: 768px) {
+    /* === MENU MOBILE - Z-INDEX CRITIQUE === */
+
+    /* IMPORTANT: Supprimer backdrop-filter qui crée un stacking context */
+    .site-header {
+        position: sticky !important;
+        top: 0 !important;
+        backdrop-filter: none !important;
+        background: white !important;
+        /* PAS de z-index ici pour éviter de créer un stacking context */
+    }
+
+    .nav-container {
+        position: relative !important;
+        /* PAS de z-index ici */
+    }
+
+    .main-nav {
+        position: static !important;
+        /* PAS de z-index ici */
+    }
+
+    .main-nav .nav-list {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 85% !important;
+        max-width: 350px !important;
+        height: 100vh !important;
+        background: white !important;
+        flex-direction: column !important;
+        padding: 100px 2rem 2rem 2rem !important;
+        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3) !important;
+        transition: right 0.3s ease-in-out !important;
+        z-index: 99999999 !important;
+        overflow-y: auto !important;
+        margin: 0 !important;
+        pointer-events: auto !important;
+    }
+
+    .main-nav .nav-list.active {
+        right: 0 !important;
+    }
+
+    .mobile-menu-toggle {
+        display: block !important;
+        z-index: 10000001 !important;
+        position: relative !important;
+    }
+
+    /* Sélecteur de langue sur mobile - le déplacer visuellement dans le menu */
+    .main-nav > .language-selector {
+        position: fixed !important;
+        bottom: 2rem !important;
+        left: auto !important;
+        right: -100% !important;
+        width: calc(85% - 4rem) !important;
+        max-width: calc(350px - 4rem) !important;
+        transition: right 0.3s ease-in-out !important;
+        z-index: 99999999 !important;
+        margin: 0 2rem !important;
+    }
+
+    /* Quand le menu est ouvert, afficher le sélecteur de langue */
+    .nav-list.active ~ .language-selector {
+        right: 0 !important;
+    }
+
+    .language-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 0.75rem 1rem !important;
+        border: 2px solid var(--color-gray-300) !important;
+        background: white !important;
+    }
+
+    .language-dropdown {
+        bottom: 100% !important;
+        top: auto !important;
+        margin-bottom: 0.5rem !important;
+        z-index: 99999999 !important;
+    }
+
+    /* Forcer tout le contenu de la page en dessous du menu */
+    main {
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    .hero,
+    .section,
+    .card,
+    .map-section,
+    .leaflet-container {
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    /* Forcer les popups Leaflet en dessous du menu mobile */
+    .leaflet-popup-pane,
+    .leaflet-popup,
+    .leaflet-popup-content-wrapper,
+    .leaflet-popup-tip {
+        z-index: 999 !important;
+    }
+
+    /* Bloquer le scroll quand le menu est ouvert */
+    body.menu-open {
+        overflow: hidden !important;
+    }
+
+    /* Styles des liens dans le menu mobile */
+    .main-nav .nav-list li {
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+        z-index: 99999999 !important;
+        position: relative !important;
+    }
+
+    .main-nav .nav-list .nav-link {
+        display: block !important;
+        width: 100% !important;
+        padding: 1rem 1.5rem !important;
+        font-size: 1.125rem !important;
+        text-align: left !important;
+        border-radius: 0.5rem !important;
+        z-index: 99999999 !important;
+        position: relative !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+    }
+
+    .main-nav .nav-list .nav-link:active {
+        background: var(--color-primary-100) !important;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Empêcher le scroll horizontal */
+    html,
+    body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100% !important;
+    }
+
+    /* Forcer les conteneurs dans la viewport */
+    .site-header,
+    .nav-container,
+    .section,
+    .section-container,
+    .hero,
+    .hero-content,
+    .footer-container {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+}
