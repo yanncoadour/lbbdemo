@@ -1,3 +1,27 @@
 {
-  "pois": []
+  "pois": [
+    {
+      "id": "chateau-apigne-le-rheu",
+      "title": "Château d'Apigné",
+      "slug": "chateau-apigne-le-rheu",
+      "department": "Ille-et-Vilaine",
+      "categories": ["hotel"],
+      "lat": 48.09260692182979,
+      "lng": -1.7637913107593166,
+      "shortDescription": "Château d'Apigné – Hôtel 5★, restaurant gastronomique & lieu d'exception près de Rennes",
+      "description": "<p>À seulement dix minutes de Rennes, au cœur d'un vaste domaine arboré, le Château d'Apigné s'élève comme un symbole de charme et d'élégance. Cet hôtel 5 étoiles marie le raffinement d'un château du XIXe siècle à la douceur de vivre bretonne. Entouré de 25 hectares de nature, c'est un lieu unique pour une escapade romantique, une pause gastronomique ou un événement d'exception.</p><p>Les chambres et suites du château et du Pavillon Élisabeth conjuguent confort et authenticité. Meubles d'époque, tissus nobles, baignoires sur pied et vue sur le parc composent un décor à la fois chaleureux et majestueux. Chaque chambre raconte une histoire, entre tradition et modernité, pour offrir une expérience hors du temps.</p><h3>🍽️ Le restaurant gastronomique Les Tourelles</h3><p>Véritable joyau du domaine, le restaurant Les Tourelles incarne la passion de la gastronomie française. Dans un décor raffiné, le Chef propose une cuisine créative, ancrée dans les saisons et sublimée par les produits du terroir breton.</p><p>Le service est attentif, la carte des vins riche, et l'atmosphère à la fois élégante et conviviale. Aux beaux jours, la terrasse surplombant le parc permet de savourer un repas dans un cadre bucolique unique.</p><p>Que ce soit pour un dîner à deux, un repas d'affaires ou une grande occasion, Les Tourelles promet un moment de gastronomie sincère et inspirée.</p><h3>💍 Mariages, réceptions & séminaires : un cadre inoubliable</h3><p>Le Château d'Apigné est aussi un lieu de réception privilégié. Ses vastes salons, sa serre lumineuse et son parc romantique accueillent mariages, séminaires et réceptions privées dans une atmosphère empreinte de charme.</p><p>Chaque événement bénéficie d'un accompagnement sur mesure : scénographie, restauration, hébergement, coordination et service traiteur. L'équipe du château met tout en œuvre pour transformer chaque moment en souvenir d'exception.</p><p>Les espaces modulables permettent d'accueillir aussi bien une réunion intimiste qu'un grand dîner de gala. Pour les mariages, la magie du lieu opère dès l'arrivée : cérémonie dans le parc, cocktail sur la terrasse, dîner dans les salons, soirée sous les étoiles… un cadre de conte de fées à quelques minutes de Rennes.</p><h3>🌳 Un séjour au cœur de la nature bretonne</h3><p>Séjourner au Château d'Apigné, c'est profiter d'un refuge verdoyant à deux pas de la ville. Le parc paysager, les arbres centenaires et les allées bordées d'eau offrent un décor paisible et romantique. On s'y promène, on y flâne, on y savoure le silence.</p><p>Le domaine allie calme et accessibilité : Rennes, son centre historique, sa gare TGV et son aéroport sont à quelques minutes à peine, facilitant les séjours comme les événements.</p><h3>✨ Pourquoi choisir le Château d'Apigné</h3><p>Le Château d'Apigné réunit tout ce que l'on attend d'un lieu d'exception :</p><ul><li>Un hôtel 5 étoiles au charme authentique</li><li>Un restaurant gastronomique raffiné et créatif</li><li>Un domaine romantique propice aux mariages et séminaires</li><li>Un service haut de gamme et personnalisé</li><li>Un environnement naturel paisible et inspirant</li><li>Une proximité immédiate avec Rennes</li></ul><p>C'est une expérience à la fois raffinée, intime et mémorable, dans l'un des plus beaux domaines de Bretagne.</p>",
+      "image": "assets/img/chateau-apigne-le-rheu-1.jpg",
+      "images": [
+        "assets/img/chateau-apigne-le-rheu-1.jpg",
+        "assets/img/chateau-apigne-le-rheu-2.jpg",
+        "assets/img/chateau-apigne-le-rheu-3.jpg"
+      ],
+      "tested": true,
+      "coupDeCoeur": true,
+      "address": "Le Rheu, 35650 Le Rheu",
+      "website": "https://www.booking.com/Share-KQkQ2f",
+      "phone": "02 99 14 81 16",
+      "tags": ["5 étoiles", "château", "gastronomique", "romantique", "mariage"]
+    }
+  ]
 }
