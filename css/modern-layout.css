@@ -230,6 +230,9 @@ body {
 }
 
 .section-header {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
     text-align: center;
     margin-bottom: var(--spacing-12);
 }

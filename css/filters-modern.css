@@ -12,18 +12,19 @@
     top: 50%;
     left: 50%;
     width: 90%;
-    max-width: 500px;
+    max-width: 520px;
     max-height: 85vh;
     background: white;
-    border-radius: var(--radius-xl);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    transform: translate(-50%, -50%) scale(0.9);
+    border-radius: 20px;
+    box-shadow: 0 25px 80px rgba(30, 58, 138, 0.25);
+    transform: translate(-50%, -50%) scale(0.95);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 10000 !important;
     display: flex;
     flex-direction: column;
     opacity: 0;
     visibility: hidden;
+    overflow: hidden;
 }
 
 .filters-panel-modern.active {
@@ -37,55 +38,55 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-6);
-    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
-    color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    padding: 2rem;
+    background: white;
+    border-bottom: 1px solid var(--color-gray-200);
 }
 
 .filters-header-modern h3 {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
+    font-size: 1.5rem;
+    font-weight: 700;
     margin: 0;
     display: flex;
     align-items: center;
-    gap: var(--spacing-3);
+    gap: 0.75rem;
+    color: var(--color-gray-900);
 }
 
 .filters-header-modern h3 i {
-    font-size: var(--font-size-2xl);
+    font-size: 1.5rem;
+    color: var(--color-primary-900);
 }
 
 .close-filters-modern {
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
     border: none;
-    border-radius: var(--radius-full);
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: white;
-    font-size: var(--font-size-lg);
-    transition: all var(--transition-base);
+    color: var(--color-gray-500);
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+    border-radius: 8px;
 }
 
 .close-filters-modern:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: rotate(90deg);
+    background: var(--color-gray-100);
+    color: var(--color-gray-900);
 }
 
 /* Corps du panneau */
 .filters-body-modern {
     flex: 1;
     overflow-y: auto;
-    padding: var(--spacing-6);
+    padding: 2rem;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
-    background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+    background: #ffffff;
 }
 
 .filters-panel-modern.active .filters-body-modern {
@@ -131,18 +132,18 @@
 .group-label-modern {
     display: flex;
     align-items: center;
-    gap: var(--spacing-2);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-gray-900);
-    margin-bottom: var(--spacing-4);
-    padding-bottom: var(--spacing-2);
-    border-bottom: 2px solid var(--color-primary-200);
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-gray-700);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .group-label-modern i {
-    color: var(--color-primary-600);
-    font-size: var(--font-size-lg);
+    color: var(--color-gray-500);
+    font-size: 1rem;
 }
 
 /* Pills (pour tri) */
@@ -212,21 +213,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-2);
-    padding: var(--spacing-4);
-    background: white;
-    border: 2px solid var(--color-gray-200);
-    border-radius: var(--radius-lg);
+    gap: 0.625rem;
+    padding: 1rem;
+    background: var(--color-gray-50);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 12px;
     cursor: pointer;
-    transition: all var(--transition-base);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
     min-height: 100px;
     justify-content: center;
 }
 
 .category-card-modern label i {
-    font-size: 1.75rem;
-    transition: all var(--transition-base);
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
 }
 
 /* Couleurs des icônes par catégorie (selon CONFIG.colors) */
@@ -241,33 +241,31 @@
 .category-card-modern label i.fa-star { color: #6366f1; } /* loisirs - indigo */
 
 .category-card-modern label span {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
+    font-size: 0.8125rem;
+    font-weight: 500;
     color: var(--color-gray-700);
     text-align: center;
-    transition: all var(--transition-base);
+    transition: all 0.2s ease;
 }
 
 .category-card-modern input:checked + label {
-    background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-100) 100%);
-    border-color: var(--color-primary-500);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
-    transform: translateY(-2px);
+    background: white;
+    border-color: var(--color-primary-900);
+    box-shadow: 0 0 0 2px var(--color-primary-900);
 }
 
 .category-card-modern input:checked + label i {
-    color: var(--color-primary-700);
     transform: scale(1.1);
 }
 
 .category-card-modern input:checked + label span {
-    color: var(--color-primary-900);
+    color: var(--color-gray-900);
+    font-weight: 600;
 }
 
 .category-card-modern label:hover {
-    border-color: var(--color-primary-300);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-gray-300);
+    background: white;
 }
 
 /* Départements - Liste compacte */
@@ -291,63 +289,60 @@
 .department-item-modern label {
     display: flex;
     align-items: center;
-    gap: var(--spacing-3);
-    padding: var(--spacing-3) var(--spacing-4);
-    background: white;
-    border: 2px solid var(--color-gray-200);
-    border-radius: var(--radius-lg);
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-gray-50);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 10px;
     cursor: pointer;
-    transition: all var(--transition-base);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
 }
 
 .department-item-modern label i {
-    font-size: var(--font-size-lg);
-    color: var(--color-primary-600);
-    transition: all var(--transition-base);
+    font-size: 1rem;
+    color: var(--color-gray-500);
+    transition: all 0.2s ease;
 }
 
 .department-item-modern label span {
     flex: 1;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
+    font-size: 0.875rem;
+    font-weight: 500;
     color: var(--color-gray-700);
-    transition: all var(--transition-base);
+    transition: all 0.2s ease;
 }
 
 .department-item-modern input:checked + label {
-    background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-100) 100%);
-    border-color: var(--color-primary-500);
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+    background: white;
+    border-color: var(--color-primary-900);
+    box-shadow: 0 0 0 2px var(--color-primary-900);
 }
 
 .department-item-modern input:checked + label i {
-    color: var(--color-primary-700);
+    color: var(--color-primary-900);
 }
 
 .department-item-modern input:checked + label span {
-    color: var(--color-primary-900);
-    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-900);
+    font-weight: 600;
 }
 
 .department-item-modern label:hover {
-    border-color: var(--color-primary-300);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-gray-300);
+    background: white;
 }
 
 /* Footer du panneau */
 .filters-footer-modern {
-    padding: var(--spacing-6);
+    padding: 1.5rem 2rem;
     background: white;
     border-top: 1px solid var(--color-gray-200);
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-3);
+    gap: 1rem;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
-    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 }
 
 .filters-panel-modern.active .filters-footer-modern {
@@ -357,14 +352,14 @@
 
 .filter-count {
     text-align: center;
-    font-size: var(--font-size-sm);
+    font-size: 0.875rem;
     color: var(--color-gray-600);
-    font-weight: var(--font-weight-medium);
+    font-weight: 500;
 }
 
 .filter-count strong {
-    color: var(--color-primary-700);
-    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-900);
+    font-weight: 700;
 }
 
 .filters-footer-modern .btn-group {
@@ -386,7 +381,7 @@
     background: rgba(0, 0, 0, 0);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease;
     z-index: 9999 !important;
     backdrop-filter: blur(0px);
 }
@@ -394,8 +389,8 @@
 .overlay-modern.active {
     opacity: 1;
     visibility: visible;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
 }
 
 /* ========================================

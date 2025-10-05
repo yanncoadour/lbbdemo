@@ -311,17 +311,14 @@ function initSmartNavigation() {
     // Si on vient de la page logements
     if (referrer.includes('logements.html')) {
         backUrl = 'logements.html';
-    }
-    // Si on vient de la page festivals
-    else if (referrer.includes('festivals.html')) {
+    } else if (referrer.includes('festivals.html')) {
+        // Si on vient de la page festivals
         backUrl = 'festivals.html';
-    }
-    // Si on vient de la page blog
-    else if (referrer.includes('blog.html')) {
+    } else if (referrer.includes('blog.html')) {
+        // Si on vient de la page blog
         backUrl = 'blog.html';
-    }
-    // Sinon, utiliser l'historique du navigateur si disponible
-    else if (history.length > 1) {
+    } else if (history.length > 1) {
+        // Sinon, utiliser l'historique du navigateur si disponible
         // Utiliser le bouton retour du navigateur
         backLink.addEventListener('click', (e) => {
             e.preventDefault();
@@ -2838,7 +2835,7 @@ function showPoiError() {
 function updateElement(id, content) {
     const element = document.getElementById(id);
     if (element && content) {
-        element.textContent = content;
+        element.innerHTML = content;
     }
 }
 

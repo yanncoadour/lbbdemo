@@ -19,12 +19,151 @@
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/modern-layout.css">
     <link rel="stylesheet" href="css/buttons.css">
-    <link rel="stylesheet" href="css/language-selector.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/page-hero.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
     <!-- IMPORTANT: Mobile fixes doit être chargé EN DERNIER -->
     <link rel="stylesheet" href="css/mobile-fixes.css">
+
+    <style>
+        /* Instagram Page Specific Styles */
+        .instagram-cta-section {
+            padding: var(--spacing-16) 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0.1) 100%);
+        }
+
+        .instagram-cta-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+
+        .cta-content {
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary-600);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .cta-content > p {
+            font-size: var(--font-size-xl);
+            color: var(--color-gray-700);
+            max-width: 800px;
+            margin: 0 auto var(--spacing-12);
+            line-height: 1.6;
+        }
+
+        .cta-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-12);
+        }
+
+        .benefit {
+            background: white;
+            padding: var(--spacing-8);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all var(--transition-base);
+        }
+
+        .benefit:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+        }
+
+        .benefit i {
+            font-size: 3rem;
+            color: var(--color-primary-600);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .benefit h3 {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .benefit p {
+            font-size: var(--font-size-base);
+            color: var(--color-gray-600);
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-6);
+        }
+
+        .btn-xl {
+            padding: var(--spacing-5) var(--spacing-10);
+            font-size: var(--font-size-xl);
+            gap: var(--spacing-3);
+        }
+
+        .btn-xl i {
+            font-size: 1.5rem;
+        }
+
+        .hashtag-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-2);
+        }
+
+        .hashtag-info span:first-child {
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-600);
+        }
+
+        .hashtag-highlight {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary-600);
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @media (max-width: 768px) {
+            .cta-benefits {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-6);
+            }
+
+            .cta-content h2 {
+                font-size: var(--font-size-2xl);
+            }
+
+            .cta-content > p {
+                font-size: var(--font-size-base);
+            }
+
+            .benefit {
+                padding: var(--spacing-6);
+            }
+
+            .benefit i {
+                font-size: 2.5rem;
+            }
+
+            .btn-xl {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="site-header" id="siteHeader">
@@ -45,69 +184,13 @@
 
             <div class="main-nav">
                 <ul class="nav-list" id="navLinks" role="menubar">
-                    <li role="none"><a href="index.html" class="nav-link" role="menuitem" data-translate="nav.home">Accueil</a></li>
-                    <li role="none"><a href="carte.html" class="nav-link" role="menuitem" data-translate="nav.map">Carte</a></li>
-                    <li role="none"><a href="logements.html" class="nav-link" role="menuitem" data-translate="nav.accommodations">Hébergements</a></li>
-                    <li role="none"><a href="festivals.html" class="nav-link" role="menuitem" data-translate="nav.festivals">Festivals</a></li>
-                    <li role="none"><a href="blog.html" class="nav-link" role="menuitem" data-translate="nav.blog">Blog</a></li>
-                    <li role="none"><a href="instagram.html" class="nav-link active" role="menuitem" data-translate="nav.instagram">Instagram</a></li>
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem">Accueil</a></li>
+                    <li role="none"><a href="carte.html" class="nav-link" role="menuitem">Carte</a></li>
+                    <li role="none"><a href="logements.html" class="nav-link" role="menuitem">Hébergements</a></li>
+                    <li role="none"><a href="festivals.html" class="nav-link" role="menuitem">Festivals</a></li>
+                    <li role="none"><a href="blog.html" class="nav-link" role="menuitem">Blog</a></li>
+                    <li role="none"><a href="instagram.html" class="nav-link active" role="menuitem">Instagram</a></li>
                 </ul>
-
-                <!-- Sélecteur de langue -->
-                <div class="language-selector">
-                    <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
-                        <span class="flag" id="currentFlag">🇫🇷</span>
-                        <span id="currentLang">FR</span>
-                        <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
-                    </button>
-                    <div class="language-dropdown" id="languageDropdown">
-                        <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
-                            <span class="flag">🇫🇷</span>
-                            <span class="lang-name">Français</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
-                            <span class="flag">🇬🇧</span>
-                            <span class="lang-name">English</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
-                            <span class="flag">🇩🇪</span>
-                            <span class="lang-name">Deutsch</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="es" onclick="changeLanguage('es')">
-                            <span class="flag">🇪🇸</span>
-                            <span class="lang-name">Español</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="it" onclick="changeLanguage('it')">
-                            <span class="flag">🇮🇹</span>
-                            <span class="lang-name">Italiano</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="nl" onclick="changeLanguage('nl')">
-                            <span class="flag">🇳🇱</span>
-                            <span class="lang-name">Nederlands</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="pt" onclick="changeLanguage('pt')">
-                            <span class="flag">🇵🇹</span>
-                            <span class="lang-name">Português</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="zh" onclick="changeLanguage('zh')">
-                            <span class="flag">🇨🇳</span>
-                            <span class="lang-name">中文</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="ja" onclick="changeLanguage('ja')">
-                            <span class="flag">🇯🇵</span>
-                            <span class="lang-name">日本語</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <button class="mobile-menu-toggle" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -126,89 +209,8 @@
                 </div>
                 <h1 class="page-hero-title">Instagram La Belle Bretagne</h1>
                 <p class="page-hero-description">
-                    Découvrez la Bretagne à travers nos photos et partagez vos plus beaux souvenirs avec nous.
-                    Suivez-nous sur Instagram et rejoignez notre communauté de passionnés.
+                    Suivez-nous sur Instagram pour découvrir la Bretagne à travers nos photos exclusives et rejoignez notre communauté de passionnés.
                 </p>
-            </div>
-        </section>
-
-        <!-- Story Section -->
-        <section class="instagram-story-section">
-            <div class="container">
-                <div class="story-content">
-                    <div class="story-text">
-                        <h2>L'histoire de La Belle Bretagne</h2>
-                        <p class="story-intro">
-                            Tout a commencé sur Instagram... En partageant notre passion pour la Bretagne, 
-                            nous avons créé une communauté de milliers d'amoureux de cette région magnifique.
-                        </p>
-                        
-                        <div class="story-timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-icon">
-                                    <i class="fab fa-instagram"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h3>2023 - Les débuts</h3>
-                                    <p>Création du compte Instagram @labellebretagne avec les premières photos de nos escapades bretonnes.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="timeline-icon">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h3>2024 - La communauté grandit</h3>
-                                    <p>Milliers d'abonnés passionnés qui partagent leurs coups de cœur bretons avec #LaBelleBretagne.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="timeline-icon">
-                                    <i class="fas fa-globe"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h3>2025 - Naissance du site</h3>
-                                    <p>Face au succès d'Instagram, nous créons ce site pour offrir une expérience complète de découverte de la Bretagne.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="story-visual">
-                        <div class="instagram-mockup">
-                            <div class="phone-frame">
-                                <div class="phone-screen">
-                                    <div class="instagram-header">
-                                        <i class="fab fa-instagram"></i>
-                                        <span>@labellebretagne</span>
-                                        <button class="btn btn-accent btn-sm">Suivre</button>
-                                    </div>
-                                    <div class="instagram-stats">
-                                        <div class="stat">
-                                            <strong>150+</strong>
-                                            <span>Publications</span>
-                                        </div>
-                                        <div class="stat">
-                                            <strong>5,2k</strong>
-                                            <span>Abonnés</span>
-                                        </div>
-                                        <div class="stat">
-                                            <strong>892</strong>
-                                            <span>Abonnements</span>
-                                        </div>
-                                    </div>
-                                    <div class="instagram-bio">
-                                        <p>🏴‍☠️ Découvrez la vraie Bretagne<br>
-                                        📍 Finistère • Morbihan • Côtes d'Armor<br>
-                                        🌊 #LaBelleBretagne</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -217,8 +219,8 @@
             <div class="container">
                 <div class="cta-content">
                     <h2>Rejoignez notre communauté Instagram !</h2>
-                    <p>Suivez-nous pour découvrir chaque jour de nouveaux lieux secrets, des conseils d'initiés et les plus belles photos de Bretagne partagées par notre communauté.</p>
-                    
+                    <p>Découvrez chaque jour de nouveaux lieux secrets, des conseils d'initiés et les plus belles photos de Bretagne partagées par notre communauté.</p>
+
                     <div class="cta-benefits">
                         <div class="benefit">
                             <i class="fas fa-camera"></i>
@@ -236,11 +238,11 @@
                             <p>Échangez avec d'autres passionnés de la Bretagne</p>
                         </div>
                     </div>
-                    
+
                     <div class="cta-buttons">
                         <a href="https://www.instagram.com/labellebretagne" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl">
                             <i class="fab fa-instagram"></i>
-                            <span>Suivre @labellebretagne</span>
+                            <span>Suivre @bellebretagne</span>
                         </a>
                         <div class="hashtag-info">
                             <span>Partagez vos photos avec</span>
@@ -251,7 +253,6 @@
             </div>
         </section>
     </main>
-
 
     <!-- Footer -->
     <footer class="site-footer" style="background: #1e3a8a; color: white; padding: 1rem 0; font-size: 0.75rem; margin-top: 2rem;">
@@ -286,7 +287,7 @@
                 <div style="text-align: center;">
                     <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Suivez-nous</h4>
                     <div style="display: flex; justify-content: center; gap: 1.5rem;">
-                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Instagram">
+                        <a href="https://www.instagram.com/labellebretagne" target="_blank" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Facebook">
@@ -298,19 +299,6 @@
                     </div>
                 </div>
 
-                <!-- Newsletter -->
-                <div>
-                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Newsletter</h4>
-                    <p style="margin: 0 0 0.6rem 0; color: #ddd; font-size: 0.7rem; line-height: 1.4;">Recevez nos dernières découvertes bretonnes</p>
-                    <form style="display: flex; gap: 0.5rem;">
-                        <input type="email" placeholder="Votre email"
-                               style="flex: 1; padding: 0.5rem; border: none; border-radius: 6px; font-size: 0.75rem; min-width: 0;">
-                        <button type="submit"
-                                style="background: #3b82f6; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; white-space: nowrap;">
-                            S'abonner
-                        </button>
-                    </form>
-                </div>
             </div>
 
             <!-- Copyright -->
@@ -321,10 +309,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
-    <script src="js/security.js"></script>
     <script src="js/theme-global.js"></script>
-    <script src="js/instagram.js"></script>
 
     <!-- Mobile menu script -->
     <script>
@@ -375,9 +360,5 @@
             }
         });
     </script>
-
-    <!-- Translation System -->
-    <script src="js/translations.js"></script>
-    <script src="js/language-selector.js"></script>
 </body>
 </html>

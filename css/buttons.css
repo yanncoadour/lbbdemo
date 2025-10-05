@@ -14,7 +14,7 @@
     gap: var(--spacing-2);
     padding: var(--spacing-3) var(--spacing-6);
     border: none;
-    border-radius: var(--radius-lg);
+    border-radius: 12px;
     font-family: var(--font-family-base);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
@@ -152,28 +152,28 @@
 .btn-sm {
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
-    border-radius: var(--btn-radius-sm);
+    border-radius: 10px;
 }
 
 /* Bouton moyen (par défaut) */
 .btn-md {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    border-radius: var(--btn-radius);
+    border-radius: 12px;
 }
 
 /* Grand bouton */
 .btn-lg {
     padding: 1rem 2rem;
     font-size: 1.125rem;
-    border-radius: var(--btn-radius-lg);
+    border-radius: 12px;
 }
 
 /* Bouton extra-large */
 .btn-xl {
     padding: 1.25rem 2.5rem;
     font-size: 1.25rem;
-    border-radius: var(--btn-radius-lg);
+    border-radius: 14px;
 }
 
 /* ========================================
@@ -183,7 +183,7 @@
 /* Bouton carré (icons) */
 .btn-square {
     padding: 0.75rem;
-    border-radius: var(--btn-radius);
+    border-radius: 12px;
 }
 
 .btn-square.btn-sm {

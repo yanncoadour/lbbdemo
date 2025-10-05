@@ -1,7 +1,17 @@
 /**
  * BLOG - LA BELLE BRETAGNE
- * Gestion des articles et interactions
+ * Gestion des articles et interactions avec pagination et filtres
  */
+
+// ===================================================================
+// CONFIGURATION
+// ===================================================================
+
+const ARTICLES_PER_PAGE = 12;
+let currentPage = 1;
+let currentFilter = 'all';
+let currentSearch = '';
+let allArticles = [];
 
 // ===================================================================
 // GESTION DES ARTICLES
@@ -11,35 +21,16 @@
  * Initialise la page blog
  */
 function initBlog() {
+    // Charger tous les articles depuis le DOM
+    loadArticlesFromDOM();
 
-    // Gérer l'affichage de l'article complet
-    const readMoreBtn = document.querySelector('.read-more-btn');
-    const readArticleLink = document.querySelector('a[href="#article-lancement"]');
-    const featuredArticle = document.querySelector('.featured-article');
-    const fullArticle = document.querySelector('.full-article');
-    const backToBlogBtn = document.querySelector('.back-to-blog');
-    const newsletterSection = document.querySelector('.newsletter-section');
+    // Initialiser les contrôles
+    initSearchBar();
+    initFilters();
+    initLoadMore();
 
-    if (readMoreBtn && featuredArticle && fullArticle) {
-        readMoreBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            showFullArticle();
-        });
-    }
-
-    // Écouter le clic sur le lien "Lire l'article complet"
-    if (readArticleLink && featuredArticle && fullArticle) {
-        readArticleLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            showFullArticle();
-        });
-    }
-
-    if (backToBlogBtn) {
-        backToBlogBtn.addEventListener('click', () => {
-            hideFullArticle();
-        });
-    }
+    // Initialiser le lazy loading pour les images des articles complets
+    initLazyLoading();
 
     // Gérer les boutons de partage social
     initSocialSharing();
@@ -47,6 +38,273 @@ function initBlog() {
     // Gérer la newsletter
     initNewsletter();
 
+    // Afficher les articles initiaux
+    displayArticles();
+}
+
+/**
+ * Charge les articles existants depuis le DOM
+ */
+function loadArticlesFromDOM() {
+    const articlesGrid = document.getElementById('articlesGrid');
+    if (!articlesGrid) return;
+
+    const cards = articlesGrid.querySelectorAll('.blog-card');
+
+    cards.forEach((card, index) => {
+        const categoryElement = card.querySelector('.article-category span');
+        const titleElement = card.querySelector('.article-title a');
+        const excerptElement = card.querySelector('.article-excerpt');
+        const dateElement = card.querySelector('time');
+        const readTimeElement = card.querySelector('.article-reading-time');
+        const imageElement = card.querySelector('.article-image img');
+
+        const article = {
+            id: index + 1,
+            category: categoryElement ? categoryElement.textContent.trim().toLowerCase() : '',
+            title: titleElement ? titleElement.textContent.trim() : '',
+            excerpt: excerptElement ? excerptElement.textContent.trim() : '',
+            date: dateElement ? dateElement.getAttribute('datetime') : '',
+            readTime: readTimeElement ? readTimeElement.textContent.trim() : '',
+            image: imageElement ? imageElement.getAttribute('src') : '',
+            imageAlt: imageElement ? imageElement.getAttribute('alt') : '',
+            element: card.cloneNode(true)
+        };
+
+        allArticles.push(article);
+    });
+}
+
+/**
+ * Initialise la barre de recherche
+ */
+function initSearchBar() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
+    let searchTimeout;
+    searchInput.addEventListener('input', (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            currentSearch = e.target.value.toLowerCase().trim();
+            currentPage = 1;
+            displayArticles();
+        }, 300);
+    });
+}
+
+/**
+ * Initialise les filtres de catégorie
+ */
+function initFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Retirer la classe active de tous les boutons
+            filterBtns.forEach(b => b.classList.remove('active'));
+
+            // Ajouter la classe active au bouton cliqué
+            btn.classList.add('active');
+
+            // Mettre à jour le filtre
+            currentFilter = btn.getAttribute('data-category');
+            currentPage = 1;
+
+            // Afficher les articles filtrés
+            displayArticles();
+        });
+    });
+}
+
+/**
+ * Initialise le bouton "Charger plus"
+ */
+function initLoadMore() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (!loadMoreBtn) return;
+
+    loadMoreBtn.addEventListener('click', () => {
+        loadMoreBtn.classList.add('loading');
+        const icon = loadMoreBtn.querySelector('i');
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-spinner', 'fa-spin');
+
+        // Simuler un chargement
+        setTimeout(() => {
+            currentPage++;
+            displayArticles(true);
+
+            loadMoreBtn.classList.remove('loading');
+            icon.classList.remove('fa-spinner', 'fa-spin');
+            icon.classList.add('fa-chevron-down');
+        }, 500);
+    });
+}
+
+/**
+ * Filtre les articles selon les critères actifs
+ */
+function getFilteredArticles() {
+    return allArticles.filter(article => {
+        // Filtre par catégorie
+        const matchCategory = currentFilter === 'all' || article.category === currentFilter;
+
+        // Filtre par recherche
+        const matchSearch = !currentSearch ||
+            article.title.toLowerCase().includes(currentSearch) ||
+            article.excerpt.toLowerCase().includes(currentSearch);
+
+        return matchCategory && matchSearch;
+    });
+}
+
+/**
+ * Affiche les articles avec pagination
+ */
+function displayArticles(append = false) {
+    const articlesGrid = document.getElementById('articlesGrid');
+    const loadMoreContainer = document.getElementById('loadMoreContainer');
+    const searchResultsInfo = document.querySelector('.search-results-info');
+    const resultsCount = document.getElementById('resultsCount');
+
+    if (!articlesGrid) return;
+
+    const filteredArticles = getFilteredArticles();
+    const totalArticles = filteredArticles.length;
+    const articlesToShow = filteredArticles.slice(0, currentPage * ARTICLES_PER_PAGE);
+
+    // Si on n'ajoute pas, on vide la grille
+    if (!append) {
+        articlesGrid.innerHTML = '';
+    }
+
+    // Afficher les articles
+    articlesToShow.forEach((article, index) => {
+        if (append && index < (currentPage - 1) * ARTICLES_PER_PAGE) {
+            return; // Skip articles already displayed
+        }
+        const clonedElement = article.element.cloneNode(true);
+        articlesGrid.appendChild(clonedElement);
+
+        // Lazy load des images
+        const img = clonedElement.querySelector('.article-image img');
+        if (img) {
+            lazyLoadImage(img);
+        }
+    });
+
+    // Mettre à jour le compteur
+    updateArticlesCount(articlesToShow.length, totalArticles);
+
+    // Afficher/masquer le bouton "Charger plus"
+    if (articlesToShow.length < totalArticles) {
+        loadMoreContainer.style.display = 'block';
+    } else {
+        loadMoreContainer.style.display = 'none';
+    }
+
+    // Afficher les résultats de recherche
+    if (currentSearch) {
+        searchResultsInfo.style.display = 'flex';
+        resultsCount.textContent = `${totalArticles} article${totalArticles > 1 ? 's' : ''} trouvé${totalArticles > 1 ? 's' : ''}`;
+    } else {
+        searchResultsInfo.style.display = 'none';
+    }
+
+    // Si aucun article, afficher un message
+    if (totalArticles === 0) {
+        articlesGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: var(--spacing-12);">
+                <i class="fas fa-search" style="font-size: 3rem; color: var(--color-gray-400); margin-bottom: var(--spacing-4);"></i>
+                <h3 style="color: var(--color-gray-600); margin-bottom: var(--spacing-2);">Aucun article trouvé</h3>
+                <p style="color: var(--color-gray-500);">Essayez avec d'autres mots-clés ou filtres</p>
+            </div>
+        `;
+    }
+}
+
+/**
+ * Met à jour le compteur d'articles
+ */
+function updateArticlesCount(current, total) {
+    const currentCount = document.getElementById('currentCount');
+    const totalCount = document.getElementById('totalCount');
+
+    if (currentCount) currentCount.textContent = current;
+    if (totalCount) totalCount.textContent = total;
+}
+
+/**
+ * Efface la recherche
+ */
+function clearSearch() {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.value = '';
+        currentSearch = '';
+        currentPage = 1;
+        displayArticles();
+    }
+}
+
+// ===================================================================
+// LAZY LOADING DES IMAGES
+// ===================================================================
+
+/**
+ * Lazy loading d'une image avec Intersection Observer
+ */
+function lazyLoadImage(img) {
+    // Si l'image est déjà chargée, on sort
+    if (img.classList.contains('loaded')) {
+        return;
+    }
+
+    // Créer un Intersection Observer
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const image = entry.target;
+                const src = image.getAttribute('src') || image.getAttribute('data-src');
+
+                if (src) {
+                    // Créer une nouvelle image pour précharger
+                    const tempImg = new Image();
+                    tempImg.onload = () => {
+                        image.src = src;
+                        image.classList.add('loaded');
+                    };
+                    tempImg.onerror = () => {
+                        // En cas d'erreur, essayer le placeholder
+                        const placeholder = 'assets/img/placeholder.jpg';
+                        image.src = placeholder;
+                        image.classList.add('loaded');
+                    };
+                    tempImg.src = src;
+
+                    // Arrêter d'observer cette image
+                    observer.unobserve(image);
+                }
+            }
+        });
+    }, {
+        rootMargin: '50px',
+        threshold: 0.01
+    });
+
+    observer.observe(img);
+}
+
+/**
+ * Initialise le lazy loading pour toutes les images
+ */
+function initLazyLoading() {
+    const images = document.querySelectorAll('.article-image img, .article-image-full img, .article-image-inline img');
+
+    images.forEach(img => {
+        lazyLoadImage(img);
+    });
 }
 
 /**
@@ -288,3 +546,4 @@ window.hideFullArticle = hideFullArticle;
 window.shareOnFacebook = shareOnFacebook;
 window.shareOnTwitter = shareOnTwitter;
 window.shareByEmail = shareByEmail;
+window.clearSearch = clearSearch;

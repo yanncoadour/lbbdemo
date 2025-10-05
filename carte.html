@@ -32,7 +32,6 @@
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/modern-layout.css">
     <link rel="stylesheet" href="css/buttons.css">
-    <link rel="stylesheet" href="css/language-selector.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/page-hero.css">
 
@@ -80,61 +79,6 @@
                     <li role="none"><a href="instagram.html" class="nav-link" role="menuitem" data-translate="nav.instagram">Instagram</a></li>
                 </ul>
 
-                <!-- Sélecteur de langue -->
-                <div class="language-selector">
-                    <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
-                        <span class="flag" id="currentFlag">🇫🇷</span>
-                        <span id="currentLang">FR</span>
-                        <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
-                    </button>
-                    <div class="language-dropdown" id="languageDropdown">
-                        <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
-                            <span class="flag">🇫🇷</span>
-                            <span class="lang-name">Français</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
-                            <span class="flag">🇬🇧</span>
-                            <span class="lang-name">English</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
-                            <span class="flag">🇩🇪</span>
-                            <span class="lang-name">Deutsch</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="es" onclick="changeLanguage('es')">
-                            <span class="flag">🇪🇸</span>
-                            <span class="lang-name">Español</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="it" onclick="changeLanguage('it')">
-                            <span class="flag">🇮🇹</span>
-                            <span class="lang-name">Italiano</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="nl" onclick="changeLanguage('nl')">
-                            <span class="flag">🇳🇱</span>
-                            <span class="lang-name">Nederlands</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="pt" onclick="changeLanguage('pt')">
-                            <span class="flag">🇵🇹</span>
-                            <span class="lang-name">Português</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="zh" onclick="changeLanguage('zh')">
-                            <span class="flag">🇨🇳</span>
-                            <span class="lang-name">中文</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="ja" onclick="changeLanguage('ja')">
-                            <span class="flag">🇯🇵</span>
-                            <span class="lang-name">日本語</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <button class="mobile-menu-toggle" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -442,7 +386,7 @@
 
     <!-- ========================================
          FOOTER - Pied de page du site
-         4 colonnes : Plan du site, Infos, Réseaux, Newsletter
+         3 colonnes : Plan du site, Infos, Réseaux
          ======================================== -->
     <footer class="site-footer" style="background: #1e3a8a; color: white; padding: 1rem 0; font-size: 0.75rem; margin-top: 2rem;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
@@ -492,21 +436,6 @@
                     </div>
                 </div>
 
-                <!-- ===== COLONNE 4: NEWSLETTER ===== -->
-                <div>
-                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Newsletter</h4>
-                    <p style="margin: 0 0 0.6rem 0; color: #ddd; font-size: 0.7rem; line-height: 1.4;">Recevez nos dernières découvertes bretonnes</p>
-
-                    <!-- Formulaire d'inscription (horizontal) -->
-                    <form style="display: flex; gap: 0.5rem;">
-                        <input type="email" placeholder="Votre email"
-                               style="flex: 1; padding: 0.5rem; border: none; border-radius: 6px; font-size: 0.75rem; min-width: 0;">
-                        <button type="submit"
-                                style="background: #3b82f6; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; white-space: nowrap;">
-                            S'abonner
-                        </button>
-                    </form>
-                </div>
             </div>
 
             <!-- ===== COPYRIGHT ===== -->
@@ -649,7 +578,7 @@
                         <input type="checkbox" value="plage" id="cat-plage">
                         <label for="cat-plage">
                             <i class="fas fa-umbrella-beach"></i>
-                            <span>Plages (20)</span>
+                            <span>Plages (1)</span>
                         </label>
                     </div>
 
@@ -657,7 +586,7 @@
                         <input type="checkbox" value="loisirs" id="cat-loisirs">
                         <label for="cat-loisirs">
                             <i class="fas fa-star"></i>
-                            <span>Loisirs (20)</span>
+                            <span>Loisirs (1)</span>
                         </label>
                     </div>
 
@@ -783,13 +712,7 @@
     <!-- 5. Map - Initialisation et gestion de la carte Leaflet -->
     <script src="js/map.js?v=5"></script> <!-- ?v=5 pour cache busting -->
 
-    <!-- 6. Translations - Système de traduction multilingue -->
-    <script src="js/translations.js"></script>
-
-    <!-- 7. Language Selector - Sélecteur de langue global -->
-    <script src="js/language-selector.js"></script>
-
-    <!-- 8. App - Application principale (coordonne tout) -->
+    <!-- 6. App - Application principale (coordonne tout) -->
     <script src="js/app.js"></script>
 
 

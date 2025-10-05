@@ -134,7 +134,7 @@ describe('Security - Sanitisation', () => {
             const input = 'Recherche avec @@@ caractères spéciaux ###';
             const result = window.Security.validateAndSanitize(input, 'search');
             
-            expect(result).toMatch(/^[\\w\\s\\À-ÿ\\-']*$/);
+            expect(result).toMatch(/^[\w\s\u00C0-\u00FF\-']*$/);
             expect(result.length).toBeLessThanOrEqual(100);
         });
 

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Belle Bretagne - Fiche lieu</title>
+    <meta name="description" content="Découvrez ce lieu incontournable de Bretagne avec toutes les informations pratiques.">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/modern-layout.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/language-selector.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/poi-page.css">
+
+</head>
+<body>
+    <header class="site-header" id="siteHeader">
+        <nav class="nav-container">
+            <a href="index.html" class="site-logo" aria-label="La Belle Bretagne - Retour à l'accueil">
+                <img src="assets/images/logo.webp"
+                     alt="Logo La Belle Bretagne"
+                     class="logo-image"
+                     width="96"
+                     height="96"
+                     loading="eager">
+                <div class="logo-text">
+                    <div class="logo-title">La Belle Bretagne</div>
+                    <div class="logo-subtitle">Point d'intérêt</div>
+                </div>
+            </a>
+
+            <div class="main-nav">
+                <ul class="nav-list" id="navLinks" role="menubar">
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem">Accueil</a></li>
+                    <li role="none"><a href="carte.html" class="nav-link" role="menuitem">Carte</a></li>
+                    <li role="none"><a href="logements.html" class="nav-link" role="menuitem">Hébergements</a></li>
+                    <li role="none"><a href="festivals.html" class="nav-link" role="menuitem">Festivals</a></li>
+                    <li role="none"><a href="blog.html" class="nav-link" role="menuitem">Blog</a></li>
+                    <li role="none"><a href="instagram.html" class="nav-link" role="menuitem">Instagram</a></li>
+                </ul>
+
+                <!-- Sélecteur de langue -->
+                <div class="language-selector">
+                    <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
+                        <span class="flag" id="currentFlag">🇫🇷</span>
+                        <span id="currentLang">FR</span>
+                        <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
+                            <span class="flag">🇫🇷</span>
+                            <span class="lang-name">Français</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
+                            <span class="flag">🇬🇧</span>
+                            <span class="lang-name">English</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                        <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
+                            <span class="flag">🇩🇪</span>
+                            <span class="lang-name">Deutsch</span>
+                            <i class="fas fa-check checkmark"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="poi-container">
+        <!-- Loading State -->
+        <div id="loading" class="loading-state">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Chargement...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="error-state" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h2>Lieu non trouvé</h2>
+            <p>Le lieu demandé n'existe pas ou n'est plus disponible.</p>
+            <a href="carte.html" class="btn btn-primary">
+                Retour à la carte
+            </a>
+        </div>
+
+        <!-- POI Content -->
+        <article id="poiContent" class="poi-content" style="display: none;">
+            <!-- Hero Section moderne -->
+            <section class="poi-hero-modern">
+                <div class="poi-image-container">
+                    <img id="poiImage" src="" alt="" class="poi-image">
+                    <div class="poi-image-overlay">
+                        <h1 id="poiTitleOverlay" class="poi-title-overlay"></h1>
+
+                        <!-- Badges sous le titre sur la photo -->
+                        <div class="poi-overlay-badges">
+                            <div id="poiCategories" class="poi-categories-modern"></div>
+                            <span id="poiDepartment" class="poi-department-modern"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bouton réserver principal (si applicable) -->
+                <div id="reserveButtonTop" class="reserve-button-hero-container" style="display: none;">
+                    <button id="reserveTopBtn" class="reserve-btn-hero-large">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Réserver maintenant</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Description Section moderne -->
+            <section class="poi-section-modern">
+                <div class="poi-content-wrapper">
+                    <div class="description-card">
+                        <p id="poiShortDescription" class="poi-short-description-modern"></p>
+                        <div id="poiDescription" class="poi-description-modern"></div>
+                        
+                        <!-- Galerie d'images supplémentaires -->
+                        <div id="poiGallery" class="poi-gallery-section" style="display: none;">
+                            <h3 class="gallery-title">
+                                <i class="fas fa-images"></i>
+                                Découvrez en images
+                            </h3>
+                            <div class="poi-images-grid" id="poiImagesGrid">
+                                <!-- Images générées dynamiquement -->
+                            </div>
+                        </div>
+                        
+                        <!-- Stats rapides -->
+                        <div class="poi-stats" id="poiStats" style="display: none;">
+                            <div class="stat-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span class="stat-label">Coordonnées</span>
+                                <span class="stat-value" id="coordinates"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Info Section for accommodations -->
+            <section id="quickInfoSection" class="poi-section quick-info-section" style="display: none;">
+                <div class="poi-content-wrapper">
+                    <div class="quick-info-card">
+                        <div class="quick-info-items">
+                            <div id="addressQuickInfo" class="quick-info-item" style="display: none;">
+                                <div class="quick-info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="quick-info-content">
+                                    <span class="quick-info-label">Adresse</span>
+                                    <span id="addressValue" class="quick-info-value"></span>
+                                </div>
+                            </div>
+                            <div id="starsQuickInfo" class="quick-info-item" style="display: none;">
+                                <div class="quick-info-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="quick-info-content">
+                                    <span class="quick-info-label">Classification</span>
+                                    <span id="starsValue" class="quick-info-value"></span>
+                                </div>
+                            </div>
+                            <div id="priceQuickInfo" class="quick-info-item" style="display: none;">
+                                <div class="quick-info-icon">
+                                    <i class="fas fa-euro-sign"></i>
+                                </div>
+                                <div class="quick-info-content">
+                                    <span class="quick-info-label">À partir de</span>
+                                    <span id="priceValue" class="quick-info-value"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services & Amenities Section (for accommodations) -->
+            <section id="servicesSection" class="poi-section services-section" style="display: none;">
+                <div class="poi-content-wrapper">
+                    <div class="services-card">
+                        <h2 class="services-section-title">
+                            <i class="fas fa-concierge-bell"></i>
+                            Équipements & Services
+                        </h2>
+                        <div id="servicesList" class="services-grid">
+                            <!-- Services générés dynamiquement -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Avis Section (only if tested) -->
+            <section id="avisSection" class="poi-section poi-avis" style="display: none;">
+                <div class="poi-content-wrapper">
+                    <div class="avis-card">
+                        <div class="avis-header">
+                            <div class="avis-badge">
+                                <i class="fas fa-award"></i>
+                                <span>Testé par nos soins</span>
+                            </div>
+                            <div class="avis-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">Recommandé</span>
+                            </div>
+                        </div>
+                        <div class="avis-content">
+                            <p id="avisText">🎆 Ce lieu a été personnellement visité et testé par notre équipe. Nous le recommandons pour son authenticité et la qualité de l'expérience proposée.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Practical Info Section modernisée -->
+            <section class="poi-section poi-practical-modern">
+                <div class="poi-content-wrapper">
+                    <div class="practical-info-card">
+                        <h2 class="practical-section-title">
+                            <i class="fas fa-info-circle"></i>
+                            Informations pratiques
+                        </h2>
+                        <div class="practical-items">
+                            <div id="poiWebsite" class="practical-item" style="display: none;">
+                                <div class="practical-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="practical-info-text">
+                                    <span class="practical-label">Site officiel</span>
+                                    <a id="websiteText" class="practical-link" href="" target="_blank" rel="noopener"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Carte de localisation -->
+            <section class="poi-section location-section-modern">
+                <div class="poi-content-wrapper">
+                    <div class="location-card-modern">
+                        <h2 class="location-section-title">
+                            Localisation
+                        </h2>
+                        <div class="location-info-modern">
+                            <div class="location-item-modern">
+                                <div class="location-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="location-info-text">
+                                    <span class="location-label">Adresse</span>
+                                    <span id="locationAddress" class="location-value"></span>
+                                </div>
+                            </div>
+                            <div class="location-item-modern">
+                                <div class="location-icon">
+                                    <i class="fas fa-compass"></i>
+                                </div>
+                                <div class="location-info-text">
+                                    <span class="location-label">Coordonnées</span>
+                                    <span id="locationCoords" class="location-value"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="showMapBtn" class="location-btn-modern">
+                            <i class="fas fa-directions"></i>
+                            <span>Voir sur la carte</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nearby Points of Interest Section -->
+            <section id="nearbySection" class="poi-section nearby-section" style="display: none;">
+                <div class="poi-content-wrapper">
+                    <div class="nearby-card">
+                        <h2 class="nearby-section-title">
+                            <i class="fas fa-compass"></i>
+                            À découvrir aux alentours
+                        </h2>
+                        <p class="nearby-subtitle">Points d'intérêt dans un rayon de 50 km</p>
+                        <div class="nearby-carousel">
+                            <div class="nearby-carousel-container" id="nearbyCarousel">
+                                <!-- Points d'intérêt générés dynamiquement -->
+                            </div>
+                            <button class="carousel-btn carousel-prev" id="carouselPrev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next" id="carouselNext">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Buttons modernes -->
+            <section class="poi-actions-modern">
+                <div class="poi-content-wrapper">
+                    <div class="action-buttons-modern" id="actionButtonsContainer">
+                        <button id="itineraryBtn" class="btn-modern btn-primary-modern">
+                            <i class="fas fa-route"></i>
+                            <span>Itinéraire</span>
+                        </button>
+                        <button id="websiteBtn" class="btn-modern btn-secondary-modern" style="display: none;">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Site officiel</span>
+                        </button>
+                        <button id="reserveBottomBtn" class="btn-modern btn-success-modern" style="display: none;">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Réserver</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer" style="background: #1e3a8a; color: white; padding: 1rem 0; font-size: 0.75rem; margin-top: 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <!-- Ligne principale avec 3 colonnes -->
+            <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; align-items: start; margin-bottom: 1rem;">
+
+                <!-- Liens légaux -->
+                <div>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Informations</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                        <a href="mentions-legales.html" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Mentions légales</a>
+                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Nous contacter</a>
+                        <a href="#" style="color: #ddd; text-decoration: none; font-size: 0.75rem;">Qui sommes-nous</a>
+                    </div>
+                </div>
+
+                <!-- Réseaux sociaux -->
+                <div style="text-align: center;">
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Suivez-nous</h4>
+                    <div style="display: flex; justify-content: center; gap: 1.5rem;">
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" style="color: #ddd; font-size: 1.4rem; text-decoration: none; transition: color 0.3s;" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Newsletter</h4>
+                    <p style="margin: 0 0 0.6rem 0; color: #ddd; font-size: 0.7rem; line-height: 1.4;">Recevez nos dernières découvertes bretonnes</p>
+                    <form style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Votre email"
+                               style="flex: 1; padding: 0.5rem; border: none; border-radius: 6px; font-size: 0.75rem; min-width: 0;">
+                        <button type="submit"
+                                style="background: #3b82f6; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; white-space: nowrap;">
+                            S'abonner
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div style="text-align: center; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="margin: 0; color: #ddd; font-size: 0.7rem;">&copy; 2025 La Belle Bretagne - Guide touristique de Bretagne</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/theme-global.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize POI page
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof window.initPoiPage === 'function') {
+                window.initPoiPage();
+            }
+        });
+    </script>
+</body>
+</html>

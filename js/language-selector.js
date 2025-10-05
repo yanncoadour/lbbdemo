@@ -1,6 +1,6 @@
 /**
  * SÉLECTEUR DE LANGUE GLOBAL
- * À inclure sur toutes les pages du site
+ * Utilise localStorage pour sauvegarder la préférence de langue
  */
 
 // Configuration des langues disponibles
@@ -17,6 +17,13 @@ const languages = {
 };
 
 /**
+ * Récupère la langue courante depuis localStorage
+ */
+function getCurrentLanguage() {
+    return localStorage.getItem('preferredLanguage') || 'fr';
+}
+
+/**
  * Basculer l'affichage du dropdown
  */
 function toggleLanguageDropdown() {
@@ -27,76 +34,47 @@ function toggleLanguageDropdown() {
 }
 
 /**
- * Changer la langue
+ * Changer de langue - Sauvegarde dans localStorage et recharge la page
  */
 function changeLanguage(langCode) {
     console.log('🌍 Changement de langue vers:', langCode);
 
-    // Sauvegarder la langue dans localStorage
-    localStorage.setItem('selectedLanguage', langCode);
-
-    // Mettre à jour le bouton
-    const currentFlag = document.getElementById('currentFlag');
-    const currentLang = document.getElementById('currentLang');
     const language = languages[langCode];
-
-    if (language) {
-        if (currentFlag) currentFlag.textContent = language.flag;
-        if (currentLang) currentLang.textContent = language.code;
+    if (!language) {
+        console.error('Langue non supportée:', langCode);
+        return;
     }
 
-    // Mettre à jour les options actives
-    document.querySelectorAll('.language-option').forEach(option => {
-        option.classList.remove('active');
-        if (option.dataset.lang === langCode) {
-            option.classList.add('active');
-        }
-    });
+    // Sauvegarder la préférence
+    localStorage.setItem('preferredLanguage', langCode);
 
-    // Fermer le dropdown
-    const dropdown = document.getElementById('languageDropdown');
-    if (dropdown) {
-        dropdown.classList.remove('active');
-    }
-
-    // Appliquer la traduction à la page
-    console.log('✅ Langue changée vers:', language.name);
-
-    // Traduire la page si la fonction existe
-    if (typeof translatePage === 'function') {
-        translatePage(langCode);
-    }
+    // Recharger la page pour appliquer les traductions
+    window.location.reload();
 }
 
 /**
  * Initialiser le sélecteur de langue
  */
 function initLanguageSelector() {
-    // Charger la langue sauvegardée
-    const savedLang = localStorage.getItem('selectedLanguage') || 'fr';
+    const currentLang = getCurrentLanguage();
+    const language = languages[currentLang];
 
     // Mettre à jour l'affichage du bouton
     const currentFlag = document.getElementById('currentFlag');
-    const currentLang = document.getElementById('currentLang');
-    const language = languages[savedLang];
+    const currentLangText = document.getElementById('currentLang');
 
     if (language) {
         if (currentFlag) currentFlag.textContent = language.flag;
-        if (currentLang) currentLang.textContent = language.code;
+        if (currentLangText) currentLangText.textContent = language.code;
     }
 
-    // Mettre à jour les options actives
+    // Mettre à jour les options actives dans le dropdown
     document.querySelectorAll('.language-option').forEach(option => {
         option.classList.remove('active');
-        if (option.dataset.lang === savedLang) {
+        if (option.dataset.lang === currentLang) {
             option.classList.add('active');
         }
     });
-
-    // Appliquer la traduction
-    if (typeof translatePage === 'function') {
-        translatePage(savedLang);
-    }
 
     // Fermer le dropdown si on clique en dehors
     document.addEventListener('click', (e) => {
@@ -109,6 +87,8 @@ function initLanguageSelector() {
             dropdown.classList.remove('active');
         }
     });
+
+    console.log('✅ Langue courante:', language.name, '(' + currentLang + ')');
 }
 
 // Initialiser au chargement de la page
@@ -122,4 +102,5 @@ if (document.readyState === 'loading') {
 window.toggleLanguageDropdown = toggleLanguageDropdown;
 window.changeLanguage = changeLanguage;
 window.initLanguageSelector = initLanguageSelector;
+window.getCurrentLanguage = getCurrentLanguage;
 window.languages = languages;

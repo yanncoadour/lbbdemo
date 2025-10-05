@@ -179,6 +179,67 @@
     margin-bottom: 1.2rem;
 }
 
+.poi-description-modern h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin: 2rem 0 1.5rem 0;
+    line-height: 1.3;
+}
+
+.poi-description-modern h2:first-child {
+    margin-top: 0;
+}
+
+.poi-description-modern h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin: 1.5rem 0 1rem 0;
+    line-height: 1.4;
+}
+
+.poi-description-modern ul {
+    margin: 1.5rem 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.poi-description-modern li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #374151;
+    line-height: 1.7;
+}
+
+.poi-description-modern li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #3b82f6;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.poi-description-modern strong {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.poi-description-modern a {
+    color: #3b82f6;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.poi-description-modern a:hover {
+    color: #1e3a8a;
+    border-bottom-color: #1e3a8a;
+}
+
 /* ===== GALLERY SECTION ===== */
 .poi-gallery-section {
     margin-top: 3rem;

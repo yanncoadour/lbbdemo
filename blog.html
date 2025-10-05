@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/modern-layout.css">
     <link rel="stylesheet" href="css/buttons.css">
-    <link rel="stylesheet" href="css/language-selector.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/page-hero.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -54,61 +53,6 @@
                     <li role="none"><a href="instagram.html" class="nav-link" role="menuitem" data-translate="nav.instagram">Instagram</a></li>
                 </ul>
 
-                <!-- Sélecteur de langue -->
-                <div class="language-selector">
-                    <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
-                        <span class="flag" id="currentFlag">🇫🇷</span>
-                        <span id="currentLang">FR</span>
-                        <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
-                    </button>
-                    <div class="language-dropdown" id="languageDropdown">
-                        <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
-                            <span class="flag">🇫🇷</span>
-                            <span class="lang-name">Français</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
-                            <span class="flag">🇬🇧</span>
-                            <span class="lang-name">English</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
-                            <span class="flag">🇩🇪</span>
-                            <span class="lang-name">Deutsch</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="es" onclick="changeLanguage('es')">
-                            <span class="flag">🇪🇸</span>
-                            <span class="lang-name">Español</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="it" onclick="changeLanguage('it')">
-                            <span class="flag">🇮🇹</span>
-                            <span class="lang-name">Italiano</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="nl" onclick="changeLanguage('nl')">
-                            <span class="flag">🇳🇱</span>
-                            <span class="lang-name">Nederlands</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="pt" onclick="changeLanguage('pt')">
-                            <span class="flag">🇵🇹</span>
-                            <span class="lang-name">Português</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="zh" onclick="changeLanguage('zh')">
-                            <span class="flag">🇨🇳</span>
-                            <span class="lang-name">中文</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="ja" onclick="changeLanguage('ja')">
-                            <span class="flag">🇯🇵</span>
-                            <span class="lang-name">日本語</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <button class="mobile-menu-toggle" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -136,500 +80,89 @@
         <!-- Articles Section -->
         <section class="blog-articles">
             <div class="container">
-                <!-- Grille d'articles -->
-                <div class="articles-grid">
+                <!-- Barre de recherche et filtres -->
+                <div class="blog-controls">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Rechercher un article..." aria-label="Rechercher un article">
+                    </div>
 
-                <!-- Article 1: 5 plages -->
-                <article class="blog-card">
-                    <div class="article-image">
-                        <img src="assets/img/placeholder.jpg" alt="Les plus belles plages de Bretagne" loading="lazy">
-                        <div class="article-category">
+                    <div class="blog-filters">
+                        <button class="filter-btn active" data-category="all">
+                            <i class="fas fa-th"></i>
+                            Tous
+                        </button>
+                        <button class="filter-btn" data-category="découvertes">
                             <i class="fas fa-umbrella-beach"></i>
-                            <span>Découvertes</span>
-                        </div>
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <time datetime="2025-01-15">15 janvier 2025</time>
-                            <span class="article-reading-time">
-                                <i class="fas fa-clock"></i>
-                                5 min de lecture
-                            </span>
-                        </div>
-
-                        <h2 class="article-title">
-                            <a href="#article-plages">5 plages incontournables à découvrir en Bretagne</a>
-                        </h2>
-
-                        <p class="article-excerpt">
-                            Des eaux turquoise, du sable fin et des paysages à couper le souffle : découvrez notre sélection des plus belles plages bretonnes pour votre prochain séjour au bord de la mer...
-                        </p>
-
-                        <div class="article-actions">
-                            <a href="#article-plages" class="btn btn-primary" onclick="showArticle('plages'); return false;">
-                                <span>Lire l'article</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article 2: Rennes -->
-                <article class="blog-card">
-                    <div class="article-image">
-                        <img src="assets/img/placeholder.jpg" alt="Visiter Rennes" loading="lazy">
-                        <div class="article-category">
+                            Découvertes
+                        </button>
+                        <button class="filter-btn" data-category="city-guide">
                             <i class="fas fa-city"></i>
-                            <span>City Guide</span>
-                        </div>
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <time datetime="2025-01-18">18 janvier 2025</time>
-                            <span class="article-reading-time">
-                                <i class="fas fa-clock"></i>
-                                6 min de lecture
-                            </span>
-                        </div>
-
-                        <h2 class="article-title">
-                            <a href="#article-rennes">5 choses incontournables à faire à Rennes</a>
-                        </h2>
-
-                        <p class="article-excerpt">
-                            Capitale de la Bretagne, Rennes allie patrimoine historique, scène culturelle bouillonnante et art de vivre. Voici notre guide des expériences à ne pas manquer dans la ville aux mille visages...
-                        </p>
-
-                        <div class="article-actions">
-                            <a href="#article-rennes" class="btn btn-primary" onclick="showArticle('rennes'); return false;">
-                                <span>Lire l'article</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article 3: Lancement -->
-                <article class="blog-card">
-                    <div class="article-image">
-                        <img src="assets/img/blog-lancement-site-1.jpg" alt="Lancement de La Belle Bretagne" loading="lazy" onerror="this.src='assets/img/placeholder.jpg'">
-                        <div class="article-category">
+                            City Guide
+                        </button>
+                        <button class="filter-btn" data-category="actualités">
                             <i class="fas fa-rocket"></i>
-                            <span>Actualités</span>
-                        </div>
+                            Actualités
+                        </button>
                     </div>
-
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <time datetime="2024-12-20">20 décembre 2024</time>
-                            <span class="article-reading-time">
-                                <i class="fas fa-clock"></i>
-                                3 min de lecture
-                            </span>
-                        </div>
-
-                        <h2 class="article-title">
-                            <a href="#article-lancement">Bienvenue sur La Belle Bretagne !</a>
-                        </h2>
-
-                        <p class="article-excerpt">
-                            C'est avec une immense fierté que nous lançons aujourd'hui La Belle Bretagne, le site qui va révolutionner la façon de découvrir notre magnifique région...
-                        </p>
-
-                        <div class="article-actions">
-                            <a href="#article-lancement" class="btn btn-primary" onclick="showArticle('lancement'); return false;">
-                                <span>Lire l'article</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
                 </div>
 
-                <!-- Article complet (masqué par défaut) -->
-                <article id="article-lancement" class="full-article" style="display: none;">
-                    <div class="article-header">
-                        <button class="back-to-blog" onclick="hideFullArticle()">
-                            <i class="fas fa-arrow-left"></i>
-                            Retour aux articles
-                        </button>
-                        
-                        <div class="article-meta">
-                            <time datetime="2024-12-20">20 décembre 2024</time>
-                            <div class="article-category">
-                                <i class="fas fa-rocket"></i>
-                                <span>Actualités</span>
+                <!-- Résultats de recherche -->
+                <div class="search-results-info" style="display: none;">
+                    <span id="resultsCount"></span>
+                    <button class="clear-search" onclick="clearSearch()">
+                        <i class="fas fa-times"></i>
+                        Effacer la recherche
+                    </button>
+                </div>
+
+                <!-- Grille d'articles -->
+                <div class="articles-grid" id="articlesGrid">
+                    <!-- Les articles seront ajoutés ici -->
+                </div>
+
+                <!-- Prochains articles (section d'attente) -->
+                <div class="coming-soon-section">
+                    <div class="coming-soon-content">
+                        <div class="coming-soon-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <h3>De nouveaux articles arrivent bientôt !</h3>
+                        <p class="coming-soon-lead">
+                            Nous préparons de nombreux contenus inspirants pour découvrir la Bretagne autrement
+                        </p>
+                        <div class="coming-soon-features">
+                            <div class="feature-item">
+                                <i class="fas fa-map-signs"></i>
+                                <span>Guides pratiques</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Coups de cœur</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-camera-retro"></i>
+                                <span>Récits de voyage</span>
                             </div>
                         </div>
-                        
-                        <h1>Bienvenue sur La Belle Bretagne : votre nouveau guide incontournable !</h1>
-                        
-                        <div class="article-image-full">
-                            <img src="assets/img/blog-lancement-site-2.jpg" alt="Vue panoramique de la côte bretonne" loading="lazy">
-                        </div>
+                        <p class="coming-soon-cta">Restez connectés pour ne rien manquer de nos prochaines publications</p>
+                        <a href="carte.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-map-marked-alt"></i>
+                            Découvrir la carte interactive
+                        </a>
                     </div>
-                    
-                    <div class="article-body">
-                        <p class="article-lead">
-                            C'est avec une immense fierté et beaucoup d'émotion que nous lançons aujourd'hui <strong>La Belle Bretagne</strong>, 
-                            le site qui va révolutionner la façon de découvrir notre magnifique région. Après des mois de préparation, 
-                            de recherches et de rencontres avec les acteurs locaux, nous sommes enfin prêts à vous accompagner 
-                            dans vos plus belles escapades bretonnes !
-                        </p>
-                        
-                        <h2>Notre vision : faire de la Bretagne votre destination de cœur</h2>
-                        
-                        <p>
-                            Que vous soyez à la recherche d'un <strong>week-end romantique</strong> face à la mer, d'un 
-                            <strong>séjour en famille</strong> riche en découvertes, ou d'une <strong>escapade entre amis</strong> 
-                            pleine d'aventures, La Belle Bretagne devient votre compagnon de route indispensable.
-                        </p>
-                        
-                        <div class="article-image-inline">
-                            <img src="assets/img/blog-lancement-site-3.jpg" alt="Carte interactive de la Bretagne" loading="lazy">
-                            <figcaption>Notre carte interactive réunit tous les incontournables de Bretagne</figcaption>
-                        </div>
-                        
-                        <h2>Ce qui vous attend sur La Belle Bretagne</h2>
-                        
-                        <h3><i class="fas fa-map-marked-alt"></i> Une carte interactive révolutionnaire</h3>
-                        <p>
-                            Fini les guides papier qui se péiment ou les sites compliqués ! Notre carte interactive vous permet 
-                            de découvrir en un coup d'œil tous les <strong>points d'intérêt</strong>, <strong>hébergements</strong> 
-                            et <strong>activités</strong> de Bretagne. Filtrez selon vos envies, zoomez sur vos coups de cœur, 
-                            et partez à l'aventure en toute sérénité.
-                        </p>
-                        
-                        <h3><i class="fas fa-bed"></i> Des hébergements sélectionnés avec passion</h3>
-                        <p>
-                            Hôtels de charme face à la mer, villas d'exception avec piscine, campings familiaux ou logements insolites... 
-                            Notre sélection d'hébergements couvre les <strong>5 départements bretons</strong> pour que chaque séjour 
-                            devienne un souvenir inoubliable.
-                        </p>
-                        
-                        <h3><i class="fas fa-camera"></i> Des lieux authentiques et leurs histoires</h3>
-                        <p>
-                            Chaque lieu référencé sur La Belle Bretagne vient avec sa description détaillée, ses photos, 
-                            et toutes les informations pratiques dont vous avez besoin. Du phare mythique au petit village de caractère, 
-                            découvrez la Bretagne dans toute sa diversité.
-                        </p>
-                        
-                        <h2>L'aventure ne fait que commencer !</h2>
-                        
-                        <p>
-                            Ce lancement marque le début d'une belle aventure. Dans les semaines et mois à venir, 
-                            La Belle Bretagne va continuer de grandir et de s'enrichir :
-                        </p>
-                        
-                        <ul>
-                            <li><strong>Nouveaux partenaires</strong> : hôtels, restaurants, activités...</li>
-                            <li><strong>Contenus exclusifs</strong> : interviews, reportages, bons plans</li>
-                            <li><strong>Fonctionnalités avancées</strong> : favoris, itinéraires personnalisés</li>
-                            <li><strong>Communauté</strong> : vos avis, photos et recommandations</li>
-                        </ul>
-                        
-                        <h2>Rejoignez l'aventure La Belle Bretagne</h2>
-                        
-                        <p>
-                            Nous avons une conviction profonde : la Bretagne est une région d'exception qui mérite d'être découverte 
-                            et redécouverte sans cesse. Que vous soyez Breton·ne de cœur ou de passage, habitant·e ou visiteur·se, 
-                            La Belle Bretagne est fait pour vous.
-                        </p>
-                        
-                        <p class="article-cta">
-                            <strong>Alors, prêt·e à explorer la Bretagne comme jamais ?</strong><br>
-                            <a href="carte.html" class="cta-link">Découvrez notre carte interactive</a> et 
-                            <a href="logements.html" class="cta-link">trouvez votre hébergement de rêve</a> !
-                        </p>
-                        
-                        <div class="article-signature">
-                            <p><em>L'équipe La Belle Bretagne</em></p>
-                            <p><small>Kenavo et à très bientôt sur nos chemins bretons ! 🌊</small></p>
-                        </div>
-                    </div>
-                </article>
+                </div>
 
-                <!-- Article Plages -->
-                <article id="article-plages" class="full-article" style="display: none;">
-                    <div class="article-header">
-                        <button class="back-to-blog" onclick="hideFullArticle()">
-                            <i class="fas fa-arrow-left"></i>
-                            Retour aux articles
-                        </button>
-
-                        <div class="article-meta">
-                            <time datetime="2025-01-15">15 janvier 2025</time>
-                            <div class="article-category">
-                                <i class="fas fa-umbrella-beach"></i>
-                                <span>Découvertes</span>
-                            </div>
-                        </div>
-
-                        <h1>5 plages incontournables à découvrir en Bretagne</h1>
-
-                        <div class="article-image-full">
-                            <img src="assets/img/placeholder.jpg" alt="Plages de Bretagne" loading="lazy">
-                        </div>
-                    </div>
-
-                    <div class="article-body">
-                        <p class="article-lead">
-                            La Bretagne est célèbre pour ses <strong>2 700 km de côtes</strong> spectaculaires. Entre eaux turquoise,
-                            sable fin et paysages sauvages, voici notre sélection des 5 plages à ne manquer sous aucun prétexte lors
-                            de votre séjour breton !
-                        </p>
-
-                        <h2>1. La Plage de Ploumanac'h – Côtes-d'Armor</h2>
-
-                        <h3><i class="fas fa-star"></i> Le joyau de la Côte de Granit Rose</h3>
-                        <p>
-                            Élue <strong>plus belle plage d'Europe</strong> en 2015, la plage de Ploumanac'h offre un spectacle unique
-                            au monde avec ses gigantesques rochers de granit rose sculptés par le vent et les marées. Le contraste entre
-                            le rose des rochers, le bleu de la mer et le sable doré est absolument magique.
-                        </p>
-
-                        <p>
-                            <strong>À ne pas manquer :</strong> Le sentier des douaniers (GR34) qui longe la côte et offre des panoramas
-                            exceptionnels sur les rochers de granit rose.
-                        </p>
-
-                        <h2>2. La Plage de Morgat – Finistère</h2>
-
-                        <h3><i class="fas fa-water"></i> Un paradis pour les familles</h3>
-                        <p>
-                            Située dans la presqu'île de Crozon, la plage de Morgat est idéale pour les <strong>familles avec enfants</strong>.
-                            Son sable fin, ses eaux peu profondes et sa surveillance en été en font une valeur sûre. Le petit port de pêche
-                            adjacent ajoute du charme à l'ensemble.
-                        </p>
-
-                        <p>
-                            <strong>Activité incontournable :</strong> Louez un kayak pour explorer les grottes marines accessibles uniquement
-                            par la mer. Un moment inoubliable !
-                        </p>
-
-                        <h2>3. La Plage des Grands Sables – Morbihan</h2>
-
-                        <h3><i class="fas fa-island-tropical"></i> L'unique plage convexe d'Europe</h3>
-                        <p>
-                            Sur l'île de Groix, cette plage unique au monde <strong>change de forme et de position</strong> au gré des marées
-                            et des courants. Phénomène rare : c'est l'une des seules plages convexes (bombées) d'Europe ! Son sable blanc
-                            composé de coquillages broyés lui donne une couleur presque tropicale.
-                        </p>
-
-                        <p>
-                            <strong>Bon plan :</strong> Accessible après 40 minutes de ferry depuis Lorient. L'île de Groix se découvre idéalement
-                            à vélo pour un week-end hors du temps.
-                        </p>
-
-                        <div class="article-image-inline">
-                            <img src="assets/img/placeholder.jpg" alt="Plage bretonne" loading="lazy">
-                            <figcaption>Les plages bretonnes rivalisent avec les plus belles destinations tropicales</figcaption>
-                        </div>
-
-                        <h2>4. La Plage de Bon Abri – Finistère</h2>
-
-                        <h3><i class="fas fa-umbrella-beach"></i> Le charme préservé du Cap-Sizun</h3>
-                        <p>
-                            Nichée dans une anse protégée près de la Pointe du Raz, cette petite plage confidentielle est un <strong>havre
-                            de paix</strong>. Sable doré, eau cristalline et cadre sauvage : c'est l'endroit rêvé pour ceux qui recherchent
-                            l'authenticité loin des foules.
-                        </p>
-
-                        <p>
-                            <strong>Attention :</strong> Accès un peu difficile par un sentier, mais cela contribue à préserver son caractère
-                            sauvage et authentique !
-                        </p>
-
-                        <h2>5. La Plage du Sillon – Ille-et-Vilaine</h2>
-
-                        <h3><i class="fas fa-city"></i> La plage urbaine de Saint-Malo</h3>
-                        <p>
-                            Avec ses <strong>3 km de sable fin</strong> bordant la cité corsaire, la plage du Sillon est l'une des plus grandes
-                            et des plus fréquentées de Bretagne. Vue imprenable sur les remparts de Saint-Malo, ambiance animée et toutes les
-                            commodités à proximité : idéale pour combiner plage et visites culturelles.
-                        </p>
-
-                        <p>
-                            <strong>Conseil :</strong> Venez admirer le coucher de soleil depuis la plage avec vue sur le Fort National et
-                            le Grand Bé. Spectacle garanti !
-                        </p>
-
-                        <h2>Préparer votre séjour plage en Bretagne</h2>
-
-                        <ul>
-                            <li><strong>Meilleure période :</strong> Juin à septembre pour la baignade (eau entre 16°C et 19°C)</li>
-                            <li><strong>Marées :</strong> Consultez les horaires des marées avant votre sortie plage</li>
-                            <li><strong>Équipement :</strong> Même en été, prévoyez un coupe-vent ! Le climat breton est changeant</li>
-                            <li><strong>Hébergement :</strong> Réservez tôt en haute saison, surtout près des plages populaires</li>
-                        </ul>
-
-                        <p class="article-cta">
-                            <strong>Prêt à poser votre serviette sur le sable breton ?</strong><br>
-                            <a href="carte.html" class="cta-link">Découvrez toutes les plages sur notre carte</a> et
-                            <a href="logements.html" class="cta-link">trouvez votre logement en bord de mer</a> !
-                        </p>
-
-                        <div class="article-signature">
-                            <p><em>L'équipe La Belle Bretagne</em></p>
-                            <p><small>Bonnes vacances et profitez bien de notre belle côte ! 🏖️</small></p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article Rennes -->
-                <article id="article-rennes" class="full-article" style="display: none;">
-                    <div class="article-header">
-                        <button class="back-to-blog" onclick="hideFullArticle()">
-                            <i class="fas fa-arrow-left"></i>
-                            Retour aux articles
-                        </button>
-
-                        <div class="article-meta">
-                            <time datetime="2025-01-18">18 janvier 2025</time>
-                            <div class="article-category">
-                                <i class="fas fa-city"></i>
-                                <span>City Guide</span>
-                            </div>
-                        </div>
-
-                        <h1>5 choses incontournables à faire à Rennes</h1>
-
-                        <div class="article-image-full">
-                            <img src="assets/img/placeholder.jpg" alt="Rennes" loading="lazy">
-                        </div>
-                    </div>
-
-                    <div class="article-body">
-                        <p class="article-lead">
-                            Capitale dynamique de la Bretagne, <strong>Rennes</strong> séduit par son patrimoine médiéval,
-                            sa vie culturelle effervescente et son art de vivre à la bretonne. Que vous restiez un week-end
-                            ou une semaine, voici les 5 expériences à ne manquer sous aucun prétexte !
-                        </p>
-
-                        <h2>1. Flâner dans le centre historique</h2>
-
-                        <h3><i class="fas fa-landmark"></i> Un voyage dans le temps</h3>
-                        <p>
-                            Le <strong>centre médiéval de Rennes</strong> est l'un des mieux préservés de France. Plus de
-                            200 maisons à colombages colorées du 15ème et 16ème siècle vous attendent dans les ruelles pavées.
-                            La Place des Lices, la Place Sainte-Anne et la rue du Chapitre sont des incontournables.
-                        </p>
-
-                        <p>
-                            <strong>À ne pas manquer :</strong> Le marché des Lices, tous les samedis matin. Deuxième plus
-                            grand marché de France, c'est une institution rennaise depuis 1622 ! Produits locaux, galettes-saucisses
-                            et ambiance authentique garanties.
-                        </p>
-
-                        <h2>2. Visiter le Parlement de Bretagne</h2>
-
-                        <h3><i class="fas fa-university"></i> Un joyau architectural</h3>
-                        <p>
-                            Chef-d'œuvre de l'architecture du 17ème siècle, le <strong>Parlement de Bretagne</strong> est
-                            aujourd'hui le Palais de Justice. Ses plafonds dorés, ses tapisseries des Gobelins et son Grand'Chambre
-                            sont époustouflants. Un incendie en 1994 a ravagé une partie du bâtiment, mais la restauration minutieuse
-                            lui a redonné toute sa splendeur.
-                        </p>
-
-                        <p>
-                            <strong>Bon plan :</strong> Visite guidée obligatoire (réservation à l'office de tourisme). Le guide
-                            vous raconte l'histoire fascinante de la Bretagne et de ses parlementaires.
-                        </p>
-
-                        <h2>3. S'émerveiller au Parc du Thabor</h2>
-
-                        <h3><i class="fas fa-tree"></i> 10 hectares de nature en plein cœur de ville</h3>
-                        <p>
-                            Véritable <strong>poumon vert de Rennes</strong>, le Parc du Thabor combine jardin à la française,
-                            jardin à l'anglaise et jardin botanique. Roseraie exceptionnelle (plus de 2 000 variétés !), volières,
-                            kiosque à musique et points de vue panoramiques : c'est l'endroit parfait pour une pause détente.
-                        </p>
-
-                        <p>
-                            <strong>Moment idéal :</strong> Venez en juin pour admirer la roseraie en pleine floraison.
-                            Ambiance romantique garantie !
-                        </p>
-
-                        <div class="article-image-inline">
-                            <img src="assets/img/placeholder.jpg" alt="Rennes centre-ville" loading="lazy">
-                            <figcaption>Rennes allie charme médiéval et dynamisme moderne</figcaption>
-                        </div>
-
-                        <h2>4. Profiter de la vie culturelle bouillonnante</h2>
-
-                        <h3><i class="fas fa-music"></i> Une scène culturelle reconnue en France</h3>
-                        <p>
-                            Rennes est une <strong>ville étudiante</strong> (70 000 étudiants !) avec une vie culturelle
-                            exceptionnelle. Les Transmusicales en décembre, le festival Yaouank en octobre, l'Opéra de Rennes,
-                            le Liberté (salle de concerts mythique), les Champs Libres (espace culturel futuriste)...
-                            Il y a toujours quelque chose à voir ou à écouter !
-                        </p>
-
-                        <p>
-                            <strong>Sortie recommandée :</strong> Assistez à un concert aux Transmusicales de Rennes (début décembre).
-                            Ce festival pionnier a révélé Daft Punk, Björk, Nirvana... Ambiance électrique garantie !
-                        </p>
-
-                        <h2>5. Découvrir la gastronomie bretonne</h2>
-
-                        <h3><i class="fas fa-utensils"></i> De la galette au kouign-amann</h3>
-                        <p>
-                            Rennes est le <strong>temple de la galette-saucisse</strong> ! Mais c'est aussi l'occasion de découvrir
-                            toute la richesse de la gastronomie bretonne : crêpes et galettes dans une vraie crêperie, fruits de mer
-                            ultra-frais, cidre fermier, kouign-amann moelleux...
-                        </p>
-
-                        <p>
-                            <strong>Nos adresses coups de cœur :</strong>
-                        </p>
-
-                        <ul>
-                            <li><strong>Crêperie Saint-Georges :</strong> Institution rennaise depuis 1920</li>
-                            <li><strong>Marché des Lices :</strong> Pour la vraie galette-saucisse du samedi matin</li>
-                            <li><strong>Le Tire-Bouchon :</strong> Pour découvrir les produits bretons dans une ambiance bistrot</li>
-                            <li><strong>Boulangerie Jean-Marie Guérin :</strong> Pour le meilleur kouign-amann de Rennes</li>
-                        </ul>
-
-                        <h2>Infos pratiques pour votre séjour à Rennes</h2>
-
-                        <ul>
-                            <li><strong>Comment y aller :</strong> TGV depuis Paris (1h30), aéroport de Rennes (liaisons européennes)</li>
-                            <li><strong>Se déplacer :</strong> Centre-ville compact, idéal à pied. Métro VAL pour les quartiers périphériques</li>
-                            <li><strong>Durée recommandée :</strong> 2-3 jours pour bien profiter de la ville</li>
-                            <li><strong>Meilleure période :</strong> Mai-septembre pour le beau temps, décembre pour les Transmusicales</li>
-                        </ul>
-
-                        <p class="article-cta">
-                            <strong>Prêt à découvrir la capitale bretonne ?</strong><br>
-                            <a href="carte.html" class="cta-link">Explorez Rennes et ses environs sur notre carte</a> et
-                            <a href="logements.html" class="cta-link">réservez votre hébergement à Rennes</a> !
-                        </p>
-
-                        <div class="article-signature">
-                            <p><em>L'équipe La Belle Bretagne</em></p>
-                            <p><small>Kenavo et bon séjour à Rennes ! 🏰</small></p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Newsletter Section -->
-                <section class="newsletter-section">
-                    <div class="newsletter-content">
-                        <h3>Restez connecté à la Bretagne</h3>
-                        <p>Recevez nos derniers articles, bons plans et nouveautés directement dans votre boîte mail</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="Votre adresse email" class="newsletter-input">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i>
-                                S'abonner
-                            </button>
-                        </form>
-                        <p class="newsletter-disclaimer">Pas de spam, promis ! Un email par mois maximum.</p>
-                    </div>
-                </section>
+                <!-- Bouton "Charger plus" -->
+                <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                    <button class="btn btn-primary load-more-btn" id="loadMoreBtn">
+                        <i class="fas fa-chevron-down"></i>
+                        Charger plus d'articles
+                    </button>
+                    <p class="articles-count">
+                        <span id="currentCount">0</span> / <span id="totalCount">0</span> articles affichés
+                    </p>
+                </div>
             </div>
         </section>
     </main>
@@ -678,20 +211,6 @@
                             <i class="fab fa-tiktok"></i>
                         </a>
                     </div>
-                </div>
-
-                <!-- Newsletter -->
-                <div>
-                    <h4 style="margin: 0 0 0.8rem 0; font-weight: 600; color: white; font-size: 0.85rem;">Newsletter</h4>
-                    <p style="margin: 0 0 0.6rem 0; color: #ddd; font-size: 0.7rem; line-height: 1.4;">Recevez nos dernières découvertes bretonnes</p>
-                    <form style="display: flex; gap: 0.5rem;">
-                        <input type="email" placeholder="Votre email"
-                               style="flex: 1; padding: 0.5rem; border: none; border-radius: 6px; font-size: 0.75rem; min-width: 0;">
-                        <button type="submit"
-                                style="background: #3b82f6; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; white-space: nowrap;">
-                            S'abonner
-                        </button>
-                    </form>
                 </div>
             </div>
 
@@ -757,8 +276,5 @@
         });
     </script>
 
-    <!-- Translation System -->
-    <script src="js/translations.js"></script>
-    <script src="js/language-selector.js"></script>
 </body>
 </html>

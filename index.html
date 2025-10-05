@@ -7,6 +7,18 @@
     <title>La Belle Bretagne - Découvrez les merveilles de la Bretagne</title>
     <meta name="description" content="Explorez la Bretagne authentique : lieux incontournables, hébergements, festivals et points d'intérêt touristiques.">
 
+    <!-- Balises hreflang pour le SEO international -->
+    <link rel="alternate" hreflang="fr" href="https://labellebretagne.com/" />
+    <link rel="alternate" hreflang="en" href="https://labellebretagne.com/en/" />
+    <link rel="alternate" hreflang="de" href="https://labellebretagne.com/de/" />
+    <link rel="alternate" hreflang="es" href="https://labellebretagne.com/es/" />
+    <link rel="alternate" hreflang="it" href="https://labellebretagne.com/it/" />
+    <link rel="alternate" hreflang="nl" href="https://labellebretagne.com/nl/" />
+    <link rel="alternate" hreflang="pt" href="https://labellebretagne.com/pt/" />
+    <link rel="alternate" hreflang="zh" href="https://labellebretagne.com/zh/" />
+    <link rel="alternate" hreflang="ja" href="https://labellebretagne.com/ja/" />
+    <link rel="alternate" hreflang="x-default" href="https://labellebretagne.com/" />
+
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +33,6 @@
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/modern-layout.css">
     <link rel="stylesheet" href="css/buttons.css">
-    <link rel="stylesheet" href="css/language-selector.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/home.css">
     <!-- IMPORTANT: Mobile fixes doit être chargé EN DERNIER -->
@@ -54,61 +65,6 @@
                     <li role="none"><a href="instagram.html" class="nav-link" role="menuitem" data-translate="nav.instagram">Instagram</a></li>
                 </ul>
 
-                <!-- Sélecteur de langue -->
-                <div class="language-selector">
-                    <button class="language-btn" id="languageBtn" onclick="toggleLanguageDropdown()">
-                        <span class="flag" id="currentFlag">🇫🇷</span>
-                        <span id="currentLang">FR</span>
-                        <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
-                    </button>
-                    <div class="language-dropdown" id="languageDropdown">
-                        <div class="language-option active" data-lang="fr" onclick="changeLanguage('fr')">
-                            <span class="flag">🇫🇷</span>
-                            <span class="lang-name">Français</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="en" onclick="changeLanguage('en')">
-                            <span class="flag">🇬🇧</span>
-                            <span class="lang-name">English</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="de" onclick="changeLanguage('de')">
-                            <span class="flag">🇩🇪</span>
-                            <span class="lang-name">Deutsch</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="es" onclick="changeLanguage('es')">
-                            <span class="flag">🇪🇸</span>
-                            <span class="lang-name">Español</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="it" onclick="changeLanguage('it')">
-                            <span class="flag">🇮🇹</span>
-                            <span class="lang-name">Italiano</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="nl" onclick="changeLanguage('nl')">
-                            <span class="flag">🇳🇱</span>
-                            <span class="lang-name">Nederlands</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="pt" onclick="changeLanguage('pt')">
-                            <span class="flag">🇵🇹</span>
-                            <span class="lang-name">Português</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="zh" onclick="changeLanguage('zh')">
-                            <span class="flag">🇨🇳</span>
-                            <span class="lang-name">中文</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                        <div class="language-option" data-lang="ja" onclick="changeLanguage('ja')">
-                            <span class="flag">🇯🇵</span>
-                            <span class="lang-name">日本語</span>
-                            <i class="fas fa-check checkmark"></i>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <button class="mobile-menu-toggle" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -186,187 +142,119 @@
                     <p class="section-subtitle" data-translate="sections.featuredAccommodationsDesc">Découvrez notre sélection d'hébergements d'exception</p>
                 </div>
 
-                <div class="grid grid-3">
-                    <article class="card">
-                        <div class="card-image">
-                            <img src="assets/img/agapa-hotel-perros-guirec-1.jpg"
-                                 alt="Vue extérieure de l'Agapa Hotel à Perros-Guirec"
-                                 width="900"
-                                 height="500"
-                                 loading="lazy"
-                                 decoding="async">
-                            <div class="card-badge">
-                                <i class="fas fa-bed" aria-hidden="true"></i>
-                                <span data-translate="categories.hotel">Hôtel</span>
+                <!-- Prochains hébergements (section d'attente) -->
+                <div class="coming-soon-section">
+                    <div class="coming-soon-content">
+                        <div class="coming-soon-icon">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <h3>De magnifiques hébergements arrivent bientôt !</h3>
+                        <p class="coming-soon-lead">
+                            Nous préparons une sélection exceptionnelle d'hébergements en Bretagne
+                        </p>
+                        <div class="coming-soon-features">
+                            <div class="feature-item">
+                                <i class="fas fa-star"></i>
+                                <span>Hôtels de charme</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-home"></i>
+                                <span>Locations insolites</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-gem"></i>
+                                <span>Maisons de rêve</span>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h3 class="card-title" data-translate="accommodations.agapaHotel.title">L'Agapa Hotel</h3>
-                            <p class="card-description" data-translate="accommodations.agapaHotel.description">Hôtel de luxe face à la mer avec spa et vue panoramique sur l'archipel des Sept-Îles.</p>
-                            <div class="card-meta">
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                <span data-translate="accommodations.agapaHotel.location">Perros-Guirec, Côtes-d'Armor</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="carte.html" class="btn btn-primary btn-sm">
-                                    <span data-translate="buttons.discoverMore">En savoir plus</span>
-                                </a>
-                                <a href="#" class="btn btn-secondary btn-sm">
-                                    <span data-translate="buttons.book">Réserver</span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
+                        <p class="coming-soon-cta">Restez connectés pour découvrir nos coups de cœur</p>
+                        <a href="carte.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-map-marked-alt"></i>
+                            Découvrir la carte interactive
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <article class="card">
-                        <div class="card-image">
-                            <img src="assets/img/vallee-pratmeur-1.jpg"
-                                 alt="Hébergement insolite dans la Vallée de Pratmeur"
-                                 width="1024"
-                                 height="683"
-                                 loading="lazy"
-                                 decoding="async">
-                            <div class="card-badge">
-                                <i class="fas fa-tree-city" aria-hidden="true"></i>
-                                <span data-translate="categories.unusualAccommodation">Insolite</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title" data-translate="accommodations.valleePratmeur.title">Vallée de Pratmeur</h3>
-                            <p class="card-description" data-translate="accommodations.valleePratmeur.description">Logement insolite au cœur de la nature bretonne pour une expérience unique et authentique.</p>
-                            <div class="card-meta">
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                <span data-translate="accommodations.valleePratmeur.location">Finistère</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="carte.html" class="btn btn-primary btn-sm">
-                                    <span data-translate="buttons.discoverMore">En savoir plus</span>
-                                </a>
-                                <a href="#" class="btn btn-secondary btn-sm">
-                                    <span data-translate="buttons.book">Réserver</span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-image">
-                            <img src="assets/img/villa-lily-spa-1.jpg"
-                                 alt="Villa Lily Spa avec spa privatif en Bretagne"
-                                 width="726"
-                                 height="768"
-                                 loading="lazy"
-                                 decoding="async">
-                            <div class="card-badge">
-                                <i class="fas fa-tree-city" aria-hidden="true"></i>
-                                <span data-translate="categories.unusualAccommodation">Insolite</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title" data-translate="accommodations.villaLilySpa.title">Villa Lily Spa</h3>
-                            <p class="card-description" data-translate="accommodations.villaLilySpa.description">Logement insolite d'exception avec spa privatif pour un séjour détente et bien-être en Bretagne.</p>
-                            <div class="card-meta">
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                <span data-translate="accommodations.villaLilySpa.location">Morbihan</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="carte.html" class="btn btn-primary btn-sm">
-                                    <span data-translate="buttons.discoverMore">En savoir plus</span>
-                                </a>
-                                <a href="#" class="btn btn-secondary btn-sm">
-                                    <span data-translate="buttons.book">Réserver</span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
+        <!-- Festivals -->
+        <section class="section section-alt" aria-labelledby="festivals-title">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 id="festivals-title" class="section-title">Prochains festivals</h2>
+                    <p class="section-subtitle">Vivez la culture bretonne au rythme des festivals</p>
                 </div>
 
-                <div class="text-center mt-8">
-                    <a href="logements.html" class="btn btn-secondary btn-lg" data-translate="sections.discoverBestAccommodations">
-                        Découvrir les meilleurs hébergements en Bretagne
-                    </a>
+                <!-- Prochains festivals (section d'attente) -->
+                <div class="coming-soon-section">
+                    <div class="coming-soon-content">
+                        <div class="coming-soon-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Des festivals exceptionnels arrivent bientôt !</h3>
+                        <p class="coming-soon-lead">
+                            Nous préparons une sélection des meilleurs événements culturels bretons
+                        </p>
+                        <div class="coming-soon-features">
+                            <div class="feature-item">
+                                <i class="fas fa-guitar"></i>
+                                <span>Festivals de musique</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-masks-theater"></i>
+                                <span>Événements culturels</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-champagne-glasses"></i>
+                                <span>Fêtes traditionnelles</span>
+                            </div>
+                        </div>
+                        <p class="coming-soon-cta">Restez connectés pour ne manquer aucun événement</p>
+                        <a href="festivals.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calendar-alt"></i>
+                            Découvrir les festivals
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Blog -->
-        <section class="section section-alt" aria-labelledby="blog-title">
+        <section class="section" aria-labelledby="blog-title">
             <div class="section-container">
                 <div class="section-header">
                     <h2 id="blog-title" class="section-title" data-translate="blog.latestArticles">Derniers articles du blog</h2>
-                    <a href="blog.html" class="btn btn-secondary" data-translate="blog.seeAllArticles">Voir tous les articles</a>
                 </div>
 
-                <div class="grid grid-3">
-                    <!-- Article 1: 5 plages -->
-                    <article class="card" onclick="window.location='blog.html'">
-                        <div class="card-image">
-                            <img src="assets/img/placeholder.jpg"
-                                 alt="Les plus belles plages de Bretagne"
-                                 width="400"
-                                 height="220"
-                                 loading="lazy"
-                                 decoding="async">
+                <!-- Prochains articles (section d'attente) -->
+                <div class="coming-soon-section">
+                    <div class="coming-soon-content">
+                        <div class="coming-soon-icon">
+                            <i class="fas fa-pen-fancy"></i>
                         </div>
-                        <div class="card-body">
-                            <h3 class="card-title">5 plages incontournables à découvrir en Bretagne</h3>
-                            <p class="card-description">Des eaux turquoise, du sable fin et des paysages à couper le souffle : découvrez notre sélection des plus belles plages bretonnes...</p>
-                            <div class="card-meta">
-                                <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                                <span>15 janvier 2025</span>
-                                <span>•</span>
-                                <i class="fas fa-clock" aria-hidden="true"></i>
-                                <span>5 min</span>
+                        <h3>De nouveaux articles arrivent bientôt !</h3>
+                        <p class="coming-soon-lead">
+                            Nous préparons de nombreux contenus inspirants pour découvrir la Bretagne autrement
+                        </p>
+                        <div class="coming-soon-features">
+                            <div class="feature-item">
+                                <i class="fas fa-map-signs"></i>
+                                <span>Guides pratiques</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Coups de cœur</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-camera-retro"></i>
+                                <span>Récits de voyage</span>
                             </div>
                         </div>
-                    </article>
-
-                    <!-- Article 2: Rennes -->
-                    <article class="card" onclick="window.location='blog.html'">
-                        <div class="card-image">
-                            <img src="assets/img/placeholder.jpg"
-                                 alt="Visiter Rennes"
-                                 width="400"
-                                 height="220"
-                                 loading="lazy"
-                                 decoding="async">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">5 choses incontournables à faire à Rennes</h3>
-                            <p class="card-description">Capitale de la Bretagne, Rennes allie patrimoine historique, scène culturelle bouillonnante et art de vivre breton...</p>
-                            <div class="card-meta">
-                                <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                                <span>18 janvier 2025</span>
-                                <span>•</span>
-                                <i class="fas fa-clock" aria-hidden="true"></i>
-                                <span>6 min</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Article 3: Lancement -->
-                    <article class="card" onclick="window.location='blog.html'">
-                        <div class="card-image">
-                            <img src="assets/img/blog-lancement-site-1.jpg"
-                                 alt="Lancement de La Belle Bretagne"
-                                 width="400"
-                                 height="220"
-                                 loading="lazy"
-                                 decoding="async"
-                                 onerror="this.src='assets/img/placeholder.jpg'">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Bienvenue sur La Belle Bretagne !</h3>
-                            <p class="card-description">C'est avec une immense fierté que nous lançons aujourd'hui La Belle Bretagne, le site qui va révolutionner la découverte de notre région...</p>
-                            <div class="card-meta">
-                                <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                                <span>20 décembre 2024</span>
-                                <span>•</span>
-                                <i class="fas fa-clock" aria-hidden="true"></i>
-                                <span>3 min</span>
-                            </div>
-                        </div>
-                    </article>
+                        <p class="coming-soon-cta">Restez connectés pour ne rien manquer de nos prochaines publications</p>
+                        <a href="blog.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-pen-fancy"></i>
+                            Découvrir le blog
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -395,7 +283,7 @@
                     <h4 data-translate="footer.information">Informations</h4>
                     <ul class="footer-links">
                         <li><a href="mentions-legales.html" class="footer-link" data-translate="footer.legalNotice">Mentions légales</a></li>
-                        <li><a href="mailto:contact@labellebretagne.fr" class="footer-link" data-translate="footer.contact">Nous contacter</a></li>
+                        <li><a href="mailto:contact@bellebretagne.fr" class="footer-link" data-translate="footer.contact">Nous contacter</a></li>
                         <li><a href="about.html" class="footer-link" data-translate="footer.about">Qui sommes-nous</a></li>
                     </ul>
                 </div>
@@ -410,34 +298,10 @@
                         <a href="https://facebook.com/labellebretagne" class="footer-link social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-facebook" aria-hidden="true"></i>
                         </a>
-                        <a href="https://tiktok.com/@labellebretagne" class="footer-link social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+                        <a href="https://tiktok.com/@bellebretagne" class="footer-link social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-tiktok" aria-hidden="true"></i>
                         </a>
                     </div>
-                </div>
-
-                <!-- Newsletter -->
-                <div class="footer-section">
-                    <h4 data-translate="footer.newsletter">Newsletter</h4>
-                    <p class="newsletter-desc" data-translate="footer.newsletterDesc">Recevez nos dernières découvertes bretonnes</p>
-                    <form class="newsletter-form" aria-label="Formulaire d'inscription newsletter" action="#" method="post">
-                        <label for="newsletter-email" class="sr-only">Adresse email</label>
-                        <input
-                            type="email"
-                            id="newsletter-email"
-                            name="email"
-                            class="newsletter-input"
-                            placeholder="Votre email"
-                            data-translate="footer.emailPlaceholder"
-                            autocomplete="email"
-                            required>
-                        <button
-                            type="submit"
-                            class="btn btn-accent btn-sm"
-                            data-translate="footer.subscribe">
-                            S'abonner
-                        </button>
-                    </form>
                 </div>
             </div>
 
@@ -450,8 +314,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/translations.js" defer></script>
-    <script src="js/language-selector.js" defer></script>
     <script defer>
         // Header scroll effect
         let ticking = false;
