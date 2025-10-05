@@ -130,3 +130,26 @@ ServerTokens Prod
 
 # Désactiver la signature du serveur
 ServerSignature Off
+
+# ===================================================================
+# URLS PROPRES (Sans extension .html)
+# ===================================================================
+
+# Rediriger index.html vers /accueil
+RewriteCond %{THE_REQUEST} ^GET\ /index\.html
+RewriteRule ^index\.html$ /accueil [R=301,L]
+
+# Rediriger /accueil vers index.html en interne
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^accueil$ index.html [L]
+
+# Retirer l'extension .html des URLs
+RewriteCond %{THE_REQUEST} ^GET\ /([^\ ]+)\.html
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# Rediriger vers le fichier .html correspondant
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
