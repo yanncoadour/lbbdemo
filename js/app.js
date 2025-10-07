@@ -1485,17 +1485,35 @@ function createPopupContent(poi) {
     // Déterminer l'article correct (le/la)
     const article = getArticleForCategory(poi.categories[0]);
 
+    // Helper function to get image credit
+    const getImageCredit = (imageSrc) => {
+        if (!poi.imageCredits || !Array.isArray(poi.imageCredits)) return null;
+        return poi.imageCredits.find(credit => credit.image === imageSrc);
+    };
+
     return `
         <div class="popup-modern">
             <!-- Image en pleine largeur en haut -->
             <div class="popup-image-hero">
                 ${poi.images && poi.images.length > 1 ? `
-                    ${poi.images.map((img, index) => `
+                    ${poi.images.map((img, index) => {
+                        const credit = getImageCredit(img);
+                        return `
                         <img src="${img}" alt="${poi.title} - Photo ${index + 1}"
                              class="gallery-image ${index === 0 ? 'active' : ''}"
                              data-position="${index === 0 ? 'center-top-soft' : 'center'}"
                              onerror="this.src='assets/img/placeholder.jpg'">
-                    `).join('')}
+                        ${credit ? `
+                            <a href="${credit.instagramUrl}" target="_blank" rel="noopener noreferrer"
+                               class="image-credit-badge-${index}"
+                               data-credit-index="${index}"
+                               onclick="event.stopPropagation();"
+                               style="position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.7); color: white; padding: 3px 6px; border-radius: 12px; font-size: 8px; text-decoration: none; ${index === 0 ? 'display: flex;' : 'display: none;'} align-items: center; gap: 3px; backdrop-filter: blur(4px); transition: background 0.3s; z-index: 100; pointer-events: auto;">
+                                <i class="fab fa-instagram" style="font-size: 9px;"></i>
+                                <span>${credit.photographer}</span>
+                            </a>
+                        ` : ''}`;
+                    }).join('')}
 
                     <!-- Indicateurs (dots) -->
                     <div class="gallery-dots">
@@ -1506,6 +1524,18 @@ function createPopupContent(poi) {
                 ` : `
                     <img src="${poi.image}" alt="${poi.title}"
                          onerror="this.src='assets/img/placeholder.jpg'">
+                    ${(() => {
+                        const credit = getImageCredit(poi.image);
+                        return credit ? `
+                            <a href="${credit.instagramUrl}" target="_blank" rel="noopener noreferrer"
+                               class="image-credit-badge"
+                               onclick="event.stopPropagation();"
+                               style="position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.7); color: white; padding: 3px 6px; border-radius: 12px; font-size: 8px; text-decoration: none; display: flex; align-items: center; gap: 3px; backdrop-filter: blur(4px); transition: background 0.3s; z-index: 100; pointer-events: auto;">
+                                <i class="fab fa-instagram" style="font-size: 9px;"></i>
+                                <span>${credit.photographer}</span>
+                            </a>
+                        ` : '';
+                    })()}
                 `}
                 <!-- Badge catégorie superposé -->
                 <div class="popup-category-badge">
@@ -2383,6 +2413,9 @@ async function loadPoiData(slug) {
  * Affiche les données d'un POI
  */
 function displayPoiData(poi) {
+    // Stocker le POI pour le carrousel modal
+    window.currentPoiData = poi;
+
     const loading = document.getElementById('loading');
     const content = document.getElementById('poiContent');
     const error = document.getElementById('error');
@@ -2421,6 +2454,29 @@ function displayPoiData(poi) {
         poiImage.onerror = function() {
             this.src = 'assets/img/placeholder.jpg';
         };
+
+        // Ajouter le badge de crédit photo si disponible
+        const imageContainer = poiImage.parentElement;
+        if (imageContainer && poi.imageCredits && Array.isArray(poi.imageCredits)) {
+            const credit = poi.imageCredits.find(c => c.image === poi.image);
+            if (credit) {
+                // Supprimer l'ancien badge s'il existe
+                const oldBadge = imageContainer.querySelector('.image-credit-badge-hero');
+                if (oldBadge) oldBadge.remove();
+
+                // Créer le nouveau badge
+                const badge = document.createElement('a');
+                badge.href = credit.instagramUrl;
+                badge.target = '_blank';
+                badge.rel = 'noopener noreferrer';
+                badge.className = 'image-credit-badge-hero';
+                badge.onclick = (e) => e.stopPropagation();
+                badge.style.cssText = 'position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); color: white; padding: 4px 8px; border-radius: 15px; font-size: 10px; text-decoration: none; display: flex; align-items: center; gap: 4px; backdrop-filter: blur(4px); transition: background 0.3s; z-index: 10;';
+                badge.innerHTML = `<i class="fab fa-instagram" style="font-size: 11px;"></i><span>${credit.photographer}</span>`;
+                imageContainer.style.position = 'relative';
+                imageContainer.appendChild(badge);
+            }
+        }
     }
 
     // Catégories
@@ -2650,18 +2706,34 @@ function displayPoiGallery(poi) {
         ];
     }
 
+    // Helper function to get image credit
+    const getImageCredit = (imageSrc) => {
+        if (!poi.imageCredits || !Array.isArray(poi.imageCredits)) return null;
+        return poi.imageCredits.find(credit => credit.image === imageSrc);
+    };
+
     // Créer les éléments de galerie
     const galleryHTML = additionalImages.map((imageUrl, index) => {
         // Échapper les données utilisateur pour éviter les injections
         const escapedImageUrl = imageUrl.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
         const escapedTitle = poi.title.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
         const escapedLabel = (imageLabels[index] || `Vue ${index + 1}`).replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+        const credit = getImageCredit(imageUrl);
 
         return `
-            <div class="poi-gallery-image" onclick="openImageModal('${escapedImageUrl}', '${escapedTitle} - ${escapedLabel}')">
-                <img src="${escapedImageUrl}" 
-                     alt="${escapedTitle} - ${escapedLabel}" 
+            <div class="poi-gallery-image" onclick="openImageCarousel(${index})" style="position: relative; cursor: pointer;">
+                <img src="${escapedImageUrl}"
+                     alt="${escapedTitle} - ${escapedLabel}"
                      onerror="this.src='assets/img/placeholder.jpg'">
+                ${credit ? `
+                    <a href="${credit.instagramUrl}" target="_blank" rel="noopener noreferrer"
+                       class="image-credit-badge"
+                       onclick="event.stopPropagation();"
+                       style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); color: white; padding: 4px 8px; border-radius: 15px; font-size: 10px; text-decoration: none; display: flex; align-items: center; gap: 4px; backdrop-filter: blur(4px); transition: background 0.3s; z-index: 10;">
+                        <i class="fab fa-instagram" style="font-size: 11px;"></i>
+                        <span>${credit.photographer}</span>
+                    </a>
+                ` : ''}
                 <div class="poi-gallery-overlay">
                     <div class="poi-gallery-caption">
                         ${escapedLabel}
@@ -2680,55 +2752,140 @@ function displayPoiGallery(poi) {
 }
 
 /**
- * Ouvre une image en modal (fonction simple pour l'instant)
+ * Variables globales pour le carrousel modal
  */
-function openImageModal(imageUrl, caption) {
-    // Pour l'instant, on ouvre l'image dans un nouvel onglet
-    // On pourra améliorer avec une vraie modal plus tard
-    const newWindow = window.open('', '_blank');
-    newWindow.document.write(`
-        <html>
-            <head>
-                <title>${caption}</title>
-                <style>
-                    body { 
-                        margin: 0; 
-                        padding: 20px; 
-                        background: #000; 
-                        display: flex; 
-                        flex-direction: column; 
-                        align-items: center; 
-                        justify-content: center; 
-                        min-height: 100vh;
-                        font-family: 'Inter', sans-serif;
-                    }
-                    img { 
-                        max-width: 100%; 
-                        max-height: 90vh; 
-                        object-fit: contain;
-                        box-shadow: 0 10px 30px rgba(255,255,255,0.1);
-                    }
-                    .caption {
-                        color: white;
-                        font-size: 18px;
-                        font-weight: 600;
-                        margin-top: 20px;
-                        text-align: center;
-                    }
-                    .close-hint {
-                        color: rgba(255,255,255,0.7);
-                        font-size: 14px;
-                        margin-top: 10px;
-                    }
-                </style>
-            </head>
-            <body>
-                <img src="${imageUrl}" alt="${caption}">
-                <div class="caption">${caption}</div>
-                <div class="close-hint">Fermez cet onglet pour revenir</div>
-            </body>
-        </html>
-    `);
+let currentModalCarouselIndex = 0;
+let modalCarouselPoi = null;
+
+/**
+ * Ouvre le carrousel d'images en modal
+ */
+function openImageCarousel(startIndex = 0) {
+    currentModalCarouselIndex = startIndex;
+
+    // Créer ou récupérer le modal
+    let modal = document.getElementById('imageCarouselModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'imageCarouselModal';
+        modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; display: none; align-items: center; justify-content: center;';
+        document.body.appendChild(modal);
+    }
+
+    // Récupérer les informations du POI actuel
+    const poiData = window.currentPoiData || modalCarouselPoi;
+    if (!poiData || !poiData.images) return;
+
+    modalCarouselPoi = poiData;
+
+    // Fonction helper pour obtenir le crédit
+    const getImageCredit = (imageSrc) => {
+        if (!poiData.imageCredits || !Array.isArray(poiData.imageCredits)) return null;
+        return poiData.imageCredits.find(credit => credit.image === imageSrc);
+    };
+
+    // Générer le HTML du carrousel
+    const modalHTML = `
+        <button onclick="closeImageCarousel()" style="position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 24px; z-index: 10001; backdrop-filter: blur(10px);">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <button onclick="prevModalImage()" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); border: none; color: white; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 24px; z-index: 10001; backdrop-filter: blur(10px);">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <button onclick="nextModalImage()" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); border: none; color: white; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 24px; z-index: 10001; backdrop-filter: blur(10px);">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div style="position: relative; max-width: 90%; max-height: 90%; display: flex; align-items: center; justify-content: center;">
+            ${poiData.images.map((img, idx) => {
+                const credit = getImageCredit(img);
+                return `
+                    <div class="modal-carousel-slide" style="display: ${idx === startIndex ? 'block' : 'none'}; position: relative;">
+                        <img src="${img}" alt="${poiData.title}" style="max-width: 90vw; max-height: 85vh; object-fit: contain;">
+                        ${credit ? `
+                            <a href="${credit.instagramUrl}" target="_blank" rel="noopener noreferrer"
+                               onclick="event.stopPropagation();"
+                               style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.7); color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; text-decoration: none; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(4px); transition: background 0.3s; z-index: 10002;">
+                                <i class="fab fa-instagram" style="font-size: 14px;"></i>
+                                <span>${credit.photographer}</span>
+                            </a>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('')}
+        </div>
+
+        <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10001;">
+            ${poiData.images.map((_, idx) => `
+                <span onclick="goToModalImage(${idx})" style="width: 10px; height: 10px; border-radius: 50%; background: ${idx === startIndex ? 'white' : 'rgba(255,255,255,0.5)'}; cursor: pointer; display: inline-block;" class="modal-carousel-dot"></span>
+            `).join('')}
+        </div>
+    `;
+
+    modal.innerHTML = modalHTML;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+/**
+ * Ferme le carrousel modal
+ */
+function closeImageCarousel() {
+    const modal = document.getElementById('imageCarouselModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+/**
+ * Image suivante dans le carrousel modal
+ */
+function nextModalImage() {
+    const slides = document.querySelectorAll('.modal-carousel-slide');
+    const dots = document.querySelectorAll('.modal-carousel-dot');
+
+    slides[currentModalCarouselIndex].style.display = 'none';
+    dots[currentModalCarouselIndex].style.background = 'rgba(255,255,255,0.5)';
+
+    currentModalCarouselIndex = (currentModalCarouselIndex + 1) % slides.length;
+
+    slides[currentModalCarouselIndex].style.display = 'block';
+    dots[currentModalCarouselIndex].style.background = 'white';
+}
+
+/**
+ * Image précédente dans le carrousel modal
+ */
+function prevModalImage() {
+    const slides = document.querySelectorAll('.modal-carousel-slide');
+    const dots = document.querySelectorAll('.modal-carousel-dot');
+
+    slides[currentModalCarouselIndex].style.display = 'none';
+    dots[currentModalCarouselIndex].style.background = 'rgba(255,255,255,0.5)';
+
+    currentModalCarouselIndex = (currentModalCarouselIndex - 1 + slides.length) % slides.length;
+
+    slides[currentModalCarouselIndex].style.display = 'block';
+    dots[currentModalCarouselIndex].style.background = 'white';
+}
+
+/**
+ * Aller à une image spécifique
+ */
+function goToModalImage(index) {
+    const slides = document.querySelectorAll('.modal-carousel-slide');
+    const dots = document.querySelectorAll('.modal-carousel-dot');
+
+    slides[currentModalCarouselIndex].style.display = 'none';
+    dots[currentModalCarouselIndex].style.background = 'rgba(255,255,255,0.5)';
+
+    currentModalCarouselIndex = index;
+
+    slides[currentModalCarouselIndex].style.display = 'block';
+    dots[currentModalCarouselIndex].style.background = 'white';
 }
 
 /**
@@ -3447,6 +3604,17 @@ function showGalleryImage(index) {
     if (galleryDots[index]) {
         galleryDots[index].classList.add('active');
     }
+
+    // Gérer l'affichage des badges de crédit photo
+    const creditBadges = document.querySelectorAll('[data-credit-index]');
+    creditBadges.forEach(badge => {
+        const badgeIndex = parseInt(badge.getAttribute('data-credit-index'));
+        if (badgeIndex === index) {
+            badge.style.display = 'flex';
+        } else {
+            badge.style.display = 'none';
+        }
+    });
 
     console.log('🖼️ Image changée vers index:', index);
 }

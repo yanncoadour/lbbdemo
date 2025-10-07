@@ -1,3 +1,42 @@
 {
-  "pois": []
+  "pois": [
+    {
+      "id": "plage-des-amiets-cleder",
+      "title": "Plage des Amiets",
+      "slug": "plage-des-amiets-cleder",
+      "department": "Finistère",
+      "categories": ["plage"],
+      "lat": 48.693410353470384,
+      "lng": -4.139733395911319,
+      "shortDescription": "Plage des Amiets à Cléder – sable blanc, eau turquoise, nature préservée et ambiance bretonne. L'une des plus belles plages du Finistère nord à découvrir.",
+      "description": "<p>À l'extrême nord du Finistère, la Plage des Amiets à Cléder incarne la beauté brute de la Bretagne. Immense étendue de sable fin, eaux d'un bleu cristallin et dunes à perte de vue : ici, la nature se montre dans toute sa générosité. C'est l'une des plus belles plages de la Côte des Sables, un lieu à la fois apaisant et vibrant, où la mer, la lumière et le vent dessinent chaque jour un nouveau tableau.</p><p>Le panorama, ouvert sur l'infini, offre cette sensation rare d'espace et de liberté. Les familles s'y retrouvent pour des journées paisibles, les marcheurs y suivent les sentiers côtiers, et les amateurs de sport glissent sur les vagues à la recherche du vent parfait.</p><h3>Une plage pour tous les moments</h3><p>La Plage des Amiets s'adapte à toutes les envies. Le matin, on y vient pour une promenade tranquille entre les dunes et la mer. L'après-midi, le sable chaud accueille les serviettes et les rires des enfants. Le soir, la lumière dorée se reflète sur les rochers et transforme le paysage en décor de carte postale.</p><p>À marée basse, la grenouillère, petit bassin naturel, devient le terrain de jeu préféré des plus jeunes. À marée haute, la plage s'anime : baignade, paddle, kayak, planche à voile ou simple farniente face à l'horizon. Chaque instant est différent, mais toujours empreint de cette énergie marine si propre à la Bretagne.</p><h3>Nature préservée et authenticité bretonne</h3><p>Entourée de dunes protégées, la Plage des Amiets a su garder son caractère sauvage et authentique. Le vent, le sable et la mer y vivent en parfaite harmonie. On y ressent la Bretagne dans ce qu'elle a de plus vrai : une nature puissante, un littoral préservé, une beauté sans artifice.</p><p>Les promeneurs peuvent prolonger l'expérience en suivant le sentier du GR34, qui serpente le long de la côte. Ce chemin légendaire dévoile des panoramas spectaculaires sur les îlots, les rochers et la mer d'Iroise. Chaque pas offre un nouveau point de vue, un nouveau souffle.</p><h3>Services et accessibilité</h3><p>En été, la plage est surveillée et parfaitement adaptée aux familles. Des sanitaires, douches et parkings sont à disposition, et un accès aménagé permet de rejoindre le rivage facilement. Malgré son succès, elle conserve une ambiance calme et naturelle, loin de l'agitation des grandes stations balnéaires.</p><p>À proximité, on trouve quelques cafés et points de restauration pour prolonger la journée autour d'une glace, d'un café ou d'un plateau de fruits de mer en terrasse.</p><h3>Pourquoi découvrir la Plage des Amiets ?</h3><ul><li>Un sable blanc éclatant et une eau turquoise rare en Bretagne</li><li>Un lieu idéal pour les familles, les randonneurs et les photographes</li><li>Un cadre naturel préservé, entre dunes et horizon marin</li><li>Des activités nautiques variées et accessibles</li><li>Une lumière exceptionnelle au coucher du soleil</li><li>Une ambiance bretonne authentique, à la fois paisible et vivante</li></ul><h3>L'esprit des Amiets</h3><p>La Plage des Amiets est plus qu'un simple rivage : c'est un lieu d'émotion, un espace de liberté où l'on vient se reconnecter à l'essentiel. Ici, le silence du vent, le parfum de l'embrun et la lumière changeante rappellent à chacun la beauté simple des choses.</p><p>Un coin de Bretagne à la fois grandiose et intime, où la mer semble veiller sur le temps qui passe.</p>",
+      "image": "assets/img/les-amiets-cleder-didilemme.jpg",
+      "images": [
+        "assets/img/les-amiets-cleder-didilemme.jpg",
+        "assets/img/les-amiets-cleder-adilemoinephotographer.jpg",
+        "assets/img/les-amiets-cleder-ludovic-lagadec-photographe.jpg"
+      ],
+      "imageCredits": [
+        {
+          "image": "assets/img/les-amiets-cleder-didilemme.jpg",
+          "photographer": "didilemme",
+          "instagramUrl": "https://www.instagram.com/didilemme"
+        },
+        {
+          "image": "assets/img/les-amiets-cleder-adilemoinephotographer.jpg",
+          "photographer": "adilemoigne_photographer",
+          "instagramUrl": "https://www.instagram.com/adilemoigne_photographer/"
+        },
+        {
+          "image": "assets/img/les-amiets-cleder-ludovic-lagadec-photographe.jpg",
+          "photographer": "ludovic_lagadec_photographe",
+          "instagramUrl": "https://www.instagram.com/ludovic_lagadec_photographe"
+        }
+      ],
+      "tested": false,
+      "coupDeCoeur": false,
+      "address": "Plage des Amiets, 29233 Cléder",
+      "tags": ["plage", "nature", "pêche à pied", "familial", "sauvage"]
+    }
+  ]
 }
