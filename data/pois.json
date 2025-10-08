@@ -1,6 +1,44 @@
 {
   "pois": [
     {
+      "id": "chateau-du-taureau",
+      "title": "Château du Taureau",
+      "slug": "chateau-du-taureau",
+      "department": "Finistère",
+      "categories": ["chateau"],
+      "lat": 48.675748654880366,
+      "lng": -3.88436087636032,
+      "shortDescription": "Château du Taureau – forteresse maritime du Trieux, accessible en vedette ou à marée basse. Visite guidée au cœur d'un paysage sauvage entre ciel et mer.",
+      "description": "<p>Dressé au large, au cœur de l'estuaire du Trieux, le Château du Taureau est une citadelle marine fascinante. Bâtie au XVIᵉ siècle sur un îlot rocheux, sa silhouette s'impose face aux marées, entre ciel et mer, gardienne silencieuse des côtes bretonnes. Accessible uniquement à marée basse ou en vedette, ce château défie le temps et raconte une histoire riche, entre défense du littoral et légendes iodées.</p><h3>Un monument chargé d'histoire et de mystère</h3><p>Le Château du Taureau fut érigé pour protéger l'entrée du Trieux, puis transformé et renforcé au fil des siècles, notamment sous Vauban. Son architecture robuste, ses tours circulaires, ses échauguettes et ses courtines témoignent du génie militaire breton. Chaque pierre semble murmurer les récits d'aventuriers, de soldats et de marins, comme autant d'échos des siècles passés.</p><h3>Visiter, explorer, ressentir</h3><p>La visite du Château du Taureau est une aventure en elle-même. À marée basse, l'îlot se dévoile : la passerelle permet d'accéder au fort, d'en arpenter les remparts, de pénétrer la salle des gardes, les casemates et la batterie. Accompagné d'un guide local passionné, on découvre les anecdotes du passé : siège, réparations, vie maritime et légendes du large.</p><p>En vedette, on atteint le château même à marée haute : la traversée offre déjà un spectacle — mer dansante, fort émergeant, embruns salés. Le panorama depuis les remparts est spectaculaire : horizon marin, côtes proches, îlots, goélands en vol.</p><h3>Un décor naturel et sauvage</h3><p>Isolé au large, le château est entouré de vagues et d'écume, posé entre ciel et océan. Les roches escarpées, les fonds marins, les contrastes entre les eaux vert bleu et les pierres grises offrent une toile sauvage. Le vent, l'odeur du sel et le cri des oiseaux marins intensifient l'expérience sensorielle.</p><p>Autour, on peut admirer la faune côtière, les algues, les coquillages — une micro-nature marine active, changeante, vivante. Le spectacle des marées, des reflets de lumière et des vagues bat l'îlot comme une scène perpétuelle.</p><h3>Pourquoi découvrir le Château du Taureau ?</h3><ul><li>Monument maritime emblématique, chargé d'histoire</li><li>Visites guidées et traversées en bateau</li><li>Architecture militaire unique, remparts, salles, casemates</li><li>Panoramas impressionnants entre île et mer</li><li>Immersion dans un cadre naturel préservé et sauvage</li><li>Expérience sensorielle entre mer, vent et légende</li></ul>",
+      "image": "assets/img/chateau-du-taureau-didilemme-1.webp",
+      "images": [
+        "assets/img/chateau-du-taureau-didilemme-1.webp",
+        "assets/img/chateau-du-taureau-didilemme-2.webp",
+        "assets/img/chateau-du-taureau-didilemme-3.webp"
+      ],
+      "imageCredits": [
+        {
+          "image": "assets/img/chateau-du-taureau-didilemme-1.webp",
+          "photographer": "didilemme",
+          "instagramUrl": "https://www.instagram.com/didilemme"
+        },
+        {
+          "image": "assets/img/chateau-du-taureau-didilemme-2.webp",
+          "photographer": "didilemme",
+          "instagramUrl": "https://www.instagram.com/didilemme"
+        },
+        {
+          "image": "assets/img/chateau-du-taureau-didilemme-3.webp",
+          "photographer": "didilemme",
+          "instagramUrl": "https://www.instagram.com/didilemme"
+        }
+      ],
+      "tested": false,
+      "coupDeCoeur": false,
+      "address": "Château du Taureau, Baie de Morlaix",
+      "tags": ["château", "histoire", "maritime", "visite guidée", "monument"]
+    },
+    {
       "id": "plage-des-amiets-cleder",
       "title": "Plage des Amiets",
       "slug": "plage-des-amiets-cleder",
