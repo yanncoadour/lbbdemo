@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1e3a8a">
     <title>La Belle Bretagne - Découvrez les merveilles de la Bretagne</title>
-    <meta name="description" content="Explorez la Bretagne authentique : lieux incontournables, hébergements, festivals et points d'intérêt touristiques.">
+<meta name="description" content="Explorez la Bretagne authentique : lieux incontournables, hébergements, festivals et points d'intérêt touristiques.">
 
     <!-- Balises hreflang pour le SEO international -->
     <link rel="alternate" hreflang="fr" href="https://labellebretagne.com/" />
@@ -142,36 +142,40 @@
                     <p class="section-subtitle" data-translate="sections.featuredAccommodationsDesc">Découvrez notre sélection d'hébergements d'exception</p>
                 </div>
 
-                <!-- Prochains hébergements (section d'attente) -->
-                <div class="coming-soon-section">
-                    <div class="coming-soon-content">
-                        <div class="coming-soon-icon">
-                            <i class="fas fa-hotel"></i>
-                        </div>
-                        <h3>De magnifiques hébergements arrivent bientôt !</h3>
-                        <p class="coming-soon-lead">
-                            Nous préparons une sélection exceptionnelle d'hébergements en Bretagne
-                        </p>
-                        <div class="coming-soon-features">
-                            <div class="feature-item">
-                                <i class="fas fa-star"></i>
-                                <span>Hôtels de charme</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-home"></i>
-                                <span>Locations insolites</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-gem"></i>
-                                <span>Maisons de rêve</span>
+                <div class="grid grid-3">
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="assets/img/villa-lily-spa-1.webp"
+                                 alt="Villa Lily Spa avec spa privatif en Bretagne"
+                                 width="726"
+                                 height="768"
+                                 loading="lazy"
+                                 decoding="async">
+                            <div class="card-badge">
+                                <i class="fas fa-tree-city" aria-hidden="true"></i>
+                                <span data-translate="categories.unusualAccommodation">Insolite</span>
                             </div>
                         </div>
-                        <p class="coming-soon-cta">Restez connectés pour découvrir nos coups de cœur</p>
-                        <a href="carte.html" class="btn btn-primary btn-lg">
-                            <i class="fas fa-map-marked-alt"></i>
-                            Découvrir la carte interactive
-                        </a>
-                    </div>
+                        <div class="card-body">
+                            <h3 class="card-title" data-translate="accommodations.villaLilySpa.title">Villa Lily Spa</h3>
+                            <p class="card-description" data-translate="accommodations.villaLilySpa.description">Chambre d'hôtes avec spa privatif pour un séjour détente et bien-être en Bretagne.</p>
+                            <div class="card-meta">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span data-translate="accommodations.villaLilySpa.location">Côtes-d'Armor</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="poi.html?slug=villa-lily-spa" class="btn btn-primary btn-sm">
+                                    <span data-translate="buttons.discoverMore">En savoir plus</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="logements.html" class="btn btn-secondary btn-lg" data-translate="sections.discoverBestAccommodations">
+                        Découvrir les meilleurs hébergements en Bretagne
+                    </a>
                 </div>
             </div>
         </section>

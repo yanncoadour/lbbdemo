@@ -2,6 +2,8 @@
   "pois": [
     {
       "id": "chateau-du-taureau",
+
+
       "title": "Château du Taureau",
       "slug": "chateau-du-taureau",
       "department": "Finistère",
@@ -75,6 +77,28 @@
       "coupDeCoeur": false,
       "address": "Plage des Amiets, 29233 Cléder",
       "tags": ["plage", "nature", "pêche à pied", "familial", "sauvage"]
+    },
+    {
+      "id": "villa-lily-spa",
+      "title": "Villa Lily Spa",
+      "slug": "villa-lily-spa",
+      "department": "Côtes-d'Armor",
+      "categories": ["logement_insolite"],
+      "lat": 48.493498032534454,
+      "lng": -1.9814669802002536,
+      "shortDescription": "Villa Lily Spa – chambre d'hôtes avec spa privatif à La Vicomté-sur-Rance. Séjour romantique, confort haut de gamme et détente absolue entre Dinan et Saint-Malo.",
+      "description": "<p>Nichée au cœur de la vallée de la Rance, la Villa Lily Spa est une adresse confidentielle où règnent calme, élégance et bien-être. Ce cocon contemporain, pensé pour les couples, invite à une parenthèse hors du temps. Pierre naturelle, lumières tamisées, senteurs douces : tout ici respire la détente et l'intimité.</p><p>La chambre spacieuse s'ouvre sur un spa privatif, avec bain à remous, toit ouvrant et ambiance lumineuse personnalisable. L'atmosphère y est feutrée, romantique et apaisante. On s'y installe pour savourer un moment à deux, loin du bruit, au rythme de l'eau chaude et des bougies.</p><p>Chaque détail a été imaginé pour créer une expérience unique : décoration raffinée, literie haut de gamme, petit-déjeuner servi en chambre avec produits frais et locaux. Les hôtes, attentionnés et discrets, veillent à chaque instant pour rendre le séjour parfait.</p><h3>Un havre de paix entre terre et mer</h3><p>Située à La Vicomté-sur-Rance, la Villa Lily Spa bénéficie d'un emplacement privilégié : entre Dinard, Dinan et Saint-Malo. On profite d'un environnement verdoyant et paisible, tout en restant proche des joyaux de la Côte d'Émeraude. Après une journée de balade ou de plage, le retour à la villa est un véritable retour au calme.</p><h3>Pourquoi choisir la Villa Lily Spa ?</h3><ul><li>Chambre d'hôtes de charme avec spa privatif intérieur</li><li>Ambiance romantique et décoration soignée</li><li>Petit-déjeuner gourmand et personnalisé</li><li>Hôtes chaleureux et attentionnés</li><li>Emplacement idéal, entre nature et mer</li><li>Expérience intimiste et relaxante, parfaite pour un week-end en amoureux</li></ul>",
+      "image": "assets/img/villa-lily-spa-1.webp",
+      "images": [
+        "assets/img/villa-lily-spa-1.webp",
+        "assets/img/villa-lily-spa-2.webp",
+        "assets/img/villa-lily-spa-3.webp"
+      ],
+      "imageCredits": [],
+      "tested": false,
+      "coupDeCoeur": false,
+      "address": "Villa Lily Spa, La Vicomté-sur-Rance",
+      "tags": ["spa", "romantique", "chambre d'hôtes", "détente", "bien-être", "luxe"]
     }
   ]
 }
