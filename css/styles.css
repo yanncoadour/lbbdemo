@@ -3834,6 +3834,12 @@ body {
     color: #10b981; /* Vert teal pour randonnées */
 }
 
+/* Position des images pour Villa Lily Spa - afficher entre le milieu et le bas */
+.popup-image-hero.villa-lily-spa-images img,
+.popup-image-hero.villa-lily-spa-images .gallery-image {
+    object-position: center 75% !important;
+}
+
 .popup-content {
     padding: 14px;
 }

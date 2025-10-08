@@ -1491,10 +1491,13 @@ function createPopupContent(poi) {
         return poi.imageCredits.find(credit => credit.image === imageSrc);
     };
 
+    // Vérifier si c'est Villa Lily Spa pour position bottom
+    const isVillaLilySpa = poi.id === 'villa-lily-spa';
+
     return `
         <div class="popup-modern">
             <!-- Image en pleine largeur en haut -->
-            <div class="popup-image-hero">
+            <div class="popup-image-hero ${isVillaLilySpa ? 'villa-lily-spa-images' : ''}">
                 ${poi.images && poi.images.length > 1 ? `
                     ${poi.images.map((img, index) => {
                         const credit = getImageCredit(img);
