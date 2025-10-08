@@ -1508,8 +1508,8 @@ function createPopupContent(poi) {
                                class="image-credit-badge-${index}"
                                data-credit-index="${index}"
                                onclick="event.stopPropagation();"
-                               style="position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.7); color: white; padding: 3px 6px; border-radius: 12px; font-size: 8px; text-decoration: none; ${index === 0 ? 'display: flex;' : 'display: none;'} align-items: center; gap: 3px; backdrop-filter: blur(4px); transition: background 0.3s; z-index: 100; pointer-events: auto;">
-                                <i class="fab fa-instagram" style="font-size: 9px;"></i>
+                               style="${index === 0 ? 'display: flex;' : 'display: none;'}">
+                                <i class="fab fa-instagram"></i>
                                 <span>${credit.photographer}</span>
                             </a>
                         ` : ''}`;
@@ -1529,9 +1529,8 @@ function createPopupContent(poi) {
                         return credit ? `
                             <a href="${credit.instagramUrl}" target="_blank" rel="noopener noreferrer"
                                class="image-credit-badge"
-                               onclick="event.stopPropagation();"
-                               style="position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.7); color: white; padding: 3px 6px; border-radius: 12px; font-size: 8px; text-decoration: none; display: flex; align-items: center; gap: 3px; backdrop-filter: blur(4px); transition: background 0.3s; z-index: 100; pointer-events: auto;">
-                                <i class="fab fa-instagram" style="font-size: 9px;"></i>
+                               onclick="event.stopPropagation();">
+                                <i class="fab fa-instagram"></i>
                                 <span>${credit.photographer}</span>
                             </a>
                         ` : '';
@@ -3738,7 +3737,7 @@ function initializePopupCarousel(poi) {
  * Initialise les événements de la galerie
  */
 function initGalleryEvents() {
-    const gallery = document.querySelector('.popup-image-gallery');
+    const gallery = document.querySelector('.popup-image-hero');
     if (!gallery) {
         return;
     }
