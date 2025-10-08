@@ -4564,6 +4564,13 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Centrer la flèche de la popup */
+.leaflet-popup-tip-container {
+    left: 50% !important;
+    margin-left: -10px !important;
+    width: 20px !important;
+}
+
 /* Responsive pour les popups */
 @media (max-width: 480px) {
     .custom-popup .leaflet-popup-content-wrapper {
