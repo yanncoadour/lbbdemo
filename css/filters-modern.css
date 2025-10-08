@@ -14,9 +14,9 @@
     width: 90%;
     max-width: 520px;
     max-height: 85vh;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 25px 80px rgba(30, 58, 138, 0.25);
+    background: var(--surface);
+    border-radius: 24px;
+    box-shadow: var(--shadow-xl);
     transform: translate(-50%, -50%) scale(0.95);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 10000 !important;
@@ -25,6 +25,7 @@
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
+    border: 1px solid var(--border-light);
 }
 
 .filters-panel-modern.active {
@@ -38,9 +39,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
-    background: white;
-    border-bottom: 1px solid var(--color-gray-200);
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, var(--sea-foam) 0%, var(--surface) 100%);
+    border-bottom: 1px solid var(--border);
 }
 
 .filters-header-modern h3 {
@@ -50,32 +51,34 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--color-gray-900);
+    color: var(--text-primary);
 }
 
 .filters-header-modern h3 i {
     font-size: 1.5rem;
-    color: var(--color-primary-900);
+    color: var(--primary);
 }
 
 .close-filters-modern {
-    background: transparent;
-    border: none;
-    width: 36px;
-    height: 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: var(--color-gray-500);
+    color: var(--text-secondary);
     font-size: 1.25rem;
-    transition: all 0.2s ease;
-    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-radius: 50%;
 }
 
 .close-filters-modern:hover {
-    background: var(--color-gray-100);
-    color: var(--color-gray-900);
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+    transform: scale(1.1);
 }
 
 /* Corps du panneau */
@@ -86,7 +89,7 @@
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
-    background: #ffffff;
+    background: var(--surface);
 }
 
 .filters-panel-modern.active .filters-body-modern {
@@ -96,7 +99,7 @@
 
 /* Groupes de filtres */
 .filter-group-modern {
-    margin-bottom: var(--spacing-8);
+    margin-bottom: 2rem;
     opacity: 0;
     transform: translateX(-20px);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -134,22 +137,22 @@
     align-items: center;
     gap: 0.625rem;
     font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-gray-700);
-    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .group-label-modern i {
-    color: var(--color-gray-500);
+    color: var(--primary);
     font-size: 1rem;
 }
 
 /* Pills (pour tri) */
 .options-pills {
     display: flex;
-    gap: var(--spacing-2);
+    gap: 0.75rem;
     flex-wrap: wrap;
 }
 
@@ -166,36 +169,37 @@
 
 .pill-modern label {
     display: block;
-    padding: var(--spacing-2) var(--spacing-5);
-    background: white;
-    border: 2px solid var(--color-gray-200);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-gray-700);
+    padding: 0.625rem 1.25rem;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
     cursor: pointer;
-    transition: all var(--transition-base);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .pill-modern input:checked + label {
-    background: var(--color-primary-600);
-    border-color: var(--color-primary-600);
+    background: var(--primary);
+    border-color: var(--primary);
     color: white;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
-    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+    transform: translateY(-2px);
 }
 
 .pill-modern label:hover {
-    border-color: var(--color-primary-300);
-    transform: translateY(-1px);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 /* Cartes de catégories */
 .categories-grid-modern {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-3);
+    gap: 0.875rem;
 }
 
 .category-card-modern {
@@ -213,66 +217,70 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.625rem;
-    padding: 1rem;
-    background: var(--color-gray-50);
-    border: 1px solid var(--color-gray-200);
+    gap: 0.5rem;
+    padding: 0.875rem 0.75rem;
+    background: var(--surface-elevated);
+    border: 2px solid var(--border);
     border-radius: 12px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    min-height: 100px;
+    transition: all 0.3s ease;
+    min-height: 85px;
     justify-content: center;
+    box-shadow: var(--shadow-sm);
 }
 
 .category-card-modern label i {
     font-size: 1.5rem;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
-/* Couleurs des icônes par catégorie (selon CONFIG.colors) */
-.category-card-modern label i.fa-umbrella-beach { color: #06b6d4; } /* plage - cyan */
-.category-card-modern label i.fa-home { color: #ef4444; } /* village - rouge */
-.category-card-modern label i.fa-landmark { color: #d97706; } /* monument - orange foncé */
-.category-card-modern label i.fa-chess-rook { color: #92400e; } /* chateau - marron */
-.category-card-modern label i.fa-university { color: #8b5cf6; } /* musee - violet */
-.category-card-modern label i.fa-bed { color: #64748b; } /* hotel - gris ardoise */
-.category-card-modern label i.fa-campground { color: #ec4899; } /* logement_insolite - rose */
-.category-card-modern label i.fa-music { color: #f97316; } /* festival - orange vif */
-.category-card-modern label i.fa-star { color: #6366f1; } /* loisirs - indigo */
+/* Couleurs des icônes par catégorie */
+.category-card-modern label i.fa-umbrella-beach { color: var(--accent); }
+.category-card-modern label i.fa-home { color: var(--danger); }
+.category-card-modern label i.fa-landmark { color: var(--warning); }
+.category-card-modern label i.fa-chess-rook { color: #92400e; }
+.category-card-modern label i.fa-university { color: #8b5cf6; }
+.category-card-modern label i.fa-bed { color: var(--granite-gray); }
+.category-card-modern label i.fa-campground { color: #ec4899; }
+.category-card-modern label i.fa-music { color: #f97316; }
+.category-card-modern label i.fa-star { color: #6366f1; }
 
 .category-card-modern label span {
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--color-gray-700);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
     text-align: center;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    line-height: 1.2;
 }
 
 .category-card-modern input:checked + label {
-    background: white;
-    border-color: var(--color-primary-900);
-    box-shadow: 0 0 0 2px var(--color-primary-900);
+    background: var(--surface);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.15);
 }
 
 .category-card-modern input:checked + label i {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .category-card-modern input:checked + label span {
-    color: var(--color-gray-900);
-    font-weight: 600;
+    color: var(--text-primary);
+    font-weight: 700;
 }
 
 .category-card-modern label:hover {
-    border-color: var(--color-gray-300);
-    background: white;
+    border-color: var(--primary-light);
+    background: var(--surface);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 /* Départements - Liste compacte */
 .departments-list-modern {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2);
+    gap: 0.625rem;
 }
 
 .department-item-modern {
@@ -290,53 +298,56 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    background: var(--color-gray-50);
-    border: 1px solid var(--color-gray-200);
-    border-radius: 10px;
+    padding: 0.875rem 1.125rem;
+    background: var(--surface-elevated);
+    border: 2px solid var(--border);
+    border-radius: 12px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .department-item-modern label i {
     font-size: 1rem;
-    color: var(--color-gray-500);
-    transition: all 0.2s ease;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
 }
 
 .department-item-modern label span {
     flex: 1;
     font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-gray-700);
-    transition: all 0.2s ease;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
 }
 
 .department-item-modern input:checked + label {
-    background: white;
-    border-color: var(--color-primary-900);
-    box-shadow: 0 0 0 2px var(--color-primary-900);
+    background: var(--surface);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.15);
 }
 
 .department-item-modern input:checked + label i {
-    color: var(--color-primary-900);
+    color: var(--primary);
 }
 
 .department-item-modern input:checked + label span {
-    color: var(--color-gray-900);
-    font-weight: 600;
+    color: var(--text-primary);
+    font-weight: 700;
 }
 
 .department-item-modern label:hover {
-    border-color: var(--color-gray-300);
-    background: white;
+    border-color: var(--primary-light);
+    background: var(--surface);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
 }
 
 /* Footer du panneau */
 .filters-footer-modern {
     padding: 1.5rem 2rem;
-    background: white;
-    border-top: 1px solid var(--color-gray-200);
+    background: linear-gradient(135deg, var(--surface) 0%, var(--sea-foam) 100%);
+    border-top: 1px solid var(--border);
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -352,23 +363,29 @@
 
 .filter-count {
     text-align: center;
-    font-size: 0.875rem;
-    color: var(--color-gray-600);
-    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    font-weight: 600;
 }
 
 .filter-count strong {
-    color: var(--color-primary-900);
+    color: var(--primary);
     font-weight: 700;
+    font-size: 1.125rem;
 }
 
 .filters-footer-modern .btn-group {
     display: flex;
-    gap: var(--spacing-3);
+    gap: 0.75rem;
 }
 
 .filters-footer-modern .btn-group .btn {
     flex: 1;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.3s ease;
 }
 
 /* Overlay moderne */
@@ -389,8 +406,8 @@
 .overlay-modern.active {
     opacity: 1;
     visibility: visible;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(8px);
 }
 
 /* ========================================
@@ -401,6 +418,7 @@
     .filters-panel-modern {
         width: 95%;
         max-height: 90vh;
+        border-radius: 20px;
     }
 
     .categories-grid-modern {
@@ -408,10 +426,31 @@
     }
 
     .filters-header-modern {
-        padding: var(--spacing-4);
+        padding: 1.25rem 1.5rem;
+    }
+
+    .filters-header-modern h3 {
+        font-size: 1.25rem;
     }
 
     .filters-body-modern {
-        padding: var(--spacing-4);
+        padding: 1.5rem;
+    }
+
+    .filters-footer-modern {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .category-card-modern label {
+        min-height: 80px;
+        padding: 0.75rem;
+    }
+
+    .category-card-modern label i {
+        font-size: 1.35rem;
+    }
+
+    .category-card-modern label span {
+        font-size: 0.7rem;
     }
 }

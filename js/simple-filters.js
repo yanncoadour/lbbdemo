@@ -74,14 +74,70 @@ function initSimpleFilters() {
     // Initialiser le compteur au chargement
     updateFilterPreview();
 
+    // Mettre à jour les compteurs dans les labels
+    updateCategoryCounters();
+
     if (!filterBtnMain && !filterBtn) {
         console.error('❌ Aucun bouton filtre trouvé!');
     }
 }
 
+// Mettre à jour les compteurs de POIs dans les labels de catégories et départements
+function updateCategoryCounters() {
+    const currentPois = window.filteredPois || window.allPois || [];
+
+    if (currentPois.length === 0) return;
+
+    // Compter les POIs par catégorie
+    const categoryCounts = {};
+    const departmentCounts = {};
+
+    currentPois.forEach(poi => {
+        // Compter les catégories
+        if (poi.categories && Array.isArray(poi.categories)) {
+            poi.categories.forEach(cat => {
+                categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+            });
+        }
+
+        // Compter les départements
+        if (poi.department) {
+            departmentCounts[poi.department] = (departmentCounts[poi.department] || 0) + 1;
+        }
+    });
+
+    // Mettre à jour les labels de catégories
+    document.querySelectorAll('.category-card-modern').forEach(card => {
+        const input = card.querySelector('input');
+        const label = card.querySelector('label span');
+        if (input && label) {
+            const category = input.value;
+            const count = categoryCounts[category] || 0;
+            const labelText = label.textContent.replace(/\s*\(\d+\)/, ''); // Enlever l'ancien compteur
+            label.textContent = `${labelText} (${count})`;
+        }
+    });
+
+    // Mettre à jour les labels de départements
+    document.querySelectorAll('.department-item-modern').forEach(item => {
+        const input = item.querySelector('input');
+        const label = item.querySelector('label span');
+        if (input && label) {
+            const department = input.value;
+            const count = departmentCounts[department] || 0;
+            const labelText = label.textContent.replace(/\s*\(\d+\)/, ''); // Enlever l'ancien compteur
+            label.textContent = `${labelText} (${count})`;
+        }
+    });
+}
+
 // Mettre à jour le compteur de résultats en temps réel (avant application)
 function updateFilterPreview() {
-    if (typeof window.allPois === 'undefined' || window.allPois.length === 0) {
+    // Utiliser filteredPois au lieu de allPois pour afficher le nombre actuel affiché
+    const currentPois = window.filteredPois || window.allPois || [];
+
+    if (currentPois.length === 0) {
+        updateFilterCount(0);
         return;
     }
 
@@ -94,7 +150,13 @@ function updateFilterPreview() {
         document.querySelectorAll('.category-card-modern input:checked')
     ).map(input => input.value);
 
-    // Compter combien de POIs correspondent
+    // Si aucun filtre n'est sélectionné, afficher le nombre actuel
+    if (selectedDepartments.length === 0 && selectedCategories.length === 0) {
+        updateFilterCount(currentPois.length);
+        return;
+    }
+
+    // Compter combien de POIs correspondent (à partir de tous les POIs disponibles)
     let count = window.allPois.filter(poi => {
         // Filtre départements
         if (selectedDepartments.length > 0 && !selectedDepartments.includes(poi.department)) {
@@ -123,6 +185,8 @@ function openModernFilters() {
     if (filterContent && overlay) {
         filterContent.classList.add('active');
         overlay.classList.add('active');
+        // Mettre à jour les compteurs à l'ouverture
+        updateCategoryCounters();
         console.log('✅ Modal moderne ouvert');
     }
 }
@@ -162,6 +226,11 @@ function applyModernFilters() {
     applyFiltersWithSelection(selectedDepartments, selectedCategories);
 
     console.log('  - Total POIs après filtrage:', window.filteredPois?.length || 0);
+
+    // Mettre à jour les compteurs après l'application
+    setTimeout(() => {
+        updateCategoryCounters();
+    }, 100);
 }
 
 // Réinitialiser les filtres du modal moderne
@@ -193,6 +262,11 @@ function resetModernFilters() {
         if (filterResultCount) {
             filterResultCount.textContent = window.filteredPois.length;
         }
+
+        // Mettre à jour les compteurs des catégories/départements
+        setTimeout(() => {
+            updateCategoryCounters();
+        }, 100);
 
         console.log('✅ Tous les POIs restaurés:', window.filteredPois.length);
     }
