@@ -100,6 +100,44 @@
       "address": "Villa Lily Spa, La Vicomté-sur-Rance",
       "tags": ["spa", "romantique", "chambre d'hôtes", "détente", "bien-être", "luxe"],
       "website": "https://www.booking.com/Share-maEyIv"
+    },
+    {
+      "id": "phare-du-petit-minou",
+      "title": "Phare du Petit Minou",
+      "slug": "phare-du-petit-minou",
+      "department": "Finistère",
+      "categories": ["monument"],
+      "lat": 48.3365687304178,
+      "lng": -4.614203182268314,
+      "shortDescription": "Phare du Petit Minou – veilleur de l'entrée de la rade de Brest. Balade maritime, vues grandioses depuis le sommet, paysage changeant entre mer et lumière.",
+      "description": "<p>Face à l'Atlantique, au bout de la pointe du Petit Minou, le Phare du Petit Minou se dresse, silencieux et majestueux, gardien des marées et des marins. Érigé en 1848, il éclaire l'entrée de la rade de Brest et veille sur les navires qui franchissent le goulet. À marée basse, la digue-promenade dévoile une perspective unique : phare, mer, vagues et rochers dans un ballet éternel.</p><p>Puissant dans son rôle, élégant dans son architecture, le phare se visite souvent (selon les périodes). On y découvre ses feux, sa lanterne, son escalier en colimaçon, ainsi qu'un panorama saisissant sur Brest, la côte et l'archipel. Le point de vue depuis le sommet offre un horizon que la mer semble prolonger à l'infini.</p><h3>Une balade, entre mer et lumière</h3><p>La promenade vers le Phare du Petit Minou est un moment de poésie. Le chemin longe les falaises, zigzague entre les rochers et déroule des panoramas saisissants. À marée basse, le bruit des vagues contre la digue, les reflets de lumière sur la mer, les oiseaux marins — tout invite à la contemplation. On y vient pour marcher, respirer, observer la mer et ses nuances, se laisser porter par le vent marin.</p><h3>Un point d'observation emblématique</h3><p>En haut du phare, entre ciel et eau, on devine toute la puissance du littoral breton. Les îlots, les roches, les caps, les lumières du soir : le paysage s'étale, changeant, mobile. Depuis ce poste de veille, on oublie le temps ; on s'inscrit dans le mouvement perpétuel des vagues. Le spectacle saisit à chaque saison : tempête, cri du vent, aube rosée ou crépuscule d'or.</p><h3>Pourquoi découvrir le Phare du Petit Minou ?</h3><ul><li>Un monument phare (littéralement !) chargé d'histoire</li><li>Un panorama marin grandiose</li><li>Une promenade côtière évocatrice</li><li>Un lieu emblématique de la rade de Brest</li><li>Une expérience sensorielle entre vent, eau et lumière</li></ul>",
+      "image": "assets/img/phare-du-petit-minou-axel-baz.webp",
+      "images": [
+        "assets/img/phare-du-petit-minou-axel-baz.webp",
+        "assets/img/phare-du-petit-minou-didilemme.webp",
+        "assets/img/phare-du-petit-minou-julien-bihan-photographie.webp"
+      ],
+      "imageCredits": [
+        {
+          "image": "assets/img/phare-du-petit-minou-axel-baz.webp",
+          "photographer": "axel.baz",
+          "instagramUrl": "https://www.instagram.com/axel.baz"
+        },
+        {
+          "image": "assets/img/phare-du-petit-minou-didilemme.webp",
+          "photographer": "didilemme",
+          "instagramUrl": "https://www.instagram.com/didilemme"
+        },
+        {
+          "image": "assets/img/phare-du-petit-minou-julien-bihan-photographie.webp",
+          "photographer": "julienbihanphotographie",
+          "instagramUrl": "https://www.instagram.com/julienbihanphotographie"
+        }
+      ],
+      "tested": false,
+      "coupDeCoeur": false,
+      "address": "Phare du Petit Minou, Plouzané, 29280",
+      "tags": ["phare", "monument", "maritime", "panorama", "balade", "rade de Brest"]
     }
   ]
 }
