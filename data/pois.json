@@ -1,6 +1,29 @@
 {
   "pois": [
     {
+      "id": "chateau-apigne",
+      "title": "Château d'Apigné",
+      "slug": "chateau-apigne",
+      "department": "Ille-et-Vilaine",
+      "categories": ["hotel"],
+      "lat": 48.09263739611837,
+      "lng": -1.7638771815865488,
+      "shortDescription": "Château d'Apigné – hôtel 5★ et restaurant gastronomique près de Rennes. Domaine verdoyant, mariages, séjours romantiques et cuisine raffinée en Bretagne.",
+      "description": "<p>À seulement quelques minutes de Rennes, dans un écrin de verdure de plus de 25 hectares, le Château d'Apigné incarne l'art de vivre à la française. Ce magnifique hôtel 5 étoiles marie le charme d'un château du XIXᵉ siècle à l'élégance contemporaine, pour offrir une expérience raffinée où luxe, nature et gastronomie s'accordent en parfaite harmonie.</p><p>Entouré d'un vaste parc boisé et de pièces d'eau paisibles, le domaine offre un cadre romantique et apaisant, idéal pour un séjour de détente, une escapade gourmande ou un événement d'exception.</p><h3>Chambres & suites : le charme du raffinement</h3><p>Les chambres et suites du Château d'Apigné sont de véritables cocons d'élégance. Hauts plafonds, mobilier d'époque, tissus délicats, salles de bains dans les tourelles : chaque détail rappelle la splendeur d'antan tout en offrant le confort moderne d'un établissement 5 étoiles.</p><p>Certaines chambres se situent dans le château principal, d'autres dans le Pavillon Élisabeth, au cœur du parc, pour une atmosphère plus intime.</p><p>L'expérience est pensée pour le repos et le plaisir : literie haut de gamme, service en chambre, petit-déjeuner personnalisé et accueil attentionné. Le tout, à seulement dix minutes du centre de Rennes.</p><h3>Restaurant Les Tourelles : la gastronomie au sommet</h3><p>Véritable joyau du domaine, le restaurant gastronomique Les Tourelles invite à une expérience culinaire inoubliable. Dans une salle élégante où le charme du château rencontre la créativité du chef, chaque plat raconte une histoire faite de saisonnalité, de produits locaux et de savoir-faire français.</p><p>La carte, raffinée et contemporaine, célèbre la Bretagne et ses richesses : poissons de la côte, viandes d'origine régionale, légumes du terroir et desserts inspirés. Le service est discret, le cadre romantique, la table lumineuse.</p><p>Les beaux jours venus, la terrasse surplombant le parc offre un moment suspendu, parfait pour un déjeuner en plein air ou un dîner aux chandelles.</p><h3>Mariages, réceptions & séminaires : un cadre d'exception</h3><p>Le Château d'Apigné est aussi une adresse incontournable pour les événements privés et professionnels. Ses salons élégants, sa grande serre vitrée et ses jardins offrent des espaces modulables pouvant accueillir mariages, réceptions, séminaires et conférences.</p><p>L'équipe du château accompagne chaque projet avec un sens du détail rare : scénographie, menus personnalisés, hébergement sur place, service traiteur et coordination sur mesure.</p><p>Sous les plafonds dorés ou dans le parc, chaque événement devient un souvenir inoubliable, à la hauteur de la beauté du lieu.</p><h3>Un refuge nature aux portes de Rennes</h3><p>Séjourner au Château d'Apigné, c'est profiter du calme absolu tout en restant proche de la ville. Le parc invite à la flânerie : allées bordées d'arbres, étangs, roseraies, oiseaux et reflets changeants de la lumière.</p><p>À proximité, Rennes dévoile ses trésors : ruelles médiévales, marchés, galeries et terrasses animées. L'alliance parfaite entre sérénité et art de vivre urbain.</p><h3>Pourquoi choisir le Château d'Apigné ?</h3><ul><li>Hôtel 5★ de charme, à seulement 10 minutes de Rennes</li><li>Restaurant gastronomique « Les Tourelles » reconnu pour sa cuisine créative</li><li>Domaine verdoyant de 25 hectares propice à la détente</li><li>Cadre romantique pour mariages et réceptions</li><li>Service haut de gamme et accueil personnalisé</li><li>Expérience mêlant nature, gastronomie et élégance française</li></ul><h3>L'esprit du lieu</h3><p>Le Château d'Apigné n'est pas un simple hôtel : c'est une invitation à ralentir, à savourer, à contempler. Chaque instant y devient une parenthèse hors du temps — un dîner aux chandelles, un lever de soleil sur le parc, un sourire discret échangé dans les couloirs du château.</p><p>Entre prestige et poésie, le domaine séduit autant les amoureux que les épicuriens en quête d'authenticité.</p>",
+      "image": "assets/images/photo-a-venir.webp",
+      "images": [
+        "assets/images/photo-a-venir.webp",
+        "assets/images/photo-a-venir.webp",
+        "assets/images/photo-a-venir.webp"
+      ],
+      "imageCredits": [],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "Château d'Apigné, Le Rheu, 35650",
+      "tags": ["5 étoiles", "château", "gastronomique", "romantique", "mariage", "séminaire"],
+      "website": "https://www.booking.com/Share-t3Q6Oix"
+    },
+    {
       "id": "chateau-du-taureau",
 
 
