@@ -138,6 +138,44 @@
       "coupDeCoeur": false,
       "address": "Phare du Petit Minou, Plouzané, 29280",
       "tags": ["phare", "monument", "maritime", "panorama", "balade", "rade de Brest"]
+    },
+    {
+      "id": "rochefort-en-terre",
+      "title": "Rochefort-en-Terre",
+      "slug": "rochefort-en-terre",
+      "department": "Morbihan",
+      "categories": ["village"],
+      "lat": 47.69925973306567,
+      "lng": -2.337666096124471,
+      "shortDescription": "Rochefort-en-Terre – village breton classé parmi les plus beaux de France. Rues pavées, ateliers d'artisans et illuminations de Noël féeriques au cœur du Morbihan.",
+      "description": "<p>Classé parmi les plus beaux villages de France, Rochefort-en-Terre est une pépite bretonne perchée sur les hauteurs du Morbihan. Ses ruelles pavées, ses façades à colombages et ses maisons fleuries lui donnent un charme intemporel. Mais c'est en hiver, lorsque les lumières de Noël illuminent chaque pierre, que le village révèle toute sa magie.</p><h3>Un décor de conte toute l'année</h3><p>Rochefort-en-Terre séduit d'abord par sa beauté architecturale. Chaque ruelle raconte une histoire : murs de granit, balcons en fer forgé, enseignes anciennes, fleurs à chaque fenêtre. En flânant, on découvre des galeries d'art, des ateliers d'artisans, des boutiques de créateurs et de délicieux cafés.</p><p>Le village mêle élégance médiévale et douceur de vivre, à la fois authentique et raffiné. Les visiteurs y trouvent un équilibre rare entre patrimoine vivant et ambiance conviviale.</p><h3>La magie de Noël à Rochefort-en-Terre</h3><p>Quand l'hiver approche, le village se transforme. Dès la fin novembre, Rochefort-en-Terre revêt ses habits de lumière : guirlandes scintillantes, lanternes suspendues, façades décorées et vitrines animées créent une atmosphère féerique.</p><p>Les illuminations de Noël, réputées dans toute la Bretagne, attirent chaque année des milliers de visiteurs. La place du Puits, le château, les ruelles pavées et les façades médiévales s'illuminent à la tombée de la nuit.</p><p>L'air se remplit de parfums de vin chaud, de crêpes et de marrons grillés. Des marchés de Noël animent les ruelles, tandis que des musiciens et artisans locaux partagent leur savoir-faire. Les enfants s'émerveillent devant les décorations et les installations lumineuses ; les adultes, eux, redécouvrent l'esprit de Noël dans ce décor digne d'un film.</p><p>Le spectacle est d'autant plus magique qu'il conserve son authenticité : ici, pas de démesure, mais une féerie sincère et poétique, fidèle à l'âme bretonne.</p><h3>Un village vivant, entre art et nature</h3><p>Toute l'année, Rochefort-en-Terre reste un haut lieu de l'artisanat breton. Ateliers de céramistes, de sculpteurs, d'illustrateurs ou de bijoutiers ponctuent la promenade. Les visiteurs peuvent échanger avec les créateurs, découvrir leur savoir-faire et repartir avec une pièce unique.</p><p>Autour du village, la nature invite à la balade : sentiers ombragés, bois, vallées et chemins creux offrent une respiration après la visite.</p><h3>Une visite à chaque saison</h3><p>Au printemps, les fleurs s'épanouissent sur les façades et les ruelles s'emplissent de couleurs. En été, les terrasses et les galeries d'art s'animent. En automne, la pierre blonde se pare d'ocre et de brume. En hiver, le village devient un pays de Noël, illuminé et chaleureux.</p><p>Chaque saison raconte un nouveau visage de Rochefort-en-Terre, mais Noël reste son moment le plus magique, un rendez-vous à ne pas manquer.</p><h3>Pourquoi découvrir Rochefort-en-Terre ?</h3><ul><li>Classé parmi les plus beaux villages de France</li><li>Ruelles pavées, façades fleuries, maisons médiévales</li><li>Illuminations de Noël féeriques et ambiance authentique</li><li>Artisans, galeries et ateliers d'art tout au long de l'année</li><li>Balades nature et points de vue panoramiques</li><li>Charme breton, patrimoine vivant et douceur de vivre</li></ul><h3>L'esprit du lieu</h3><p>Rochefort-en-Terre, c'est une parenthèse hors du temps. On s'y promène le nez en l'air, émerveillé par la beauté des détails : un volet sculpté, une lanterne ancienne, un parfum de fleur ou d'embrun.</p><p>Mais lorsque les lumières de Noël s'allument, le village se métamorphose : les pierres s'embrasent, les ruelles deviennent des rivières de lumière, et la magie opère.</p><p>Un lieu à la fois simple et merveilleux, où la Bretagne raconte ses plus belles histoires d'hiver.</p>",
+      "image": "assets/img/rochefort-en-terre-ludovic-lagadec-photographe-1.webp",
+      "images": [
+        "assets/img/rochefort-en-terre-ludovic-lagadec-photographe-1.webp",
+        "assets/img/rochefort-en-terre-ludovic-lagadec-photographe-2.webp",
+        "assets/img/rochefort-en-terre-ludovic-lagadec-photographe-3.webp"
+      ],
+      "imageCredits": [
+        {
+          "image": "assets/img/rochefort-en-terre-ludovic-lagadec-photographe-1.webp",
+          "photographer": "ludovic_lagadec_photographe",
+          "instagramUrl": "https://www.instagram.com/ludovic_lagadec_photographe"
+        },
+        {
+          "image": "assets/img/rochefort-en-terre-ludovic-lagadec-photographe-2.webp",
+          "photographer": "ludovic_lagadec_photographe",
+          "instagramUrl": "https://www.instagram.com/ludovic_lagadec_photographe"
+        },
+        {
+          "image": "assets/img/rochefort-en-terre-ludovic-lagadec-photographe-3.webp",
+          "photographer": "ludovic_lagadec_photographe",
+          "instagramUrl": "https://www.instagram.com/ludovic_lagadec_photographe"
+        }
+      ],
+      "tested": false,
+      "coupDeCoeur": false,
+      "address": "Rochefort-en-Terre, 56220",
+      "tags": ["village", "plus beaux villages de France", "artisanat", "médiéval", "culture", "jardins", "patrimoine", "Noël", "illuminations"]
     }
   ]
 }
