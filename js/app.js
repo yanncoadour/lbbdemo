@@ -1507,14 +1507,22 @@ function createPopupContent(poi) {
                              data-position="${index === 0 ? 'center-top-soft' : 'center'}"
                              onerror="this.src='assets/img/placeholder.jpg'">
                         ${credit ? `
-                            <a href="${credit.instagramUrl}" target="_blank" rel="noopener noreferrer"
-                               class="image-credit-badge-${index}"
-                               data-credit-index="${index}"
-                               onclick="event.stopPropagation();"
-                               style="${index === 0 ? 'display: flex;' : 'display: none;'}">
-                                <i class="fab fa-instagram"></i>
-                                <span>${credit.photographer}</span>
-                            </a>
+                            ${credit.instagramUrl ? `
+                                <a href="${credit.instagramUrl}" target="_blank" rel="noopener noreferrer"
+                                   class="image-credit-badge-${index}"
+                                   data-credit-index="${index}"
+                                   onclick="event.stopPropagation();"
+                                   style="${index === 0 ? 'display: flex;' : 'display: none;'}">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>${credit.photographer}</span>
+                                </a>
+                            ` : `
+                                <div class="image-credit-badge-${index}"
+                                     data-credit-index="${index}"
+                                     style="${index === 0 ? 'display: flex;' : 'display: none;'}">
+                                    <span>© ${credit.credit}</span>
+                                </div>
+                            `}
                         ` : ''}`;
                     }).join('')}
 
@@ -1529,14 +1537,23 @@ function createPopupContent(poi) {
                          onerror="this.src='assets/img/placeholder.jpg'">
                     ${(() => {
                         const credit = getImageCredit(poi.image);
-                        return credit ? `
-                            <a href="${credit.instagramUrl}" target="_blank" rel="noopener noreferrer"
-                               class="image-credit-badge"
-                               onclick="event.stopPropagation();">
-                                <i class="fab fa-instagram"></i>
-                                <span>${credit.photographer}</span>
-                            </a>
-                        ` : '';
+                        if (!credit) return '';
+                        if (credit.instagramUrl) {
+                            return `
+                                <a href="${credit.instagramUrl}" target="_blank" rel="noopener noreferrer"
+                                   class="image-credit-badge"
+                                   onclick="event.stopPropagation();">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>${credit.photographer}</span>
+                                </a>
+                            `;
+                        } else {
+                            return `
+                                <div class="image-credit-badge">
+                                    <span>© ${credit.credit}</span>
+                                </div>
+                            `;
+                        }
                     })()}
                 `}
                 <!-- Badge catégorie superposé -->
@@ -1561,7 +1578,7 @@ function createPopupContent(poi) {
                 <p class="popup-description-modern">${poi.shortDescription}</p>
 
                 <div class="popup-action-modern">
-                    ${(poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v3' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'chateau-apigne' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa' || poi.id === 'hotel-barriere-hermitage-la-baule' || poi.id === 'hotel-barriere-royal-thalasso-la-baule' || poi.id === 'hotel-castel-marie-louise-la-baule' || poi.id === 'chateau-maubreuil-carquefou' || poi.id === 'hotel-de-carantec' || poi.id === 'dihan-evasion-ploemel' || poi.id === 'domaine-des-ormes' || poi.id === 'domaine-de-meros' || poi.id === 'villa-lily-spa' || poi.id === '5-etoiles-hebergement-insolite-luxe' || poi.id === 'domaine-du-treuscoat' || poi.id === 'les-cabanes-de-koaddour' || poi.id === 'nuances-dalcoves') ? `
+                    ${isAccommodation(poi.categories) && poi.website ? `
                         <div class="popup-actions-grid-modern">
                             <a href="poi.html?slug=${poi.slug || poi.id}" class="discover-btn-modern secondary accommodation">
                                 ${typeof getTranslation === 'function' ? getTranslation('buttons.discover', currentLang) : 'Découvrir'}
@@ -2614,8 +2631,8 @@ function displayPoiData(poi) {
         itineraryBtn.onclick = () => openItinerary(poi.lat, poi.lng);
     }
 
-    // Boutons réserver (pour certains POIs comme la Vallée de Pratmeur, l'Agapa Hotel, la Villa Blockhaus, le Grand Hôtel Barrière, le Camping Sandaya, l'Hôtel Castelbrac, Dihan Evasion, Domaine des Ormes, Domaine de Meros, Villa Lily Spa, 5 Etoiles hébergement insolite, Domaine du Treuscoat, Les Cabanes de Koad'dour, Nuances d'Alcôves et Château d'Apigné)
-    if ((poi.id === 'vallee-de-pratmeur' || poi.id === 'agapa-hotel-perros-guirec' || poi.id === 'villa-blockhaus-audrey' || poi.id === 'grand-hotel-barriere-dinard' || poi.id === 'sandaya-camping-carnac' || poi.id === 'hotel-castelbrac-dinard-v3' || poi.id === 'balthazar-hotel-spa-rennes' || poi.id === 'grand-hotel-thermes-saint-malo' || poi.id === 'chateau-apigne-le-rheu' || poi.id === 'chateau-apigne' || poi.id === 'domaine-locguenole-spa-kervignac' || poi.id === 'domaine-bretesche-golf-spa-missillac' || poi.id === 'miramar-la-cigale-arzon' || poi.id === 'sofitel-quiberon-thalassa-sea-spa' || poi.id === 'hotel-barriere-hermitage-la-baule' || poi.id === 'hotel-barriere-royal-thalasso-la-baule' || poi.id === 'hotel-castel-marie-louise-la-baule' || poi.id === 'chateau-maubreuil-carquefou' || poi.id === 'hotel-de-carantec' || poi.id === 'dihan-evasion-ploemel' || poi.id === 'domaine-des-ormes' || poi.id === 'domaine-de-meros' || poi.id === 'villa-lily-spa' || poi.id === '5-etoiles-hebergement-insolite-luxe' || poi.id === 'domaine-du-treuscoat' || poi.id === 'les-cabanes-de-koaddour' || poi.id === 'nuances-dalcoves') && poi.website) {
+    // Boutons réserver (pour les hébergements)
+    if (isAccommodation(poi.categories) && poi.website) {
         const reserveTopBtn = document.getElementById('reserveTopBtn');
         const reserveBottomBtn = document.getElementById('reserveBottomBtn');
         const reserveButtonTop = document.getElementById('reserveButtonTop');
@@ -3216,8 +3233,8 @@ function createLeafletPopupContent(poi) {
                         <i class="fas fa-eye"></i>
                         <span>Découvrir</span>
                     </button>
-                    ${poi.categories[0] === 'logements' ? `
-                        <button class="btn-action btn-secondary" onclick="window.open('${poi.bookingUrl || '#'}', '_blank')">
+                    ${['hotel', 'villa', 'camping', 'logement_insolite'].includes(poi.categories[0]) && poi.website ? `
+                        <button class="btn-action btn-secondary" onclick="window.open('${poi.website}', '_blank')">
                             <i class="fas fa-bed"></i>
                             <span>Réserver</span>
                         </button>

@@ -110,7 +110,7 @@
 /* Couleurs spécifiques pour les catégories (comme sur la carte) */
 .category-tag i.fa-bed,
 .category-tag i.fa-hotel {
-    color: #f59e0b !important; /* Orange pour hôtels */
+    color: #059669 !important; /* Vert émeraude pour hôtels */
 }
 
 .category-tag i.fa-tree-city {

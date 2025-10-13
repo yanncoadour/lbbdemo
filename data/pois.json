@@ -1,6 +1,38 @@
 {
   "pois": [
     {
+      "id": "la-maison-obono",
+      "title": "La Maison Obono",
+      "slug": "la-maison-obono",
+      "department": "Morbihan",
+      "categories": ["hotel"],
+      "lat": 47.627417143061,
+      "lng": -2.9354497690112757,
+      "shortDescription": "La Maison Obono – Hôtel Restaurant & Spa : élégance, bien-être et art de vivre breton. Entre charme, confort et raffinement, une adresse d'exception où l'on vient se ressourcer, se régaler et savourer le temps qui passe.",
+      "description": "<p>Située en Bretagne, cette maison contemporaine au style apaisant conjugue hospitalité, gastronomie et détente dans une atmosphère élégante et chaleureuse.</p><p>Ici, chaque instant est une parenthèse de douceur : un lieu où le luxe se vit simplement, avec bienveillance et authenticité.</p><h3>Un hôtel au charme feutré et à l'âme bretonne</h3><p>Pensée comme une grande maison d'hôtes moderne, La Maison Obono mêle design et confort, discrétion et convivialité.</p><p>Ses chambres et suites dévoilent un univers épuré et lumineux, entre matériaux naturels, teintes douces et décoration soignée.</p><p>Chaque espace a été conçu pour favoriser le calme, la détente et la sérénité.</p><p>Literie haut de gamme, salles de bains spacieuses, équipements modernes et touches artisanales composent une atmosphère chic et intime.</p><p>Le matin, un petit-déjeuner gourmand à base de produits frais et locaux accueille les voyageurs dans une ambiance conviviale et délicate.</p><h3>Un restaurant gastronomique inspiré par la mer et la terre</h3><p>Au cœur de la Maison, le restaurant est une véritable invitation au voyage culinaire.</p><p>Le Chef signe une cuisine créative, sincère et ancrée dans les saisons bretonnes : poissons de la côte, légumes des producteurs locaux, herbes du jardin et douceurs maison.</p><p>Les plats allient finesse et générosité, avec une recherche d'équilibre entre la mer et la terre.</p><p>La salle, lumineuse et raffinée, offre un cadre idéal pour un dîner en tête-à-tête ou un repas d'exception.</p><p>La carte des vins, soigneusement sélectionnée, accompagne chaque mets avec justesse.</p><h3>Un spa pour lâcher prise 🌿</h3><p>C'est dans son espace bien-être que La Maison Obono révèle toute sa sérénité.</p><p>Le spa propose jacuzzi, hammam, sauna et soins sur mesure, prodigués par des praticiennes expertes.</p><p>L'expérience est pensée comme un moment hors du temps, où les sens se relâchent et le corps retrouve son équilibre.</p><p>Massages relaxants, rituels de beauté, bains aromatiques ou soins du visage : tout est conçu pour éveiller les sens et prolonger le plaisir du séjour.</p><p>Une véritable oasis de calme, dédiée à la détente et au bien-être.</p><h3>L'esprit Maison Obono ✨</h3><p>Ce qui fait la singularité de La Maison Obono, c'est son âme à la fois contemporaine et humaine.</p><p>On s'y sent bien dès les premiers instants, accueilli avec simplicité, élégance et attention.</p><p>C'est une maison qui célèbre le savoir-vivre à la bretonne, entre authenticité, modernité et plaisir de recevoir.</p><p>Chaque détail reflète un art de vivre : le soin apporté aux produits locaux, la chaleur du service, la beauté du cadre, la lumière naturelle qui enveloppe les espaces.</p><p>Ici, on vient pour ralentir, respirer, savourer.</p><h3>Pourquoi choisir La Maison Obono ?</h3><ul><li>Chambres et suites élégantes, design et confort haut de gamme</li><li>Restaurant gastronomique aux saveurs bretonnes</li><li>Spa complet : jacuzzi, hammam, sauna, soins bien-être</li><li>Atmosphère intime, accueillante et apaisante</li><li>Situation idéale pour découvrir la Bretagne entre terre et mer</li></ul>",
+      "image": "assets/img/la-maison-obono/la-maison-obono-exterieur-1.webp",
+      "images": [
+        "assets/img/la-maison-obono/la-maison-obono-exterieur-1.webp",
+        "assets/img/la-maison-obono/la-maison-obono-exterieur.webp",
+        "assets/img/la-maison-obono/la-maison-obono-acceuil.webp",
+        "assets/img/la-maison-obono/la-maison-obono-le-manoir.webp",
+        "assets/img/la-maison-obono/la-maison-obono-chambre.webp",
+        "assets/img/la-maison-obono/la-maison-obono-Chambre-triple-supérieure-Côté-Manoir.webp",
+        "assets/img/la-maison-obono/la-maison-obono-restaurant-1.webp",
+        "assets/img/la-maison-obono/la-mainson-obono-salon.webp",
+        "assets/img/la-maison-obono/la-maison-obono-bar.webp",
+        "assets/img/la-maison-obono/la-maison-obono-boisson.webp",
+        "assets/img/la-maison-obono/la-maison-obono-massage.webp",
+        "assets/img/la-maison-obono/la-mainson-obono-pause.webp"
+      ],
+      "imageCredits": [],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "La Maison Obono, Morbihan",
+      "tags": ["hôtel", "restaurant", "spa", "gastronomique", "bien-être", "luxe", "romantique"],
+      "website": "https://www.booking.com/Share-TDS5fR"
+    },
+    {
       "id": "chateau-apigne",
       "title": "Château d'Apigné",
       "slug": "chateau-apigne",
