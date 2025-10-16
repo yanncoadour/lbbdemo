@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Google Consent Mode V2 - DOIT être chargé AVANT GA4 -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        // Configuration par défaut : tout refusé jusqu'au consentement
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W13V1WDXEK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-W13V1WDXEK', {
+            'anonymize_ip': true
+        });
+    </script>
+
     <!-- ========================================
          META TAGS - Configuration de base du document
          ======================================== -->
@@ -10,7 +36,6 @@
 
     <!-- Configuration responsive : ajuste la largeur au périphérique, zoom initial à 1 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- Titre affiché dans l'onglet du navigateur et résultats de recherche -->
     <title>La Belle Bretagne - Guide Touristique de Bretagne</title>
 
@@ -48,6 +73,10 @@
     <link rel="stylesheet" href="css/carte-fix-centering.css">
     <!-- IMPORTANT: Mobile fixes doit être chargé EN DERNIER -->
     <link rel="stylesheet" href="css/mobile-fixes.css">
+
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="assets/css/cookie-banner/silktide-consent-manager.css">
+    <script src="assets/js/cookie-banner/silktide-consent-manager.js"></script>
 </head>
 <body>
     <!-- ========================================
@@ -802,6 +831,90 @@
         });
     </script>
 
+        <!-- Cookie Banner Configuration -->
+    <style>
+        /* Cacher complètement l'icône cookie après le choix */
+        #silktide-cookie-icon {
+            display: none !important;
+        }
+    </style>
+    <script>
+        silktideCookieBannerManager.updateCookieBannerConfig({
+            text: {
+                banner: {
+                    description: '<p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. Vous pouvez choisir les cookies que vous acceptez.</p>',
+                    acceptAllButtonText: 'Accepter tous les cookies',
+                    rejectNonEssentialButtonText: 'Refuser les cookies non essentiels',
+                    preferencesButtonText: 'Gérer mes préférences',
+                    preferencesButtonAccessibleLabel: 'Gérer les préférences des cookies'
+                },
+                preferences: {
+                    title: 'Personnalisez vos préférences de cookies',
+                    description: '<p>Nous respectons votre droit à la vie privée. Vous pouvez choisir de ne pas autoriser certains types de cookies. Vos préférences s\'appliqueront à l\'ensemble de notre site.</p>',
+                    creditLinkText: 'Obtenir cette bannière gratuitement'
+                }
+            },
+            cookieTypes: [
+                {
+                    id: 'essential',
+                    label: 'Cookies essentiels',
+                    description: 'Nécessaires au fonctionnement du site',
+                    required: true
+                },
+                {
+                    id: 'analytics',
+                    label: 'Cookies analytiques',
+                    description: 'Nous permettent de comprendre comment vous utilisez notre site (Google Analytics)',
+                    required: false,
+                    onAccept: function() {
+                        // Activer Google Analytics
+                        gtag('consent', 'update', {
+                            'analytics_storage': 'granted'
+                        });
+                        console.log('✅ Cookies analytiques acceptés - GA4 activé');
+                    },
+                    onReject: function() {
+                        // Désactiver Google Analytics
+                        gtag('consent', 'update', {
+                            'analytics_storage': 'denied'
+                        });
+                        console.log('❌ Cookies analytiques refusés - GA4 désactivé');
+                    }
+                },
+                {
+                    id: 'marketing',
+                    label: 'Cookies marketing',
+                    description: 'Utilisés pour vous proposer du contenu personnalisé',
+                    required: false,
+                    onAccept: function() {
+                        // Activer les cookies marketing
+                        gtag('consent', 'update', {
+                            'ad_storage': 'granted',
+                            'ad_user_data': 'granted',
+                            'ad_personalization': 'granted'
+                        });
+                        console.log('✅ Cookies marketing acceptés');
+                    },
+                    onReject: function() {
+                        // Désactiver les cookies marketing
+                        gtag('consent', 'update', {
+                            'ad_storage': 'denied',
+                            'ad_user_data': 'denied',
+                            'ad_personalization': 'denied'
+                        });
+                        console.log('❌ Cookies marketing refusés');
+                    }
+                }
+            ],
+            theme: {
+                primaryColor: '#1e3a8a',
+                primaryTextColor: '#ffffff',
+                secondaryColor: '#f8fafc',
+                secondaryTextColor: '#1e293b'
+            },
+            position: 'bottom-right'
+        });
+    </script>
 
 </body>
 </html>
