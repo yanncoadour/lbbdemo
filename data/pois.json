@@ -297,6 +297,33 @@
       "address": "Château de Suscinio, Route du Duc Jean V, 56370 Sarzeau",
       "tags": ["château", "histoire", "médiéval", "ducs de Bretagne", "marais", "nature", "famille", "animations"],
       "website": ""
+    },
+    {
+      "id": "cathedrale-saint-corentin-quimper",
+      "title": "Cathédrale Saint-Corentin de Quimper",
+      "slug": "cathedrale-saint-corentin-quimper",
+      "department": "Finistère",
+      "categories": ["monument"],
+      "lat": 47.9956254488533,
+      "lng": -4.102248002394977,
+      "shortDescription": "La Cathédrale Saint-Corentin de Quimper – Trésor gothique et âme de la Bretagne. Chef-d'œuvre architectural aux flèches emblématiques.",
+      "description": "<p>Au cœur du centre historique de Quimper, la cathédrale Saint-Corentin dresse fièrement ses flèches gothiques vers le ciel breton.</p><p>Majestueuse, élégante et empreinte de spiritualité, elle est l'un des joyaux architecturaux les plus emblématiques de Bretagne.</p><p>Entre lumière, pierre et silence, elle invite à la contemplation, à la découverte et au respect d'un héritage vieux de plus de huit siècles.</p><h3>Un chef-d'œuvre de l'art gothique breton</h3><p>Érigée à partir du XIII<sup>e</sup> siècle, la cathédrale Saint-Corentin fut bâtie sur l'ancien sanctuaire d'un ermite breton, Corentin, devenu le premier évêque de Quimper et saint patron de la ville.</p><p>Sa construction s'étendit sur plus de quatre siècles, donnant naissance à un chef-d'œuvre du gothique flamboyant, remarquable par son harmonie et sa finesse.</p><p>Sa particularité la plus célèbre ?</p><p>👉 Ses flèches légèrement incurvées, qui forment un angle subtil et unique, symbole de la personnalité singulière de la Bretagne.</p><p>Elles semblent se pencher vers le ciel, comme pour bénir la ville.</p><p>À l'intérieur, la nef majestueuse, les vitraux colorés, les voûtes élancées et les chapelles latérales plongent le visiteur dans un monde de lumière et de silence.</p><h3>Un voyage dans le temps et la foi</h3><p>La cathédrale est un véritable livre de pierre et de verre.</p><p>Ses vitraux du XV<sup>e</sup> siècle, magnifiquement restaurés, racontent la vie du Christ, des saints bretons et de Corentin de Quimper, figure emblématique du diocèse.</p><p>Chaque rayon de lumière qui traverse ces verrières colore la pierre, créant une atmosphère presque mystique.</p><p>En parcourant la nef, on découvre la chaire à prêcher sculptée, le chœur orné de stalles en bois finement travaillées et le grand orgue, dont la sonorité enveloppe les visiteurs lors des concerts et messes solennelles.</p><p>La cathédrale n'est pas seulement un monument historique : elle demeure un lieu vivant de foi et de culture, toujours au cœur de la vie quimpéroise.</p><h3>Une cathédrale au cœur d'une ville d'art et d'histoire 🏛️</h3><p>La cathédrale Saint-Corentin trône au centre de Quimper, dans un écrin architectural où se mêlent ruelles médiévales, maisons à pans de bois et bords de l'Odet.</p><p>Depuis son parvis, la vue sur les flèches et les façades gothiques est saisissante, surtout au coucher du soleil, quand la lumière dorée illumine la pierre.</p><p>Les visiteurs peuvent prolonger la découverte en flânant dans les ruelles alentour : la place Saint-Corentin, le musée des Beaux-Arts et les faïenceries de Quimper complètent l'expérience culturelle et patrimoniale.</p><h3>Pourquoi visiter la Cathédrale Saint-Corentin de Quimper ?</h3><ul><li>Un chef-d'œuvre du gothique breton, unique par son architecture et ses flèches inclinées</li><li>Des vitraux remarquables, reflets de huit siècles d'histoire et de foi</li><li>Un lieu spirituel vivant, symbole de la ville et du Finistère</li><li>Une immersion dans le patrimoine breton, entre art, histoire et culture</li><li>Une visite incontournable du centre historique de Quimper</li></ul><h3>Informations pratiques</h3><p>📍 <strong>Localisation :</strong> Place Saint-Corentin, Quimper (Finistère, Bretagne)</p><p>🕰️ <strong>Ouverture :</strong> tous les jours, entrée libre (horaires variables selon les offices)</p><p>🎶 <strong>Visites guidées & concerts :</strong> disponibles toute l'année, selon programmation locale</p><p>💒 <strong>Style architectural :</strong> gothique rayonnant et flamboyant</p><p>🚗 <strong>Accès :</strong> parkings et transports à proximité du centre historique</p><h3>L'esprit de Saint-Corentin 🌿</h3><p>Visiter la cathédrale de Quimper, c'est bien plus qu'admirer un monument.</p><p>C'est entrer dans l'âme de la Bretagne, dans un lieu où le sacré, la beauté et la légende se rencontrent.</p><p>Entre la pierre claire, la lumière colorée des vitraux et le chant des orgues, on ressent une paix rare, une force ancienne, un souffle d'éternité.</p><p>Saint-Corentin veille encore sur la ville, comme un gardien bienveillant du temps et des hommes.</p><p>Et sous ses voûtes, chacun, croyant ou non, trouve un moment d'apaisement et d'émerveillement.</p>",
+      "image": "assets/img/cathedrale-quimper-adilemoigne-photographer.webp",
+      "images": [
+        "assets/img/cathedrale-quimper-adilemoigne-photographer.webp"
+      ],
+      "imageCredits": [
+        {
+          "image": "assets/img/cathedrale-quimper-adilemoigne-photographer.webp",
+          "photographer": "adilemoigne_photographer",
+          "instagramUrl": "https://www.instagram.com/adilemoigne_photographer"
+        }
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "Place Saint-Corentin, 29000 Quimper",
+      "tags": ["cathédrale", "monument", "gothique", "Quimper", "spiritualité", "vitraux", "architecture", "patrimoine"],
+      "website": ""
     }
   ]
 }
