@@ -515,7 +515,8 @@ body {
 .category-chateau { background: rgba(146, 64, 14, 0.1); color: #92400e; }
 .category-festival { background: rgba(249, 115, 22, 0.1); color: #f97316; }
 .category-loisirs { background: rgba(99, 102, 241, 0.1); color: #6366f1; }
-.category-hotel { background: rgba(100, 116, 139, 0.1); color: #64748b; }
+.category-hotel { background: rgba(30, 58, 138, 0.1); color: #1e3a8a; }
+.category-nature { background: rgba(16, 185, 129, 0.1); color: #10b981; }
 .category-villa { background: rgba(148, 163, 184, 0.1); color: #94a3b8; }
 .category-logement_insolite { background: rgba(236, 72, 153, 0.1); color: #ec4899; }
 .category-camping { background: rgba(52, 211, 153, 0.1); color: #34d399; }
@@ -4969,8 +4970,8 @@ body {
 .poi-marker-content[data-category="loisirs"] { background: #a855f7 !important; }
 .poi-marker-content[data-category="loisirs"]:hover { background: #9333ea !important; }
 
-.poi-marker-content[data-category="hotel"] { background: #059669 !important; }
-.poi-marker-content[data-category="hotel"]:hover { background: #047857 !important; }
+.poi-marker-content[data-category="hotel"] { background: #1e3a8a !important; }
+.poi-marker-content[data-category="hotel"]:hover { background: #1e40af !important; }
 
 .poi-marker-content[data-category="villa"] { background: #3b82f6 !important; }
 .poi-marker-content[data-category="villa"]:hover { background: #2563eb !important; }
@@ -4980,6 +4981,9 @@ body {
 
 .poi-marker-content[data-category="camping"] { background: #34d399 !important; }
 .poi-marker-content[data-category="camping"]:hover { background: #10b981 !important; }
+
+.poi-marker-content[data-category="nature"] { background: #10b981 !important; }
+.poi-marker-content[data-category="nature"]:hover { background: #059669 !important; }
 
 /* Animation d'apparition des marqueurs */
 @keyframes markerAppear {
@@ -5027,7 +5031,8 @@ body {
 .poi-marker-icon[data-category="chateau"] { background: #92400e !important; }
 .poi-marker-icon[data-category="festival"] { background: #f97316 !important; }
 .poi-marker-icon[data-category="loisirs"] { background: #a855f7 !important; }
-.poi-marker-icon[data-category="hotel"] { background: #059669 !important; }
+.poi-marker-icon[data-category="hotel"] { background: #1e3a8a !important; }
+.poi-marker-icon[data-category="nature"] { background: #10b981 !important; }
 .poi-marker-icon[data-category="villa"] { background: #3b82f6 !important; }
 .poi-marker-icon[data-category="logement_insolite"] { background: #ec4899 !important; }
 .poi-marker-icon[data-category="camping"] { background: #34d399 !important; }
@@ -5040,7 +5045,8 @@ body {
 #simpleFiltersPopup .filter-chip i[data-category="chateau"] { color: #92400e !important; }
 #simpleFiltersPopup .filter-chip i[data-category="festival"] { color: #f97316 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="loisirs"] { color: #6366f1 !important; }
-#simpleFiltersPopup .filter-chip i[data-category="hotel"] { color: #64748b !important; }
+#simpleFiltersPopup .filter-chip i[data-category="hotel"] { color: #1e3a8a !important; }
+#simpleFiltersPopup .filter-chip i[data-category="nature"] { color: #10b981 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="villa"] { color: #94a3b8 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="logement_insolite"] { color: #ec4899 !important; }
 #simpleFiltersPopup .filter-chip i[data-category="camping"] { color: #34d399 !important; }
@@ -5053,7 +5059,8 @@ body {
 .filter-chip .icon-chateau { color: #92400e !important; }
 .filter-chip .icon-festival { color: #f97316 !important; }
 .filter-chip .icon-loisirs { color: #6366f1 !important; }
-.filter-chip .icon-hotel { color: #64748b !important; }
+.filter-chip .icon-hotel { color: #1e3a8a !important; }
+.filter-chip .icon-nature { color: #10b981 !important; }
 .filter-chip .icon-villa { color: #94a3b8 !important; }
 .filter-chip .icon-logement_insolite { color: #ec4899 !important; }
 .filter-chip .icon-camping { color: #34d399 !important; }

@@ -1,6 +1,30 @@
 {
   "pois": [
     {
+      "id": "foret-huelgoat",
+      "title": "Forêt de Huelgoat",
+      "slug": "foret-huelgoat",
+      "department": "Finistère",
+      "categories": ["nature"],
+      "lat": 48.36665335800424,
+      "lng": -3.7442783025234028,
+      "shortDescription": "La Forêt de Huelgoat – Entre nature, mystère et légendes bretonnes. Chaos de rochers, rivières et contes celtiques au cœur des monts d'Arrée.",
+      "description": "<p>Au cœur des monts d'Arrée, dans le Finistère, s'étend la forêt de Huelgoat, un lieu à part, où la nature et l'imaginaire breton s'entrelacent depuis des siècles.</p><p>Ici, le granite sculpte le paysage, la mousse recouvre les rochers, et chaque sentier semble conduire vers un secret.</p><p>C'est une forêt qui ne se visite pas seulement avec les yeux, mais avec l'âme — un lieu magique, vivant et intemporel.</p><h3>Un joyau naturel au cœur du Finistère</h3><p>La forêt de Huelgoat s'étend sur près de 1 000 hectares de verdure, entre rivières, chaos rocheux et chênes centenaires.</p><p>Son nom, \"le bois d'en haut\", reflète parfaitement sa situation perchée sur les hauteurs du Finistère.</p><p>Le chaos de rochers, formé par d'anciennes rivières glaciaires, offre un spectacle fascinant : blocs de granit gigantesques, moussus et ronds, semblant déposés là par les géants des légendes celtiques.</p><p>Au fil de la promenade, on découvre la fameuse Roche Tremblante, le Champignon de pierre, la Grotte du Diable, ou encore la Grotte d'Artus.</p><p>Chaque pierre, chaque rivière, chaque ombre raconte une histoire, mêlant nature sauvage et contes ancestraux.</p><h3>Une forêt façonnée par les légendes ✨</h3><p>La forêt de Huelgoat est un haut lieu du fantastique breton.</p><p>Selon la légende, elle serait le domaine du roi Arthur, et ses profondeurs abriteraient les traces des anciens chevaliers de la Table Ronde.</p><p>La Grotte d'Artus en serait le témoignage, tandis que la rivière d'Argent rappellerait les trésors mythiques cachés dans les entrailles de la terre.</p><p>Les habitants de la région racontent encore les histoires de fées, de korrigans et de lutins malicieux qui hanteraient les sous-bois à la tombée du jour.</p><p>La forêt semble animée d'une vie propre : un souffle, un murmure, un charme indescriptible.</p><h3>Un paradis pour les promeneurs et les rêveurs 🌿</h3><p>Accessible à tous, la forêt de Huelgoat offre de nombreux sentiers de randonnée, du simple sentier familial à la balade plus sportive.</p><p>Chaque chemin révèle une nouvelle atmosphère : la lumière filtrée par les arbres, le murmure des cascades, la fraîcheur de la mousse sous les pas.</p><p>Les amateurs de nature y trouveront une flore dense et variée : chênes, hêtres, noisetiers, mais aussi fougères et tapis de mousse qui donnent au lieu son apparence féérique.</p><p>Au printemps, les sous-bois se parent de fleurs sauvages ; à l'automne, les couleurs flamboyantes embrasent les feuillages.</p><p>Photographes, randonneurs, familles ou simples curieux viennent s'y ressourcer, fascinés par l'énergie singulière du lieu.</p><h3>Un patrimoine naturel et culturel à préserver</h3><p>Huelgoat n'est pas qu'une forêt : c'est un symbole du patrimoine breton.</p><p>Elle attire les visiteurs autant pour sa beauté que pour son atmosphère spirituelle.</p><p>Le village voisin, pittoresque et accueillant, complète la visite avec ses galeries, ses cafés et ses artisans.</p><p>Le site est entretenu dans une démarche de respect et de préservation environnementale, afin de garder intacte cette forêt millénaire où la nature et les mythes se rencontrent.</p><h3>Pourquoi visiter la Forêt de Huelgoat ?</h3><ul><li>Un site naturel unique en Bretagne, entre rivières et rochers monumentaux</li><li>Des légendes celtiques et arthuriennes fascinantes</li><li>Des sentiers accessibles à tous les niveaux de marche</li><li>Une atmosphère mystique, propice à la contemplation et à la rêverie</li><li>Un patrimoine breton préservé et chargé d'histoire</li></ul><h3>Informations pratiques</h3><p>📍 <strong>Localisation :</strong> Huelgoat, Finistère (Région Bretagne)</p><p>🚗 <strong>Accès :</strong> à 1h de Brest et Quimper, parking à proximité du centre du village</p><p>🥾 <strong>Activités :</strong> randonnées, balades guidées, photographie, découverte des légendes</p><p>🕰️ <strong>Durée de visite :</strong> 2h à une journée selon les parcours choisis</p><h3>L'esprit de Huelgoat 🌌</h3><p>Visiter Huelgoat, c'est entrer dans une autre dimension.</p><p>C'est sentir la forêt respirer, écouter le bruit de l'eau et du vent, suivre les traces invisibles du roi Arthur et des korrigans.</p><p>C'est un lieu où la Bretagne dévoile son âme profonde, entre beauté brute et imaginaire ancien.</p><p>Sous les arbres centenaires, le temps semble suspendu.</p><p>La forêt n'appartient pas qu'à la nature : elle appartient aussi aux rêves.</p>",
+      "image": "assets/img/foret-huelgoat-ludovic-lagadec-photographe.webp",
+      "images": [
+        "assets/img/foret-huelgoat-ludovic-lagadec-photographe.webp",
+        "assets/img/foret-huelgoat-ludovic-lagadec-photographe-1.webp"
+      ],
+      "imageCredits": [
+        "Photos : Ludovic Lagadec Photographe"
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "Forêt de Huelgoat, Huelgoat, Finistère",
+      "tags": ["forêt", "nature", "légendes", "randonnée", "rochers", "chaos", "Arthur", "korrigans", "monts d'Arrée"],
+      "website": ""
+    },
+    {
       "id": "la-maison-obono",
       "title": "La Maison Obono",
       "slug": "la-maison-obono",

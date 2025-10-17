@@ -179,7 +179,8 @@ function getCategoryIcon(category) {
         logement_insolite: 'fas fa-tree-city',
         camping: 'fas fa-campground',
         panorama: 'fas fa-eye',
-        randonnee: 'fas fa-hiking'
+        randonnee: 'fas fa-hiking',
+        nature: 'fas fa-tree'
     };
 
     return icons[category] || 'fas fa-map-marker-alt';
