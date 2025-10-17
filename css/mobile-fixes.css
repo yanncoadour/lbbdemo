@@ -163,4 +163,18 @@
         max-width: 100vw !important;
         overflow-x: hidden !important;
     }
+
+    /* === GRILLES - FORCER 1 COLONNE SUR MOBILE === */
+    /* Surcharge pour toutes les grilles avec inline styles */
+    .grid-3,
+    .grid[style*="grid-template-columns"],
+    div[style*="grid-template-columns: repeat(3"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Vignettes hébergements page d'accueil */
+    .card {
+        max-width: 100% !important;
+    }
 }
