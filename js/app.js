@@ -2216,7 +2216,8 @@ function getPoiIcon(category) {
         hotel: 'fa-bed',
         villa: 'fa-building',
         logement_insolite: 'fa-campground',
-        camping: 'fa-tent'
+        camping: 'fa-tent',
+        nature: 'fa-tree'
     };
 
     return icons[category] || 'fa-map-marker-alt';
@@ -2252,7 +2253,8 @@ function getPoiIcon(category) {
         hotel: 'fas fa-bed', // Hotel
         villa: 'fas fa-house-user', // Villa
         logement_insolite: 'fas fa-tree-city', // Logement Insolite
-        camping: 'fas fa-campground' // Camping
+        camping: 'fas fa-campground', // Camping
+        nature: 'fas fa-tree' // Nature
     };
     return icons[category] || 'fas fa-map-marker-alt';
 }

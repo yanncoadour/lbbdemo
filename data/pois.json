@@ -16,7 +16,16 @@
         "assets/img/foret-huelgoat-ludovic-lagadec-photographe-1.webp"
       ],
       "imageCredits": [
-        "Photos : Ludovic Lagadec Photographe"
+        {
+          "image": "assets/img/foret-huelgoat-ludovic-lagadec-photographe.webp",
+          "photographer": "ludovic_lagadec_photographe",
+          "instagramUrl": "https://www.instagram.com/ludovic_lagadec_photographe"
+        },
+        {
+          "image": "assets/img/foret-huelgoat-ludovic-lagadec-photographe-1.webp",
+          "photographer": "ludovic_lagadec_photographe",
+          "instagramUrl": "https://www.instagram.com/ludovic_lagadec_photographe"
+        }
       ],
       "tested": false,
       "coupDeCoeur": true,
