@@ -264,6 +264,39 @@
       "coupDeCoeur": false,
       "address": "Rochefort-en-Terre, 56220",
       "tags": ["village", "plus beaux villages de France", "artisanat", "médiéval", "culture", "jardins", "patrimoine", "Noël", "illuminations"]
+    },
+    {
+      "id": "chateau-suscinio",
+      "title": "Château de Suscinio",
+      "slug": "chateau-suscinio",
+      "department": "Morbihan",
+      "categories": ["chateau"],
+      "lat": 47.512867453192264,
+      "lng": -2.729486496117386,
+      "shortDescription": "Le Château de Suscinio – Joyau médiéval au cœur du Morbihan. Entre terre et mer, forteresse des ducs de Bretagne face à l'océan Atlantique.",
+      "description": "<p>Entre terre et mer, sur la presqu'île de Rhuys, se dresse le Château de Suscinio, majestueux vestige des ducs de Bretagne.</p><p>Face à l'océan Atlantique et entouré de marais, cette forteresse médiévale semble surgir d'un conte : un château d'eau et de pierre, ancré dans l'histoire et baigné de lumière.</p><p>C'est l'un des monuments les plus emblématiques du patrimoine breton, où se mêlent passé, nature et émotions.</p><h3>Un château ducal chargé d'histoire</h3><p>Construit au XIII<sup>e</sup> siècle, le Château de Suscinio était à l'origine la résidence de chasse des ducs de Bretagne.</p><p>Son emplacement stratégique, entre forêts et marais, en faisait un refuge idéal, à la fois proche de la mer et isolé du monde.</p><p>Au fil des siècles, la forteresse s'est agrandie, embellie et fortifiée, devenant un véritable palais médiéval, symbole de puissance et de prestige.</p><p>Les ducs y ont organisé banquets, chasses et réceptions, avant que le château ne tombe peu à peu dans l'oubli.</p><p>Restauré avec passion depuis le XX<sup>e</sup> siècle, il renaît aujourd'hui dans toute sa splendeur et raconte huit siècles d'histoire bretonne, entre grandeur et mystère.</p><h3>Une architecture grandiose et vivante</h3><p>Entouré de douves et de passerelles, le Château de Suscinio séduit dès le premier regard par son élégance austère et harmonieuse.</p><p>Ses tours, courtines et ponts-levis évoquent les châteaux de contes et de chevaliers.</p><p>À l'intérieur, la visite plonge le visiteur dans la vie médiévale : grandes salles voûtées, charpentes monumentales, escaliers de pierre, fresques et reconstitutions font revivre le faste du duché de Bretagne.</p><p>Un parcours scénographique moderne et immersif permet de comprendre la vie des ducs, des artisans et des paysans qui animaient jadis ce domaine.</p><p>Les enfants y trouvent aussi leur bonheur grâce aux ateliers interactifs, chasses au trésor et animations costumées organisées tout au long de l'année.</p><h3>Entre océan, marais et légendes</h3><p>Le domaine de Suscinio ne se limite pas à son château : il s'étend sur plusieurs hectares de nature préservée.</p><p>Les marais de Suscinio, classés zone naturelle protégée, abritent une faune et une flore exceptionnelles : hérons, aigrettes, orchidées sauvages et roseaux dansent au gré des saisons.</p><p>Non loin, les plages de la presqu'île de Rhuys rappellent la proximité de la mer, tandis que les couchers de soleil sur le château offrent un spectacle inoubliable.</p><p>Et parce que la Bretagne ne serait pas la Bretagne sans ses mystères, Suscinio s'entoure de légendes : on dit que le fantôme du duc François II y veille encore sur les pierres.</p><h3>Pourquoi visiter le Château de Suscinio ?</h3><ul><li>Un chef-d'œuvre du patrimoine médiéval breton 🏰</li><li>Une immersion historique accessible et vivante</li><li>Un site naturel préservé entre mer et marais</li><li>Des expositions, spectacles et animations pour toute la famille</li><li>Une atmosphère magique au coucher du soleil</li></ul><h3>Informations pratiques</h3><p>📍 <strong>Localisation :</strong> Sarzeau, presqu'île de Rhuys (Morbihan, Bretagne)</p><p>🕰️ <strong>Ouverture :</strong> toute l'année, horaires variables selon la saison</p><p>🎟️ <strong>Billetterie :</strong> accès libre au parc, visite guidée ou libre du château, animations spéciales en été</p><p>🚗 <strong>Accès :</strong> à 30 minutes de Vannes, parkings à proximité</p><h3>L'esprit de Suscinio 🌿</h3><p>Visiter le Château de Suscinio, c'est remonter le temps sans quitter la Bretagne.</p><p>C'est entendre le bruit des sabots dans la cour, sentir l'odeur du bois et de la pierre humide, imaginer les ducs festoyer sous les grandes voûtes.</p><p>Mais c'est aussi respirer l'air marin, contempler les marais, écouter le vent qui murmure les légendes anciennes.</p><p>Suscinio, c'est un lieu d'histoire et d'émotion, où l'on découvre la Bretagne médiévale dans ce qu'elle a de plus authentique et de plus poétique.</p>",
+      "image": "assets/img/chateau-suscinio-ludovic-lagadec-photographe.webp",
+      "images": [
+        "assets/img/chateau-suscinio-ludovic-lagadec-photographe.webp",
+        "assets/img/chateau-suscinio-didilemme.webp"
+      ],
+      "imageCredits": [
+        {
+          "image": "assets/img/chateau-suscinio-ludovic-lagadec-photographe.webp",
+          "photographer": "ludovic_lagadec_photographe",
+          "instagramUrl": "https://www.instagram.com/ludovic_lagadec_photographe"
+        },
+        {
+          "image": "assets/img/chateau-suscinio-didilemme.webp",
+          "photographer": "didilemme",
+          "instagramUrl": "https://www.instagram.com/didilemme"
+        }
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "Château de Suscinio, Route du Duc Jean V, 56370 Sarzeau",
+      "tags": ["château", "histoire", "médiéval", "ducs de Bretagne", "marais", "nature", "famille", "animations"],
+      "website": ""
     }
   ]
 }
