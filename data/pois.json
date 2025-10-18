@@ -324,6 +324,33 @@
       "address": "Place Saint-Corentin, 29000 Quimper",
       "tags": ["cathédrale", "monument", "gothique", "Quimper", "spiritualité", "vitraux", "architecture", "patrimoine"],
       "website": ""
+    },
+    {
+      "id": "locronan",
+      "title": "Locronan",
+      "slug": "locronan",
+      "department": "Finistère",
+      "categories": ["village"],
+      "lat": 48.098434940687795,
+      "lng": -4.208441290770801,
+      "shortDescription": "Locronan – Village d'exception et perle de la Bretagne ancienne. Classé parmi les Plus Beaux Villages de France, un joyau médiéval du Finistère.",
+      "description": "<p>Classé parmi les \"Plus Beaux Villages de France\", Locronan est un véritable bijou du Finistère.</p><p>Entre collines verdoyantes et horizons marins, ce petit village au charme médiéval semble suspendu dans le temps.</p><p>Ses ruelles pavées, ses maisons en granit bleu et son atmosphère intemporelle en font l'un des joyaux du patrimoine breton, un lieu où l'histoire, la foi et l'art de vivre se rejoignent.</p><h3>Un village chargé d'histoire et de légendes</h3><p>L'histoire de Locronan remonte à plus de mille ans.</p><p>Le village doit son nom à Saint Ronan, ermite venu d'Irlande au VI<sup>e</sup> siècle, dont la légende raconte qu'il aurait fondé ici son oratoire.</p><p>Très vite, le bourg devint un lieu de pèlerinage important, célèbre pour sa Grande Troménie, procession ancestrale qui a lieu tous les six ans et réunit des milliers de fidèles.</p><p>Dès le XV<sup>e</sup> siècle, Locronan prospère grâce au commerce des toiles de lin et à la fabrication de voiles pour les grands navires bretons.</p><p>Son architecture harmonieuse, restée presque intacte, témoigne de cette période d'opulence et d'artisanat d'exception.</p><p>Aujourd'hui encore, le village est une carte postale vivante du passé, où chaque pierre raconte un fragment d'histoire.</p><h3>Une architecture préservée et envoûtante</h3><p>Arpenter Locronan, c'est remonter le temps.</p><p>La grande place pavée, bordée de maisons en granit et de puits anciens, forme un décor d'une rare beauté.</p><p>Au centre, la collégiale Saint-Ronan, chef-d'œuvre du gothique breton, domine le village de sa silhouette majestueuse.</p><p>Ses vitraux et son mobilier sculpté rappellent la ferveur religieuse et la richesse du lieu.</p><p>Les ruelles alentours regorgent d'ateliers d'artisans, de galeries, de librairies et de boutiques de produits bretons.</p><p>Ici, le temps s'écoule lentement, entre le parfum du beurre salé, le son des sabots sur les pavés et le murmure du vent dans la pierre.</p><p>Chaque façade, chaque détail architectural, semble figé pour l'éternité — c'est ce qui fait de Locronan un site exceptionnellement préservé.</p><h3>Un décor de cinéma et de lumière 🎬</h3><p>Grâce à son authenticité, Locronan a inspiré de nombreux réalisateurs.</p><p>Des films comme <em>Tess</em> de Roman Polanski, <em>Un long dimanche de fiançailles</em> de Jean-Pierre Jeunet ou <em>Chouans !</em> d'Olivier Durand y ont trouvé un cadre naturel d'une beauté saisissante.</p><p>Le village s'illumine également chaque hiver lors des illuminations de Noël, qui attirent des milliers de visiteurs venus admirer ses façades scintillantes et son ambiance féérique.</p><p>C'est un lieu qui respire le cinéma, la peinture et la poésie — un décor à ciel ouvert, magnifié par la lumière bretonne.</p><h3>Un patrimoine vivant au cœur de la Bretagne</h3><p>Locronan n'est pas seulement un village-musée : c'est un lieu vivant et animé.</p><p>Tout au long de l'année, des marchés artisanaux, fêtes traditionnelles, concerts et expositions font vibrer le cœur du bourg.</p><p>Les habitants perpétuent un accueil simple et chaleureux, fidèle à l'esprit breton.</p><p>À proximité, les paysages naturels invitent à la promenade : la forêt du Névet, les monts d'Arrée, ou encore la baie de Douarnenez, visible depuis les hauteurs du village.</p><p>Entre pierre et mer, Locronan offre un cadre unique pour se ressourcer, flâner et s'émerveiller.</p><h3>Pourquoi visiter Locronan ?</h3><ul><li>Classé parmi les \"Plus Beaux Villages de France\"</li><li>Un patrimoine médiéval magnifiquement conservé</li><li>Une ambiance intemporelle et photogénique, parfaite pour les amoureux d'histoire et de culture</li><li>Des fêtes et illuminations de Noël spectaculaires</li><li>Une situation idéale entre terre bretonne et mer du Finistère</li></ul><h3>Informations pratiques</h3><p>📍 <strong>Localisation :</strong> Locronan, Finistère (Bretagne)</p><p>🏛️ <strong>Sites incontournables :</strong> Collégiale Saint-Ronan, grande place, ruelles pavées, ateliers d'artisans</p><p>🚗 <strong>Accès :</strong> à 15 minutes de Douarnenez et 30 minutes de Quimper</p><p>🕰️ <strong>Visite :</strong> libre toute l'année, visites guidées et animations saisonnières</p><h3>L'esprit de Locronan ✨</h3><p>Visiter Locronan, c'est plonger dans une Bretagne éternelle, celle des vieilles pierres, des légendes et de la lumière.</p><p>C'est se promener dans un décor d'autrefois, tout en ressentant la chaleur d'un lieu vivant et habité.</p><p>C'est écouter le silence d'une ruelle, sentir le vent du large, admirer les vitraux d'une église et savourer un kouign-amann encore tiède.</p><p>Locronan, c'est l'âme bretonne incarnée : fière, poétique, intemporelle.</p><p>Un village qui ne se visite pas seulement, mais qui se ressent.</p>",
+      "image": "assets/img/locronan-adilemoigne-photographer.webp",
+      "images": [
+        "assets/img/locronan-adilemoigne-photographer.webp"
+      ],
+      "imageCredits": [
+        {
+          "image": "assets/img/locronan-adilemoigne-photographer.webp",
+          "photographer": "adilemoigne_photographer",
+          "instagramUrl": "https://www.instagram.com/adilemoigne_photographer"
+        }
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "29180 Locronan",
+      "tags": ["village", "plus beaux villages de France", "médiéval", "patrimoine", "artisanat", "Locronan", "Saint-Ronan", "Troménie", "cinéma", "illuminations"],
+      "website": ""
     }
   ]
 }
