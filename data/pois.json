@@ -1,6 +1,39 @@
 {
   "pois": [
     {
+      "id": "abbaye-beauport",
+      "title": "Abbaye de Beauport",
+      "slug": "abbaye-beauport",
+      "department": "Côtes-d'Armor",
+      "categories": ["monument"],
+      "lat": 48.76758041026671,
+      "lng": -3.019354715228859,
+      "shortDescription": "L'Abbaye de Beauport – Harmonie entre pierre, mer et spiritualité. Joyau médiéval à Paimpol, entre terre et océan.",
+      "description": "<p>Sur les rives de Paimpol, face à la baie, se dresse l'Abbaye de Beauport, joyau médiéval où la pierre, la mer et la lumière s'unissent en un équilibre parfait.</p><p>Bercée par les marées et le chant des oiseaux, cette abbaye cistercienne du XIII<sup>e</sup> siècle incarne toute la beauté spirituelle et poétique de la Bretagne.</p><p>Un lieu hors du temps, où l'histoire, la nature et le silence dialoguent depuis plus de 800 ans.</p><h3>Une abbaye tournée vers la mer</h3><p>Fondée en 1202 par les chanoines de Prémontré, l'Abbaye de Beauport fut bâtie dans un cadre d'une sérénité absolue, entre lande et océan.</p><p>Lieu de prière, de culture et d'accueil des pèlerins en route vers Saint-Jacques-de-Compostelle, elle symbolisait l'ouverture du monde monastique sur la nature et sur la mer.</p><p>Au fil des siècles, l'abbaye fut tour à tour sanctuaire, ferme, orphelinat, puis laissée à l'abandon avant de renaître grâce à une restauration exemplaire.</p><p>Aujourd'hui, elle est l'un des plus beaux sites patrimoniaux de Bretagne, classée Monument Historique et propriété du Conservatoire du Littoral.</p><h3>Un chef-d'œuvre de pierre et de lumière</h3><p>L'Abbaye de Beauport impressionne par son architecture gothique élégante et la poésie de ses ruines.</p><p>Ses arcades élancées, ses vitraux éventrés, ses voûtes ouvertes sur le ciel composent un décor à la fois majestueux et émouvant.</p><p>La visite permet de déambuler dans l'église abbatiale, le cloître, la salle capitulaire, les jardins clos et les bâtiments conventuels.</p><p>Chaque pierre semble respirer, chaque ombre raconte le passage du temps.</p><p>Le lieu conserve une atmosphère mystique, presque suspendue — un dialogue entre l'homme, la nature et le sacré.</p><h3>Une abbaye vivante et ouverte</h3><p>Contrairement à de nombreux monuments figés dans le passé, l'Abbaye de Beauport reste un lieu vivant et animé.</p><p>Des expositions, concerts, lectures, marchés et festivals s'y déroulent toute l'année, dans un esprit de partage et de culture.</p><p>Les jardins, cultivés en harmonie avec la biodiversité, sont eux aussi une merveille : plantes aromatiques, vergers, roses anciennes et sentiers littoraux forment une symphonie de couleurs et de parfums.</p><p>En fin de journée, la lumière du couchant se reflète sur la pierre et la mer — un spectacle inoubliable qui donne tout son sens au mot \"Beauport\".</p><h3>Un écrin naturel préservé 🌿</h3><p>Autour du site s'étendent les landes, marais et grèves de la baie de Paimpol.</p><p>Classée zone Natura 2000, la réserve abrite une faune et une flore riches : hérons, aigrettes, phoques gris et plantes littorales.</p><p>Le sentier du GR34 longe l'abbaye et offre de sublimes panoramas sur la mer et les îles alentour, dont Bréhat, joyau des Côtes-d'Armor.</p><p>Beauport n'est pas qu'un monument : c'est un paysage, une respiration, une émotion.</p><h3>Pourquoi visiter l'Abbaye de Beauport ?</h3><ul><li>Un site historique majeur de Bretagne, entre terre et mer</li><li>Une architecture gothique poétique et lumineuse</li><li>Un cadre naturel exceptionnel, classé et protégé</li><li>Un lieu vivant, animé par des événements culturels toute l'année</li><li>Une expérience sensorielle entre histoire, nature et spiritualité</li></ul><h3>Informations pratiques</h3><p>📍 <strong>Localisation :</strong> Paimpol, Côtes-d'Armor (Bretagne)</p><p>🏛️ <strong>Fondation :</strong> XIII<sup>e</sup> siècle – Chanoines de Prémontré</p><p>🕰️ <strong>Ouverture :</strong> tous les jours (horaires variables selon la saison)</p><p>🎟️ <strong>Billetterie :</strong> visite libre ou guidée, expositions et événements temporaires</p><p>🚗 <strong>Accès :</strong> à 5 minutes du centre de Paimpol, parkings et sentiers à proximité</p><h3>L'esprit de Beauport 🌅</h3><p>L'Abbaye de Beauport, c'est bien plus qu'un site historique : c'est un lieu habité par la beauté.</p><p>Entre les pierres patinées, les reflets de l'eau et les cris des mouettes, on ressent une harmonie rare entre l'homme et la nature.</p><p>Chaque pas résonne d'une douce mélancolie, chaque regard invite à la méditation.</p><p>C'est un lieu pour se recueillir, s'inspirer, respirer — un fragment d'éternité posé sur les rives de la Bretagne.</p>",
+      "image": "assets/img/abbaye-beauport-axel-baz.webp",
+      "images": [
+        "assets/img/abbaye-beauport-axel-baz.webp",
+        "assets/img/abbaye-beauport-didilemme.webp"
+      ],
+      "imageCredits": [
+        {
+          "image": "assets/img/abbaye-beauport-axel-baz.webp",
+          "photographer": "axel.baz",
+          "instagramUrl": "https://www.instagram.com/axel.baz"
+        },
+        {
+          "image": "assets/img/abbaye-beauport-didilemme.webp",
+          "photographer": "didilemme",
+          "instagramUrl": "https://www.instagram.com/didilemme"
+        }
+      ],
+      "tested": false,
+      "coupDeCoeur": true,
+      "address": "Abbaye de Beauport, Paimpol, 22500",
+      "tags": ["abbaye", "monument", "médiéval", "cistercien", "Paimpol", "spiritualité", "patrimoine", "nature", "GR34", "Conservatoire du Littoral"],
+      "website": ""
+    },
+    {
       "id": "foret-huelgoat",
       "title": "Forêt de Huelgoat",
       "slug": "foret-huelgoat",
